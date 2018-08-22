@@ -76,7 +76,7 @@ veafCas.RedCasInfantryGroupName = "Red CAS Group Infantry"
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --- Version.
-veafCas.version = "0.0.16"
+veafCas.version = "0.1.0"
 
 --- Identifier. All output in DCS.log will start with this.
 veafCas.id = "VEAF "
