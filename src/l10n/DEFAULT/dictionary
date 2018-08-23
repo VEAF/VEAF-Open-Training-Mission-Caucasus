@@ -1,0 +1,20 @@
+dictionary = 
+{
+    ["DictKey_WptName_11"] = "",
+    ["DictKey_WptName_20"] = "",
+    ["DictKey_sortie_5"] = "",
+    ["DictKey_GroupName_17"] = "",
+    ["DictKey_WptName_8"] = "",
+    ["DictKey_ActionText_14"] = "MIST",
+    ["DictKey_descriptionRedTask_2"] = "",
+    ["DictKey_GroupName_6"] = "New Airplane Group",
+    ["DictKey_descriptionText_1"] = "",
+    ["DictKey_WptName_19"] = "",
+    ["DictKey_WptName_10"] = "",
+    ["DictKey_WptName_9"] = "",
+    ["DictKey_descriptionNeutralsTask_4"] = "",
+    ["DictKey_UnitName_7"] = "Pilot #001",
+    ["DictKey_UnitName_18"] = "",
+    ["DictKey_ActionText_15"] = "VEAF",
+    ["DictKey_descriptionBlueTask_3"] = "",
+} -- end of dictionary

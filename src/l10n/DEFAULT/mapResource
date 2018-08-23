@@ -1,0 +1,6 @@
+mapResource = 
+{
+    ["ResKey_Action_12"] = "mist_4_3_74.lua",
+    ["ResKey_Action_13"] = "VEAF_a2g_mission_generator.lua",
+    ["ResKey_Action_16"] = "WeatherMark.lua",
+} -- end of mapResource
