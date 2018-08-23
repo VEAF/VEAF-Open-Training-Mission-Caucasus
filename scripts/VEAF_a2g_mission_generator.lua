@@ -71,12 +71,14 @@ veafCas.RedCasVehiclesGroupName = "Red CAS Group Vehicles"
 --- Name of the CAS targets infantry group 
 veafCas.RedCasInfantryGroupName = "Red CAS Group Infantry"
 
+--- Name of the spawned units group 
+veafCas.RedSpawnedUnitsGroupName = "VEAF Spawned Units"
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Do not change anything below unless you know what you are doing!
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --- Version.
-veafCas.version = "0.1.0"
+veafCas.version = "0.1.1"
 
 --- Identifier. All output in DCS.log will start with this.
 veafCas.id = "VEAF "
@@ -122,6 +124,7 @@ function veafCas.split(str, sep)
     return result
 end
 
+--- Get the average center of a group position (average point of all units position)
 function veafCas.getAveragePosition(groupName)
 	local count
 
@@ -145,6 +148,41 @@ function veafCas.getAveragePosition(groupName)
 end
 
 function veafCas.emptyFunction()
+end
+
+--- Find a suitable point for spawning a unit in a <dispersion>-sized circle around a spot
+function veafCas.findPointInZone(spawnSpot, dispersion)
+    local unitPosition
+    local tryCounter = 1000
+    repeat -- Place the unit in a "dispersion" ft radius circle from the spawn spot
+        unitPosition = mist.getRandPointInCircle(spawnSpot, dispersion)
+        tryCounter = tryCounter - 1
+    until (land.getSurfaceType(unitPosition) == land.SurfaceType.LAND or land.getSurfaceType(unitPosition) == land.SurfaceType.ROAD or land.getSurfaceType(unitPosition) == land.SurfaceType.RUNWAY) or tryCounter == 0
+    if tryCounter == 0 then
+        return nil
+    else
+        return unitPosition
+    end
+end
+
+--- Add a unit to the <group> on a suitable point in a <dispersion>-sized circle around a spot
+function veafCas.addUnit(group, spawnSpot, dispersion, unitType, unitName, skill)
+    local unitPosition = veafCas.findPointInZone(spawnSpot, dispersion)
+    if unitPosition ~= nil then
+        table.insert(
+            group,
+            {
+                ["x"] = unitPosition.x,
+                ["y"] = unitPosition.y,
+                ["type"] = unitType,
+                ["name"] = unitName,
+                ["heading"] = 0,
+                ["skill"] = skill
+            }
+        )
+    else
+        veafCas.logInfo("cannot find a suitable position for unit "..unitType)
+    end
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -210,7 +248,7 @@ function veafCas._OnEventMarkChange(Event)
         vec3.y = veafCas.getLandHeight(vec3)
 
         -- Analyse the mark point text and extract the keywords.
-        local _options = veafCas._MarkTextAnalysis(Event.text)
+        local _options = veafCas.markTextAnalysis(Event.text)
 
         if _options then
             -- Check options commands
@@ -223,7 +261,7 @@ function veafCas._OnEventMarkChange(Event)
             elseif _options.flare then
                 -- TODO
             elseif _options.spawn then
-                -- TODO
+                veafCas.generateUnit(vec3, _options.unitType)
             end
         else
             -- None of the keywords matched.
@@ -241,7 +279,7 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --- Extract keywords from mark text.
-function veafCas._MarkTextAnalysis(text)
+function veafCas.markTextAnalysis(text)
     veafCas.logDebug(string.format("MarkTextAnalysis text:\n%s", text))
 
     -- Option parameters extracted from the mark text.
@@ -265,6 +303,9 @@ function veafCas._MarkTextAnalysis(text)
 
     --- disperse on attack ; self explanatory, if keyword is present the option will be set to true
     switch.disperseOnAttack = false
+
+    --- spawned unit type
+    switch.unitType = "Hummer"
 
     -- Check for correct keywords.
     if text:lower():find(veafCas.keyphrase .. " create") then
@@ -330,35 +371,20 @@ function veafCas._MarkTextAnalysis(text)
             switch.disperseOnAttack = true
         end
 
+        if switch.spawn and key:lower() == "type" then
+            -- Set unit type.
+            veafCas.logDebug(string.format("Keyword type = %s", val))
+            switch.unitType = nVal
+        end
+
     end
 
     return switch
 end
 
-function veafCas.findPointInZone(spawnSpot, dispersion)
-    local unitPosition
-    repeat -- Place the unit in a "dispersion" ft radius circle from the spawn spot
-        unitPosition = mist.getRandPointInCircle(spawnSpot, dispersion)
-    until (land.getSurfaceType(unitPosition) == land.SurfaceType.LAND or land.getSurfaceType(unitPosition) == land.SurfaceType.ROAD or land.getSurfaceType(unitPosition) == land.SurfaceType.RUNWAY)
-    return unitPosition
-end
-
-function veafCas.addUnit(group, spawnSpot, dispersion, unitType, unitName, skill)
-    local unitPosition = veafCas.findPointInZone(spawnSpot, dispersion)
-
-    table.insert(
-        group,
-        {
-            ["x"] = unitPosition.x,
-            ["y"] = unitPosition.y,
-            ["type"] = unitType,
-            ["name"] = unitName,
-            ["heading"] = 0,
-            ["skill"] = skill
-        }
-    )
-
-end
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- CAS target group generation and management
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function veafCas.generateAirDefenseGroup(groupId, spawnSpot, defense, armor, skill)
     -- generate an air defense group
@@ -573,13 +599,17 @@ function veafCas.generateCasMission(spawnSpot, size, defense, armor, spacing, sk
     veafCas.logDebug("infantryGroupsCount = " .. infantryGroupsCount)
     for i = 1, infantryGroupsCount do
         local groupPosition = veafCas.findPointInZone(spawnSpot, zoneRadius)
-        local vehiclesGroup, infantryGroup = veafCas.generateInfantryGroup(groupId, groupPosition, defense, armor, skill)
-        -- add the units to the global units list
-        for _,u in pairs(vehiclesGroup) do
-            table.insert(vehiclesUnits, u)
-        end
-        for _,u in pairs(infantryGroup) do
-            table.insert(infantryUnits, u)
+        if groupPosition ~= nil then
+            local vehiclesGroup, infantryGroup = veafCas.generateInfantryGroup(groupId, groupPosition, defense, armor, skill)
+            -- add the units to the global units list
+            for _,u in pairs(vehiclesGroup) do
+                table.insert(vehiclesUnits, u)
+            end
+            for _,u in pairs(infantryGroup) do
+                table.insert(infantryUnits, u)
+            end
+        else
+            veafCas.logInfo("cannot find a suitable position for group "..groupId)
         end
         groupId = groupId + 1
     end
@@ -590,10 +620,14 @@ function veafCas.generateCasMission(spawnSpot, size, defense, armor, spacing, sk
         veafCas.logDebug("armorPlatoonsCount = " .. armorPlatoonsCount)
         for i = 1, armorPlatoonsCount do
             local groupPosition = veafCas.findPointInZone(spawnSpot, zoneRadius)
-            local group = veafCas.generateArmorPlatoon(groupId, groupPosition, defense, armor, skill)
-            -- add the units to the global units list
-            for _,u in pairs(group) do
-                table.insert(vehiclesUnits, u)
+            if groupPosition ~= nil then
+                local group = veafCas.generateArmorPlatoon(groupId, groupPosition, defense, armor, skill)
+                -- add the units to the global units list
+                for _,u in pairs(group) do
+                    table.insert(vehiclesUnits, u)
+                end
+            else
+                veafCas.logInfo("cannot find a suitable position for group "..groupId)
             end
             groupId = groupId + 1
         end
@@ -608,10 +642,14 @@ function veafCas.generateCasMission(spawnSpot, size, defense, armor, spacing, sk
         veafCas.logDebug("airDefenseGroupsCount = " .. airDefenseGroupsCount)
         for i = 1, airDefenseGroupsCount do
             local groupPosition = veafCas.findPointInZone(spawnSpot, zoneRadius)
-            local group = veafCas.generateAirDefenseGroup(groupId, groupPosition, defense, armor, skill)
-            -- add the units to the global units list
-            for _,u in pairs(group) do
-                table.insert(vehiclesUnits, u)
+            if groupPosition ~= nil then
+                local group = veafCas.generateAirDefenseGroup(groupId, groupPosition, defense, armor, skill)
+                -- add the units to the global units list
+                for _,u in pairs(group) do
+                    table.insert(vehiclesUnits, u)
+                end
+            else
+                veafCas.logInfo("cannot find a suitable position for group "..groupId)
             end
             groupId = groupId + 1
         end
@@ -622,10 +660,14 @@ function veafCas.generateCasMission(spawnSpot, size, defense, armor, spacing, sk
     veafCas.logDebug("transportCompaniesCount = " .. transportCompaniesCount)
     for i = 1, transportCompaniesCount do
         local groupPosition = veafCas.findPointInZone(spawnSpot, zoneRadius)
-        local group = veafCas.generateTransportCompany(groupId, groupPosition, defense, armor, skill)
-        -- add the units to the global units list
-        for _,u in pairs(group) do
-            table.insert(vehiclesUnits, u)
+        if groupPosition ~= nil then
+            local group = veafCas.generateTransportCompany(groupId, groupPosition, defense, armor, skill)
+            -- add the units to the global units list
+            for _,u in pairs(group) do
+                table.insert(vehiclesUnits, u)
+            end
+        else
+            veafCas.logInfo("cannot find a suitable position for group "..groupId)
         end
         groupId = groupId + 1
     end
@@ -727,6 +769,47 @@ function veafCas.buildRadioMenu()
     veafCas._taskingsGroundPath = missionCommands.addSubMenu('Ground', veafCas._taskingsRootPath)
     -- TODO add the create task info menu
     -- TODO add the create transport task info menu
+end
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Unit spawn command
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+function veafCas.spawnUnit(spawnSpot, unitType)
+    veafCas.logDebug("generateUnit(spawnSpot = " .. spawnSpot .. ", unitType = " .. unitType .. ")")
+  
+    local units = {}
+    local unitName = "VEAF Spawned Unit #" .. mist.random(90000,99999)
+
+    -- check spawned position validity (TODO spawn ships over water)
+    if not(land.getSurfaceType(unitPosition) == land.SurfaceType.LAND or land.getSurfaceType(unitPosition) == land.SurfaceType.ROAD or land.getSurfaceType(unitPosition) == land.SurfaceType.RUNWAY) then
+        veafCas.logInfo("cannot find a suitable position for spawning unit "..unitType)
+        trigger.action.outText("cannot find a suitable position for spawning unit "..unitType, 5)
+        return
+    end
+  
+    -- create the unit
+    table.insert(
+        units,
+        {
+            ["x"] = spawnSpot.x,
+            ["y"] = spawnSpot.y,
+            ["type"] = unitType,
+            ["name"] = unitName,
+            ["heading"] = 0,
+            ["skill"] = "Random"
+        }
+    )
+
+    -- actually spawn the unit
+    mist.dynAdd({country = "RUSSIA", category = "GROUND_UNIT", name = veafCas.RedSpawnedUnitsGroupName, hidden = false, units = units})
+
+    -- set AI options for the spawned unit
+    local controller = Group.getByName(veafCas.RedSpawnedUnitsGroupName):getController()
+    controller:setOption(9, 2) -- set alarm state to red
+    controller:setOption(AI.Option.Ground.id.DISPERSE_ON_ATTACK, disperseOnAttack) -- set disperse on attack according to the option
+
+    -- message the unit spawning
+    trigger.action.outText("An enemy unit of type " .. unitType .. " has been spawned", 5)
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
