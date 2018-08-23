@@ -5,8 +5,13 @@
 --
 -- Features:
 -- ---------
--- * Creates randomized ground unit groups, protected by SAM, AAA and manpads, to use for CAS training
--- * Can be parameterized to fine-tune the level of anti-air defense, type of armor units, group size and spacing.
+-- * Listen to marker change events and execute commands, with optional parameters
+-- * Possibilities : 
+-- *    - create a CAS target group, protected by SAM, AAA and manpads, to use for CAS training
+-- *    - spawn a smoke marker
+-- *    - light up a zone by dropping a flare
+-- *    - spawn a specific ennemy unit
+-- *    - create a cargo drop to be picked by a helo
 -- * Works with all current and future maps (Caucasus, NTTR, Normandy, PG, ...)
 --
 -- Prerequisite:
@@ -29,23 +34,24 @@
 -- Basic Usage:
 -- ------------
 -- 1.) Place a mark on the F10 map.
--- 2.) As text enter "veaf cas create".
+-- 2.) As text enter "veaf do <command>" ; the command can be any of [cas, smoke, flare, spawn, cargo]
 -- 3.) Click somewhere else on the map to submit the new text.
--- 4.) The ground unit groups will be created. A message will appear to confirm this
--- 5.) The original mark will disappear and a new mark with the target information at the point the mark was set is created.
+-- 4.) The command will be processed. A message will appear to confirm this
+-- 5.) The original mark will disappear.
 --
 -- Options:
 -- --------
--- Type "veaf cas create" to create a default CAS target group
+-- Type "veaf do cas" to create a default CAS target group
 --      add ", defense 0" to completely disable air defenses
 --      add ", defense [1-5]" to specify air defense cover (1 = light, 5 = heavy)
 --      add ", size [1-5]" to change the group size (1 = small, 5 = huge)
 --      add ", armor [1-5]" to specify armor presence (1 = light, 5 = heavy)
 --      add ", spacing [1-5]" to change the groups spacing (1 = dense, 3 = default, 5 = sparse)
--- Type "veaf cas smoke" to create a smoke marker 
+-- Type "veaf do smoke" to create a smoke marker 
 --      add ", color [red|green]" to specify the smoke color -- TODO document other colors
--- Type "veaf cas flare" to illuminate a zone with a flare
--- Type "veaf cas spawn, type [unit type]" to spawn a specific unit ; types can be any DCS type (replace spaces with the pound character '#'')
+-- Type "veaf do flare" to illuminate a zone with a flare
+-- Type "veaf do spawn, type [unit type]" to spawn a specific unit ; types can be any DCS type (replace spaces with the pound character '#'')
+-- Type "veaf do cargo, type [cargo type]" to spawn a specific cargo ; types can be any of [ammo, barrels, container, fbar, fueltank, m117, oiltank, uh1h]
 --
 -- *** NOTE ***
 -- * All keywords are CaSE inSenSITvE.
@@ -64,10 +70,10 @@ veafCas = {}
 veafCas.id = "VEAF "
 
 --- Version.
-veafCas.version = "0.1.3"
+veafCas.version = "0.2"
 
 --- Key phrase to look for in the mark text which triggers the weather report.
-veafCas.keyphrase = "veaf cas"
+veafCas.keyphrase = "veaf do "
 
 --- DCS bug regarding wrong marker vector components was fixed. If so, set to true!
 veafCas.DCSbugfixed = false
@@ -273,6 +279,8 @@ function veafCas._OnEventMarkChange(Event)
                 veafCas.generateIlluminationFlare(vec3)
             elseif _options.spawn then
                 veafCas.generateUnit(vec3, _options.unitType)
+            elseif _options.cargo then
+                veafCas.generateCargo(vec3, _options.cargoType)
             end
         else
             -- None of the keywords matched.
@@ -299,37 +307,43 @@ function veafCas.markTextAnalysis(text)
     switch.smoke = false
     switch.flare = false
     switch.spawn = false
+    switch.cargo = false
 
-    --- size ; ranges from 1 to 5, 5 being the biggest.
+    -- size ; ranges from 1 to 5, 5 being the biggest.
     switch.size = 1
 
-    --- defenses force ; ranges from 1 to 5, 5 being the toughest.
+    -- defenses force ; ranges from 1 to 5, 5 being the toughest.
     switch.defense = 1
 
-    --- armor force ; ranges from 1 to 5, 5 being the strongest and most modern.
+    -- armor force ; ranges from 1 to 5, 5 being the strongest and most modern.
     switch.armor = 1
 
-    --- spacing ; ranges from 1 to 5, 3 being the default and 5 being the widest spacing.
+    -- spacing ; ranges from 1 to 5, 3 being the default and 5 being the widest spacing.
     switch.spacing = 3
 
-    --- disperse on attack ; self explanatory, if keyword is present the option will be set to true
+    -- disperse on attack ; self explanatory, if keyword is present the option will be set to true
     switch.disperseOnAttack = false
 
-    --- spawned unit type
+    -- spawned unit type
     switch.unitType = "Hummer"
 
-    --- smoke color
+    -- smoke color
     switch.smokeColor = trigger.smokeColor.Red
 
+    -- cargo type
+    switch.cargoType = "uh1h_cargo"
+
     -- Check for correct keywords.
-    if text:lower():find(veafCas.keyphrase .. " create") then
+    if text:lower():find(veafCas.keyphrase .. "cas") then
         switch.create = true
-    elseif text:lower():find(veafCas.keyphrase .. " smoke") then
+    elseif text:lower():find(veafCas.keyphrase .. "smoke") then
         switch.smoke = true
-    elseif text:lower():find(veafCas.keyphrase .. " flare") then
+    elseif text:lower():find(veafCas.keyphrase .. "flare") then
         switch.flare = true
-    elseif text:lower():find(veafCas.keyphrase .. " spawn") then
+    elseif text:lower():find(veafCas.keyphrase .. "spawn") then
         switch.spawn = true
+    elseif text:lower():find(veafCas.keyphrase .. "cargo") then
+        switch.cargo = true
     else
         return nil
     end
@@ -399,6 +413,28 @@ function veafCas.markTextAnalysis(text)
                 switch.smokeColor = trigger.smokeColor.Red
             elseif (val:lower() == "green") then 
                 switch.smokeColor = trigger.smokeColor.Green
+            end
+        end
+
+        if switch.cargo and key:lower() == "type" then
+            -- Set cargo type.
+            veafCas.logDebug(string.format("Keyword type = %s", val))
+            if val:lower() == "ammo" then
+                switch.cargoType = "ammo_cargo"
+            elseif val:lower() == "barrels" then
+                switch.cargoType = "barrels_cargo"
+            elseif val:lower() == "container" then
+                switch.cargoType = "container_cargo"
+            elseif val:lower() == "fbar" then
+                switch.cargoType = "f_bar_cargo"
+            elseif val:lower() == "fueltank" then
+                switch.cargoType = "fueltank_cargo"
+            elseif val:lower() == "m117" then
+                switch.cargoType = "m117_cargo"
+            elseif val:lower() == "oiltank" then
+                switch.cargoType = "oiltank_cargo"
+            elseif val:lower() == "uh1h" then
+                switch.cargoType = "uh1h_cargo"            
             end
         end
 
@@ -851,8 +887,8 @@ end
 function veafCas.buildRadioMenu()
     veafCas._taskingsRootPath = missionCommands.addSubMenu('Tasking')
     veafCas._taskingsGroundPath = missionCommands.addSubMenu('Ground', veafCas._taskingsRootPath)
+    veafCas._taskingsTransportPath = missionCommands.addSubMenu('Transport', _taskingsRootPath)
     missionCommands.addCommand(veafCas.INFO_TEXT, veafCas._taskingsGroundPath, veafCas.emptyFunction)
-    -- TODO add the create transport task info menu
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -861,7 +897,7 @@ end
 
 --- Spawn a specific unit at a specific spot
 function veafCas.spawnUnit(spawnSpot, unitType)
-    veafCas.logDebug("generateUnit(spawnSpot = " .. spawnSpot .. ", unitType = " .. unitType .. ")")
+    veafCas.logDebug("spawnUnit(spawnSpot = " .. spawnSpot .. ", unitType = " .. unitType .. ")")
   
     local isShip = false
     local units = {}
@@ -873,13 +909,13 @@ function veafCas.spawnUnit(spawnSpot, unitType)
 
     -- check spawned position validity
     if isShip then 
-        if not(land.getSurfaceType(unitPosition) == land.SurfaceType.isShip) then
+        if not(land.getSurfaceType(spawnSpot) == land.SurfaceType.WATER) then
             veafCas.logInfo("cannot find a suitable position for spawning naval unit "..unitType)
             trigger.action.outText("cannot find a suitable position for spawning naval unit "..unitType, 5)
             return
         end
     else
-        if not(land.getSurfaceType(unitPosition) == land.SurfaceType.LAND or land.getSurfaceType(unitPosition) == land.SurfaceType.ROAD or land.getSurfaceType(unitPosition) == land.SurfaceType.RUNWAY) then
+        if not(land.getSurfaceType(spawnSpot) == land.SurfaceType.LAND or land.getSurfaceType(spawnSpot) == land.SurfaceType.ROAD or land.getSurfaceType(spawnSpot) == land.SurfaceType.RUNWAY) then
             veafCas.logInfo("cannot find a suitable position for spawning ground unit "..unitType)
             trigger.action.outText("cannot find a suitable position for spawning ground unit "..unitType, 5)
             return
@@ -913,6 +949,62 @@ function veafCas.spawnUnit(spawnSpot, unitType)
 
     -- message the unit spawning
     trigger.action.outText("An enemy unit of type " .. unitType .. " has been spawned", 5)
+end
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Cargo spawn command
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--- Spawn a specific cargo at a specific spot
+function veafCas.spawnCargo(spawnSpot, cargoType)
+    veafCas.logDebug("spawnCargo(spawnSpot = " .. spawnSpot .. ", cargoType = " .. cargoType .. ")")
+  
+    local units = {}
+    local unitName = "VEAF Spawned Unit #" .. mist.random(90000,99999)
+
+    -- check spawned position validity
+    if not(land.getSurfaceType(spawnSpot) == land.SurfaceType.LAND or land.getSurfaceType(spawnSpot) == land.SurfaceType.ROAD or land.getSurfaceType(spawnSpot) == land.SurfaceType.RUNWAY) then
+        veafCas.logInfo("cannot find a suitable position for spawning cargo "..cargoType)
+        trigger.action.outText("cannot find a suitable position for spawning cargo "..cargoType, 5)
+        return
+    end
+  
+    -- compute cargo weight
+    local cargoWeight = 0
+    if cargoType == 'ammo_cargo' then
+        cargoWeight = math.random(2205, 3000)
+    elseif cargoType == 'barrels_cargo' then
+        cargoWeight = math.random(300, 1058)
+    elseif cargoType == 'container_cargo' then
+        cargoWeight = math.random(300, 3000)
+    elseif cargoType == 'f_bar_cargo' then
+        cargoWeight = 0
+    elseif cargoType == 'fueltank_cargo' then
+        cargoWeight = math.random(1764, 3000)
+    elseif cargoType == 'm117_cargo' then
+        cargoWeight = 0
+    elseif cargoType == 'oiltank_cargo' then
+        cargoWeight = math.random(1543, 3000)
+    elseif cargoType == 'uh1h_cargo' then
+        cargoWeight = math.random(220, 3000)
+    end
+    
+    -- create the cargo
+    local cargoTable = {
+		type = cargoType,
+		country = 'USA',
+		category = 'Cargos',
+		name = cargoType,
+		x = spawnSpot.x,
+		y = spawnSpot.y,
+        canCargo = true,
+        mass = cargoWeight
+	}
+	
+	mist.dynAddStatic(cargoTable)
+	
+    -- message the unit spawning
+    trigger.action.outText("A cargo of type " .. cargoType .. " weighting " .. cargoWeight .. " kg has been spawned", 5)
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
