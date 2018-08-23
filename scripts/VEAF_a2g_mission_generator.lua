@@ -36,8 +36,8 @@
 --
 -- Options:
 -- --------
--- Type "veaf cas mission, defense 0" to completely disable air defenses
--- Type "veaf cas mission, size [1-5]" to change the group size
+-- Type "veaf cas create, defense 0" to completely disable air defenses
+-- Type "veaf cas create, size [1-5]" to change the group size
 -- TODO document other options
 --
 -- *** NOTE ***
@@ -52,6 +52,12 @@ veafCas = {}
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Global settings. Stores the script constants
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--- Identifier. All output in DCS.log will start with this.
+veafCas.id = "VEAF "
+
+--- Version.
+veafCas.version = "0.1.3"
 
 --- Key phrase to look for in the mark text which triggers the weather report.
 veafCas.keyphrase = "veaf cas"
@@ -73,15 +79,16 @@ veafCas.RedCasInfantryGroupName = "Red CAS Group Infantry"
 
 --- Name of the spawned units group 
 veafCas.RedSpawnedUnitsGroupName = "VEAF Spawned Units"
+
+veafCas.INFO_TEXT = 'INFO - Request a CAS task by creating a marker and setting its text to "veaf cas create"'
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Do not change anything below unless you know what you are doing!
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
---- Version.
-veafCas.version = "0.1.2"
-
---- Identifier. All output in DCS.log will start with this.
-veafCas.id = "VEAF "
+--- Radio menus paths
+veafCas._targetMarkersPath = nil
+veafCas._targetInfoPath = nil
 
 --- Enable/Disable error boxes displayed on screen.
 env.setErrorMessageBoxEnabled(false)
@@ -201,7 +208,6 @@ function veafCas._OnEventMarkChange(Event)
     -- Check if marker has a text and the veafCas.keyphrase keyphrase.
     if Event.text ~= nil and Event.text:lower():find(veafCas.keyphrase) then
         -- Convert (wrong x-->z, z-->x) vec3
-        -- TODO: This needs to be "fixed", once DCS gives the correct numbers for x and z.
         local vec3
         if veafCas.DCSbugfixed then
             vec3 = {x = Event.pos.x, y = Event.pos.y, z = Event.pos.z}
@@ -222,9 +228,9 @@ function veafCas._OnEventMarkChange(Event)
                 veafCas.generateCasMission(vec3, _options.size, _options.defense, _options.armor, _options.spacing, _options.disperseOnAttack, "Random")
 
             elseif _options.smoke then
-                -- TODO
+                veafCas.generateSmoke(vec3, _options.smokeColor)
             elseif _options.flare then
-                -- TODO
+                veafCas.generateIlluminationFlare(vec3)
             elseif _options.spawn then
                 veafCas.generateUnit(vec3, _options.unitType)
             end
@@ -271,6 +277,9 @@ function veafCas.markTextAnalysis(text)
 
     --- spawned unit type
     switch.unitType = "Hummer"
+
+    --- smoke color
+    switch.smokeColor = trigger.smokeColor.Red
 
     -- Check for correct keywords.
     if text:lower():find(veafCas.keyphrase .. " create") then
@@ -340,6 +349,17 @@ function veafCas.markTextAnalysis(text)
             -- Set unit type.
             veafCas.logDebug(string.format("Keyword type = %s", val))
             switch.unitType = nVal
+        end
+
+        if switch.smoke and key:lower() == "color" then
+            -- Set smoke color.
+            veafCas.logDebug(string.format("Keyword color = %s", val))
+            -- TODO find other colors
+            if (val:lower() == "red") then 
+                switch.smokeColor = trigger.smokeColor.Red
+            elseif (val:lower() == "green") then 
+                switch.smokeColor = trigger.smokeColor.Green
+            end
         end
 
     end
@@ -708,23 +728,39 @@ function veafCas.generateCasMission(spawnSpot, size, defense, armor, spacing, sk
     -- TODO
 
     -- add radio menu information messages
-    _targetInfoPath = missionCommands.addSubMenu("Target information", veafCas._taskingsGroundPath)
+    veafCas._targetInfoPath = missionCommands.addSubMenu("Target information", veafCas._taskingsGroundPath)
     missionCommands.addCommand("TARGET: Group of " .. #vehiclesUnits .. " vehicles and " .. #infantryUnits .. " soldiers.", _targetInfoPath, veafCas.emptyFunction)
-    missionCommands.addCommand("LAT LON: " .. llString .. ".", _targetInfoPath, veafCas.emptyFunction)
-    missionCommands.addCommand("MGRS/UTM: " .. mgrsString .. ".", _targetInfoPath, veafCas.emptyFunction)
-    missionCommands.addCommand('TARGET ALT: ' .. veafCas.getLandHeight(spawnSpot),  _targetInfoPath, veafCas.emptyFunction)
-    missionCommands.addCommand("FROM BULLSEYE: " .. fromBullseye .. ".", _targetInfoPath, veafCas.emptyFunction)
+    missionCommands.addCommand("LAT LON: " .. llString .. ".", veafCas._targetInfoPath, veafCas.emptyFunction)
+    missionCommands.addCommand("MGRS/UTM: " .. mgrsString .. ".", veafCas._targetInfoPath, veafCas.emptyFunction)
+    missionCommands.addCommand('TARGET ALT: ' .. veafCas.getLandHeight(spawnSpot),  veafCas._targetInfoPath, veafCas.emptyFunction)
+    missionCommands.addCommand("FROM BULLSEYE: " .. fromBullseye .. ".", veafCas._targetInfoPath, veafCas.emptyFunction)
 
     -- add radio menu commands
-    _targetMarkersPath = missionCommands.addSubMenu("Target markers", veafCas._taskingsGroundPath)
-    -- TODO add smoke radio command
-    -- TODO add flare radio command
-    missionCommands.addCommand("Skip current CAS target", veafCas._taskingsGroundPath, veafCas.skipCasTarget)
+    missionCommands.removeItem({'Tasking', 'Ground', veafCas.INFO_TEXT})
+    veafCas._targetMarkersPath = missionCommands.addSubMenu("Target markers", veafCas._taskingsGroundPath)
+    missionCommands.addCommand('Request smoke on target area', veafCas._targetMarkersPath, veafCas.smokeCasTargetGroup)
+    missionCommands.addCommand('Request illumination flare over target area', veafCas._targetMarkersPath, veafCas.flareCasTargetGroup)
 
     trigger.action.outText("An enemy group of " .. #vehiclesUnits .. " vehicles and " .. #infantryUnits .. " soldiers has been located. Consult your F10 radio commands for more information.", 5)
 
     -- start checking for targets destruction
     veafCas.casGroupWatchdog()
+end
+
+--- add a smoke marker over the target area
+function veafCas.smokeCasTargetGroup()
+    veafCas.generateSmoke(veafCas.getAveragePosition(veafCas.RedCasVehiclesGroupName), trigger.smokeColor.Red)
+	trigger.action.outText('Copy smoke requested, RED smoke on the deck!',5)
+	missionCommands.removeItem({'Tasking', 'Ground', 'Target markers', 'Request smoke on target area'})
+	missionCommands.addCommand('Target is marked with red smoke', veafCas._targetMarkersPath, veafCas.emptyFunction)
+end
+
+--- add an illumination flare over the target area
+function veafCas.flareCasTargetGroup()
+    veafCas.generateIlluminationFlare(veafCas.getAveragePosition(veafCas.RedCasVehiclesGroupName))
+	trigger.action.outText('Copy illumination flare requested, illumination flare over target area!',5)
+	missionCommands.removeItem({'Tasking', 'Ground', 'Target markers', 'Request illumination flare over target area'})
+	missionCommands.addCommand('Target area is marked with illumination flare', veafCas._targetMarkersPath, veafCas.emptyFunction)
 end
 
 --- Checks if the vehicles group is still alive, and if not announces the end of the CAS mission
@@ -767,14 +803,14 @@ function veafCas.cleanupAfterMission()
     missionCommands.removeItem({'Tasking', 'Ground', 'Skip current CAS target'})
     missionCommands.removeItem({'Tasking', 'Ground', 'Target markers'})
     missionCommands.removeItem({'Tasking', 'Ground', 'Target information'})
-    -- TODO add the create task info menu
+    missionCommands.addCommand(veafCas.INFO_TEXT, veafCas._taskingsGroundPath, veafCas.emptyFunction)
 end
 
 --- Build the initial radio menu
 function veafCas.buildRadioMenu()
     veafCas._taskingsRootPath = missionCommands.addSubMenu('Tasking')
     veafCas._taskingsGroundPath = missionCommands.addSubMenu('Ground', veafCas._taskingsRootPath)
-    -- TODO add the create task info menu
+    missionCommands.addCommand(veafCas.INFO_TEXT, veafCas._taskingsGroundPath, veafCas.emptyFunction)
     -- TODO add the create transport task info menu
 end
 
@@ -822,8 +858,24 @@ function veafCas.spawnUnit(spawnSpot, unitType)
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Smoke and Flare commands
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--- add a smoke marker over the marker area
+function veafCas.generateSmoke(spawnSpot, color)
+	trigger.action.smoke(spawnSpot, color)
+end
+
+--- add an illumination flare over the target area
+function veafCas.generateIlluminationFlare(spawnSpot)
+    local vec3 = {x = spawnSpot.x, y = spawnSpot.y + 2000, z = spawnSpot.z} -- TODO check if altitude is correct (2000 AGL, but is it meters or feet ?)
+	trigger.action.illuminationBomb(vec3)
+end
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialisation
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 veafCas.logInfo(string.format("Loading version %s", veafCas.version))
 veafCas.logInfo(string.format("Keyphrase   = %s", veafCas.keyphrase))
 veafCas.buildRadioMenu()
