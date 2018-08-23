@@ -29,16 +29,23 @@
 -- Basic Usage:
 -- ------------
 -- 1.) Place a mark on the F10 map.
--- 2.) As text enter "veaf cas mission".
+-- 2.) As text enter "veaf cas create".
 -- 3.) Click somewhere else on the map to submit the new text.
 -- 4.) The ground unit groups will be created. A message will appear to confirm this
 -- 5.) The original mark will disappear and a new mark with the target information at the point the mark was set is created.
 --
 -- Options:
 -- --------
--- Type "veaf cas create, defense 0" to completely disable air defenses
--- Type "veaf cas create, size [1-5]" to change the group size
--- TODO document other options
+-- Type "veaf cas create" to create a default CAS target group
+--      add ", defense 0" to completely disable air defenses
+--      add ", defense [1-5]" to specify air defense cover (1 = light, 5 = heavy)
+--      add ", size [1-5]" to change the group size (1 = small, 5 = huge)
+--      add ", armor [1-5]" to specify armor presence (1 = light, 5 = heavy)
+--      add ", spacing [1-5]" to change the groups spacing (1 = dense, 3 = default, 5 = sparse)
+-- Type "veaf cas smoke" to create a smoke marker 
+--      add ", color [red|green]" to specify the smoke color -- TODO document other colors
+-- Type "veaf cas flare" to illuminate a zone with a flare
+-- Type "veaf cas spawn, type [unit type]" to spawn a specific unit ; types can be any DCS type (replace spaces with the pound character '#'')
 --
 -- *** NOTE ***
 -- * All keywords are CaSE inSenSITvE.
@@ -156,6 +163,39 @@ end
 
 function veafCas.emptyFunction()
 end
+
+--- Returns the wind direction (from) and strength.
+function veafCas.getWind(point)
+
+    -- Get wind velocity vector.
+    local windvec3  = atmosphere.getWind(point)
+    local direction = math.deg(math.atan2(windvec3.z, windvec3.x))
+    
+    if direction < 0 then
+      direction = direction + 360
+    end
+    
+    -- Convert TO direction to FROM direction. 
+    if direction > 180 then
+      direction = direction-180
+    else
+      direction = direction+180
+    end
+    
+    -- Calc 2D strength.
+    local strength=math.sqrt((windvec3.x)^2+(windvec3.z)^2)
+    
+    -- Debug output.
+    veafCas.logDebug(string.format("Wind data: height = %s", tostring(height)))
+    veafCas.logDebug(string.format("Wind data: vec3  x=%.1f y=%.1f, z=%.1f", vec3.x, vec3.y, vec3.z))
+    veafCas.logDebug(string.format("Wind data: point x=%.1f y=%.1f, z=%.1f", point.x, point.y,point.z))
+    veafCas.logDebug(string.format("Wind data: wind  x=%.1f y=%.1f, z=%.1f", windvec3.x, windvec3.y,windvec3.z))
+    veafCas.logDebug(string.format("Wind data: |v| = %.1f", strength))
+    veafCas.logDebug(string.format("Wind data: ang = %.1f", direction))
+    
+    -- Return wind direction and strength km/h.
+    return direction, strength, windvec3
+  end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Event handler.
@@ -348,7 +388,7 @@ function veafCas.markTextAnalysis(text)
         if switch.spawn and key:lower() == "type" then
             -- Set unit type.
             veafCas.logDebug(string.format("Keyword type = %s", val))
-            switch.unitType = nVal
+            switch.unitType = string.gsub(val, "#", " ") -- replace #s with the original spaces
         end
 
         if switch.smoke and key:lower() == "color" then
@@ -583,7 +623,7 @@ function veafCas.generateInfantryGroup(groupId, spawnSpot, defense, armor, skill
     if armor > 0 then
         veafCas.addUnit(vehiclesGroup, spawnSpot, dispersion, "BTR-80", veafCas.RedCasInfantryGroupName .. " Infantry Platoon #" .. groupId .. " APC", skill)
     else
-        veafCas.addUnit(vehiclesGroup, spawnSpot, dispersion, "GAZ-3307", veafCas.RedCasInfantryGroupName .. " Infantry Platoon #" .. groupId .. " truck", skill) -- TODO check if tranport type is correct
+        veafCas.addUnit(vehiclesGroup, spawnSpot, dispersion, "GAZ-3308", veafCas.RedCasInfantryGroupName .. " Infantry Platoon #" .. groupId .. " truck", skill) -- TODO check if tranport type is correct
     end
 
     -- add manpads if needed
@@ -725,16 +765,17 @@ function veafCas.generateCasMission(spawnSpot, size, defense, armor, spacing, sk
 	local fromBullseye = string.format('%03d', dir) .. ' for ' .. distMetric .. 'km/' .. distImperial .. 'nm'
 
     -- get wind information
-    -- TODO
+    local windDirection, windStrength = veafCas.getWind(averageGroupPosition)
 
     -- add radio menu information messages
     veafCas._targetInfoPath = missionCommands.addSubMenu("Target information", veafCas._taskingsGroundPath)
     missionCommands.addCommand("TARGET: Group of " .. #vehiclesUnits .. " vehicles and " .. #infantryUnits .. " soldiers.", _targetInfoPath, veafCas.emptyFunction)
     missionCommands.addCommand("LAT LON: " .. llString .. ".", veafCas._targetInfoPath, veafCas.emptyFunction)
     missionCommands.addCommand("MGRS/UTM: " .. mgrsString .. ".", veafCas._targetInfoPath, veafCas.emptyFunction)
-    missionCommands.addCommand('TARGET ALT: ' .. veafCas.getLandHeight(spawnSpot),  veafCas._targetInfoPath, veafCas.emptyFunction)
     missionCommands.addCommand("FROM BULLSEYE: " .. fromBullseye .. ".", veafCas._targetInfoPath, veafCas.emptyFunction)
-
+    missionCommands.addCommand('TARGET ALT: ' .. veafCas.getLandHeight(spawnSpot),  veafCas._targetInfoPath, veafCas.emptyFunction)
+    missionCommands.addCommand(string.format("WIND: from %s at %s m/s", windDirection, windStrength),  veafCas._targetInfoPath, veafCas.emptyFunction)
+    
     -- add radio menu commands
     missionCommands.removeItem({'Tasking', 'Ground', veafCas.INFO_TEXT})
     veafCas._targetMarkersPath = missionCommands.addSubMenu("Target markers", veafCas._taskingsGroundPath)
@@ -822,14 +863,27 @@ end
 function veafCas.spawnUnit(spawnSpot, unitType)
     veafCas.logDebug("generateUnit(spawnSpot = " .. spawnSpot .. ", unitType = " .. unitType .. ")")
   
+    local isShip = false
     local units = {}
     local unitName = "VEAF Spawned Unit #" .. mist.random(90000,99999)
 
-    -- check spawned position validity (TODO spawn ships over water)
-    if not(land.getSurfaceType(unitPosition) == land.SurfaceType.LAND or land.getSurfaceType(unitPosition) == land.SurfaceType.ROAD or land.getSurfaceType(unitPosition) == land.SurfaceType.RUNWAY) then
-        veafCas.logInfo("cannot find a suitable position for spawning unit "..unitType)
-        trigger.action.outText("cannot find a suitable position for spawning unit "..unitType, 5)
-        return
+    if unitType == "VINSON" or  unitType == "PERRY" or unitType == "TICONDEROG" or unitType == "ALBATROS" or unitType == "KUZNECOW" or unitType == "MOLNIYA" or unitType == "MOSCOW" or unitType == "NEUSTRASH" or unitType == "PIOTR" or unitType == "REZKY" or unitType == "ELNYA" or unitType == "Dry-cargo ship-2" or unitType == "Dry-cargo ship-1" or unitType == "ZWEZDNY" or unitType == "KILO" or unitType == "SOM" or unitType == "speedboat" then
+        isShip = true
+    end
+
+    -- check spawned position validity
+    if isShip then 
+        if not(land.getSurfaceType(unitPosition) == land.SurfaceType.isShip) then
+            veafCas.logInfo("cannot find a suitable position for spawning naval unit "..unitType)
+            trigger.action.outText("cannot find a suitable position for spawning naval unit "..unitType, 5)
+            return
+        end
+    else
+        if not(land.getSurfaceType(unitPosition) == land.SurfaceType.LAND or land.getSurfaceType(unitPosition) == land.SurfaceType.ROAD or land.getSurfaceType(unitPosition) == land.SurfaceType.RUNWAY) then
+            veafCas.logInfo("cannot find a suitable position for spawning ground unit "..unitType)
+            trigger.action.outText("cannot find a suitable position for spawning ground unit "..unitType, 5)
+            return
+        end
     end
   
     -- create the unit
@@ -846,7 +900,11 @@ function veafCas.spawnUnit(spawnSpot, unitType)
     )
 
     -- actually spawn the unit
-    mist.dynAdd({country = "RUSSIA", category = "GROUND_UNIT", name = veafCas.RedSpawnedUnitsGroupName, hidden = false, units = units})
+    local category = "GROUND_UNIT"
+    if isShip then 
+        category = "SHIP"
+    end
+    mist.dynAdd({country = "RUSSIA", category = category, name = veafCas.RedSpawnedUnitsGroupName, hidden = false, units = units})
 
     -- set AI options for the spawned unit
     local controller = Group.getByName(veafCas.RedSpawnedUnitsGroupName):getController()
