@@ -11,7 +11,7 @@ mkdir build
 mkdir mission
 xcopy /y /e src tempsrc\
 copy community\mist_4_3_74.lua .\tempsrc\l10n\Default
-copy scripts\VEAF_a2g_mission_generator.lua .\tempsrc\l10n\Default
+copy scripts\VEAF_markers.lua .\tempsrc\l10n\Default
 copy community\WeatherMark.lua .\tempsrc\l10n\Default
 pushd tempsrc
 7za a -r ..\build\%ZIP% -mem=AES256 *
