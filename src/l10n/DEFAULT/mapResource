@@ -1,6 +1,11 @@
 mapResource = 
 {
-    ["ResKey_Action_12"] = "mist_4_3_74.lua",
-    ["ResKey_Action_13"] = "VEAF_markers.lua",
-    ["ResKey_Action_16"] = "WeatherMark.lua",
+    ["ResKey_Action_2543"] = "VEAF_markers.lua",
+    ["ResKey_Action_2549"] = "marker.lua",
+    ["ResKey_Action_2522"] = "mist_4_3_74.lua",
+    ["ResKey_Action_2526"] = "WeatherMark.lua",
+    ["ResKey_ImageBriefing_1897"] = "Open Training static weather METAR.png",
+    ["ResKey_ImageBriefing_2136"] = "Brief.jpg",
+    ["ResKey_Action_2546"] = "veaf_grass_runways.lua",
+    ["ResKey_ImageBriefing_2355"] = "OT METAR Caucasus.jpg",
 } -- end of mapResource

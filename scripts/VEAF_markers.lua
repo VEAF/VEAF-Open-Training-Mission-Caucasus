@@ -48,10 +48,11 @@
 --      add ", armor [1-5]" to specify armor presence (1 = light, 5 = heavy)
 --      add ", spacing [1-5]" to change the groups spacing (1 = dense, 3 = default, 5 = sparse)
 -- Type "veaf do smoke" to create a smoke marker 
---      add ", color [red|green]" to specify the smoke color -- TODO document other colors
+--      add ", color [red|green|blue|white|orange]" to specify the smoke color
 -- Type "veaf do flare" to illuminate a zone with a flare
 -- Type "veaf do spawn, type [unit type]" to spawn a specific unit ; types can be any DCS type (replace spaces with the pound character '#'')
 -- Type "veaf do cargo, type [cargo type]" to spawn a specific cargo ; types can be any of [ammo, barrels, container, fbar, fueltank, m117, oiltank, uh1h]
+--      add ", smoke [red|green|blue|white|orange]" to add a smoke of the specific color
 --
 -- *** NOTE ***
 -- * All keywords are CaSE inSenSITvE.
@@ -70,7 +71,7 @@ veafCas = {}
 veafCas.id = "VEAF "
 
 --- Version.
-veafCas.version = "0.3.0"
+veafCas.version = "0.3.1"
 
 --- Key phrase to look for in the mark text which triggers the weather report.
 veafCas.keyphrase = "veaf do "
@@ -80,6 +81,7 @@ veafCas.DCSbugfixed = false
 
 --- Enable logDebug mode ==> give more output to DCS log file.
 veafCas.Debug = true
+veafCas.Trace = false
 
 --- Number of seconds between each check of the CAS group watchdog function
 veafCas.SecondsBetweenWatchdogChecks = 15
@@ -138,6 +140,12 @@ end
 
 function veafCas.logDebug(message)
     if veafCas.Debug then
+        env.info(veafCas.id .. message)
+    end
+end
+
+function veafCas.logTrace(message)
+    if veafCas.Trace then
         env.info(veafCas.id .. message)
     end
 end
@@ -252,19 +260,19 @@ function veafCas.eventHandler:onEvent(Event)
     elseif Event.id == world.event.S_EVENT_MARK_REMOVED then
         veafCas.logDebug("S_EVENT_MARK_REMOVED")
     end
-    veafCas.logDebug(string.format("Event id        = %s", tostring(Event.id)))
-    veafCas.logDebug(string.format("Event time      = %s", tostring(Event.time)))
-    veafCas.logDebug(string.format("Event idx       = %s", tostring(Event.idx)))
-    veafCas.logDebug(string.format("Event coalition = %s", tostring(Event.coalition)))
-    veafCas.logDebug(string.format("Event group id  = %s", tostring(Event.groupID)))
-    veafCas.logDebug(string.format("Event pos X     = %s", tostring(Event.pos.x)))
-    veafCas.logDebug(string.format("Event pos Y     = %s", tostring(Event.pos.y)))
-    veafCas.logDebug(string.format("Event pos Z     = %s", tostring(Event.pos.z)))
+    veafCas.logTrace(string.format("Event id        = %s", tostring(Event.id)))
+    veafCas.logTrace(string.format("Event time      = %s", tostring(Event.time)))
+    veafCas.logTrace(string.format("Event idx       = %s", tostring(Event.idx)))
+    veafCas.logTrace(string.format("Event coalition = %s", tostring(Event.coalition)))
+    veafCas.logTrace(string.format("Event group id  = %s", tostring(Event.groupID)))
+    veafCas.logTrace(string.format("Event pos X     = %s", tostring(Event.pos.x)))
+    veafCas.logTrace(string.format("Event pos Y     = %s", tostring(Event.pos.y)))
+    veafCas.logTrace(string.format("Event pos Z     = %s", tostring(Event.pos.z)))
     if Event.initiator ~= nil then
         local _unitname = Event.initiator:getName()
-        veafCas.logDebug(string.format("Event ini unit  = %s", tostring(_unitname)))
+        veafCas.logTrace(string.format("Event ini unit  = %s", tostring(_unitname)))
     end
-    veafCas.logDebug(string.format("Event text      = \n%s", tostring(Event.text)))
+    veafCas.logTrace(string.format("Event text      = \n%s", tostring(Event.text)))
 
     -- Call event function when a marker has changed, i.e. text was entered or changed.
     if Event.id == world.event.S_EVENT_MARK_CHANGE then
@@ -307,7 +315,7 @@ function veafCas._OnEventMarkChange(Event)
             elseif _options.spawn then
                 veafCas.spawnUnit(vec3, _options.unitType)
             elseif _options.cargo then
-                veafCas.spawnCargo(vec3, _options.cargoType)
+                veafCas.spawnCargo(vec3, _options.cargoType, _options.cargoSmoke)
             end
         else
             -- None of the keywords matched.
@@ -356,6 +364,9 @@ function veafCas.markTextAnalysis(text)
 
     -- smoke color
     switch.smokeColor = trigger.smokeColor.Red
+
+    -- optional cargo smoke
+    switch.cargoSmoke = false
 
     -- cargo type
     switch.cargoType = "uh1h_cargo"
@@ -435,11 +446,12 @@ function veafCas.markTextAnalysis(text)
         if switch.smoke and key:lower() == "color" then
             -- Set smoke color.
             veafCas.logDebug(string.format("Keyword color = %s", val))
-            -- TODO find other colors
             if (val:lower() == "red") then 
                 switch.smokeColor = trigger.smokeColor.Red
             elseif (val:lower() == "green") then 
                 switch.smokeColor = trigger.smokeColor.Green
+            elseif (val:lower() == "orange") then 
+                switch.smokeColor = trigger.smokeColor.Orage
             elseif (val:lower() == "blue") then 
                 switch.smokeColor = trigger.smokeColor.Blue
             elseif (val:lower() == "white") then 
@@ -469,6 +481,11 @@ function veafCas.markTextAnalysis(text)
             end
         end
 
+        if switch.cargo and key:lower() == "smoke" then
+            -- Mark with green smoke.
+            veafCas.logDebug("Keyword smoke is set")
+            switch.cargoSmoke = true
+        end
     end
 
     return switch
@@ -843,7 +860,7 @@ function veafCas.generateCasMission(spawnSpot, size, defense, armor, spacing, sk
     missionCommands.addCommand("LAT LON: " .. llString .. ".", veafCas._targetInfoPath, veafCas.emptyFunction)
     missionCommands.addCommand("MGRS/UTM: " .. mgrsString .. ".", veafCas._targetInfoPath, veafCas.emptyFunction)
     missionCommands.addCommand("FROM BULLSEYE: " .. fromBullseye .. ".", veafCas._targetInfoPath, veafCas.emptyFunction)
-    missionCommands.addCommand('TARGET ALT: ' .. veafCas.getLandHeight(spawnSpot),  veafCas._targetInfoPath, veafCas.emptyFunction)
+    missionCommands.addCommand('TARGET ALT: ' .. veafCas.getLandHeight(spawnSpot) .. "m",  veafCas._targetInfoPath, veafCas.emptyFunction)
     local windText = "WIND: no wind"
     if windStrength > 0 then
         windText = string.format("WIND: from %s at %s m/s", windDirection, windStrength)
@@ -852,6 +869,7 @@ function veafCas.generateCasMission(spawnSpot, size, defense, armor, spacing, sk
     
     -- add radio menu commands
     missionCommands.removeItem({'Tasking', 'Ground', veafCas.INFO_TEXT})
+    missionCommands.addCommand('Skip current objective', veafCas._taskingsGroundPath, veafCas.skipCasTarget)
     veafCas._targetMarkersPath = missionCommands.addSubMenu("Target markers", veafCas._taskingsGroundPath)
     missionCommands.addCommand('Request smoke on target area', veafCas._targetMarkersPath, veafCas.smokeCasTargetGroup)
     missionCommands.addCommand('Request illumination flare over target area', veafCas._targetMarkersPath, veafCas.flareCasTargetGroup)
@@ -1009,8 +1027,8 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --- Spawn a specific cargo at a specific spot
-function veafCas.spawnCargo(spawnSpot, cargoType)
-    veafCas.logDebug("spawnCargo(cargoType = " .. cargoType .. ")")
+function veafCas.spawnCargo(spawnSpot, cargoType, cargoSmoke)
+    veafCas.logDebug("spawnCargo(cargoType = " .. cargoType ..")")
     veafCas.logDebug(string.format("spawnCargo: spawnSpot  x=%.1f y=%.1f, z=%.1f", spawnSpot.x, spawnSpot.y, spawnSpot.z))
 
     local units = {}
@@ -1024,6 +1042,8 @@ function veafCas.spawnCargo(spawnSpot, cargoType)
         trigger.action.outText("cannot find a suitable position for spawning cargo "..cargoType, 5)
         return
     end
+
+    veafCas.logDebug(string.format("spawnCargo: spawnPosition  x=%.1f y=%.1f", spawnPosition.x, spawnPosition.y))
   
     -- compute cargo weight
     local cargoWeight = 0
@@ -1058,9 +1078,26 @@ function veafCas.spawnCargo(spawnSpot, cargoType)
 	}
 	
 	mist.dynAddStatic(cargoTable)
-	
+    
+    -- smoke the cargo if needed
+    if cargoSmoke then 
+        local smokePosition={x=spawnPosition.x + mist.random(10,20), y=0, z=spawnPosition.y + mist.random(10,20)}
+        local height = veafCas.getLandHeight(smokePosition)
+        smokePosition.y = height
+        veafCas.logDebug(string.format("spawnCargo: smokePosition  x=%.1f y=%.1f z=%.1f", smokePosition.x, smokePosition.y, smokePosition.z))
+        veafCas.generateSmoke(smokePosition, trigger.smokeColor.Green)
+        for i = 1, 10 do
+            veafCas.logDebug("Signal flare 1 at " .. timer.getTime() + i*7)
+            mist.scheduleFunction(veafCas.generateSignalFlare, {smokePosition,trigger.flareColor.Red, mist.random(359)}, timer.getTime() + i*3)
+        end
+    end
+
     -- message the unit spawning
-    trigger.action.outText("A cargo of type " .. cargoType .. " weighting " .. cargoWeight .. " kg has been spawned", 5)
+    local message = "A cargo of type " .. cargoType .. " weighting " .. cargoWeight .. " kg has been spawned"
+    if cargoSmoke ~= "" then 
+        message = message .. ". It's marked with green smoke and red flares"
+    end
+    trigger.action.outText(message, 5)
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1072,9 +1109,14 @@ function veafCas.generateSmoke(spawnSpot, color)
 	trigger.action.smoke(spawnSpot, color)
 end
 
+--- add a signal flare over the marker area
+function veafCas.generateSignalFlare(spawnSpot, color, azimuth)
+	trigger.action.signalFlare(spawnSpot, color, azimuth)
+end
+
 --- add an illumination flare over the target area
 function veafCas.generateIlluminationFlare(spawnSpot)
-    local vec3 = {x = spawnSpot.x, y = veafc.getLandHeight(spawnSpot) + 1000, z = spawnSpot.z}
+    local vec3 = {x = spawnSpot.x, y = veafCas.getLandHeight(spawnSpot) + 1000, z = spawnSpot.z}
 	trigger.action.illuminationBomb(vec3)
 end
 
