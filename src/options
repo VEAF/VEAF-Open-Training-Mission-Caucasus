@@ -217,11 +217,11 @@ options =
         ["Mi-8MTV2"] = 
         {
             ["Mi8TrimmingMethod"] = 0,
-            ["Mi8RudderTrimmer"] = false,
-            ["Mi8AutopilotAdjustment"] = false,
+            ["Mi8RudderTrimmer"] = true,
+            ["Mi8AutopilotAdjustment"] = true,
             ["gunCamera"] = 0,
             ["Mi8CockpitShake"] = 50,
-            ["controlHelperMi8"] = false,
+            ["controlHelperMi8"] = true,
             ["CPLocalList"] = "english",
             ["Mi8FOV"] = 120,
         }, -- end of ["Mi-8MTV2"]

@@ -306,9 +306,9 @@ mission =
     }, -- end of ["triggers"]
     ["map"] = 
     {
-        ["centerY"] = 847645.81314285,
-        ["zoom"] = 1728,
-        ["centerX"] = -291149.6382857,
+        ["centerY"] = 853667.63457142,
+        ["zoom"] = 334756,
+        ["centerX"] = -222602.02685713,
     }, -- end of ["map"]
     ["coalitions"] = 
     {
@@ -1844,12 +1844,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [2] = 0.303,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -1859,7 +1859,7 @@ mission =
                                                     [11] = 0.718,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -1921,12 +1921,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [2] = 0.303,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -1936,7 +1936,7 @@ mission =
                                                     [11] = 0.718,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -1998,12 +1998,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [2] = 0.303,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2013,7 +2013,7 @@ mission =
                                                     [11] = 0.718,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2075,12 +2075,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [2] = 0.303,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2090,7 +2090,7 @@ mission =
                                                     [11] = 0.718,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2227,12 +2227,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [2] = 0.303,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2242,7 +2242,7 @@ mission =
                                                     [11] = 0.718,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2302,12 +2302,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [2] = 0.303,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2317,7 +2317,7 @@ mission =
                                                     [11] = 0.718,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2377,12 +2377,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [2] = 0.303,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2392,7 +2392,7 @@ mission =
                                                     [11] = 0.718,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2452,12 +2452,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [2] = 0.303,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2467,7 +2467,7 @@ mission =
                                                     [11] = 0.718,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -19201,10 +19201,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = true,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -19303,10 +19303,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -19353,10 +19353,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = true,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -19455,10 +19455,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -19505,10 +19505,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = true,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -19607,10 +19607,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -19657,10 +19657,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = true,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -19759,10 +19759,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -19913,10 +19913,10 @@ mission =
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                             ["EWDispenserTFR"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["ClockTime"] = 1,
                                             ["WpBullseye"] = 1,
+                                            ["ClockTime"] = 1,
+                                            ["EWDispenserTFL"] = 1,
                                             ["EWDispenserBL"] = 2,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -20015,10 +20015,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -20065,10 +20065,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = true,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -20167,10 +20167,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -20217,10 +20217,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = true,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -20319,10 +20319,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -20369,10 +20369,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = true,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -20471,10 +20471,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -20575,10 +20575,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = true,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -20677,10 +20677,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -20727,10 +20727,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = true,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -20829,10 +20829,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -20879,10 +20879,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = true,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -20981,10 +20981,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -21031,10 +21031,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = true,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -21133,10 +21133,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -21244,10 +21244,10 @@ mission =
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                             ["EWDispenserTFR"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserTBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserTBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["EWDispenserBL"] = 2,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -21346,10 +21346,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -21397,10 +21397,10 @@ mission =
                                             ["EWDispenserBL"] = 2,
                                             ["EWDispenserTBR"] = 2,
                                             ["ForceINSRules"] = true,
-                                            ["EWDispenserTFL"] = 1,
                                             ["WpBullseye"] = 0,
-                                            ["ClockTime"] = 1,
                                             ["RocketBurst"] = 1,
+                                            ["ClockTime"] = 1,
+                                            ["EWDispenserTFL"] = 1,
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -21499,10 +21499,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -21611,10 +21611,10 @@ mission =
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                             ["EWDispenserTFR"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserTBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserTBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["EWDispenserBL"] = 2,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -21713,10 +21713,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -21763,10 +21763,10 @@ mission =
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                             ["EWDispenserTFR"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserTBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserTBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["EWDispenserBL"] = 2,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -21865,10 +21865,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -21915,10 +21915,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["EWDispenserBL"] = 2,
-                                            ["RocketBurst"] = 1,
                                             ["EWDispenserTFL"] = 1,
-                                            ["ClockTime"] = 1,
                                             ["WpBullseye"] = 0,
+                                            ["ClockTime"] = 1,
+                                            ["RocketBurst"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -22017,10 +22017,10 @@ mission =
                                                     [13] = 269,
                                                     [26] = 385,
                                                     [23] = 122.1,
-                                                    [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [7] = 270,
+                                                    [27] = 133,
                                                     [29] = 122.1,
                                                     [30] = 123.3,
                                                 }, -- end of ["channels"]
@@ -22076,7 +22076,7 @@ mission =
                                     {
                                         [1] = 
                                         {
-                                            ["alt"] = 4572,
+                                            ["alt"] = 6096,
                                             ["action"] = "Turning Point",
                                             ["alt_type"] = "BARO",
                                             ["properties"] = 
@@ -22143,7 +22143,7 @@ mission =
                                         }, -- end of [1]
                                         [2] = 
                                         {
-                                            ["alt"] = 4572,
+                                            ["alt"] = 6096,
                                             ["action"] = "Turning Point",
                                             ["alt_type"] = "BARO",
                                             ["properties"] = 
@@ -22168,7 +22168,7 @@ mission =
                                                             ["enabled"] = true,
                                                             ["params"] = 
                                                             {
-                                                                ["altitude"] = 4572,
+                                                                ["altitude"] = 6096,
                                                                 ["pattern"] = "Race-Track",
                                                                 ["speed"] = 164.44444444444,
                                                                 ["speedEdited"] = true,
@@ -22178,7 +22178,7 @@ mission =
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
                                             ["type"] = "Turning Point",
-                                            ["ETA"] = 109.29252515757,
+                                            ["ETA"] = 13.405841904687,
                                             ["ETA_locked"] = false,
                                             ["y"] = 745062.97742857,
                                             ["x"] = -177137.46857142,
@@ -22188,7 +22188,7 @@ mission =
                                         }, -- end of [2]
                                         [3] = 
                                         {
-                                            ["alt"] = 4572,
+                                            ["alt"] = 6096,
                                             ["action"] = "Turning Point",
                                             ["alt_type"] = "BARO",
                                             ["properties"] = 
@@ -22209,7 +22209,7 @@ mission =
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
                                             ["type"] = "Turning Point",
-                                            ["ETA"] = 585.24960830178,
+                                            ["ETA"] = 618.83205607178,
                                             ["ETA_locked"] = false,
                                             ["y"] = 791608.52428571,
                                             ["x"] = -265146.00257142,
@@ -22225,7 +22225,7 @@ mission =
                                 {
                                     [1] = 
                                     {
-                                        ["alt"] = 4572,
+                                        ["alt"] = 6096,
                                         ["alt_type"] = "BARO",
                                         ["livery_id"] = "Standard USAF",
                                         ["skill"] = "Excellent",
@@ -24007,7 +24007,7 @@ mission =
                                     {
                                         [1] = 
                                         {
-                                            ["alt"] = 4572,
+                                            ["alt"] = 6096,
                                             ["action"] = "Turning Point",
                                             ["alt_type"] = "BARO",
                                             ["properties"] = 
@@ -24016,7 +24016,7 @@ mission =
                                                 {
                                                 }, -- end of ["addopt"]
                                             }, -- end of ["properties"]
-                                            ["speed"] = 143.88888888889,
+                                            ["speed"] = 164.44444444444,
                                             ["task"] = 
                                             {
                                                 ["id"] = "ComboTask",
@@ -24074,7 +24074,7 @@ mission =
                                         }, -- end of [1]
                                         [2] = 
                                         {
-                                            ["alt"] = 4572,
+                                            ["alt"] = 6096,
                                             ["action"] = "Turning Point",
                                             ["alt_type"] = "BARO",
                                             ["properties"] = 
@@ -24083,7 +24083,7 @@ mission =
                                                 {
                                                 }, -- end of ["addopt"]
                                             }, -- end of ["properties"]
-                                            ["speed"] = 143.88888888889,
+                                            ["speed"] = 164.44444444444,
                                             ["task"] = 
                                             {
                                                 ["id"] = "ComboTask",
@@ -24099,9 +24099,9 @@ mission =
                                                             ["number"] = 1,
                                                             ["params"] = 
                                                             {
-                                                                ["altitude"] = 4572,
+                                                                ["altitude"] = 6096,
                                                                 ["pattern"] = "Race-Track",
-                                                                ["speed"] = 143.88888888889,
+                                                                ["speed"] = 164.44444444444,
                                                                 ["speedEdited"] = true,
                                                             }, -- end of ["params"]
                                                         }, -- end of [1]
@@ -24109,7 +24109,7 @@ mission =
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
                                             ["type"] = "Turning Point",
-                                            ["ETA"] = 150.50635859509,
+                                            ["ETA"] = 14.310020800756,
                                             ["ETA_locked"] = false,
                                             ["y"] = 798831.10914286,
                                             ["x"] = -198002.71371428,
@@ -24119,7 +24119,7 @@ mission =
                                         }, -- end of [2]
                                         [3] = 
                                         {
-                                            ["alt"] = 4572,
+                                            ["alt"] = 6096,
                                             ["action"] = "Turning Point",
                                             ["alt_type"] = "BARO",
                                             ["properties"] = 
@@ -24128,7 +24128,7 @@ mission =
                                                 {
                                                 }, -- end of ["addopt"]
                                             }, -- end of ["properties"]
-                                            ["speed"] = 143.88888888889,
+                                            ["speed"] = 164.44444444444,
                                             ["task"] = 
                                             {
                                                 ["id"] = "ComboTask",
@@ -24140,7 +24140,7 @@ mission =
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
                                             ["type"] = "Turning Point",
-                                            ["ETA"] = 896.79662364835,
+                                            ["ETA"] = 736.68573723902,
                                             ["ETA_locked"] = false,
                                             ["y"] = 917602.50457143,
                                             ["x"] = -195862.68857142,
@@ -24156,11 +24156,11 @@ mission =
                                 {
                                     [1] = 
                                     {
-                                        ["alt"] = 4572,
+                                        ["alt"] = 6096,
                                         ["alt_type"] = "BARO",
                                         ["livery_id"] = "default",
                                         ["skill"] = "Excellent",
-                                        ["speed"] = 143.88888888889,
+                                        ["speed"] = 164.44444444444,
                                         ["type"] = "KC130",
                                         ["unitId"] = 938,
                                         ["psi"] = -1.5415300319313,
@@ -24193,7 +24193,7 @@ mission =
                                 ["name"] = "DictKey_GroupName_2019",
                                 ["communication"] = true,
                                 ["start_time"] = 0,
-                                ["frequency"] = 251,
+                                ["frequency"] = 140,
                             }, -- end of [24]
                         }, -- end of ["group"]
                     }, -- end of ["plane"]
@@ -33487,10 +33487,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = false,
-                                            ["WpBullseye"] = 0,
                                             ["EWDispenserTFL"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["RocketBurst"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["WpBullseye"] = 0,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -34851,6 +34851,7 @@ mission =
             {
             }, -- end of ["rules"]
             ["eventlist"] = "",
+            ["predicate"] = "triggerStart",
             ["actions"] = 
             {
                 [1] = 
@@ -35084,7 +35085,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [20]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerStart",
             ["comment"] = "Mission Start",
         }, -- end of [1]
         [2] = 
@@ -35114,6 +35114,7 @@ mission =
                 }, -- end of [3]
             }, -- end of ["rules"]
             ["eventlist"] = "",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35142,7 +35143,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
             ["comment"] = "Mig-29 Radio",
         }, -- end of [2]
         [3] = 
@@ -35167,6 +35167,7 @@ mission =
             }, -- end of ["rules"]
             ["eventlist"] = "",
             ["comment"] = "Mig-29 Respawn",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35218,7 +35219,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [4]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
         }, -- end of [3]
         [4] = 
         {
@@ -35240,7 +35240,6 @@ mission =
                 }, -- end of [2]
             }, -- end of ["rules"]
             ["eventlist"] = "",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35267,6 +35266,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
             ["comment"] = "Mig-29 Out of zone",
         }, -- end of [4]
         [5] = 
@@ -35290,6 +35290,7 @@ mission =
             }, -- end of ["rules"]
             ["eventlist"] = "",
             ["comment"] = "Mig-29*2 Radio",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35318,7 +35319,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
         }, -- end of [5]
         [6] = 
         {
@@ -35334,7 +35334,6 @@ mission =
                 }, -- end of [1]
             }, -- end of ["rules"]
             ["comment"] = "Mig-29*2 Respawn",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35386,6 +35385,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [4]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
             ["eventlist"] = "",
         }, -- end of [6]
         [7] = 
@@ -35409,7 +35409,6 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "Mig-29*2 Out of zone",
             ["eventlist"] = "",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35436,6 +35435,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
         }, -- end of [7]
         [8] = 
         {
@@ -35465,6 +35465,7 @@ mission =
             }, -- end of ["rules"]
             ["eventlist"] = "",
             ["comment"] = "Mig-21 Radio",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35493,7 +35494,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
         }, -- end of [8]
         [9] = 
         {
@@ -35516,7 +35516,6 @@ mission =
                 }, -- end of [2]
             }, -- end of ["rules"]
             ["comment"] = "Mig-21 Respawn",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35568,6 +35567,7 @@ mission =
                     ["clearview"] = false,
                 }, -- end of [4]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
             ["eventlist"] = "",
         }, -- end of [9]
         [10] = 
@@ -35591,7 +35591,6 @@ mission =
             }, -- end of ["rules"]
             ["eventlist"] = "",
             ["comment"] = "Mig-21 Out of zone",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35618,6 +35617,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
         }, -- end of [10]
         [11] = 
         {
@@ -35633,6 +35633,7 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "Test tanker radio",
             ["eventlist"] = "",
+            ["predicate"] = "triggerOnce",
             ["actions"] = 
             {
                 [1] = 
@@ -35678,7 +35679,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [3]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerOnce",
         }, -- end of [11]
         [12] = 
         {
@@ -35694,7 +35694,6 @@ mission =
                 }, -- end of [1]
             }, -- end of ["rules"]
             ["eventlist"] = "",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35734,6 +35733,7 @@ mission =
                     ["clearview"] = false,
                 }, -- end of [3]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
             ["comment"] = "KC-135FR Arco respawn",
         }, -- end of [12]
         [13] = 
@@ -35751,7 +35751,6 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "KC-135 Shell respawn",
             ["eventlist"] = "",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35791,6 +35790,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [3]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
         }, -- end of [13]
         [14] = 
         {
@@ -35807,7 +35807,6 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "KC-130 Texaco respawn",
             ["eventlist"] = "",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35847,9 +35846,10 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [3]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
         }, -- end of [14]
     }, -- end of ["trigrules"]
-    ["currentKey"] = 646025,
+    ["currentKey"] = 648675,
     ["start_time"] = 22500,
     ["forcedOptions"] = 
     {
