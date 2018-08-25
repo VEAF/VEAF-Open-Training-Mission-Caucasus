@@ -118,9 +118,9 @@ function veafSpawn.onEventMarkChange(eventPos, event)
             elseif options.cargo then
                 veafSpawn.spawnCargo(eventPos, options.cargoType, options.cargoSmoke)
             elseif options.smoke then
-                veafSpawn.generateSmoke(eventPos, options.smokeColor)
+                veafSpawn.spawnSmoke(eventPos, options.smokeColor)
             elseif options.flare then
-                veafSpawn.generateIlluminationFlare(eventPos, options.alt)
+                veafSpawn.spawnIlluminationFlare(eventPos, options.alt)
             end
         else
             -- None of the keywords matched.
@@ -210,9 +210,7 @@ function veafSpawn.markTextAnalysis(text)
             -- Set size.
             veafSpawn.logDebug(string.format("Keyword alt = %d", val))
             local nVal = tonumber(val)
-            if nVal <= 5 and nVal >= 1 then
-                switch.alt = nVal
-            end
+            switch.alt = nVal
         end
 
         if switch.cargo and key:lower() == "type" then
@@ -370,10 +368,10 @@ function veafSpawn.spawnCargo(spawnSpot, cargoType, cargoSmoke)
         local height = veaf.getLandHeight(smokePosition)
         smokePosition.y = height
         veafSpawn.logDebug(string.format("spawnCargo: smokePosition  x=%.1f y=%.1f z=%.1f", smokePosition.x, smokePosition.y, smokePosition.z))
-        veafSpawn.generateSmoke(smokePosition, trigger.smokeColor.Green)
+        veafSpawn.spawnSmoke(smokePosition, trigger.smokeColor.Green)
         for i = 1, 10 do
             veafSpawn.logDebug("Signal flare 1 at " .. timer.getTime() + i*7)
-            mist.scheduleFunction(veafSpawn.generateSignalFlare, {smokePosition,trigger.flareColor.Red, mist.random(359)}, timer.getTime() + i*3)
+            mist.scheduleFunction(veafSpawn.spawnSignalFlare, {smokePosition,trigger.flareColor.Red, mist.random(359)}, timer.getTime() + i*3)
         end
     end
 
@@ -390,17 +388,23 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --- add a smoke marker over the marker area
-function veafSpawn.generateSmoke(spawnSpot, color)
+function veafSpawn.spawnSmoke(spawnSpot, color)
+    veafSpawn.logDebug("spawnSmoke(color = " .. color ..")")
+    veafSpawn.logDebug(string.format("spawnSmoke: spawnSpot  x=%.1f y=%.1f, z=%.1f", spawnSpot.x, spawnSpot.y, spawnSpot.z))
 	trigger.action.smoke(spawnSpot, color)
 end
 
 --- add a signal flare over the marker area
-function veafSpawn.generateSignalFlare(spawnSpot, color, azimuth)
+function veafSpawn.spawnSignalFlare(spawnSpot, color, azimuth)
+    veafSpawn.logDebug("spawnSignalFlare(color = " .. color ..")")
+    veafSpawn.logDebug(string.format("spawnSignalFlare: spawnSpot  x=%.1f y=%.1f, z=%.1f", spawnSpot.x, spawnSpot.y, spawnSpot.z))
 	trigger.action.signalFlare(spawnSpot, color, azimuth)
 end
 
 --- add an illumination flare over the target area
-function veafSpawn.generateIlluminationFlare(spawnSpot, height)
+function veafSpawn.spawnIlluminationFlare(spawnSpot, height)
+    veafSpawn.logDebug("spawnIlluminationFlare(height = " .. height ..")")
+    veafSpawn.logDebug(string.format("spawnIlluminationFlare: spawnSpot  x=%.1f y=%.1f, z=%.1f", spawnSpot.x, spawnSpot.y, spawnSpot.z))
     local vec3 = {x = spawnSpot.x, y = veaf.getLandHeight(spawnSpot) + height, z = spawnSpot.z}
 	trigger.action.illuminationBomb(vec3)
 end
@@ -413,11 +417,15 @@ end
 function veafSpawn.buildRadioMenu()
     local _infoPath = missionCommands.addSubMenu(veafSpawn.RadioMenuPrefix, veaf.radioMenuPath)
     missionCommands.addCommand('create a marker and use one of these commands in the text :', _infoPath, veaf.emptyFunction)
-    local _spawnInfoPath = missionCommands.addSubMenu('"veaf spawn unit" spawns a target vehicle/ship - see options', _infoPath)
+    local _spawnInfoPath = missionCommands.addSubMenu('"veaf spawn unit" spawns a target vehicle/ship', _infoPath)
     missionCommands.addCommand('"type [unit type]" spawns a specific unit ; types can be any DCS type (replace spaces with the pound character #)', _spawnInfoPath, veaf.emptyFunction)
-    local _cargoInfoPath = missionCommands.addSubMenu('"veaf spawn cargo" creates a cargo mission - see options', _infoPath)
+    local _cargoInfoPath = missionCommands.addSubMenu('"veaf spawn cargo" creates a cargo mission', _infoPath)
     missionCommands.addCommand('"type [cargo type]" spawns a specific cargo ; types can be any of [ammo, barrels, container, fbar, fueltank, m117, oiltank, uh1h]', _cargoInfoPath, veaf.emptyFunction)
     missionCommands.addCommand('"smoke adds a smoke marker', _cargoInfoPath, veaf.emptyFunction)
+    local _smokeInfoPath = missionCommands.addSubMenu('"veaf spawn smoke" spawns a smoke on the ground', _infoPath)
+    missionCommands.addCommand('"color [red|green|blue|white|orange]" specifies the smoke color', _smokeInfoPath, veaf.emptyFunction)
+    local _flareInfoPath = missionCommands.addSubMenu('"veaf spawn flare" lights things up with a flare', _infoPath)
+    missionCommands.addCommand('"alt <altitude in meters agl>" specifies the initial altitude', _flareInfoPath, veaf.emptyFunction)
     missionCommands.addCommand('--- --- --- --- ---', _infoPath, veaf.emptyFunction)
     missionCommands.addCommand('Quick memo : all cargo types', _infoPath, veafSpawn.helpMemoAllCargoTypes)
 end
