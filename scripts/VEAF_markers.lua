@@ -52,7 +52,7 @@
 -- Type "veaf do flare" to illuminate a zone with a flare
 -- Type "veaf do spawn, type [unit type]" to spawn a specific unit ; types can be any DCS type (replace spaces with the pound character '#'')
 -- Type "veaf do cargo, type [cargo type]" to spawn a specific cargo ; types can be any of [ammo, barrels, container, fbar, fueltank, m117, oiltank, uh1h]
---      add ", smoke [red|green|blue|white|orange]" to add a smoke of the specific color
+--      add ", smoke" to add a smoke marker
 --
 -- *** NOTE ***
 -- * All keywords are CaSE inSenSITvE.
@@ -71,7 +71,7 @@ veafCas = {}
 veafCas.id = "VEAF "
 
 --- Version.
-veafCas.version = "0.3.3"
+veafCas.version = "0.3.4"
 
 --- Key phrase to look for in the mark text which triggers the weather report.
 veafCas.keyphrase = "veaf do "
@@ -872,6 +872,7 @@ function veafCas.generateCasMission(spawnSpot, size, defense, armor, spacing, sk
     
     -- add radio menu commands
     missionCommands.addCommand('Skip current objective', veafCas._casPath, veafCas.skipCasTarget)
+    missionCommands.addCommand('Get current objective situation', veafCas._casPath, veafCas.sitacOnCasTargetGroup)
     veafCas._targetMarkersPath = missionCommands.addSubMenu("Target markers", veafCas._casPath)
     missionCommands.addCommand('Request smoke on target area', veafCas._targetMarkersPath, veafCas.smokeCasTargetGroup)
     missionCommands.addCommand('Request illumination flare over target area', veafCas._targetMarkersPath, veafCas.flareCasTargetGroup)
@@ -880,6 +881,37 @@ function veafCas.generateCasMission(spawnSpot, size, defense, armor, spacing, sk
 
     -- start checking for targets destruction
     veafCas.casGroupWatchdog()
+end
+
+--- SITAC report
+function veafCas.sitacOnCasTargetGroup()
+    local result = "SITAC : "
+    local group = Group.getByName(veafCas.RedCasVehiclesGroupName)
+    local count = 0
+    if group then
+        count = #group:getUnits()
+    end
+    local text = "No vehicles, "
+    if count > 1 then
+        text = string.format("%d vehicles, ", count)
+    elseif count == 1 then
+        text = "One vehicle, "
+    end
+    result = result .. text
+    group = Group.getByName(veafCas.RedCasInfantryGroupName)
+    count = 0
+    if group then
+        count = #group:getUnits()
+    end
+    text = "no troops remaining"
+    if count > 1 then
+        text = string.format("%d soldiers remaining", count)
+    elseif count == 1 then
+        text = "one soldier remaining"
+    end
+    result = result .. text
+
+    trigger.action.outText(result, 10)
 end
 
 --- add a smoke marker over the target area
@@ -929,7 +961,8 @@ end
 function veafCas.skipCasTarget()
     trigger.action.outText("Skipping CAS objective group ; please stand by...", 5)
     veafCas.cleanupAfterMission()
-	missionCommands.removeItem({veafCas.CasRadioMenuPrefix, 'Skip current objective'})
+    missionCommands.removeItem({veafCas.CasRadioMenuPrefix, 'Skip current objective'})
+    missionCommands.removeItem({veafCas.CasRadioMenuPrefix, 'Get current objective situation'})
     trigger.action.outText("CAS objective group cleaned up.", 5)
 end
 
@@ -969,12 +1002,41 @@ function veafCas.buildRadioMenu()
     missionCommands.addCommand('"type [unit type]" spawns a specific unit ; types can be any DCS type (replace spaces with the pound character #)', _spawnInfoPath, veafCas.emptyFunction)
     local _cargoInfoPath = missionCommands.addSubMenu('"veaf do cargo" creates a cargo mission - see options', _infoPath)
     missionCommands.addCommand('"type [cargo type]" spawns a specific cargo ; types can be any of [ammo, barrels, container, fbar, fueltank, m117, oiltank, uh1h]', _cargoInfoPath, veafCas.emptyFunction)
-    missionCommands.addCommand('"smoke [red|green|blue|white|orange]" adds a smoke of the specific color', _cargoInfoPath, veafCas.emptyFunction)
+    missionCommands.addCommand('"smoke adds a smoke marker', _cargoInfoPath, veafCas.emptyFunction)
     local _smokeInfoPath = missionCommands.addSubMenu('"veaf do smoke" spawns a smoke on the ground - see options', _infoPath)
     missionCommands.addCommand('"color [red|green|blue|white|orange]" specifies the smoke color', _smokeInfoPath, veafCas.emptyFunction)
     missionCommands.addCommand('"veaf do flare" lights things up with a flare', _infoPath, veafCas.emptyFunction)
+    missionCommands.addCommand('--- --- --- --- ---', _infoPath, veafCas.emptyFunction)
+    missionCommands.addCommand('Quick memo : all commands and options', _infoPath, veafCas.helpMemoAllCommandsAndOptions)
+    missionCommands.addCommand('Quick memo : all cargo types', _infoPath, veafCas.helpMemoAllCargoTypes)
+    missionCommands.addSubMenu('Full documentation : http://bit.do/veaf_ot', _infoPath, veafCas.emptyFunction)
 end
 
+function veafCas.helpMemoAllCommandsAndOptions()
+    local helpMemoAllCommandsAndOptions_text = 
+        '"veaf do cas" creates a default CAS target group\n' ..
+        '	"defense 0" completely disables air defenses\n' ..
+        '	"defense [1-5]" specifies air defense cover (1 = light, 5 = heavy)\n' ..
+        '	"size [1-5]" changes the group size (1 = small, 5 = huge)\n' ..
+        '	"armor [1-5]" specifies armor presence (1 = light, 5 = heavy)\n' ..
+        '	"spacing [1-5]" changes the groups spacing (1 = dense, 3 = default, 5 = sparse)\n' ..
+        '"veaf do spawn" spawns a target vehicle/ship\n' ..
+        '	"type [unit type]" spawns a specific unit ; types can be any DCS type (replace spaces with the pound character #)\n' ..
+        '"veaf do cargo" creates a cargo mission\n' ..
+        '	"type [cargo type]" spawns a specific cargo ; types can be any of [ammo, barrels, container, fbar, fueltank, m117, oiltank, uh1h]\n' ..
+        '	"smoke" adds a smoke marker\n' ..
+        '"veaf do smoke" spawns a smoke on the ground\n' ..
+        '	"color [red|green|blue|white|orange]" specifies the smoke color\n' ..
+        '"veaf do flare" lights things up with a flare'
+        
+    trigger.action.outText(helpMemoAllCommandsAndOptions_text, 30)
+end
+
+function veafCas.helpMemoAllCargoTypes()
+    local helpMemoAllCargoTypes_text = "valid cargo types : \nammo, barrels, container, fbar, fueltank, m117, oiltank, uh1h"
+
+    trigger.action.outText(helpMemoAllCargoTypes_text, 30)
+end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Unit spawn command
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
