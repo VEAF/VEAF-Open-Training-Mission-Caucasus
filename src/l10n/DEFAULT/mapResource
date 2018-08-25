@@ -1,7 +1,8 @@
 mapResource = 
 {
-    ["ResKey_Action_22"] = "veafMarkers.lua",
     ["ResKey_Action_12"] = "mist_4_3_74.lua",
     ["ResKey_Action_21"] = "veaf.lua",
+    ["ResKey_Action_22"] = "veafMarkers.lua",
     ["ResKey_Action_23"] = "veafSpawn.lua",
+    ["ResKey_Action_26"] = "veafCasMission.lua",
 } -- end of mapResource

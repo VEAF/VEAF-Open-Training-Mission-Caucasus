@@ -17,6 +17,7 @@ copy community\mist_4_3_74.lua .\tempsrc\l10n\Default
 copy scripts\veaf.lua .\tempsrc\l10n\Default
 copy scripts\veafMarkers.lua .\tempsrc\l10n\Default
 copy scripts\veafSpawn.lua .\tempsrc\l10n\Default
+copy scripts\veafCasMission.lua .\tempsrc\l10n\Default
 pushd tempsrc
 7za a -r ..\build\%ZIP% -mem=AES256 *
 popd

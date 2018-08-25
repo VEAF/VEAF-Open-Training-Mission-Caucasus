@@ -147,17 +147,17 @@ function veafMarkers.onEvent(event, eventHandlersTable)
 
                 -- By default, alt of mark point is always 5 m! Adjust for the correct ASL height.
                 vec3.y = veaf.getLandHeight(vec3)
-
-                -- call the event handler
-                local eventHandler = eventHandlersTable[i]
-                veafMarkers.logDebug("Calling eventHandler #" .. eventHandler.id)
-                veafMarkers.logTrace(string.format("Marker text:\n%s", event.text))
-                local err, errmsg = pcall(eventHandler.f, vec3, event)
-                if not err then
-                    veafMarkers.logInfo('Error in event handler #' .. eventHandler.id .. ' : '.. errmsg)
-                end
-            veafMarkers.logDebug("Returning after eventHandler #" .. eventHandler.id)
             end
+
+            -- call the event handler
+            local eventHandler = eventHandlersTable[i]
+            veafMarkers.logDebug("Calling eventHandler #" .. eventHandler.id)
+            veafMarkers.logTrace(string.format("Marker text:\n%s", event.text))
+            local err, errmsg = pcall(eventHandler.f, vec3, event)
+            if not err then
+                veafMarkers.logInfo('Error in event handler #' .. eventHandler.id .. ' : '.. errmsg)
+            end
+            veafMarkers.logDebug("Returning after eventHandler #" .. eventHandler.id)
         end
     end    
 end
@@ -222,4 +222,3 @@ world.addEventHandler(veafMarkers.eventHandler)
 env.setErrorMessageBoxEnabled(false)
 
 veafMarkers.logInfo(string.format("Loading version %s", veafMarkers.Version))
-veafMarkers.logInfo(string.format("Keyphrase   = %s", veafMarkers.Keyphrase))

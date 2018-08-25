@@ -14,6 +14,7 @@
 -- ------------
 -- * This script requires DCS 2.5.1 or higher and MIST 4.3.74 or higher.
 -- * It also requires the base veaf.lua script library (version 1.0 or higher)
+-- * It also requires the base veafMarkers.lua script library (version 1.0 or higher)
 --
 -- Load the script:
 -- ----------------
@@ -25,6 +26,8 @@
 --     * OPEN --> Browse to the location of MIST and click OK.
 --     * ACTION "DO SCRIPT FILE"
 --     * OPEN --> Browse to the location of veaf.lua and click OK.
+--     * ACTION "DO SCRIPT FILE"
+--     * OPEN --> Browse to the location of veafMarkers.lua and click OK.
 --     * ACTION "DO SCRIPT FILE"
 --     * OPEN --> Browse to the location of this script and click OK.
 --     * ACTION "DO SCRIPT"
@@ -74,11 +77,13 @@ veafSpawn.RedSpawnedUnitsGroupName = "VEAF Spawned Units"
 --- Illumination flare default initial altitude (in meters AGL)
 veafSpawn.IlluminationFlareAglAltitude = 1000
 
-veafSpawn.RadioMenuPrefix = "SPAWN (" .. veafSpawn.Version .. ")"
+veafSpawn.RadioMenuName = "SPAWN (" .. veafSpawn.Version .. ")"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Do not change anything below unless you know what you are doing!
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+veafSpawn.rootPath = nil
 
 -- counts the units generated 
 veafSpawn.spawnedUnitsCounter = 0
@@ -315,7 +320,8 @@ function veafSpawn.spawnCargo(spawnSpot, cargoType, cargoSmoke)
     veafSpawn.logDebug(string.format("spawnCargo: spawnSpot  x=%.1f y=%.1f, z=%.1f", spawnSpot.x, spawnSpot.y, spawnSpot.z))
 
     local units = {}
-    local unitName = "VEAF Spawned Unit #" .. mist.random(90000,99999)
+    veafSpawn.spawnedUnitsCounter = veafSpawn.spawnedUnitsCounter + 1
+    local unitName = "VEAF Spawned Cargo #" .. veafSpawn.spawnedUnitsCounter
 
     local spawnPosition = veaf.findPointInZone(spawnSpot, 50, false)
 
@@ -353,7 +359,7 @@ function veafSpawn.spawnCargo(spawnSpot, cargoType, cargoSmoke)
 		type = cargoType,
 		country = 'USA',
 		category = 'Cargos',
-		name = cargoType,
+		name = unitName,
 		x = spawnPosition.x,
 		y = spawnPosition.y,
         canCargo = true,
@@ -403,6 +409,7 @@ end
 
 --- add an illumination flare over the target area
 function veafSpawn.spawnIlluminationFlare(spawnSpot, height)
+    if height == nil then height = veafSpawn.IlluminationFlareAglAltitude end
     veafSpawn.logDebug("spawnIlluminationFlare(height = " .. height ..")")
     veafSpawn.logDebug(string.format("spawnIlluminationFlare: spawnSpot  x=%.1f y=%.1f, z=%.1f", spawnSpot.x, spawnSpot.y, spawnSpot.z))
     local vec3 = {x = spawnSpot.x, y = veaf.getLandHeight(spawnSpot) + height, z = spawnSpot.z}
@@ -415,26 +422,28 @@ end
 
 --- Build the initial radio menu
 function veafSpawn.buildRadioMenu()
-    local _infoPath = missionCommands.addSubMenu(veafSpawn.RadioMenuPrefix, veaf.radioMenuPath)
-    missionCommands.addCommand('create a marker and use one of these commands in the text :', _infoPath, veaf.emptyFunction)
-    local _spawnInfoPath = missionCommands.addSubMenu('"veaf spawn unit" spawns a target vehicle/ship', _infoPath)
-    missionCommands.addCommand('"type [unit type]" spawns a specific unit ; types can be any DCS type (replace spaces with the pound character #)', _spawnInfoPath, veaf.emptyFunction)
-    local _cargoInfoPath = missionCommands.addSubMenu('"veaf spawn cargo" creates a cargo mission', _infoPath)
-    missionCommands.addCommand('"type [cargo type]" spawns a specific cargo ; types can be any of [ammo, barrels, container, fbar, fueltank, m117, oiltank, uh1h]', _cargoInfoPath, veaf.emptyFunction)
-    missionCommands.addCommand('"smoke adds a smoke marker', _cargoInfoPath, veaf.emptyFunction)
-    local _smokeInfoPath = missionCommands.addSubMenu('"veaf spawn smoke" spawns a smoke on the ground', _infoPath)
-    missionCommands.addCommand('"color [red|green|blue|white|orange]" specifies the smoke color', _smokeInfoPath, veaf.emptyFunction)
-    local _flareInfoPath = missionCommands.addSubMenu('"veaf spawn flare" lights things up with a flare', _infoPath)
-    missionCommands.addCommand('"alt <altitude in meters agl>" specifies the initial altitude', _flareInfoPath, veaf.emptyFunction)
-    missionCommands.addCommand('--- --- --- --- ---', _infoPath, veaf.emptyFunction)
-    missionCommands.addCommand('Quick memo : all cargo types', _infoPath, veafSpawn.helpMemoAllCargoTypes)
+    veafSpawn.rootPath = missionCommands.addSubMenu(veafSpawn.RadioMenuName, veaf.radioMenuPath)
+    missionCommands.addCommand("HELP", veafSpawn.rootPath, veafSpawn.help)
 end
 
-function veafSpawn.helpMemoAllCargoTypes()
-    local helpMemoAllCargoTypes_text = "valid cargo types : \nammo, barrels, container, fbar, fueltank, m117, oiltank, uh1h"
-
-    trigger.action.outText(helpMemoAllCargoTypes_text, 30)
+function veafSpawn.help()
+    local text = 
+        'Create a marker and type "veaf spawn <unit|smoke|flare> " in the text\n' ..
+        'This will spawn the requested object in the DCS world\n' ..
+        'You can add options (comma separated) :\n' ..
+        '"veaf spawn unit" spawns a target vehicle/ship\n' ..
+        '   "type [unit type]" spawns a specific unit ; types can be any DCS type (replace spaces with the pound character #)\n' ..
+        '"veaf spawn cargo" creates a cargo mission\n' ..
+        '   "type [cargo type]" spawns a specific cargo ; types can be any of [ammo, barrels, container, fbar, fueltank, m117, oiltank, uh1h]\n' ..
+        '   "smoke adds a smoke marker\n' ..
+        '"veaf spawn smoke" spawns a smoke on the ground\n' ..
+        '   "color [red|green|blue|white|orange]" specifies the smoke color\n' ..
+        '"veaf spawn flare" lights things up with a flare\n' ..
+        '   "alt <altitude in meters agl>" specifies the initial altitude'
+            
+    trigger.action.outText(text, 30)
 end
+
 
 
 
@@ -448,6 +457,5 @@ function veafSpawn.initialize()
 end
 
 veafSpawn.logInfo(string.format("Loading version %s", veafSpawn.Version))
-veafSpawn.logInfo(string.format("Keyphrase   = %s", veafSpawn.Keyphrase))
 
 

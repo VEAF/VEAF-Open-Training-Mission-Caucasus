@@ -2,7 +2,7 @@ dictionary =
 {
     ["DictKey_WptName_11"] = "",
     ["DictKey_ActionText_24"] = "veafSpawn.initialize()",
-    ["DictKey_ActionText_25"] = "",
+    ["DictKey_ActionText_25"] = "witchcraft.start(_G)",
     ["DictKey_sortie_5"] = "",
     ["DictKey_GroupName_17"] = "",
     ["DictKey_WptName_8"] = "",
@@ -15,8 +15,9 @@ dictionary =
     ["DictKey_WptName_9"] = "",
     ["DictKey_descriptionNeutralsTask_4"] = "",
     ["DictKey_UnitName_7"] = "Pilot #001",
-    ["DictKey_descriptionBlueTask_3"] = "",
-    ["DictKey_UnitName_18"] = "",
-    ["DictKey_ActionText_15"] = "VEAF",
     ["DictKey_WptName_20"] = "",
+    ["DictKey_UnitName_18"] = "",
+    ["DictKey_descriptionBlueTask_3"] = "",
+    ["DictKey_ActionText_15"] = "VEAF",
+    ["DictKey_ActionText_27"] = "veafCasMission.initialize()",
 } -- end of dictionary

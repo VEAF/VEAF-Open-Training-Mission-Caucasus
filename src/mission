@@ -13,7 +13,7 @@ mission =
     {
         ["actions"] = 
         {
-            [1] = "a_do_script_file(getValueResourceByKey(\"ResKey_Action_12\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_25\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_21\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_22\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_23\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_24\"));",
+            [1] = "a_do_script_file(getValueResourceByKey(\"ResKey_Action_12\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_25\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_21\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_22\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_23\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_24\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_26\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_27\"));",
         }, -- end of ["actions"]
         ["events"] = 
         {
@@ -80,7 +80,7 @@ mission =
             }, -- end of ["func"]
         }, -- end of ["red"]
     }, -- end of ["result"]
-    ["maxDictId"] = 25,
+    ["maxDictId"] = 27,
     ["pictureFileNameN"] = 
     {
     }, -- end of ["pictureFileNameN"]
@@ -602,10 +602,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = false,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ClockTime"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -752,7 +752,6 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "mission start",
             ["eventlist"] = "",
-            ["predicate"] = "triggerStart",
             ["actions"] = 
             {
                 [1] = 
@@ -817,10 +816,32 @@ mission =
                         [2] = "",
                     }, -- end of ["ai_task"]
                 }, -- end of [6]
+                [7] = 
+                {
+                    ["file"] = "ResKey_Action_26",
+                    ["predicate"] = "a_do_script_file",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [7]
+                [8] = 
+                {
+                    ["KeyDict_text"] = "DictKey_ActionText_27",
+                    ["text"] = "DictKey_ActionText_27",
+                    ["predicate"] = "a_do_script",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [8]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerStart",
         }, -- end of [1]
     }, -- end of ["trigrules"]
-    ["currentKey"] = 654,
+    ["currentKey"] = 678,
     ["start_time"] = 28800,
     ["forcedOptions"] = 
     {

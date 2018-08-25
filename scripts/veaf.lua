@@ -38,9 +38,9 @@ veaf.Version = "1.0.0"
 --- Enable logDebug ==> give more output to DCS log file.
 veaf.Debug = true
 --- Enable logTrace ==> give even more output to DCS log file.
-veaf.Trace = false
+veaf.Trace = true
 
-veaf.RadioMenuPrefix = "VEAF"
+veaf.RadioMenuName = "VEAF"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Do not change anything below unless you know what you are doing!
@@ -199,7 +199,7 @@ end
 
 --- Build the initial radio menu
 function veaf.buildRadioMenu()
-    veaf.radioMenuPath = missionCommands.addSubMenu(veaf.RadioMenuPrefix)
+    veaf.radioMenuPath = missionCommands.addSubMenu(veaf.RadioMenuName)
     missionCommands.addCommand('Visit us at http://www.veaf.org', veaf.radioMenuPath, veaf.emptyFunction)
 end
 
