@@ -89,13 +89,19 @@ function veaf.placePointOnLand(vec3)
     return result
 end
 
---- Split string. C.f. http://stackoverflow.com/questions/1426954/split-string-in-lua
+--- Trim a string
+function veaf.trim(s)
+    local a = s:match('^%s*()')
+    local b = s:match('()%s*$', a)
+    return s:sub(a,b-1)
+end
+
+--- Split string around a separator
 function veaf.split(str, sep)
-    local result = {}
-    local regex = ("([^%s]+)"):format(sep)
-    for each in str:gmatch(regex) do
-        table.insert(result, each)
-    end
+    local regex = ("^([^%s]+)%s(.*)$"):format(sep, sep)
+    local a, b = str:match(regex)
+    if not a then a = str end
+    local result = {a, b}
     return result
 end
 

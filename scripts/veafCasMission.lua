@@ -33,7 +33,7 @@
 --     * ACTION "DO SCRIPT FILE"
 --     * OPEN --> Browse to the location of this script and click OK.
 --     * ACTION "DO SCRIPT"
---     * set the script command to "veafCasMission.initializeMarkerHandler()" and click OK.
+--     * set the script command to "veafCasMission.initialize()" and click OK.
 -- 4.) Save the mission and start it.
 -- 5.) Have fun :)
 --
@@ -196,7 +196,7 @@ function veafCasMission.markTextAnalysis(text)
 
     for _, keyphrase in pairs(keywords) do
         -- Split keyphrase by space. First one is the key and second, ... the parameter(s) until the next comma.
-        local str = veaf.split(keyphrase, " ")
+        local str = veaf.split(veaf.trim(keyphrase), " ")
         local key = str[1]
         local val = str[2]
 

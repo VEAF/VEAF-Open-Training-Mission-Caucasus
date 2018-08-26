@@ -9,8 +9,7 @@ del /f /q l10n\Default\veaf.lua
 del /f /q l10n\Default\veafCasMission.lua 
 del /f /q l10n\Default\veafMarkers.lua 
 del /f /q l10n\Default\veafSpawn.lua 
-
-del /f /q l10n\Default\\veaf_grass_runways.lua
-del /f /q l10n\Default\\marker.lua
+del /f /q l10n\Default\veafMove.lua 
+del /f /q l10n\Default\\veafGrass.lua
 del /f /q l10n\Default\\WeatherMark.lua
 popd

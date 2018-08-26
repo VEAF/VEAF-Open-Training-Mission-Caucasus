@@ -31,7 +31,7 @@
 --     * ACTION "DO SCRIPT FILE"
 --     * OPEN --> Browse to the location of this script and click OK.
 --     * ACTION "DO SCRIPT"
---     * set the script command to "veafSpawn.initializeMarkerHandler()" and click OK.
+--     * set the script command to "veafSpawn.initialize()" and click OK.
 -- 4.) Save the mission and start it.
 -- 5.) Have fun :)
 --
@@ -45,7 +45,7 @@
 --
 -- Options:
 -- --------
--- Type "veaf spawn unit, type [unit type]" to spawn a specific unit ; types can be any DCS type (replace spaces with the pound character '#'')
+-- Type "veaf spawn unit, type [unit type]" to spawn a specific unit ; types can be any DCS type
 -- Type "veaf spawn cargo, type [cargo type]" to spawn a specific cargo ; types can be any of [ammo, barrels, container, fbar, fueltank, m117, oiltank, uh1h]
 --      add ", smoke" to add a smoke marker
 --
@@ -185,14 +185,14 @@ function veafSpawn.markTextAnalysis(text)
 
     for _, keyphrase in pairs(keywords) do
         -- Split keyphrase by space. First one is the key and second, ... the parameter(s) until the next comma.
-        local str = veaf.split(keyphrase, " ")
+        local str = veaf.split(veaf.trim(keyphrase), " ")
         local key = str[1]
         local val = str[2]
 
         if switch.unit and key:lower() == "type" then
             -- Set unit type.
             veafSpawn.logDebug(string.format("Keyword type = %s", val))
-            switch.unitType = string.gsub(val, "#", " ") -- replace #s with the original spaces
+            switch.unitType = val
         end
 
         if switch.smoke and key:lower() == "color" then
@@ -432,7 +432,7 @@ function veafSpawn.help()
         'This will spawn the requested object in the DCS world\n' ..
         'You can add options (comma separated) :\n' ..
         '"veaf spawn unit" spawns a target vehicle/ship\n' ..
-        '   "type [unit type]" spawns a specific unit ; types can be any DCS type (replace spaces with the pound character #)\n' ..
+        '   "type [unit type]" spawns a specific unit ; types can be any DCS type\n' ..
         '"veaf spawn cargo" creates a cargo mission\n' ..
         '   "type [cargo type]" spawns a specific cargo ; types can be any of [ammo, barrels, container, fbar, fueltank, m117, oiltank, uh1h]\n' ..
         '   "smoke adds a smoke marker\n' ..
