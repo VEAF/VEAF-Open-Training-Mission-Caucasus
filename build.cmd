@@ -12,7 +12,7 @@ mkdir mission
 xcopy /y /e src tempsrc\
 copy community\mist_4_3_74.lua .\tempsrc\l10n\Default
 copy scripts\VEAF_markers.lua .\tempsrc\l10n\Default
-copy scripts\veaf_grass_runways.lua .\tempsrc\l10n\Default
+copy scripts\veaf_grass.lua .\tempsrc\l10n\Default
 copy scripts\marker.lua .\tempsrc\l10n\Default
 copy community\WeatherMark.lua .\tempsrc\l10n\Default
 pushd tempsrc
