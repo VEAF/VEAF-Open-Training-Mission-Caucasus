@@ -164,9 +164,9 @@ Champ d'application : 1 à 5
 La dispersion des unités au sein d'un groupe dépend du type de groupe et d'unité et reste fixe : la taille de la sous-zone qui contient le groupe est fixe, les unités s'y placent aléatoirement.  
 En modifiant ce paramètre, il est possible de réduire (2, voire 1) ou d'augmenter (4, ou 5) la taille de la zone et l'espacement entre les groupes.
 
-## 8. Création d'unités, de fumées et de cargo
+## 6. Création d'unités, de fumées et de cargo
 
-### 8.1. Principe
+### 6.1. Principe
 
 Cette fonction, à l'instar de nombreuses autres fonctions de cette mission d'entrainement, nécessite qu'on crée un marqueur sur la carte pour y saisir une commande. Voici une [explication détaillée](creation_marqueur.md) de la création d'un marqueur.
 
@@ -177,7 +177,7 @@ Les paramètres sont de la forme *paramètre* *valeur*, séparés les uns des au
 ou  
 `veaf spawn smoke, color red`
 
-### 8.1. Création d'unités
+### 6.2. Création d'unités
 
 En utilisant la commande `veaf spawn unit` on peut créer des unités ennemies controlables.  
 
@@ -188,7 +188,7 @@ Permet de spécifier le type de l'unité à créer.
 Valeur par défaut : BTR-80
 Champ d'application : toutes les unités de DCS (voir [liste des unités](unit-list.md))
 
-### 8.2. Génération de fumée
+### 6.3. Génération de fumée
 
 La commande `veaf spawn smoke` permet de générer des fumigènes de couleur.
 
@@ -199,7 +199,7 @@ Permet de spécifier la couleur de la fumée
 Valeur par défaut : red  
 Champ d'application : red, green, orange, blue, white
 
-### 8.3. Eclairage de zone
+### 6.4. Eclairage de zone
 
 La commande `veaf spawn flare` lance une fusée d'éclairage.
 
@@ -210,7 +210,7 @@ Règle l'altitude initiale (en mètres, au dessus du sol) de la fusée.
 Valeur par défaut : 1000 m  
 Champ d'application : 0 à très très très haut.
 
-### 8.4. Transport sous élingue
+### 6.5. Transport sous élingue
 
 La commande `veaf spawn cargo` place une cargaison prédéfinie et permet son emport sous élingue par un hélicoptère.  
 Une fois la cargo placée, il faut encore utiliser les menus radio standards de DCS pour la sélectionner et l'activer.
@@ -221,6 +221,7 @@ Permet de choisir le type de cargaison.
 
 Valeur par défaut : uh1h  
 Champ d'application : cette table :  
+
 |Type|Description|Masse|
 |--|--|--|
 |ammo||Entre 2205 et 3000 lbs|
@@ -239,11 +240,11 @@ Si cette option est présente, un fumigène vert sera activé près de la cargai
 Valeur par défaut : non
 Champ d'application : oui (présente), non (absente)
 
-## 8. Déplacement d'unités
+## 7. Déplacement d'unités
 
 Il est possible de déplacer les navires et les ravitailleurs.
 
-### 5.1. Principe
+### 7.1. Principe
 
 Le déplacement d'unités, à l'instar de nombreuses autres fonctions de cette mission d'entrainement, nécessite qu'on crée un marqueur sur la carte pour y saisir une commande. Voici une [explication détaillée](creation_marqueur.md) de la création d'un marqueur.
 
@@ -256,7 +257,7 @@ Les paramètres sont de la forme *paramètre* *valeur*, séparés les uns des au
 
 `veaf move group, name LHA-1 Tarawa, speed 15`
 
-### 5.2. Liste des paramètres et valeurs par défaut
+### .2. Liste des paramètres et valeurs par défaut
 
 #### a. name
 

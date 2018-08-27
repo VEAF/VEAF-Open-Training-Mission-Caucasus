@@ -1,4 +1,4 @@
-@echo off
+rem @echo off
 
 IF [%VEAF_LIBRARY_FOLDER%] == [] GOTO DefineDefaultVEAF_LIBRARY_FOLDER
 goto DontDefineDefaultVEAF_LIBRARY_FOLDER
@@ -14,26 +14,25 @@ set MISSION_FILE=.\build\OT_Causacus_%date:~-4,4%%date:~-10,2%%date:~-7,2%.miz
 echo MISSION_FILE = %MISSION_FILE%
 
 rem -- prepare the folders
-rd /s /q .\build >nul 2>&1
-mkdir .\build >nul 2>&1
-mkdir .\build\tempsrc >nul 2>&1
+rd /s /q .\build 
+mkdir .\build 
+mkdir .\build\tempsrc 
 
 rem -- copy all the source mission files
-xcopy /y /e src .\build\tempsrc >nul 2>&1\
+xcopy /y /e src .\build\tempsrc\
 
 rem -- copy all the scripts
-copy community\mist_4_3_74.lua .\build\tempsrc\l10n\Default >nul 2>&1
-copy community\WeatherMark.lua .\build\tempsrc\l10n\Default >nul 2>&1
-copy %VEAF_LIBRARY_FOLDER%\scripts\veaf.lua .\build\tempsrc\l10n\Default >nul 2>&1
-copy %VEAF_LIBRARY_FOLDER%\scripts\veafMarkers.lua .\build\tempsrc\l10n\Default >nul 2>&1
-copy %VEAF_LIBRARY_FOLDER%\scripts\veafSpawn.lua .\build\tempsrc\l10n\Default >nul 2>&1
-copy %VEAF_LIBRARY_FOLDER%\scripts\veafCasMission.lua .\build\tempsrc\l10n\Default >nul 2>&1
-copy %VEAF_LIBRARY_FOLDER%\scripts\veafMove.lua .\build\tempsrc\l10n\Default >nul 2>&1
-copy %VEAF_LIBRARY_FOLDER%\scripts\veafGrass.lua .\build\tempsrc\l10n\Default >nul 2>&1
+copy community\mist_4_3_74.lua .\build\tempsrc\l10n\Default 
+copy community\WeatherMark.lua .\build\tempsrc\l10n\Default 
+copy %VEAF_LIBRARY_FOLDER%\scripts\veaf.lua .\build\tempsrc\l10n\Default 
+copy %VEAF_LIBRARY_FOLDER%\scripts\veafMarkers.lua .\build\tempsrc\l10n\Default 
+copy %VEAF_LIBRARY_FOLDER%\scripts\veafSpawn.lua .\build\tempsrc\l10n\Default 
+copy %VEAF_LIBRARY_FOLDER%\scripts\veafCasMission.lua .\build\tempsrc\l10n\Default 
+copy %VEAF_LIBRARY_FOLDER%\scripts\veafMove.lua .\build\tempsrc\l10n\Default 
+copy %VEAF_LIBRARY_FOLDER%\scripts\veafGrass.lua .\build\tempsrc\l10n\Default 
 
 rem -- compile the mission
-7za a -r -tzip %MISSION_FILE% .\build\tempsrc\* -mem=AES256 * >nul 2>&1
-popd >nul 2>&1
+7za a -r -tzip %MISSION_FILE% .\build\tempsrc\* -mem=AES256
 
 rem -- done !
 echo Built %MISSION_FILE%
