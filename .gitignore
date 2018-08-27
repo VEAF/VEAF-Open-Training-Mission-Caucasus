@@ -1,5 +1,4 @@
 build/*
 build/
+mission/*
 mission/
-old_version/
-*.miz
