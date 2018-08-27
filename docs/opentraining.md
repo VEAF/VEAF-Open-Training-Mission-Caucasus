@@ -6,9 +6,19 @@ Elle est disponible en temps normal sur le serveur DCS dédié (sauf jours de mi
 
 Sa particularité est d'être ouverte, ce qui nécessite de nombreuses personnalisations et programmes (sous forme de scripts lua) qui sont hébergé(e)s sur ce dépot.
 
+## 0. Notes
+
+La mission d'entrainement est susceptible de changer ; les explications ci-dessous ne sont pas garanties à 100%.
+
+Il est possible de télécharger la dernière version de la mission sur [la page des releases du dépot GitHub](https://github.com/VEAF/VEAF-Open-Training-Mission/releases).  
+Elle peut être utilisée en solo.
+
+Le menu radio F10 donne accès à un sous-menu VEAF qui montre les options de toutes les commandes.
+En particulier, une aide en ligne succinte liste les commandes et leurs options.
+
 ## 1. Utilisation générale
 
-Lors du lancement de la mission, ou de la connexion au serveur de la VEAF, je peux choisir un slot qui me place généralement dans un aéronef mais également dans un véhicule (JTAC) ou dans l'uniforme bien repassé d'un général (Game Master).  
+Lors du lancement de la mission, ou de la connexion au serveur de la VEAF, le joueur peut choisir un slot qui le place généralement dans un aéronef mais également dans un véhicule (JTAC) ou dans l'uniforme bien repassé d'un général (Game Master).  
 
 Le côté Bleu est celui des alliés, alors que le côté Rouge représente les ennemis.  
 
@@ -37,133 +47,28 @@ Dans ce marqueur, on peut saisir une commande parmi celles qui sont reconnues pa
 
 Un groupe de porte-aéronefs vogue dans la Mer Noire. On y trouve, outre des navires d'escorte, le [USS Tarawa (LHA-1)](https://en.wikipedia.org/wiki/USS_Tarawa_(LHA-1)) et le [USS John C. Stennis (CVN-74)](https://en.wikipedia.org/wiki/USS_John_C._Stennis).
 
-Il est possible de déplacer les navires, et en particulier les porte-aéronefs, en utilisant la commande suivante dans un marqueur (voir une [explication détaillée](creation_marqueur.md) de la création d'un marqueur) :
-
-`MOVE(LHA-1 Tarawa, 15)`  
- où l'on peut remplacer *LHA-1 Tarawa* par le nom du groupe de navires à déplacer, et *15* par la vitesse (en m/s) de déplacement souhaitée.
-
-Une fois que le groupe de navires a atteint le point matérialisé par le marqueur, il s'arrête en conservant son cap.
-
 ## 4. Artillerie
 
 Le script [arty_opentraining.lua](../scripts/arty_opentraining.lua) permet de gérer des batteries d'artillerie.  
 Il utilise le module *arty* de l'excellent [*Moose*](https://github.com/FlightControl-Master/MOOSE).  
 Vous trouverez la documentation complète du module [ici](https://flightcontrol-master.github.io/MOOSE_DOCS_DEVELOP/Documentation/Functional.Arty.html).
 
-### 4.1. Principe
-
-La fonction *arty*, à l'instar de nombreuses autres fonctions de cette mission d'entrainement, nécessite qu'on crée un marqueur sur la carte pour y saisir une commande. Voici une [explication détaillée](creation_marqueur.md) de la création d'un marqueur.
-
-Dans ce marqueur, on peut saisir une commande parmi celles qui sont reconnues par le script, parmi :
-
-- `arty engage`
-- `arty move`
-- `arty request`
-- `arty cancel`
-
-Les paramètres sont de la forme *paramètre* *valeur*, séparés les uns des autres (et de la commande) par des virgules. Par exemple :
-
-`arty engage, everyone, shots 50`
-
-### 4.2. Liste des unités disponibles
-
-- Alpha 1 ; artillerie de campagne [2S19 Msta](https://en.wikipedia.org/wiki/2S19_Msta) ; clusters Alpha et Short
-- Alpha 2 ; artillerie de campagne [2S19 Msta](https://en.wikipedia.org/wiki/2S19_Msta) ; clusters Alpha et Short
-- Bravo 1 ; artillerie de campagne [2S19 Msta](https://en.wikipedia.org/wiki/2S19_Msta) ; clusters Bravo et Short
-- Bravo 2 ; artillerie de campagne [2S19 Msta](https://en.wikipedia.org/wiki/2S19_Msta) ; clusters Bravo et Short
-- Long 1 ; lance roquettes multiples [BM-30 Smerch](https://en.wikipedia.org/wiki/BM-30_Smerch) ; cluster Long
-- Long 2 ; lance roquettes multiples [BM-30 Smerch](https://en.wikipedia.org/wiki/BM-30_Smerch) ; cluster Long
-- Perry 1 ; Frégate [Oliver Hazard Perry](https://en.wikipedia.org/wiki/Oliver_Hazard_Perry-class_frigate) ; cluster Perry
-- Perry 2 ; Frégate [Oliver Hazard Perry](https://en.wikipedia.org/wiki/Oliver_Hazard_Perry-class_frigate) ; cluster Perry
-
-### 4.3. Liste des commandes et de leurs paramètres (non exhaustive)
-
-#### a. destination : paramètre commun à toutes les commandes
-
-Toutes les commandes acceptent un paramètre qui détermine les unités qui vont répondre à la commande.
-
-Il peut valoir *everyone* (ou *allbatteries*) pour utiliser toutes les batteries disponibles.
-
-On peut aussi préciser un cluster (groupement de batteries, voir liste des batteries) en précisant *cluster* "*nom du cluster*". Par exemple :   `arty engage, cluster "long"`
-
-Il est également possible de choisir une batterie (voir liste des batteries) en précisant *battery* "*nom de la batterie*". Par exemple : `arty engage, battery "Alpha 1"`
-
-#### b. arty engage
-
-Déclenche une frappe d'artillerie sur l'emplacement du marqueur (ou ailleurs, voir paramètre *lldms*).
-
-##### time 
-
-Ce paramètre permet de différer l'engagement.  
-`arty engage, time 23:17`
-
-##### shots
-
-Nombre de munitions tirées (globalement, par toutes les unités participant à l'engagement).  
-`arty engage, shots 28`
-
-##### maxengage
-
-Nombre de fois que la cible sera engagée (par défaut 1).  
-`arty engage, maxengage 4`
-
-##### radius
-
-Rayon de dispersion des munitions, en mètres (par défaut 100).  
-`arty engage, radius 500`
-
-##### weapon 
-
-Arme employée. Permet de choisir entre les différentes armes et munitions disponibles.  
-`arty engage, weapon smokeshells`  
-`arty engage, weapon missile`
-
-##### lldms
-
-Permet de spécifier les coordonnées de l'engagement. Le marker d'origine disparait et un nouveau marker apparait à l'emplacement spécifié.  
-`arty engage, lldms 41:15:10N 44:17:22E`
-
-#### d. arty move
-
-Fait se déplacer la batterie vers le marker.
-
-##### time 
-
-Ce paramètre permet de différer le déplacement.  
-`arty move, time 23:17`
-
-##### speed 
-
-Vitesse de déplacement en km/h.
-
-##### lldms
-
-Permet de spécifier les coordonnées du déplacement. Le marker d'origine disparait et un nouveau marker apparait à l'emplacement spécifié.  
-`arty move, lldms 41:15:10N 44:17:22E`
-
-#### e. arty request
-
-Permet d'obtenir des informations sur l'état des batteries.
-
-##### target
-
-Demande des informations sur la cible actuelle des batteries.
-
-##### move  
-
-Demande des informations sur le déplacement des batteries.
-
-##### ammo
-
-Demande des informations sur les stocks de munitions.
-
-#### f. arty cancel
-
-Permet d'annuler la commande actuelle. Il est également possible de simplement supprimer le marker.
+**Note :** Ce script a été temporairement désactivé, pour cause d'erreur sur le serveur multijoueur ; en effet, après un certain nombre d'heures, les menus radio étaient remplacés par des menus spécifiques à Moose et toute la dynamique de la mission d'entrainement était compromise.
 
 ## 5. Entraînement au combat air-sol - Close Air Support (CAS)
 
-Le script [CAS Infinity VEAF.lua](../scripts/CAS Infinity VEAF.lua) permet de générer facilement des zones de combat aléatoires, pour permettre un entrainement sur mesure.
+Le script [veafCasMission.lua](https://github.com/VEAF/VEAF_mission_library/blob/master/scripts/veafCasMission.lua) permet de générer facilement des zones de combat aléatoires, pour permettre un entrainement sur mesure.
+
+Dans ces zones de combat, le script génère des ensembles d'unités ennemies.
+
+### 5.0. Composition
+
+|Groupe|Nombre|Force|Défenses|
+|--|--|--|--|
+|Sections d'infanterie|Entre *size* - 2 et *size* + 1|3 à 7 fantassins, accompagnés d'un véhicule de transport (blindé, sauf si *armor 0*)|Un manpad plus ou moins moderne (en fonction de *defense*) (sauf si *defense 0*)|
+|Escadres de blindés|entre *size* - 2 et *size* + 1|3 à 6 blindés (dont la composition varie en fonction du paramètre *armor*)|Aucune si *defense 0*, une Shilka si *defense 1-3*, une Tunguska si *defense 4-5*)|
+|Companies de transport|Entre 1 et *size*|2 à 5 véhicules de transport (non armés)|Aucune si *defense 0*, un ZU-23 monté sur plateau si *defense 1-2*, une Shilka si *defense 3-5*|
+|Groupes de défense anti-aérienne|Un (si *defense 1-2*) ou deux|Un parmi SA-15, SA-8, Tunguska, SA-13, SA-9 (en fonction de *defense*)|Entre 1 et 3 parmi Tunguska, SA-13, SA-99, Shilka ZU-23 sur plateau (en fonction de *defense*)|
 
 En fonction du type d'entrainement souhaité et d'appareil piloté, il est possible de choisir des cibles faciles à abattre, ou très fortement défendues.
 
@@ -171,11 +76,11 @@ En fonction du type d'entrainement souhaité et d'appareil piloté, il est possi
 
 La création de zone de CAS, à l'instar de nombreuses autres fonctions de cette mission d'entrainement, nécessite qu'on crée un marqueur sur la carte pour y saisir une commande. Voici une [explication détaillée](creation_marqueur.md) de la création d'un marqueur.
 
-Dans ce marqueur, on doit saisir la commande `create ao`
+Dans ce marqueur, on doit saisir la commande `veaf cas mission`
 
 Les paramètres sont de la forme *paramètre* *valeur*, séparés les uns des autres (et de la commande) par des virgules. Par exemple :
 
-`create ao, size 3, sam 1, armor 0`
+`veaf cas mission, size 3, defense 1, armor 0`
 
 ### 5.2. Liste des paramètres et valeurs par défaut
 
@@ -183,26 +88,52 @@ Chacun des paramètres possède une valeur par défaut. Si le paramètre est omi
 
 #### a. size
 
-Règle la taille du groupe  
+Règle le nombre de groupes de combat et affecte indirectement la taille de la zone  
 
 Valeur par défaut : 1  
 Champ d'application : 1 à 5  
 
-En modifiant ce paramètre, on peut créer des groupes de 2 à 5 fois plus grand que la taille par défaut.
+En modifiant ce paramètre, on peut des groupes plus ou moins nombreux (voir [tableau en tête](#5.0.-Composition)).
 
-Attention : comme les groupes sont générés aléatoirement, la taille réelle peut différer de ce que le paramètre signifie.
+Attention : comme les groupes sont générés aléatoirement, leur nombre et le volume ennemi total peuvent varier.
 
-#### b. sam
+#### b. defense
 
-Règle la difficulté de la mission en changeant les défenses anti-aériennes du groupe.  
+Règle la difficulté de la mission en changeant les défenses anti-aériennes des groupes.  
 Attention : pour les pilotes d'hélicoptère, voir aussi le paramètre *armor*
 
 Valeur par défaut : 1  
 Champ d'application : 0 à 5  
 *A zéro, aucune défense n'est générée.*
 
-Entre 1 et 3, on augmente progressivement le nombre de défenses sans changer la fréquence de distribution statistique (qui gouverne le type de défense généré).  
-En passant à 4, puis 5, on augmente également la probabilité que les défenses soient plus coriaces (par exemple il devient moins rare de voir des SA-15)
+Voir [tableau en tête](#5.0.-Composition)).
+
+Plus précisement, voici la répartition statistique de la composition du (des) groupe(s) de défense anti-aérienne :
+
+__Groupe principal__
+
+Sur un jet aléatoire entre 1 et 100, en descendant dans la table, on sélectionne le type dont la *limite basse* est inférieure au jet.
+
+|Limite basse|En pratique|Type|
+|--|--|--|
+|90 - (3 * (*defense* - 1)|> 78/90|SA-15|
+|75 - (4 * (*defense* - 1)|> 61/75|SA-8|
+|60 - (4 * (*defense* - 1)|> 44/60|Tunguska|
+|40 - (5 * (*defense* - 1)|> 20/40|SA-13|
+|1|> 1|SA-9|
+
+__Groupe secondaire__
+
+On place entre 1 et 3 unités.  
+Sur un jet aléatoire entre 1 et 100, on sélectionne le type dont la *limite basse* est inférieure au jet et dont celle de la ligne suivante lui est supérieure.
+
+|Limite basse|En pratique|Type|
+|--|--|--|
+|75 - (4 * (*defense* - 1))|> 59/75|Tunguska|
+|65 - (5 * (*defense* - 1))|> 45/65|SA-13|
+|50 - (5 * (*defense* - 1))|> 30/50|SA-9|
+|30 - (5 * (*defense* - 1))|> 10/30|Shilka|
+|1|> 1|ZU-23 sur plateau|
 
 #### c. armor
 
@@ -212,8 +143,16 @@ Valeur par défaut : 1
 Champ d'application : 0 à 5  
 *A zéro, aucun blindé n'est généré.*
 
-En augmentant la valeur, les blindés générés sont de plus en plus lourds et dangereux.  
-Attention : comme les groupes sont générés aléatoirement, il est possible (quoi que peu probable) d'avoir des T90 dans un groupe *armor 1* ou de n'avoir que des BRDM dans un groupe *armor 5*. 
+Voir [tableau en tête](#5.0.-Composition)).
+
+Plus précisement, voici la répartition statistique de la composition des escadres de blindés :
+
+|*armor*|types possibles|
+|--|--|
+|1-2|BRDM-2, BMD-1, BMP-1|
+|3|BMP-1, BMP-2, T-55|
+|4|BMP-1, BMP-2, T-55, T-72B|
+|5|BMP-2, BMP-3, T-80UD, T-90|
 
 #### d. spacing
 
@@ -222,21 +161,145 @@ Règle l'espacement des unités et la taille de la zone.
 Valeur par défaut : 3  
 Champ d'application : 1 à 5
 
-Pour chaque type d'unité (fantassin, transport, blindé, défense), la taille par défaut de la zone de placement diffère.   
-En modifiant ce paramètre, il est possible de réduire (2, voire 1) ou d'augmenter (4, ou 5) la taille de cette zone, et donc d'espacer moins ou plus les unités.
+La dispersion des unités au sein d'un groupe dépend du type de groupe et d'unité et reste fixe : la taille de la sous-zone qui contient le groupe est fixe, les unités s'y placent aléatoirement.  
+En modifiant ce paramètre, il est possible de réduire (2, voire 1) ou d'augmenter (4, ou 5) la taille de la zone et l'espacement entre les groupes.
 
-### 5.3. Règles de génération
+## 8. Création d'unités, de fumées et de cargo
 
-Les unités sont générées aléatoirement, en tenant compte des paramètres saisis dans la commande.
+### 8.1. Principe
 
-Voici les règles qui gouvernent cette création.
+Cette fonction, à l'instar de nombreuses autres fonctions de cette mission d'entrainement, nécessite qu'on crée un marqueur sur la carte pour y saisir une commande. Voici une [explication détaillée](creation_marqueur.md) de la création d'un marqueur.
 
-> TODO
+Dans ce marqueur, on doit saisir la commande `veaf spawn [unit|smoke|flare|cargo]`
 
-## 6. Random Air Traffic
+Les paramètres sont de la forme *paramètre* *valeur*, séparés les uns des autres (et de la commande) par des virgules. Par exemple :  
+`veaf spawn cargo, type oiltank`  
+ou  
+`veaf spawn smoke, color red`
 
-> TODO
+### 8.1. Création d'unités
 
-## 7. VEAF Grass Runways
+En utilisant la commande `veaf spawn unit` on peut créer des unités ennemies controlables.  
+
+#### a. type
+
+Permet de spécifier le type de l'unité à créer. 
+
+Valeur par défaut : BTR-80
+Champ d'application : toutes les unités de DCS (voir [liste des unités](unit-list.md))
+
+### 8.2. Génération de fumée
+
+La commande `veaf spawn smoke` permet de générer des fumigènes de couleur.
+
+#### a. color
+
+Permet de spécifier la couleur de la fumée
+
+Valeur par défaut : red  
+Champ d'application : red, green, orange, blue, white
+
+### 8.3. Eclairage de zone
+
+La commande `veaf spawn flare` lance une fusée d'éclairage.
+
+#### a. alt
+
+Règle l'altitude initiale (en mètres, au dessus du sol) de la fusée.
+
+Valeur par défaut : 1000 m  
+Champ d'application : 0 à très très très haut.
+
+### 8.4. Transport sous élingue
+
+La commande `veaf spawn cargo` place une cargaison prédéfinie et permet son emport sous élingue par un hélicoptère.  
+Une fois la cargo placée, il faut encore utiliser les menus radio standards de DCS pour la sélectionner et l'activer.
+
+#### a. type
+
+Permet de choisir le type de cargaison.
+
+Valeur par défaut : uh1h  
+Champ d'application : cette table :  
+|Type|Description|Masse|
+|--|--|--|
+|ammo||Entre 2205 et 3000 lbs|
+|barrels||Entre 300 et 1058 lbs|
+|container||Entre 300 et 3000 lbs|
+|fbar||0 lbs|
+|fueltank||Entre 1764 et 3000 lbs|
+|m117||0 lbs|
+|oiltank||Entre 1543 et 3000 lbs|
+|uh1h||Entre 220 et 3000 lbs|
+
+#### b. smoke
+
+Si cette option est présente, un fumigène vert sera activé près de la cargaison.
+
+Valeur par défaut : non
+Champ d'application : oui (présente), non (absente)
+
+## 8. Déplacement d'unités
+
+Il est possible de déplacer les navires et les ravitailleurs.
+
+### 5.1. Principe
+
+Le déplacement d'unités, à l'instar de nombreuses autres fonctions de cette mission d'entrainement, nécessite qu'on crée un marqueur sur la carte pour y saisir une commande. Voici une [explication détaillée](creation_marqueur.md) de la création d'un marqueur.
+
+Dans ce marqueur, on doit saisir la commande `veaf move [group|tanker]`
+
+Une fois que le groupe de navires (`veaf move group`) a atteint le point matérialisé par le marqueur, il s'arrête en conservant son cap. 
+Le ravitailleur (`veaf move tanker`) entamera un hippodrome de ravitaillement.
+
+Les paramètres sont de la forme *paramètre* *valeur*, séparés les uns des autres (et de la commande) par des virgules. Par exemple :
+
+`veaf move group, name LHA-1 Tarawa, speed 15`
+
+### 5.2. Liste des paramètres et valeurs par défaut
+
+#### a. name
+
+Ce paramètre est **obligatoire** et doit correspondre précisemment au nom du groupe à déplacer.
+
+Valeur par défaut : aucune (erreur si non présent)  
+Champ d'application : doit correspondre au nom d'un groupe existant sur la carte.
+
+#### b. speed
+
+Vitesse de déplacement du groupe (en noeuds)
+
+Valeur par défaut : 20  
+Champ d'application : numérique
+
+#### c. alt
+
+*Spécifique au ravitailleur*  
+Altitude de l'hippodrome de ravitaillement (en pieds).
+
+Valeur par défaut : 20000  
+Champ d'application : numérique
+
+#### d. dist
+
+*Spécifique au ravitailleur*  
+Longueur de la partie linéaire de l'hippodrome de ravitaillement (en miles nautiques).
+
+Valeur par défaut : 20  
+Champ d'application : numérique
+
+#### e. hdg
+
+*Spécifique au ravitailleur*  
+Cap de la partie linéaire de l'hippodrome de ravitaillement (en degrés).
+
+Valeur par défaut : 0  
+Champ d'application : 0 à 359
+
+## 8. Random Air Traffic
+
+**Note :** Ce script a été temporairement désactivé, pour cause d'erreur sur le serveur multijoueur ; en effet, après un certain nombre d'heures, les menus radio étaient remplacés par des menus spécifiques à Moose et toute la dynamique de la mission d'entrainement était compromise.
+
+## 9. VEAF Grass Runways
 
 > TODO
