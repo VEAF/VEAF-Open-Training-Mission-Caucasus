@@ -1,4 +1,4 @@
-rem @echo off
+@echo off
 
 IF [%VEAF_LIBRARY_FOLDER%] == [] GOTO DefineDefaultVEAF_LIBRARY_FOLDER
 goto DontDefineDefaultVEAF_LIBRARY_FOLDER
