@@ -34,7 +34,7 @@ copy %VEAF_LIBRARY_FOLDER%\scripts\veafUnits.lua .\build\tempsrc\l10n\Default
 copy %VEAF_LIBRARY_FOLDER%\scripts\dcsUnits.lua .\build\tempsrc\l10n\Default 
 
 rem -- compile the mission
-7z a -r -tzip %MISSION_FILE% .\build\tempsrc\* -mem=AES256
+7za a -r -tzip %MISSION_FILE% .\build\tempsrc\* -mem=AES256
 
 rem -- done !
 echo Built %MISSION_FILE%
