@@ -159,7 +159,7 @@ options =
         ["AV8BNA"] = 
         {
             ["CPLocalList"] = "default",
-            ["INS_Alignment"] = 0,
+            ["INS_Alignment"] = 1,
             ["INS_GYROHasNAV"] = false,
             ["MPCD_EXPORT"] = false,
         }, -- end of ["AV8BNA"]
