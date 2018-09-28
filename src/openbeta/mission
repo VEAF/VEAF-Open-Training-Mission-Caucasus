@@ -14,7 +14,7 @@ mission =
     {
         ["actions"] = 
         {
-            [1] = "a_do_script_file(getValueResourceByKey(\"ResKey_Action_2522\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_2612\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2526\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2607\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2617\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2608\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2609\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2610\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2546\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2621\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2622\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2623\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_2606\"));a_set_flag_value(4, 1);a_set_flag_value(5, 1);a_set_flag_value(6, 1);a_explosion_unit(138, 1000);a_explosion_unit(648, 1000);a_explosion_unit(649, 1000);a_explosion_unit(756, 1000);a_set_flag_value(50, 1);a_set_flag_value(51, 1);a_set_flag_value(52, 1);",
+            [1] = "a_do_script_file(getValueResourceByKey(\"ResKey_Action_2522\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_2612\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2526\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2607\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2617\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2608\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2609\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2610\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2546\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2621\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2622\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2623\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_2606\"));a_set_flag_value(4, 1);a_set_flag_value(5, 1);a_set_flag_value(6, 1);a_explosion_unit(138, 1000);a_explosion_unit(648, 1000);a_explosion_unit(649, 1000);a_explosion_unit(756, 1000);a_set_flag_value(50, 1);a_set_flag_value(51, 1);a_set_flag_value(52, 1);a_set_ai_task(358, 1);a_set_flag_value(9001, 1);a_set_ai_task(426, 1);a_set_ai_task(426, 2);a_set_flag_value(9074, 1);",
             [2] = "a_set_flag_value(4, 2);a_add_radio_item_for_coalition(\"blue\", getValueDictByKey(\"DictKey_ActionRadioText_217\"), 4, 3);",
             [3] = "a_remove_radio_item_for_coalition(\"blue\", getValueDictByKey(\"DictKey_ActionRadioText_218\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_219\"));a_set_flag_value(4, 1);a_out_text_delay_s(\"blue\", getValueDictByKey(\"DictKey_ActionText_293\"), 4, false);",
             [4] = "a_remove_radio_item_for_coalition(\"blue\", getValueDictByKey(\"DictKey_ActionRadioText_277\"));a_set_flag_value(4, 1);",
@@ -28,6 +28,8 @@ mission =
             [12] = "a_do_script(getValueDictByKey(\"DictKey_ActionText_1977\"));a_set_flag_value(50, 1);a_out_text_delay_s(\"blue\", getValueDictByKey(\"DictKey_ActionText_1978\"), 4, false);",
             [13] = "a_do_script(getValueDictByKey(\"DictKey_ActionText_1979\"));a_set_flag_value(51, 1);a_out_text_delay_s(\"blue\", getValueDictByKey(\"DictKey_ActionText_1980\"), 4, false);",
             [14] = "a_do_script(getValueDictByKey(\"DictKey_ActionText_2063\"));a_set_flag_value(52, 1);a_out_text_delay_s(\"blue\", getValueDictByKey(\"DictKey_ActionText_2064\"), 4, false);",
+            [15] = "a_set_ai_task(426, 1);a_set_ai_task(426, 2);a_set_flag_value(9074, 0);a_set_flag_value(9074, 1);",
+            [16] = "a_set_ai_task(358, 1);a_set_flag_value(9001, 0);a_set_flag_value(9001, 1);",
         }, -- end of ["actions"]
         ["events"] = 
         {
@@ -50,6 +52,8 @@ mission =
             [12] = "if mission.trig.conditions[12]() then mission.trig.actions[12]() end",
             [13] = "if mission.trig.conditions[13]() then mission.trig.actions[13]() end",
             [14] = "if mission.trig.conditions[14]() then mission.trig.actions[14]() end",
+            [15] = "if mission.trig.conditions[15]() then if not mission.trig.flag[15] then mission.trig.actions[15](); mission.trig.flag[15] = true;end; else mission.trig.flag[15] = false; end;",
+            [16] = "if mission.trig.conditions[16]() then if not mission.trig.flag[16] then mission.trig.actions[16](); mission.trig.flag[16] = true;end; else mission.trig.flag[16] = false; end;",
         }, -- end of ["func"]
         ["flag"] = 
         {
@@ -67,6 +71,8 @@ mission =
             [12] = true,
             [13] = true,
             [14] = true,
+            [15] = true,
+            [16] = true,
         }, -- end of ["flag"]
         ["conditions"] = 
         {
@@ -84,6 +90,8 @@ mission =
             [12] = "return(c_flag_equals(50, 2) )",
             [13] = "return(c_flag_equals(51, 2) )",
             [14] = "return(c_flag_equals(52, 2) )",
+            [15] = "return(c_time_since_flag(9074, 300) )",
+            [16] = "return(c_time_since_flag(9001, 300) )",
         }, -- end of ["conditions"]
         ["customStartup"] = 
         {
@@ -133,7 +141,7 @@ mission =
             }, -- end of ["func"]
         }, -- end of ["red"]
     }, -- end of ["result"]
-    ["maxDictId"] = 2623,
+    ["maxDictId"] = 2627,
     ["pictureFileNameN"] = 
     {
     }, -- end of ["pictureFileNameN"]
@@ -307,9 +315,9 @@ mission =
     }, -- end of ["triggers"]
     ["map"] = 
     {
-        ["centerY"] = 476125.86187179,
-        ["zoom"] = 1102172.6638445,
-        ["centerX"] = -293641.14036573,
+        ["centerY"] = 805263.83098422,
+        ["zoom"] = 670546.6616845,
+        ["centerX"] = -346828.81895243,
     }, -- end of ["map"]
     ["coalitions"] = 
     {
@@ -1849,12 +1857,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [2] = 0.303,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -1864,7 +1872,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -1926,12 +1934,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [2] = 0.303,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -1941,7 +1949,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2003,12 +2011,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [2] = 0.303,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2018,7 +2026,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2080,12 +2088,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [2] = 0.303,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2095,7 +2103,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2235,12 +2243,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [2] = 0.303,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2250,7 +2258,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2312,12 +2320,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [2] = 0.303,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2327,7 +2335,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2389,12 +2397,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [2] = 0.303,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2404,7 +2412,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2466,12 +2474,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [2] = 0.303,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2481,7 +2489,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -10386,8 +10394,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 2,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -10443,8 +10452,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 2,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -10500,8 +10510,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 2,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -10736,8 +10747,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 1,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -10793,8 +10805,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 1,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -10850,8 +10863,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 1,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -10907,8 +10921,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 1,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -12863,14 +12878,14 @@ mission =
                                             ["alt"] = 0,
                                             ["action"] = "From Parking Area",
                                             ["alt_type"] = "BARO",
-                                            ["linkUnit"] = 946,
+                                            ["linkUnit"] = 1158,
                                             ["properties"] = 
                                             {
                                                 ["addopt"] = 
                                                 {
                                                 }, -- end of ["addopt"]
                                             }, -- end of ["properties"]
-                                            ["helipadId"] = 946,
+                                            ["helipadId"] = 1158,
                                             ["speed"] = 41.666666666667,
                                             ["task"] = 
                                             {
@@ -12885,8 +12900,8 @@ mission =
                                             ["type"] = "TakeOffParking",
                                             ["ETA"] = 0,
                                             ["ETA_locked"] = true,
-                                            ["y"] = 606566.67457143,
-                                            ["x"] = -302139.98628571,
+                                            ["y"] = 578698.34557371,
+                                            ["x"] = -306806.35928975,
                                             ["name"] = "DictKey_WptName_2056",
                                             ["formation_template"] = "",
                                             ["speed_locked"] = true,
@@ -12947,7 +12962,7 @@ mission =
                                         ["unitId"] = 947,
                                         ["psi"] = 0,
                                         ["parking_id"] = "1",
-                                        ["x"] = -302139.98628571,
+                                        ["x"] = -306806.35928975,
                                         ["name"] = "DictKey_UnitName_2055",
                                         ["payload"] = 
                                         {
@@ -12959,7 +12974,7 @@ mission =
                                             ["chaff"] = 0,
                                             ["gun"] = 100,
                                         }, -- end of ["payload"]
-                                        ["y"] = 606566.67457143,
+                                        ["y"] = 578698.34557371,
                                         ["heading"] = 1.3517858508796,
                                         ["callsign"] = 
                                         {
@@ -12971,8 +12986,8 @@ mission =
                                         ["onboard_num"] = "050",
                                     }, -- end of [1]
                                 }, -- end of ["units"]
-                                ["y"] = 606566.67457143,
-                                ["x"] = -302139.98628571,
+                                ["y"] = 578698.34557371,
+                                ["x"] = -306806.35928975,
                                 ["name"] = "DictKey_GroupName_2054",
                                 ["communication"] = true,
                                 ["start_time"] = 0,
@@ -13349,14 +13364,14 @@ mission =
                                             ["alt"] = 0,
                                             ["action"] = "From Parking Area",
                                             ["alt_type"] = "BARO",
-                                            ["linkUnit"] = 1041,
+                                            ["linkUnit"] = 1159,
                                             ["properties"] = 
                                             {
                                                 ["addopt"] = 
                                                 {
                                                 }, -- end of ["addopt"]
                                             }, -- end of ["properties"]
-                                            ["helipadId"] = 1041,
+                                            ["helipadId"] = 1159,
                                             ["speed"] = 41.666666666667,
                                             ["task"] = 
                                             {
@@ -13371,8 +13386,8 @@ mission =
                                             ["type"] = "TakeOffParking",
                                             ["ETA"] = 0,
                                             ["ETA_locked"] = true,
-                                            ["y"] = 603904.52057143,
-                                            ["x"] = -303056.92742857,
+                                            ["y"] = 575809.15776818,
+                                            ["x"] = -306806.35928975,
                                             ["name"] = "DictKey_WptName_2620",
                                             ["formation_template"] = "",
                                             ["speed_locked"] = true,
@@ -13433,7 +13448,7 @@ mission =
                                         ["unitId"] = 1155,
                                         ["psi"] = 0,
                                         ["parking_id"] = "1",
-                                        ["x"] = -303056.92742857,
+                                        ["x"] = -306806.35928975,
                                         ["name"] = "DictKey_UnitName_2619",
                                         ["payload"] = 
                                         {
@@ -13445,7 +13460,7 @@ mission =
                                             ["chaff"] = 0,
                                             ["gun"] = 100,
                                         }, -- end of ["payload"]
-                                        ["y"] = 603904.52057143,
+                                        ["y"] = 575809.15776818,
                                         ["heading"] = 1.3517858508796,
                                         ["callsign"] = 
                                         {
@@ -13457,8 +13472,8 @@ mission =
                                         ["onboard_num"] = "050",
                                     }, -- end of [1]
                                 }, -- end of ["units"]
-                                ["y"] = 603904.52057143,
-                                ["x"] = -303056.92742857,
+                                ["y"] = 575809.15776818,
+                                ["x"] = -306806.35928975,
                                 ["name"] = "DictKey_GroupName_2618",
                                 ["communication"] = true,
                                 ["start_time"] = 0,
@@ -13476,6 +13491,32 @@ mission =
                                 ["visible"] = false,
                                 ["tasks"] = 
                                 {
+                                    [1] = 
+                                    {
+                                        ["number"] = 1,
+                                        ["auto"] = false,
+                                        ["id"] = "WrappedAction",
+                                        ["enabled"] = true,
+                                        ["params"] = 
+                                        {
+                                            ["action"] = 
+                                            {
+                                                ["id"] = "ActivateBeacon",
+                                                ["params"] = 
+                                                {
+                                                    ["type"] = 4,
+                                                    ["AA"] = false,
+                                                    ["callsign"] = "TRW",
+                                                    ["modeChannel"] = "X",
+                                                    ["channel"] = 1,
+                                                    ["unitId"] = 902,
+                                                    ["system"] = 3,
+                                                    ["bearing"] = true,
+                                                    ["frequency"] = 962000000,
+                                                }, -- end of ["params"]
+                                            }, -- end of ["action"]
+                                        }, -- end of ["params"]
+                                    }, -- end of [1]
                                 }, -- end of ["tasks"]
                                 ["route"] = 
                                 {
@@ -13488,8 +13529,8 @@ mission =
                                             ["ETA"] = 0,
                                             ["alt_type"] = "BARO",
                                             ["formation_template"] = "",
-                                            ["y"] = 600410.37225503,
-                                            ["x"] = -298920.63463776,
+                                            ["y"] = 569740.91471745,
+                                            ["x"] = -298856.72576089,
                                             ["name"] = "DictKey_WptName_1900",
                                             ["ETA_locked"] = true,
                                             ["speed"] = 0,
@@ -13501,32 +13542,6 @@ mission =
                                                 {
                                                     ["tasks"] = 
                                                     {
-                                                        [1] = 
-                                                        {
-                                                            ["number"] = 1,
-                                                            ["auto"] = false,
-                                                            ["id"] = "WrappedAction",
-                                                            ["enabled"] = true,
-                                                            ["params"] = 
-                                                            {
-                                                                ["action"] = 
-                                                                {
-                                                                    ["id"] = "ActivateBeacon",
-                                                                    ["params"] = 
-                                                                    {
-                                                                        ["type"] = 4,
-                                                                        ["AA"] = false,
-                                                                        ["callsign"] = "TRW",
-                                                                        ["system"] = 4,
-                                                                        ["channel"] = 10,
-                                                                        ["modeChannel"] = "X",
-                                                                        ["unitId"] = 902,
-                                                                        ["bearing"] = true,
-                                                                        ["frequency"] = 971000000,
-                                                                    }, -- end of ["params"]
-                                                                }, -- end of ["action"]
-                                                            }, -- end of ["params"]
-                                                        }, -- end of [1]
                                                     }, -- end of ["tasks"]
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
@@ -13547,16 +13562,48 @@ mission =
                                         }, -- end of ["transportable"]
                                         ["unitId"] = 902,
                                         ["skill"] = "Excellent",
-                                        ["y"] = 600410.37225503,
-                                        ["x"] = -298920.63463776,
+                                        ["y"] = 569740.91471745,
+                                        ["x"] = -298856.72576089,
                                         ["name"] = "DictKey_UnitName_1899",
                                         ["heading"] = 5.4628805587423,
                                         ["modulation"] = 0,
-                                        ["frequency"] = 127500000,
+                                        ["frequency"] = 304000000,
                                     }, -- end of [1]
+                                    [2] = 
+                                    {
+                                        ["type"] = "PERRY",
+                                        ["transportable"] = 
+                                        {
+                                            ["randomTransportable"] = false,
+                                        }, -- end of ["transportable"]
+                                        ["unitId"] = 1156,
+                                        ["skill"] = "Excellent",
+                                        ["y"] = 570950.83179028,
+                                        ["x"] = -300020.08500437,
+                                        ["name"] = "DictKey_UnitName_2624",
+                                        ["heading"] = 5.4628805587423,
+                                        ["modulation"] = 0,
+                                        ["frequency"] = 127500000,
+                                    }, -- end of [2]
+                                    [3] = 
+                                    {
+                                        ["type"] = "PERRY",
+                                        ["transportable"] = 
+                                        {
+                                            ["randomTransportable"] = false,
+                                        }, -- end of ["transportable"]
+                                        ["unitId"] = 1157,
+                                        ["skill"] = "Excellent",
+                                        ["y"] = 568172.67544316,
+                                        ["x"] = -299984.91846833,
+                                        ["name"] = "DictKey_UnitName_2625",
+                                        ["heading"] = 5.4628805587423,
+                                        ["modulation"] = 0,
+                                        ["frequency"] = 127500000,
+                                    }, -- end of [3]
                                 }, -- end of ["units"]
-                                ["y"] = 600410.37225503,
-                                ["x"] = -298920.63463776,
+                                ["y"] = 569740.91471745,
+                                ["x"] = -298856.72576089,
                                 ["name"] = "DictKey_GroupName_1898",
                                 ["start_time"] = 0,
                             }, -- end of [1]
@@ -13565,69 +13612,52 @@ mission =
                                 ["visible"] = false,
                                 ["tasks"] = 
                                 {
-                                }, -- end of ["tasks"]
-                                ["route"] = 
-                                {
-                                    ["points"] = 
-                                    {
-                                        [1] = 
-                                        {
-                                            ["alt"] = 0,
-                                            ["type"] = "Turning Point",
-                                            ["ETA"] = 0,
-                                            ["alt_type"] = "BARO",
-                                            ["formation_template"] = "",
-                                            ["y"] = 606566.67457143,
-                                            ["x"] = -302139.98628571,
-                                            ["name"] = "DictKey_WptName_2053",
-                                            ["ETA_locked"] = true,
-                                            ["speed"] = 0,
-                                            ["action"] = "Turning Point",
-                                            ["task"] = 
-                                            {
-                                                ["id"] = "ComboTask",
-                                                ["params"] = 
-                                                {
-                                                    ["tasks"] = 
-                                                    {
-                                                    }, -- end of ["tasks"]
-                                                }, -- end of ["params"]
-                                            }, -- end of ["task"]
-                                            ["speed_locked"] = true,
-                                        }, -- end of [1]
-                                    }, -- end of ["points"]
-                                }, -- end of ["route"]
-                                ["groupId"] = 379,
-                                ["hidden"] = false,
-                                ["units"] = 
-                                {
                                     [1] = 
                                     {
-                                        ["type"] = "PERRY",
-                                        ["transportable"] = 
+                                        ["number"] = 1,
+                                        ["auto"] = false,
+                                        ["id"] = "WrappedAction",
+                                        ["enabled"] = true,
+                                        ["params"] = 
                                         {
-                                            ["randomTransportable"] = false,
-                                        }, -- end of ["transportable"]
-                                        ["unitId"] = 946,
-                                        ["skill"] = "Excellent",
-                                        ["y"] = 606566.67457143,
-                                        ["x"] = -302139.98628571,
-                                        ["name"] = "DictKey_UnitName_2052",
-                                        ["heading"] = 5.4628805587423,
-                                        ["modulation"] = 0,
-                                        ["frequency"] = 127500000,
+                                            ["action"] = 
+                                            {
+                                                ["id"] = "ActivateBeacon",
+                                                ["params"] = 
+                                                {
+                                                    ["type"] = 4,
+                                                    ["AA"] = false,
+                                                    ["callsign"] = "STN",
+                                                    ["modeChannel"] = "X",
+                                                    ["channel"] = 74,
+                                                    ["unitId"] = 1028,
+                                                    ["system"] = 3,
+                                                    ["bearing"] = true,
+                                                    ["frequency"] = 1161000000,
+                                                }, -- end of ["params"]
+                                            }, -- end of ["action"]
+                                        }, -- end of ["params"]
                                     }, -- end of [1]
-                                }, -- end of ["units"]
-                                ["y"] = 606566.67457143,
-                                ["x"] = -302139.98628571,
-                                ["name"] = "DictKey_GroupName_2051",
-                                ["start_time"] = 0,
-                            }, -- end of [2]
-                            [3] = 
-                            {
-                                ["visible"] = false,
-                                ["tasks"] = 
-                                {
+                                    [2] = 
+                                    {
+                                        ["number"] = 2,
+                                        ["auto"] = false,
+                                        ["id"] = "WrappedAction",
+                                        ["enabled"] = true,
+                                        ["params"] = 
+                                        {
+                                            ["action"] = 
+                                            {
+                                                ["id"] = "ActivateICLS",
+                                                ["params"] = 
+                                                {
+                                                    ["type"] = 131584,
+                                                    ["unitId"] = 1028,
+                                                    ["channel"] = 1,
+                                                }, -- end of ["params"]
+                                            }, -- end of ["action"]
+                                        }, -- end of ["params"]
+                                    }, -- end of [2]
                                 }, -- end of ["tasks"]
                                 ["uncontrollable"] = false,
                                 ["route"] = 
@@ -13641,8 +13671,8 @@ mission =
                                             ["ETA"] = 0,
                                             ["alt_type"] = "BARO",
                                             ["formation_template"] = "",
-                                            ["y"] = 605300.32457143,
-                                            ["x"] = -301872.24371428,
+                                            ["y"] = 577399.53637673,
+                                            ["x"] = -305428.03116234,
                                             ["name"] = "DictKey_WptName_2285",
                                             ["ETA_locked"] = true,
                                             ["speed"] = 0,
@@ -13654,32 +13684,6 @@ mission =
                                                 {
                                                     ["tasks"] = 
                                                     {
-                                                        [1] = 
-                                                        {
-                                                            ["enabled"] = true,
-                                                            ["auto"] = true,
-                                                            ["id"] = "WrappedAction",
-                                                            ["number"] = 1,
-                                                            ["params"] = 
-                                                            {
-                                                                ["action"] = 
-                                                                {
-                                                                    ["id"] = "ActivateBeacon",
-                                                                    ["params"] = 
-                                                                    {
-                                                                        ["type"] = 4,
-                                                                        ["AA"] = false,
-                                                                        ["callsign"] = "C74",
-                                                                        ["system"] = 3,
-                                                                        ["channel"] = 74,
-                                                                        ["modeChannel"] = "X",
-                                                                        ["unitId"] = 1028,
-                                                                        ["bearing"] = true,
-                                                                        ["frequency"] = 1161000000,
-                                                                    }, -- end of ["params"]
-                                                                }, -- end of ["action"]
-                                                            }, -- end of ["params"]
-                                                        }, -- end of [1]
                                                     }, -- end of ["tasks"]
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
@@ -13700,83 +13704,51 @@ mission =
                                         }, -- end of ["transportable"]
                                         ["unitId"] = 1028,
                                         ["skill"] = "Excellent",
-                                        ["y"] = 605300.32457143,
-                                        ["x"] = -301872.24371428,
+                                        ["y"] = 577399.53637673,
+                                        ["x"] = -305428.03116234,
                                         ["name"] = "DictKey_UnitName_2284",
                                         ["heading"] = 5.6374134839417,
                                         ["modulation"] = 0,
-                                        ["frequency"] = 127500000,
+                                        ["frequency"] = 305000000,
                                     }, -- end of [1]
-                                }, -- end of ["units"]
-                                ["y"] = 605300.32457143,
-                                ["x"] = -301872.24371428,
-                                ["name"] = "DictKey_GroupName_2283",
-                                ["start_time"] = 0,
-                            }, -- end of [3]
-                            [4] = 
-                            {
-                                ["visible"] = false,
-                                ["tasks"] = 
-                                {
-                                }, -- end of ["tasks"]
-                                ["uncontrollable"] = false,
-                                ["route"] = 
-                                {
-                                    ["points"] = 
-                                    {
-                                        [1] = 
-                                        {
-                                            ["alt"] = 0,
-                                            ["type"] = "Turning Point",
-                                            ["ETA"] = 0,
-                                            ["alt_type"] = "BARO",
-                                            ["formation_template"] = "",
-                                            ["y"] = 603904.52057143,
-                                            ["x"] = -303056.92742857,
-                                            ["name"] = "DictKey_WptName_2306",
-                                            ["ETA_locked"] = true,
-                                            ["speed"] = 0,
-                                            ["action"] = "Turning Point",
-                                            ["task"] = 
-                                            {
-                                                ["id"] = "ComboTask",
-                                                ["params"] = 
-                                                {
-                                                    ["tasks"] = 
-                                                    {
-                                                    }, -- end of ["tasks"]
-                                                }, -- end of ["params"]
-                                            }, -- end of ["task"]
-                                            ["speed_locked"] = true,
-                                        }, -- end of [1]
-                                    }, -- end of ["points"]
-                                }, -- end of ["route"]
-                                ["groupId"] = 430,
-                                ["hidden"] = false,
-                                ["units"] = 
-                                {
-                                    [1] = 
+                                    [2] = 
                                     {
                                         ["type"] = "PERRY",
                                         ["transportable"] = 
                                         {
                                             ["randomTransportable"] = false,
                                         }, -- end of ["transportable"]
-                                        ["unitId"] = 1041,
+                                        ["unitId"] = 1158,
                                         ["skill"] = "Excellent",
-                                        ["y"] = 603904.52057143,
-                                        ["x"] = -303056.92742857,
-                                        ["name"] = "DictKey_UnitName_2305",
-                                        ["heading"] = 5.4628805587423,
+                                        ["y"] = 578698.34557371,
+                                        ["x"] = -306806.35928975,
+                                        ["name"] = "DictKey_UnitName_2626",
+                                        ["heading"] = 5.6374134839417,
                                         ["modulation"] = 0,
                                         ["frequency"] = 127500000,
-                                    }, -- end of [1]
+                                    }, -- end of [2]
+                                    [3] = 
+                                    {
+                                        ["type"] = "PERRY",
+                                        ["transportable"] = 
+                                        {
+                                            ["randomTransportable"] = false,
+                                        }, -- end of ["transportable"]
+                                        ["unitId"] = 1159,
+                                        ["skill"] = "Excellent",
+                                        ["y"] = 575809.15776818,
+                                        ["x"] = -306806.35928975,
+                                        ["name"] = "DictKey_UnitName_2627",
+                                        ["heading"] = 5.6374134839417,
+                                        ["modulation"] = 0,
+                                        ["frequency"] = 127500000,
+                                    }, -- end of [3]
                                 }, -- end of ["units"]
-                                ["y"] = 603904.52057143,
-                                ["x"] = -303056.92742857,
-                                ["name"] = "DictKey_GroupName_2304",
+                                ["y"] = 577399.53637673,
+                                ["x"] = -305428.03116234,
+                                ["name"] = "DictKey_GroupName_2283",
                                 ["start_time"] = 0,
-                            }, -- end of [4]
+                            }, -- end of [2]
                         }, -- end of ["group"]
                     }, -- end of ["ship"]
                     ["id"] = 2,
@@ -19198,6 +19170,24 @@ mission =
                                                                 ["frequency"] = 133000000,
                                                             }, -- end of ["params"]
                                                         }, -- end of [3]
+                                                        [4] = 
+                                                        {
+                                                            ["number"] = 4,
+                                                            ["auto"] = false,
+                                                            ["id"] = "WrappedAction",
+                                                            ["enabled"] = true,
+                                                            ["params"] = 
+                                                            {
+                                                                ["action"] = 
+                                                                {
+                                                                    ["id"] = "SetInvisible",
+                                                                    ["params"] = 
+                                                                    {
+                                                                        ["value"] = true,
+                                                                    }, -- end of ["params"]
+                                                                }, -- end of ["action"]
+                                                            }, -- end of ["params"]
+                                                        }, -- end of [4]
                                                     }, -- end of ["tasks"]
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
@@ -19519,8 +19509,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -19671,8 +19661,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -19823,8 +19813,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -19975,8 +19965,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -20231,8 +20221,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -20383,8 +20373,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -20535,8 +20525,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -20687,8 +20677,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -20893,8 +20883,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21045,8 +21035,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21197,8 +21187,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21349,8 +21339,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21434,8 +21424,8 @@ mission =
                                             ["type"] = "TakeOffParkingHot",
                                             ["ETA"] = 0,
                                             ["ETA_locked"] = true,
-                                            ["y"] = 600410.37225503,
-                                            ["x"] = -298920.63463776,
+                                            ["y"] = 569740.91471745,
+                                            ["x"] = -298856.72576089,
                                             ["name"] = "DictKey_WptName_1939",
                                             ["formation_template"] = "",
                                             ["speed_locked"] = true,
@@ -21562,8 +21552,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21575,7 +21565,7 @@ mission =
                                         ["unitId"] = 917,
                                         ["psi"] = 0,
                                         ["parking_id"] = "1",
-                                        ["x"] = -298920.63463776,
+                                        ["x"] = -298856.72576089,
                                         ["name"] = "DictKey_UnitName_1935",
                                         ["payload"] = 
                                         {
@@ -21587,7 +21577,7 @@ mission =
                                             ["chaff"] = 60,
                                             ["gun"] = 100,
                                         }, -- end of ["payload"]
-                                        ["y"] = 600410.37225503,
+                                        ["y"] = 569740.91471745,
                                         ["heading"] = 0,
                                         ["callsign"] = 
                                         {
@@ -21715,8 +21705,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21752,8 +21742,8 @@ mission =
                                         ["onboard_num"] = "522",
                                     }, -- end of [2]
                                 }, -- end of ["units"]
-                                ["y"] = 600410.37225503,
-                                ["x"] = -298920.63463776,
+                                ["y"] = 569740.91471745,
+                                ["x"] = -298856.72576089,
                                 ["name"] = "DictKey_GroupName_1934",
                                 ["communication"] = true,
                                 ["start_time"] = 0,
@@ -21800,8 +21790,8 @@ mission =
                                             ["type"] = "TakeOffParking",
                                             ["ETA"] = 0,
                                             ["ETA_locked"] = true,
-                                            ["y"] = 600410.37225503,
-                                            ["x"] = -298920.63463776,
+                                            ["y"] = 569740.91471745,
+                                            ["x"] = -298856.72576089,
                                             ["name"] = "DictKey_WptName_1945",
                                             ["formation_template"] = "",
                                             ["speed_locked"] = true,
@@ -21929,8 +21919,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21942,7 +21932,7 @@ mission =
                                         ["unitId"] = 921,
                                         ["psi"] = 0,
                                         ["parking_id"] = "1",
-                                        ["x"] = -298920.63463776,
+                                        ["x"] = -298856.72576089,
                                         ["name"] = "DictKey_UnitName_1941",
                                         ["payload"] = 
                                         {
@@ -21954,7 +21944,7 @@ mission =
                                             ["chaff"] = 60,
                                             ["gun"] = 100,
                                         }, -- end of ["payload"]
-                                        ["y"] = 600410.37225503,
+                                        ["y"] = 569740.91471745,
                                         ["heading"] = 0,
                                         ["callsign"] = 
                                         {
@@ -22081,8 +22071,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -22233,8 +22223,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -22270,8 +22260,8 @@ mission =
                                         ["onboard_num"] = "640",
                                     }, -- end of [3]
                                 }, -- end of ["units"]
-                                ["y"] = 600410.37225503,
-                                ["x"] = -298920.63463776,
+                                ["y"] = 569740.91471745,
+                                ["x"] = -298856.72576089,
                                 ["name"] = "DictKey_GroupName_1940",
                                 ["communication"] = true,
                                 ["start_time"] = 0,
@@ -23140,8 +23130,8 @@ mission =
                                             ["type"] = "TakeOffParking",
                                             ["ETA"] = 0,
                                             ["ETA_locked"] = true,
-                                            ["y"] = 605300.32457143,
-                                            ["x"] = -301872.24371428,
+                                            ["y"] = 577399.53637673,
+                                            ["x"] = -305428.03116234,
                                             ["name"] = "DictKey_WptName_2291",
                                             ["formation_template"] = "",
                                             ["speed_locked"] = true,
@@ -23158,6 +23148,7 @@ mission =
                                         ["alt_type"] = "BARO",
                                         ["livery_id"] = "VFA-34",
                                         ["skill"] = "Client",
+                                        ["parking"] = 1,
                                         ["speed"] = 138.88888888889,
                                         ["AddPropAircraft"] = 
                                         {
@@ -23222,8 +23213,8 @@ mission =
                                         }, -- end of ["Radio"]
                                         ["unitId"] = 1030,
                                         ["psi"] = 0,
-                                        ["y"] = 605300.32457143,
-                                        ["x"] = -301872.24371428,
+                                        ["parking_id"] = "1",
+                                        ["x"] = -305428.03116234,
                                         ["name"] = "DictKey_UnitName_2290",
                                         ["payload"] = 
                                         {
@@ -23236,6 +23227,7 @@ mission =
                                             ["chaff"] = 60,
                                             ["gun"] = 100,
                                         }, -- end of ["payload"]
+                                        ["y"] = 577399.53637673,
                                         ["heading"] = 0,
                                         ["callsign"] = 
                                         {
@@ -23527,8 +23519,8 @@ mission =
                                         ["onboard_num"] = "035",
                                     }, -- end of [4]
                                 }, -- end of ["units"]
-                                ["y"] = 605300.32457143,
-                                ["x"] = -301872.24371428,
+                                ["y"] = 577399.53637673,
+                                ["x"] = -305428.03116234,
                                 ["name"] = "DictKey_GroupName_2289",
                                 ["communication"] = true,
                                 ["start_time"] = 0,
@@ -35057,7 +35049,6 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "Mission Start",
             ["eventlist"] = "",
-            ["predicate"] = "triggerStart",
             ["actions"] = 
             {
                 [1] = 
@@ -35297,7 +35288,72 @@ mission =
                         [2] = "",
                     }, -- end of ["ai_task"]
                 }, -- end of [23]
+                [24] = 
+                {
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                    ["predicate"] = "a_set_ai_task",
+                    ["set_ai_task"] = 
+                    {
+                        [1] = 358,
+                        [2] = 1,
+                    }, -- end of ["set_ai_task"]
+                }, -- end of [24]
+                [25] = 
+                {
+                    ["value"] = 1,
+                    ["flag"] = 9001,
+                    ["predicate"] = "a_set_flag_value",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [25]
+                [26] = 
+                {
+                    ["set_ai_task"] = 
+                    {
+                        [1] = 426,
+                        [2] = 1,
+                    }, -- end of ["set_ai_task"]
+                    ["predicate"] = "a_set_ai_task",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [26]
+                [27] = 
+                {
+                    ["set_ai_task"] = 
+                    {
+                        [1] = 426,
+                        [2] = 2,
+                    }, -- end of ["set_ai_task"]
+                    ["predicate"] = "a_set_ai_task",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [27]
+                [28] = 
+                {
+                    ["flag"] = 9074,
+                    ["value"] = 1,
+                    ["predicate"] = "a_set_flag_value",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [28]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerStart",
         }, -- end of [1]
         [2] = 
         {
@@ -35327,7 +35383,6 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "Mig-29 Radio",
             ["eventlist"] = "",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35356,6 +35411,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
         }, -- end of [2]
         [3] = 
         {
@@ -35378,6 +35434,7 @@ mission =
                 }, -- end of [2]
             }, -- end of ["rules"]
             ["comment"] = "Mig-29 Respawn",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35429,7 +35486,6 @@ mission =
                     ["clearview"] = false,
                 }, -- end of [4]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
             ["eventlist"] = "",
         }, -- end of [3]
         [4] = 
@@ -35453,6 +35509,7 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "Mig-29 Out of zone",
             ["eventlist"] = "",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35479,7 +35536,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
         }, -- end of [4]
         [5] = 
         {
@@ -35501,6 +35557,7 @@ mission =
                 }, -- end of [2]
             }, -- end of ["rules"]
             ["comment"] = "Mig-29*2 Radio",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35529,7 +35586,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
             ["eventlist"] = "",
         }, -- end of [5]
         [6] = 
@@ -35547,6 +35603,7 @@ mission =
             }, -- end of ["rules"]
             ["eventlist"] = "",
             ["comment"] = "Mig-29*2 Respawn",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35598,7 +35655,6 @@ mission =
                     ["clearview"] = false,
                 }, -- end of [4]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
         }, -- end of [6]
         [7] = 
         {
@@ -35620,7 +35676,6 @@ mission =
                 }, -- end of [2]
             }, -- end of ["rules"]
             ["eventlist"] = "",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35647,6 +35702,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
             ["comment"] = "Mig-29*2 Out of zone",
         }, -- end of [7]
         [8] = 
@@ -35676,6 +35732,7 @@ mission =
                 }, -- end of [3]
             }, -- end of ["rules"]
             ["comment"] = "Mig-21 Radio",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35704,7 +35761,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
             ["eventlist"] = "",
         }, -- end of [8]
         [9] = 
@@ -35729,6 +35785,7 @@ mission =
             }, -- end of ["rules"]
             ["eventlist"] = "",
             ["comment"] = "Mig-21 Respawn",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35780,7 +35837,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [4]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
         }, -- end of [9]
         [10] = 
         {
@@ -35802,7 +35858,6 @@ mission =
                 }, -- end of [2]
             }, -- end of ["rules"]
             ["comment"] = "Mig-21 Out of zone",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35829,6 +35884,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
             ["eventlist"] = "",
         }, -- end of [10]
         [11] = 
@@ -35844,6 +35900,7 @@ mission =
                 }, -- end of [1]
             }, -- end of ["rules"]
             ["eventlist"] = "",
+            ["predicate"] = "triggerOnce",
             ["actions"] = 
             {
                 [1] = 
@@ -35889,7 +35946,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [3]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerOnce",
             ["comment"] = "Test tanker radio",
         }, -- end of [11]
         [12] = 
@@ -35907,6 +35963,7 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "KC-135FR Arco respawn",
             ["eventlist"] = "",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35946,7 +36003,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [3]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
         }, -- end of [12]
         [13] = 
         {
@@ -35962,7 +36018,6 @@ mission =
                 }, -- end of [1]
             }, -- end of ["rules"]
             ["eventlist"] = "",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -36002,6 +36057,7 @@ mission =
                     ["clearview"] = false,
                 }, -- end of [3]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
             ["comment"] = "KC-135 Shell respawn",
         }, -- end of [13]
         [14] = 
@@ -36018,7 +36074,6 @@ mission =
                 }, -- end of [1]
             }, -- end of ["rules"]
             ["eventlist"] = "",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -36058,10 +36113,137 @@ mission =
                     ["clearview"] = false,
                 }, -- end of [3]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
             ["comment"] = "KC-130 Texaco respawn",
         }, -- end of [14]
+        [15] = 
+        {
+            ["rules"] = 
+            {
+                [1] = 
+                {
+                    ["coalitionlist"] = "red",
+                    ["zone"] = 306,
+                    ["flag"] = 9074,
+                    ["predicate"] = "c_time_since_flag",
+                    ["seconds"] = 300,
+                }, -- end of [1]
+            }, -- end of ["rules"]
+            ["comment"] = "CVN74-TCN-ILS",
+            ["eventlist"] = "",
+            ["actions"] = 
+            {
+                [1] = 
+                {
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                    ["predicate"] = "a_set_ai_task",
+                    ["set_ai_task"] = 
+                    {
+                        [1] = 426,
+                        [2] = 1,
+                    }, -- end of ["set_ai_task"]
+                }, -- end of [1]
+                [2] = 
+                {
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                    ["predicate"] = "a_set_ai_task",
+                    ["set_ai_task"] = 
+                    {
+                        [1] = 426,
+                        [2] = 2,
+                    }, -- end of ["set_ai_task"]
+                }, -- end of [2]
+                [3] = 
+                {
+                    ["value"] = 0,
+                    ["flag"] = 9074,
+                    ["predicate"] = "a_set_flag_value",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [3]
+                [4] = 
+                {
+                    ["flag"] = 9074,
+                    ["value"] = 1,
+                    ["predicate"] = "a_set_flag_value",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [4]
+            }, -- end of ["actions"]
+            ["predicate"] = "triggerFront",
+        }, -- end of [15]
+        [16] = 
+        {
+            ["rules"] = 
+            {
+                [1] = 
+                {
+                    ["coalitionlist"] = "red",
+                    ["zone"] = 306,
+                    ["flag"] = 9001,
+                    ["predicate"] = "c_time_since_flag",
+                    ["seconds"] = 300,
+                }, -- end of [1]
+            }, -- end of ["rules"]
+            ["eventlist"] = "",
+            ["predicate"] = "triggerFront",
+            ["actions"] = 
+            {
+                [1] = 
+                {
+                    ["set_ai_task"] = 
+                    {
+                        [1] = 358,
+                        [2] = 1,
+                    }, -- end of ["set_ai_task"]
+                    ["predicate"] = "a_set_ai_task",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [1]
+                [2] = 
+                {
+                    ["flag"] = 9001,
+                    ["value"] = 0,
+                    ["predicate"] = "a_set_flag_value",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [2]
+                [3] = 
+                {
+                    ["value"] = 1,
+                    ["flag"] = 9001,
+                    ["predicate"] = "a_set_flag_value",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [3]
+            }, -- end of ["actions"]
+            ["comment"] = "CVN01-TCN-ILS",
+        }, -- end of [16]
     }, -- end of ["trigrules"]
-    ["currentKey"] = 675753,
+    ["currentKey"] = 683825,
     ["start_time"] = 27000,
     ["forcedOptions"] = 
     {
@@ -36302,15 +36484,16 @@ mission =
             ["hidden"] = true,
             ["mm"] = 0,
         }, -- end of ["Vibration_RightEngine"]
-        ["MainReductor_LowOilPressure"] = 
+        ["RPMFault_LeftEngine"] = 
         {
             ["hh"] = 0,
-            ["prob"] = 100,
+            ["id"] = "RPMFault_LeftEngine",
+            ["prob"] = 0,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "MainReductor_LowOilPressure",
+            ["hidden"] = true,
             ["mm"] = 0,
-        }, -- end of ["MainReductor_LowOilPressure"]
+        }, -- end of ["RPMFault_LeftEngine"]
         ["Vibration_LeftEngine"] = 
         {
             ["hh"] = 0,
@@ -36330,16 +36513,15 @@ mission =
             ["id"] = "APU_Fire",
             ["mm"] = 0,
         }, -- end of ["APU_Fire"]
-        ["RPMFault_LeftEngine"] = 
+        ["fuel_sys_feed_tank_pump"] = 
         {
             ["hh"] = 0,
-            ["id"] = "RPMFault_LeftEngine",
-            ["prob"] = 0,
+            ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["hidden"] = true,
+            ["id"] = "fuel_sys_feed_tank_pump",
             ["mm"] = 0,
-        }, -- end of ["RPMFault_LeftEngine"]
+        }, -- end of ["fuel_sys_feed_tank_pump"]
         ["TransitionalReductor_LowOilPressure"] = 
         {
             ["hh"] = 0,
@@ -36387,15 +36569,15 @@ mission =
             ["hidden"] = true,
             ["mm"] = 0,
         }, -- end of ["PPF_LE_TEMPER_LIM_OFF"]
-        ["fuel_sys_feed_tank_pump"] = 
+        ["MainReductor_LowOilPressure"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "fuel_sys_feed_tank_pump",
+            ["id"] = "MainReductor_LowOilPressure",
             ["mm"] = 0,
-        }, -- end of ["fuel_sys_feed_tank_pump"]
+        }, -- end of ["MainReductor_LowOilPressure"]
         ["TailReductor_ShaveInOil"] = 
         {
             ["hh"] = 0,

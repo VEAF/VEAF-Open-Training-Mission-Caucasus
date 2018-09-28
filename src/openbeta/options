@@ -75,7 +75,7 @@ options =
         ["lights"] = 2,
         ["shadows"] = 4,
         ["MSAA"] = 0,
-        ["SSAA"] = 0,
+        ["SSAA"] = 1,
         ["height"] = 2520,
         ["forestDistanceFactor"] = 1,
         ["cockpitGI"] = 1,
@@ -229,7 +229,7 @@ options =
         ["SA342"] = 
         {
             ["StickRollCurve"] = 0,
-            ["VibrationRate"] = 15,
+            ["VibrationRate"] = 100,
             ["PreloadWaypoints"] = true,
             ["CPLocalList"] = "default",
             ["EngineBreak"] = true,
@@ -239,7 +239,7 @@ options =
             ["StickPitchCurve"] = 0,
             ["CPLocalListMG"] = "default",
             ["CPLocalListL"] = "default",
-            ["ControlsDisplayLocation"] = 0,
+            ["ControlsDisplayLocation"] = 2,
             ["CPLocalListM"] = "default",
         }, -- end of ["SA342"]
         ["FC3"] = 
@@ -260,7 +260,7 @@ options =
     {
         ["hear_in_helmet"] = true,
         ["headphones"] = 90,
-        ["cockpit"] = 50,
+        ["cockpit"] = 70,
         ["world"] = 10,
         ["radioSpeech"] = true,
         ["GBreathEffect"] = true,
