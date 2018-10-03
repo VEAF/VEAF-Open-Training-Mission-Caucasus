@@ -11,6 +11,8 @@ Sa particularité est d'être ouverte, ce qui nécessite de nombreuses personnal
 La mission d'entrainement est susceptible de changer ; les explications ci-dessous ne sont pas garanties à 100%.
 
 Il est possible de télécharger la dernière version de la mission sur [la page des releases du dépot GitHub](https://github.com/VEAF/VEAF-Open-Training-Mission/releases).  
+Les toutes dernières versions de développement sont également disponibles sur les sites d'intégration continue, où elles sont générées automatiquement à chaque changement dans le code ; c'est [ici](https://ci.appveyor.com/project/davidp57/veaf-mission-library-oqtmw/build/artifacts) quand les scripts changent, et [ici](https://ci.appveyor.com/project/davidp57/veaf-open-training-mission-or3q1/build/artifacts) quand la mission change.
+
 Elle peut être utilisée en solo.
 
 Le menu radio F10 donne accès à un sous-menu VEAF qui montre les options de toutes les commandes.
@@ -26,11 +28,14 @@ Ce dernier côté est surtout utilisé pour s'exercer contre des pilotes humains
 
 ## 2. Date et Météo
 
-La mission se déroule en juin, par une température clémente. L'heure varie bien évidemment.  
-La météo de la mission est dynamique : 
-- une zone globale englobe la région de l'exercice dans laquelle règne un assez beau temps. La zone d'entrainement au Close Air Support bénéficie de cette météo clémente.
-- une seconde zone de perturbations légères (nuages, pluie, petite brise) entoure les aéroports de Tbilissi, d'où décollent une majorité des forces aériennes Bleues.
-- une dernière zone de perturbations, plus forte, pose quelques soucis de vent et de pluie aux appareils qui évoluent à l'ouest de Tbilissi (zone d'entrainement à la défense aérienne)
+La mission se déroule en automne, par une température clémente. L'heure varie bien évidemment.  
+~~La météo de la mission est dynamique :~~
+
+- ~~une zone globale englobe la région de l'exercice dans laquelle règne un assez beau temps. La zone d'entrainement au Close Air Support bénéficie de cette météo clémente.~~
+- ~~une seconde zone de perturbations légères (nuages, pluie, petite brise) entoure les aéroports de Tbilissi, d'où décollent une majorité des forces aériennes Bleues.~~
+- ~~une dernière zone de perturbations, plus forte, pose quelques soucis de vent et de pluie aux appareils qui évoluent à l'ouest de Tbilissi (zone d'entrainement à la défense aérienne)~~
+
+En attendant de corriger les soucis de la météo dynamique, nous sommes passé à une météo statique ; il fait beau avec quelques petits nuages pour faire joli.
 
 Il est possible d'utiliser la librairie WeatherMark pour obtenir la météo en un point donné de la carte.
 
@@ -47,11 +52,19 @@ Dans ce marqueur, on peut saisir une commande parmi celles qui sont reconnues pa
 
 Un groupe de porte-aéronefs vogue dans la Mer Noire. On y trouve, outre des navires d'escorte, le [USS Tarawa (LHA-1)](https://en.wikipedia.org/wiki/USS_Tarawa_(LHA-1)) et le [USS John C. Stennis (CVN-74)](https://en.wikipedia.org/wiki/USS_John_C._Stennis).
 
+Il est possible de demander aux porte-aéronefs de prendre le vent pour faciliter le lancement et la récupération d'aéronefs.  
+Cela se passe dans le menu radio dédié.
+
+A la réception de la commande "Start carrier air operations", le porte-aéronefs se déplacera de manière à avoir un vent relatif face à la piste, entre 25 et 30 noeuds.  
+Il continuera sur cette trajectoire pendant 30 minutes, avant de retourner à toute vapeur à son point de départ.
+
+Il est possible (voire nécessaire, après le retour automatique du porte-aéronef à son point de départ) de stopper les opérations aériennes en envoyant la commande "End air operations" du menu radio.
+
 ## 4. Artillerie
 
-Le script [arty_opentraining.lua](../scripts/arty_opentraining.lua) permet de gérer des batteries d'artillerie.  
-Il utilise le module *arty* de l'excellent [*Moose*](https://github.com/FlightControl-Master/MOOSE).  
-Vous trouverez la documentation complète du module [ici](https://flightcontrol-master.github.io/MOOSE_DOCS_DEVELOP/Documentation/Functional.Arty.html).
+~~Le script [arty_opentraining.lua](../scripts/arty_opentraining.lua) permet de gérer des batteries d'artillerie.~~  
+~~Il utilise le module *arty* de l'excellent [*Moose*](https://github.com/FlightControl-Master/MOOSE).~~  
+~~Vous trouverez la documentation complète du module [ici](https://flightcontrol-master.github.io/MOOSE_DOCS_DEVELOP/Documentation/Functional.Arty.html).~~
 
 **Note :** Ce script a été temporairement désactivé, pour cause d'erreur sur le serveur multijoueur ; en effet, après un certain nombre d'heures, les menus radio étaient remplacés par des menus spécifiques à Moose et toute la dynamique de la mission d'entrainement était compromise.
 
@@ -110,7 +123,7 @@ Voir [tableau en tête](#5.0.-Composition)).
 
 Plus précisement, voici la répartition statistique de la composition du (des) groupe(s) de défense anti-aérienne :
 
-__Groupe principal__
+##### Groupe principal
 
 Sur un jet aléatoire entre 1 et 100, en descendant dans la table, on sélectionne le type dont la *limite basse* est inférieure au jet.
 
@@ -122,7 +135,7 @@ Sur un jet aléatoire entre 1 et 100, en descendant dans la table, on sélection
 |40 - (5 * (*defense* - 1)|> 20/40|SA-13|
 |1|> 1|SA-9|
 
-__Groupe secondaire__
+##### Groupe secondaire
 
 On place entre 1 et 3 unités.  
 Sur un jet aléatoire entre 1 et 100, on sélectionne le type dont la *limite basse* est inférieure au jet et dont celle de la ligne suivante lui est supérieure.
@@ -158,35 +171,52 @@ Plus précisement, voici la répartition statistique de la composition des escad
 
 Règle l'espacement des unités et la taille de la zone.
 
-Valeur par défaut : 3  
+Valeur par défaut : 1
 Champ d'application : 1 à 5
 
-La dispersion des unités au sein d'un groupe dépend du type de groupe et d'unité et reste fixe : la taille de la sous-zone qui contient le groupe est fixe, les unités s'y placent aléatoirement.  
-En modifiant ce paramètre, il est possible de réduire (2, voire 1) ou d'augmenter (4, ou 5) la taille de la zone et l'espacement entre les groupes.
+La dispersion des unités au sein d'un groupe dépend de ce paramètre et de la définition du groupe.
 
-## 6. Création d'unités, de fumées et de cargo
+En modifiant ce paramètre, il est possible de réduire (0) ou d'augmenter la taille de la zone et l'espacement entre les groupes.
+
+## 6. Création d'unités, de groupes, de fumées et de cargo
 
 ### 6.1. Principe
 
 Cette fonction, à l'instar de nombreuses autres fonctions de cette mission d'entrainement, nécessite qu'on crée un marqueur sur la carte pour y saisir une commande. Voici une [explication détaillée](creation_marqueur.md) de la création d'un marqueur.
 
-Dans ce marqueur, on doit saisir la commande `veaf spawn [unit|smoke|flare|cargo]`
+Dans ce marqueur, on doit saisir la commande `veaf spawn [unit|smoke|flare|cargo|group]`
 
 Les paramètres sont de la forme *paramètre* *valeur*, séparés les uns des autres (et de la commande) par des virgules. Par exemple :  
-`veaf spawn cargo, type oiltank`  
+`veaf spawn cargo, name oiltank`  
 ou  
 `veaf spawn smoke, color red`
 
 ### 6.2. Création d'unités
 
-En utilisant la commande `veaf spawn unit` on peut créer des unités ennemies controlables.  
+En utilisant la commande `veaf spawn unit` on peut créer des unités ennemies ou alliées controlables.  
 
-#### a. type
+#### a. name
 
 Permet de spécifier le type de l'unité à créer. 
 
 Valeur par défaut : BTR-80
 Champ d'application : toutes les unités de DCS (voir [liste des unités](unit-list.md))
+
+#### b. country
+
+Permet de choisir le pays de l'unité. Attention : les unités créées dans la coalition adverse ne seront pas visibles sur la carte...
+
+#### c. hdg
+
+L'unité sera générée face à ce cap.
+
+#### d. speed
+
+Génère l'unité déjà en déplacement à la vitesse indiquée
+
+#### e. alt
+
+L'unité sera générée en l'air à l'altitude précisée.
 
 ### 6.3. Génération de fumée
 
@@ -215,23 +245,32 @@ Champ d'application : 0 à très très très haut.
 La commande `veaf spawn cargo` place une cargaison prédéfinie et permet son emport sous élingue par un hélicoptère.  
 Une fois la cargo placée, il faut encore utiliser les menus radio standards de DCS pour la sélectionner et l'activer.
 
-#### a. type
+#### a. name
 
 Permet de choisir le type de cargaison.
 
-Valeur par défaut : uh1h  
+Valeur par défaut : aucune  
 Champ d'application : cette table :  
 
-|Type|Description|Masse|
-|--|--|--|
-|ammo||Entre 2205 et 3000 lbs|
-|barrels||Entre 300 et 1058 lbs|
-|container||Entre 300 et 3000 lbs|
-|fbar||0 lbs|
-|fueltank||Entre 1764 et 3000 lbs|
-|m117||0 lbs|
-|oiltank||Entre 1543 et 3000 lbs|
-|uh1h||Entre 220 et 3000 lbs|
+|Type|Masse médiane|
+|--|--|
+|ammo|1500 lbs|
+|barrels|480 lbs|
+|container|1200 lbs|
+|fueltank|2400 lbs|
+|f_bar|823 lbs|
+|iso_container|4500 lbs|
+|iso_container_small|3200 lbs|
+|m117|840 lbs|
+|oiltank|2300 lbs|
+|pipes_big|4815 lbs|
+|pipes_small|4350 lbs|
+|tetrapod|5000 lbs|
+|trunks_long|4747 lbs|
+|trunks_small|5000 lbs|
+|uh1h|1000 lbs|
+
+La masse réelle de la cargaison sera aléatoire, et comprise entre 0.5 fois et 1.5 fois la masse médiane.
 
 #### b. smoke
 
@@ -239,6 +278,41 @@ Si cette option est présente, un fumigène vert sera activé près de la cargai
 
 Valeur par défaut : non
 Champ d'application : oui (présente), non (absente)
+
+### 6.6. Création de groupes d'unités
+
+En utilisant la commande `veaf spawn group` on peut créer des groupes d'unités ennemies ou alliées controlables.  
+
+#### a. name
+
+Permet de spécifier le nom du groupe à créer. 
+Il est nécessairement défini dans la bibliothèque de groupes ; la liste (pas forcément toujours très à jour) est accessible [ici](group-list.md)
+
+Valeur par défaut : aucune
+Champ d'application : touts les groupes d'unités définis [ici](group-list.md)
+
+#### b. country
+
+Permet de choisir le pays du groupe. Attention : les groupes créés dans la coalition adverse ne seront pas visibles sur la carte...
+
+#### c. hdg
+
+Le groupe sera généré face à ce cap. Les unités seront tournées également, en fonction de la définition.
+
+#### d. spacing
+
+Règle l'espacement des unités dans le groupe, en ajustant la taille des cellules composant la grille qui est utilisée dans la définition du groupe de *spacing* fois la taille de l'unité contenue dans la cellule.
+
+Valeur par défaut : 5
+Champ d'application : >= 0
+
+#### e. speed
+
+Génère le groupe déjà en déplacement à la vitesse indiquée
+
+#### f. alt
+
+Le groupe sera généré en l'air à l'altitude précisée.
 
 ## 7. Déplacement d'unités
 
