@@ -12,6 +12,7 @@ pushd src\%1
 del /f /q l10n\Default\mist_4_3_74.lua 
 del /f /q l10n\Default\veaf.lua 
 del /f /q l10n\Default\veafCasMission.lua 
+del /f /q l10n\Default\veafTransportMission.lua 
 del /f /q l10n\Default\veafMarkers.lua 
 del /f /q l10n\Default\veafSpawn.lua 
 del /f /q l10n\Default\veafMove.lua 
@@ -20,4 +21,5 @@ del /f /q l10n\Default\veafUnits.lua
 del /f /q l10n\Default\veafCarrierOperations.lua 
 del /f /q l10n\Default\dcsUnits.lua
 del /f /q l10n\Default\WeatherMark.lua
+del /f /q l10n\Default\veafNamedPoints.lua 
 popd

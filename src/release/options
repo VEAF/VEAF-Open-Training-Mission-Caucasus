@@ -16,7 +16,7 @@ options =
         ["collect_stat"] = true,
         ["chat_window_at_start"] = false,
         ["synchronize_controls"] = true,
-        ["show_pilot_body"] = true,
+        ["show_pilot_body"] = false,
     }, -- end of ["miscellaneous"]
     ["difficulty"] = 
     {
@@ -48,7 +48,7 @@ options =
         ["fuel"] = false,
         ["weapons"] = false,
         ["easyCommunication"] = false,
-        ["labels"] = false,
+        ["labels"] = 3,
     }, -- end of ["difficulty"]
     ["VR"] = 
     {
@@ -83,11 +83,11 @@ options =
         ["multiMonitorSetup"] = "mfcd bottom screen",
         ["shadowTree"] = false,
         ["chimneySmokeDensity"] = 5,
-        ["fullScreen"] = true,
+        ["fullScreen"] = false,
         ["disableAero"] = true,
         ["DOF"] = 0,
         ["clouds"] = 1,
-        ["flatTerrainShadows"] = 1,
+        ["flatTerrainShadows"] = 0,
         ["width"] = 3440,
         ["textures"] = 2,
         ["effects"] = 3,
@@ -96,7 +96,7 @@ options =
         ["sync"] = false,
         ["LensEffects"] = 0,
         ["visibRange"] = "High",
-        ["clutterMaxDistance"] = 1000,
+        ["clutterMaxDistance"] = 1500,
         ["scaleGui"] = false,
         ["civTraffic"] = "high",
     }, -- end of ["graphics"]
@@ -119,12 +119,12 @@ options =
         }, -- end of ["M-2000C"]
         ["A-10C"] = 
         {
-            ["CPLocalList"] = "default",
+            ["CPLocalList"] = "Ricardo HD",
         }, -- end of ["A-10C"]
         ["Ka-50"] = 
         {
             ["Ka50TrimmingMethod"] = 0,
-            ["CPLocalList"] = "english",
+            ["CPLocalList"] = "ricardo",
             ["Ka50RudderTrimmer"] = false,
             ["helmetCircleDisplacement"] = 11,
         }, -- end of ["Ka-50"]
@@ -159,13 +159,13 @@ options =
         ["AV8BNA"] = 
         {
             ["CPLocalList"] = "default",
-            ["INS_Alignment"] = 0,
+            ["INS_Alignment"] = 1,
             ["INS_GYROHasNAV"] = false,
             ["MPCD_EXPORT"] = false,
         }, -- end of ["AV8BNA"]
         ["Su-25T"] = 
         {
-            ["CPLocalList"] = "default",
+            ["CPLocalList"] = "english",
         }, -- end of ["Su-25T"]
         ["NS430"] = 
         {
@@ -213,7 +213,7 @@ options =
         }, -- end of ["NS430"]
         ["AJS37"] = 
         {
-            ["CPLocalList"] = "default",
+            ["CPLocalList"] = "English",
         }, -- end of ["AJS37"]
         ["Mi-8MTV2"] = 
         {
@@ -223,7 +223,7 @@ options =
             ["gunCamera"] = 0,
             ["Mi8CockpitShake"] = 50,
             ["controlHelperMi8"] = false,
-            ["CPLocalList"] = "english",
+            ["CPLocalList"] = "default",
             ["Mi8FOV"] = 120,
         }, -- end of ["Mi-8MTV2"]
         ["SA342"] = 
@@ -274,7 +274,7 @@ options =
     {
         ["cockpit"] = 
         {
-            ["mirrors"] = false,
+            ["mirrors"] = true,
             ["reflections"] = false,
             ["avionics"] = 3,
         }, -- end of ["cockpit"]

@@ -14,7 +14,7 @@ mission =
     {
         ["actions"] = 
         {
-            [1] = "a_do_script_file(getValueResourceByKey(\"ResKey_Action_2522\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_2612\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2526\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2607\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2617\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2608\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2609\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2610\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2546\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2621\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2622\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2623\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_2606\"));a_set_flag_value(4, 1);a_set_flag_value(5, 1);a_set_flag_value(6, 1);a_explosion_unit(138, 1000);a_explosion_unit(648, 1000);a_explosion_unit(649, 1000);a_explosion_unit(756, 1000);a_set_flag_value(50, 1);a_set_flag_value(51, 1);a_set_flag_value(52, 1);a_set_ai_task(358, 1);a_set_flag_value(9001, 1);a_set_ai_task(426, 1);a_set_ai_task(426, 2);a_set_flag_value(9074, 1);",
+            [1] = "a_do_script_file(getValueResourceByKey(\"ResKey_Action_2522\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_2612\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2526\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2607\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2617\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2608\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2609\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2610\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2546\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2621\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2622\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2623\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2628\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_2629\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_2606\"));a_set_flag_value(4, 1);a_set_flag_value(5, 1);a_set_flag_value(6, 1);a_explosion_unit(138, 1000);a_explosion_unit(648, 1000);a_explosion_unit(649, 1000);a_explosion_unit(756, 1000);a_set_flag_value(50, 1);a_set_flag_value(51, 1);a_set_flag_value(52, 1);a_set_ai_task(358, 1);a_set_flag_value(9001, 1);a_set_ai_task(426, 1);a_set_ai_task(426, 2);a_set_flag_value(9074, 1);",
             [2] = "a_set_flag_value(4, 2);a_add_radio_item_for_coalition(\"blue\", getValueDictByKey(\"DictKey_ActionRadioText_217\"), 4, 3);",
             [3] = "a_remove_radio_item_for_coalition(\"blue\", getValueDictByKey(\"DictKey_ActionRadioText_218\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_219\"));a_set_flag_value(4, 1);a_out_text_delay_s(\"blue\", getValueDictByKey(\"DictKey_ActionText_293\"), 4, false);",
             [4] = "a_remove_radio_item_for_coalition(\"blue\", getValueDictByKey(\"DictKey_ActionRadioText_277\"));a_set_flag_value(4, 1);",
@@ -141,7 +141,7 @@ mission =
             }, -- end of ["func"]
         }, -- end of ["red"]
     }, -- end of ["result"]
-    ["maxDictId"] = 2627,
+    ["maxDictId"] = 2629,
     ["pictureFileNameN"] = 
     {
     }, -- end of ["pictureFileNameN"]
@@ -315,9 +315,9 @@ mission =
     }, -- end of ["triggers"]
     ["map"] = 
     {
-        ["centerY"] = 542896.84821606,
-        ["zoom"] = 354631.21069136,
-        ["centerX"] = -348070.76912132,
+        ["centerY"] = 276792.38568756,
+        ["zoom"] = 1103786.4346162,
+        ["centerX"] = -329127.84417351,
     }, -- end of ["map"]
     ["coalitions"] = 
     {
@@ -1857,12 +1857,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [2] = 0.303,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -1872,7 +1872,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -1934,12 +1934,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [2] = 0.303,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -1949,7 +1949,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2011,12 +2011,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [2] = 0.303,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2026,7 +2026,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2088,12 +2088,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [2] = 0.303,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2103,7 +2103,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2243,12 +2243,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [2] = 0.303,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2258,7 +2258,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2320,12 +2320,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [2] = 0.303,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2335,7 +2335,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2397,12 +2397,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [2] = 0.303,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2412,7 +2412,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2474,12 +2474,12 @@ mission =
                                             {
                                                 ["channels"] = 
                                                 {
-                                                    [1] = 0.625,
+                                                    [14] = 0.283,
                                                     [13] = 0.583,
                                                     [7] = 0.443,
-                                                    [14] = 0.283,
+                                                    [1] = 0.625,
                                                     [2] = 0.303,
-                                                    [15] = 0.995,
+                                                    [4] = 0.591,
                                                     [8] = 0.215,
                                                     [16] = 1.21,
                                                     [9] = 0.525,
@@ -2489,7 +2489,7 @@ mission =
                                                     [3] = 0.289,
                                                     [6] = 0.803,
                                                     [12] = 0.35,
-                                                    [4] = 0.591,
+                                                    [15] = 0.995,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -10394,8 +10394,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 2,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -10451,8 +10452,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 2,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -10508,8 +10510,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 2,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -10744,8 +10747,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 1,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -10801,8 +10805,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 1,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -10858,8 +10863,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 1,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -10915,8 +10921,9 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
                                             ["WeapSafeHeight"] = 1,
+                                            ["Rb04VinkelHopp"] = 0,
+                                            ["MissionGeneratorSetting"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AJS37",
                                         ["Radio"] = 
@@ -19401,10 +19408,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -19502,8 +19509,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -19553,10 +19560,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -19654,8 +19661,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -19705,10 +19712,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -19806,8 +19813,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -19857,10 +19864,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -19958,8 +19965,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -20113,10 +20120,10 @@ mission =
                                             ["ForceINSRules"] = true,
                                             ["EWDispenserTBR"] = 2,
                                             ["EWDispenserBL"] = 2,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["ClockTime"] = 1,
                                             ["WpBullseye"] = 1,
+                                            ["ClockTime"] = 1,
+                                            ["EWDispenserTFL"] = 1,
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -20214,8 +20221,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -20265,10 +20272,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -20366,8 +20373,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -20417,10 +20424,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -20518,8 +20525,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -20569,10 +20576,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -20670,8 +20677,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -20775,10 +20782,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -20876,8 +20883,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -20927,10 +20934,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -21028,8 +21035,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21079,10 +21086,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -21180,8 +21187,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21231,10 +21238,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -21332,8 +21339,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21444,10 +21451,10 @@ mission =
                                             ["ForceINSRules"] = true,
                                             ["EWDispenserTBR"] = 2,
                                             ["EWDispenserBL"] = 2,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserTBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserTBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -21545,8 +21552,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21597,10 +21604,10 @@ mission =
                                             ["EWDispenserBL"] = 2,
                                             ["MountNVG"] = false,
                                             ["EWDispenserTFR"] = 1,
-                                            ["EWDispenserTFL"] = 1,
                                             ["WpBullseye"] = 0,
-                                            ["ClockTime"] = 1,
                                             ["RocketBurst"] = 1,
+                                            ["ClockTime"] = 1,
+                                            ["EWDispenserTFL"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -21698,8 +21705,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21811,10 +21818,10 @@ mission =
                                             ["ForceINSRules"] = true,
                                             ["EWDispenserTBR"] = 2,
                                             ["EWDispenserBL"] = 2,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserTBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserTBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -21912,8 +21919,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -21963,10 +21970,10 @@ mission =
                                             ["ForceINSRules"] = true,
                                             ["EWDispenserTBR"] = 2,
                                             ["EWDispenserBL"] = 2,
-                                            ["EWDispenserTFL"] = 1,
                                             ["RocketBurst"] = 1,
-                                            ["EWDispenserTBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserTBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -22064,8 +22071,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [7] = 270,
                                                     [27] = 133,
+                                                    [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -22115,10 +22122,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
                                             ["ForceINSRules"] = true,
-                                            ["RocketBurst"] = 1,
                                             ["EWDispenserTFL"] = 1,
-                                            ["ClockTime"] = 1,
                                             ["WpBullseye"] = 0,
+                                            ["ClockTime"] = 1,
+                                            ["RocketBurst"] = 1,
                                             ["EWDispenserBL"] = 2,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -22216,8 +22223,8 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [27] = 133,
                                                     [7] = 270,
+                                                    [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
                                                     [23] = 122.1,
@@ -33681,10 +33688,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["WpBullseye"] = 0,
                                             ["EWDispenserTFL"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["RocketBurst"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["WpBullseye"] = 0,
                                             ["ForceINSRules"] = false,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -35046,6 +35053,7 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "Mission Start",
             ["eventlist"] = "",
+            ["predicate"] = "triggerStart",
             ["actions"] = 
             {
                 [1] = 
@@ -35171,11 +35179,31 @@ mission =
                 }, -- end of [12]
                 [13] = 
                 {
+                    ["file"] = "ResKey_Action_2628",
+                    ["predicate"] = "a_do_script_file",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [13]
+                [14] = 
+                {
+                    ["file"] = "ResKey_Action_2629",
+                    ["predicate"] = "a_do_script_file",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [14]
+                [15] = 
+                {
                     ["text"] = "DictKey_ActionText_2606",
                     ["predicate"] = "a_do_script",
                     ["KeyDict_text"] = "DictKey_ActionText_2606",
-                }, -- end of [13]
-                [14] = 
+                }, -- end of [15]
+                [16] = 
                 {
                     ["value"] = 1,
                     ["flag"] = 4,
@@ -35185,8 +35213,8 @@ mission =
                         [1] = "",
                         [2] = "",
                     }, -- end of ["ai_task"]
-                }, -- end of [14]
-                [15] = 
+                }, -- end of [16]
+                [17] = 
                 {
                     ["flag"] = 5,
                     ["value"] = 1,
@@ -35196,8 +35224,8 @@ mission =
                         [1] = "",
                         [2] = "",
                     }, -- end of ["ai_task"]
-                }, -- end of [15]
-                [16] = 
+                }, -- end of [17]
+                [18] = 
                 {
                     ["value"] = 1,
                     ["flag"] = 6,
@@ -35207,33 +35235,11 @@ mission =
                         [1] = "",
                         [2] = "",
                     }, -- end of ["ai_task"]
-                }, -- end of [16]
-                [17] = 
-                {
-                    ["volume"] = 1000,
-                    ["unit"] = 138,
-                    ["predicate"] = "a_explosion_unit",
-                    ["ai_task"] = 
-                    {
-                        [1] = "",
-                        [2] = "",
-                    }, -- end of ["ai_task"]
-                }, -- end of [17]
-                [18] = 
-                {
-                    ["ai_task"] = 
-                    {
-                        [1] = "",
-                        [2] = "",
-                    }, -- end of ["ai_task"]
-                    ["unit"] = 648,
-                    ["predicate"] = "a_explosion_unit",
-                    ["volume"] = 1000,
                 }, -- end of [18]
                 [19] = 
                 {
                     ["volume"] = 1000,
-                    ["unit"] = 649,
+                    ["unit"] = 138,
                     ["predicate"] = "a_explosion_unit",
                     ["ai_task"] = 
                     {
@@ -35248,11 +35254,33 @@ mission =
                         [1] = "",
                         [2] = "",
                     }, -- end of ["ai_task"]
-                    ["unit"] = 756,
+                    ["unit"] = 648,
                     ["predicate"] = "a_explosion_unit",
                     ["volume"] = 1000,
                 }, -- end of [20]
                 [21] = 
+                {
+                    ["volume"] = 1000,
+                    ["unit"] = 649,
+                    ["predicate"] = "a_explosion_unit",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [21]
+                [22] = 
+                {
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                    ["unit"] = 756,
+                    ["predicate"] = "a_explosion_unit",
+                    ["volume"] = 1000,
+                }, -- end of [22]
+                [23] = 
                 {
                     ["flag"] = 50,
                     ["value"] = 1,
@@ -35262,8 +35290,8 @@ mission =
                         [1] = "",
                         [2] = "",
                     }, -- end of ["ai_task"]
-                }, -- end of [21]
-                [22] = 
+                }, -- end of [23]
+                [24] = 
                 {
                     ["value"] = 1,
                     ["flag"] = 51,
@@ -35273,8 +35301,8 @@ mission =
                         [1] = "",
                         [2] = "",
                     }, -- end of ["ai_task"]
-                }, -- end of [22]
-                [23] = 
+                }, -- end of [24]
+                [25] = 
                 {
                     ["flag"] = 52,
                     ["value"] = 1,
@@ -35284,8 +35312,8 @@ mission =
                         [1] = "",
                         [2] = "",
                     }, -- end of ["ai_task"]
-                }, -- end of [23]
-                [24] = 
+                }, -- end of [25]
+                [26] = 
                 {
                     ["ai_task"] = 
                     {
@@ -35298,8 +35326,8 @@ mission =
                         [1] = 358,
                         [2] = 1,
                     }, -- end of ["set_ai_task"]
-                }, -- end of [24]
-                [25] = 
+                }, -- end of [26]
+                [27] = 
                 {
                     ["value"] = 1,
                     ["flag"] = 9001,
@@ -35309,8 +35337,8 @@ mission =
                         [1] = "",
                         [2] = "",
                     }, -- end of ["ai_task"]
-                }, -- end of [25]
-                [26] = 
+                }, -- end of [27]
+                [28] = 
                 {
                     ["set_ai_task"] = 
                     {
@@ -35323,8 +35351,8 @@ mission =
                         [1] = "",
                         [2] = "",
                     }, -- end of ["ai_task"]
-                }, -- end of [26]
-                [27] = 
+                }, -- end of [28]
+                [29] = 
                 {
                     ["set_ai_task"] = 
                     {
@@ -35337,8 +35365,8 @@ mission =
                         [1] = "",
                         [2] = "",
                     }, -- end of ["ai_task"]
-                }, -- end of [27]
-                [28] = 
+                }, -- end of [29]
+                [30] = 
                 {
                     ["flag"] = 9074,
                     ["value"] = 1,
@@ -35348,9 +35376,8 @@ mission =
                         [1] = "",
                         [2] = "",
                     }, -- end of ["ai_task"]
-                }, -- end of [28]
+                }, -- end of [30]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerStart",
         }, -- end of [1]
         [2] = 
         {
@@ -35380,6 +35407,7 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "Mig-29 Radio",
             ["eventlist"] = "",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35408,7 +35436,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
         }, -- end of [2]
         [3] = 
         {
@@ -35431,7 +35458,6 @@ mission =
                 }, -- end of [2]
             }, -- end of ["rules"]
             ["comment"] = "Mig-29 Respawn",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35483,6 +35509,7 @@ mission =
                     ["clearview"] = false,
                 }, -- end of [4]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
             ["eventlist"] = "",
         }, -- end of [3]
         [4] = 
@@ -35506,7 +35533,6 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "Mig-29 Out of zone",
             ["eventlist"] = "",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35533,6 +35559,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
         }, -- end of [4]
         [5] = 
         {
@@ -35554,7 +35581,6 @@ mission =
                 }, -- end of [2]
             }, -- end of ["rules"]
             ["comment"] = "Mig-29*2 Radio",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35583,6 +35609,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
             ["eventlist"] = "",
         }, -- end of [5]
         [6] = 
@@ -35600,7 +35627,6 @@ mission =
             }, -- end of ["rules"]
             ["eventlist"] = "",
             ["comment"] = "Mig-29*2 Respawn",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35652,6 +35678,7 @@ mission =
                     ["clearview"] = false,
                 }, -- end of [4]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
         }, -- end of [6]
         [7] = 
         {
@@ -35673,6 +35700,7 @@ mission =
                 }, -- end of [2]
             }, -- end of ["rules"]
             ["eventlist"] = "",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35699,7 +35727,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
             ["comment"] = "Mig-29*2 Out of zone",
         }, -- end of [7]
         [8] = 
@@ -35729,7 +35756,6 @@ mission =
                 }, -- end of [3]
             }, -- end of ["rules"]
             ["comment"] = "Mig-21 Radio",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35758,6 +35784,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
             ["eventlist"] = "",
         }, -- end of [8]
         [9] = 
@@ -35782,7 +35809,6 @@ mission =
             }, -- end of ["rules"]
             ["eventlist"] = "",
             ["comment"] = "Mig-21 Respawn",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35834,6 +35860,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [4]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
         }, -- end of [9]
         [10] = 
         {
@@ -35855,6 +35882,7 @@ mission =
                 }, -- end of [2]
             }, -- end of ["rules"]
             ["comment"] = "Mig-21 Out of zone",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -35881,7 +35909,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [2]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
             ["eventlist"] = "",
         }, -- end of [10]
         [11] = 
@@ -35897,7 +35924,6 @@ mission =
                 }, -- end of [1]
             }, -- end of ["rules"]
             ["eventlist"] = "",
-            ["predicate"] = "triggerOnce",
             ["actions"] = 
             {
                 [1] = 
@@ -35943,6 +35969,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [3]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerOnce",
             ["comment"] = "Test tanker radio",
         }, -- end of [11]
         [12] = 
@@ -35960,7 +35987,6 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "KC-135FR Arco respawn",
             ["eventlist"] = "",
-            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -36000,6 +36026,7 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [3]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerContinious",
         }, -- end of [12]
         [13] = 
         {
@@ -36015,6 +36042,7 @@ mission =
                 }, -- end of [1]
             }, -- end of ["rules"]
             ["eventlist"] = "",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -36054,7 +36082,6 @@ mission =
                     ["clearview"] = false,
                 }, -- end of [3]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
             ["comment"] = "KC-135 Shell respawn",
         }, -- end of [13]
         [14] = 
@@ -36071,6 +36098,7 @@ mission =
                 }, -- end of [1]
             }, -- end of ["rules"]
             ["eventlist"] = "",
+            ["predicate"] = "triggerContinious",
             ["actions"] = 
             {
                 [1] = 
@@ -36110,7 +36138,6 @@ mission =
                     ["clearview"] = false,
                 }, -- end of [3]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerContinious",
             ["comment"] = "KC-130 Texaco respawn",
         }, -- end of [14]
         [15] = 
@@ -36128,6 +36155,7 @@ mission =
             }, -- end of ["rules"]
             ["comment"] = "CVN74-TCN-ILS",
             ["eventlist"] = "",
+            ["predicate"] = "triggerFront",
             ["actions"] = 
             {
                 [1] = 
@@ -36181,7 +36209,6 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [4]
             }, -- end of ["actions"]
-            ["predicate"] = "triggerFront",
         }, -- end of [15]
         [16] = 
         {
@@ -36197,7 +36224,6 @@ mission =
                 }, -- end of [1]
             }, -- end of ["rules"]
             ["eventlist"] = "",
-            ["predicate"] = "triggerFront",
             ["actions"] = 
             {
                 [1] = 
@@ -36237,10 +36263,11 @@ mission =
                     }, -- end of ["ai_task"]
                 }, -- end of [3]
             }, -- end of ["actions"]
+            ["predicate"] = "triggerFront",
             ["comment"] = "CVN01-TCN-ILS",
         }, -- end of [16]
     }, -- end of ["trigrules"]
-    ["currentKey"] = 683833,
+    ["currentKey"] = 686479,
     ["start_time"] = 27000,
     ["forcedOptions"] = 
     {
@@ -36264,16 +36291,6 @@ mission =
     }, -- end of ["forcedOptions"]
     ["failures"] = 
     {
-        ["TailReductor_LowOilPressure"] = 
-        {
-            ["hh"] = 0,
-            ["id"] = "TailReductor_LowOilPressure",
-            ["prob"] = 0,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["hidden"] = true,
-            ["mm"] = 0,
-        }, -- end of ["TailReductor_LowOilPressure"]
         ["es_damage_VU3"] = 
         {
             ["hh"] = 0,
@@ -36293,52 +36310,48 @@ mission =
             ["id"] = "RightEngine_LowOilPressure",
             ["mm"] = 0,
         }, -- end of ["RightEngine_LowOilPressure"]
-        ["es_damage_VU1"] = 
-        {
-            ["hh"] = 0,
-            ["id"] = "es_damage_VU1",
-            ["prob"] = 0,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["hidden"] = true,
-            ["mm"] = 0,
-        }, -- end of ["es_damage_VU1"]
-        ["fuel_sys_right_transfer_pump"] = 
+        ["fs_aft_LH_leakage"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "fuel_sys_right_transfer_pump",
             ["mm"] = 0,
-        }, -- end of ["fuel_sys_right_transfer_pump"]
-        ["EEC_Failure_LeftEngine"] = 
+        }, -- end of ["fs_aft_LH_leakage"]
+        ["fs_aft_central_leakage"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "EEC_Failure_LeftEngine",
             ["mm"] = 0,
-        }, -- end of ["EEC_Failure_LeftEngine"]
-        ["MainReductor_ShaveInOil"] = 
+        }, -- end of ["fs_aft_central_leakage"]
+        ["NOSE_AIRSPEED_INDICATOR_FAILURE"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "MainReductor_ShaveInOil",
+            ["id"] = "NOSE_AIRSPEED_INDICATOR_FAILURE",
             ["mm"] = 0,
-        }, -- end of ["MainReductor_ShaveInOil"]
-        ["Failure_LeftEngine"] = 
+        }, -- end of ["NOSE_AIRSPEED_INDICATOR_FAILURE"]
+        ["ELEC_BOOSTER_FUEL_PUMP_2_FAILURE"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "Failure_LeftEngine",
             ["mm"] = 0,
-        }, -- end of ["Failure_LeftEngine"]
+        }, -- end of ["ELEC_BOOSTER_FUEL_PUMP_2_FAILURE"]
+        ["ARN_82_FAILURE_TOTAL"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "ARN_82_FAILURE_TOTAL",
+            ["mm"] = 0,
+        }, -- end of ["ARN_82_FAILURE_TOTAL"]
         ["Failure_RightEngine"] = 
         {
             ["hh"] = 0,
@@ -36348,44 +36361,41 @@ mission =
             ["id"] = "Failure_RightEngine",
             ["mm"] = 0,
         }, -- end of ["Failure_RightEngine"]
-        ["hydro_main"] = 
+        ["FLEX_S_NO_POWER_SUPPLY"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "hydro_main",
+            ["id"] = "FLEX_S_NO_POWER_SUPPLY",
             ["mm"] = 0,
-        }, -- end of ["hydro_main"]
-        ["LeftEngine_LowOilPressure"] = 
+        }, -- end of ["FLEX_S_NO_POWER_SUPPLY"]
+        ["ROOF_AIRSPEED_INDICATOR_FAILURE"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "LeftEngine_LowOilPressure",
+            ["id"] = "ROOF_AIRSPEED_INDICATOR_FAILURE",
             ["mm"] = 0,
-        }, -- end of ["LeftEngine_LowOilPressure"]
-        ["SAR_1_95"] = 
+        }, -- end of ["ROOF_AIRSPEED_INDICATOR_FAILURE"]
+        ["tail_reductor_chip"] = 
         {
             ["hh"] = 0,
-            ["id"] = "SAR_1_95",
-            ["prob"] = 0,
+            ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["hidden"] = true,
+            ["id"] = "tail_reductor_chip",
             ["mm"] = 0,
-        }, -- end of ["SAR_1_95"]
-        ["SAR_fast"] = 
+        }, -- end of ["tail_reductor_chip"]
+        ["ELEC_BOOSTER_FUEL_PUMP_0_FAILURE"] = 
         {
             ["hh"] = 0,
-            ["id"] = "SAR_fast",
-            ["prob"] = 0,
+            ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["hidden"] = true,
             ["mm"] = 0,
-        }, -- end of ["SAR_fast"]
+        }, -- end of ["ELEC_BOOSTER_FUEL_PUMP_0_FAILURE"]
         ["es_damage_DMR"] = 
         {
             ["hh"] = 0,
@@ -36396,15 +36406,15 @@ mission =
             ["hidden"] = true,
             ["mm"] = 0,
         }, -- end of ["es_damage_DMR"]
-        ["RADAR_ALT_TOTAL_FAILURE"] = 
+        ["PILOT_KILLED_FAILURE"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "RADAR_ALT_TOTAL_FAILURE",
+            ["id"] = "PILOT_KILLED_FAILURE",
             ["mm"] = 0,
-        }, -- end of ["RADAR_ALT_TOTAL_FAILURE"]
+        }, -- end of ["PILOT_KILLED_FAILURE"]
         ["fuel_sys_left_transfer_pump"] = 
         {
             ["hh"] = 0,
@@ -36414,6 +36424,444 @@ mission =
             ["id"] = "fuel_sys_left_transfer_pump",
             ["mm"] = 0,
         }, -- end of ["fuel_sys_left_transfer_pump"]
+        ["ELEC_BOOSTER_FUEL_PUMP_1_FAILURE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["mm"] = 0,
+        }, -- end of ["ELEC_BOOSTER_FUEL_PUMP_1_FAILURE"]
+        ["fs_damage_transfer_pumps"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["mm"] = 0,
+        }, -- end of ["fs_damage_transfer_pumps"]
+        ["es_damage_StarterGenerator"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "es_damage_StarterGenerator",
+            ["mm"] = 0,
+        }, -- end of ["es_damage_StarterGenerator"]
+        ["es_damage_Battery"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "es_damage_Battery",
+            ["mm"] = 0,
+        }, -- end of ["es_damage_Battery"]
+        ["ILS_FAILURE_ANT_MARKER"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "ILS_FAILURE_ANT_MARKER",
+            ["mm"] = 0,
+        }, -- end of ["ILS_FAILURE_ANT_MARKER"]
+        ["FLEX_S_BKP_LAMP_DEFECTIVE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "FLEX_S_BKP_LAMP_DEFECTIVE",
+            ["mm"] = 0,
+        }, -- end of ["FLEX_S_BKP_LAMP_DEFECTIVE"]
+        ["fs_damage_swapping_pumps"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["mm"] = 0,
+        }, -- end of ["fs_damage_swapping_pumps"]
+        ["SAR_1_101"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "SAR_1_101",
+            ["mm"] = 0,
+        }, -- end of ["SAR_1_101"]
+        ["VHF_AM_RADIO_FAILURE_TOTAL"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "VHF_AM_RADIO_FAILURE_TOTAL",
+            ["mm"] = 0,
+        }, -- end of ["VHF_AM_RADIO_FAILURE_TOTAL"]
+        ["main_reductor_chip"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "main_reductor_chip",
+            ["mm"] = 0,
+        }, -- end of ["main_reductor_chip"]
+        ["MainReductor_LowOilPressure"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "MainReductor_LowOilPressure",
+            ["mm"] = 0,
+        }, -- end of ["MainReductor_LowOilPressure"]
+        ["TailReductor_ShaveInOil"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "TailReductor_ShaveInOil",
+            ["mm"] = 0,
+        }, -- end of ["TailReductor_ShaveInOil"]
+        ["fs_forward_LH_leakage"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["mm"] = 0,
+        }, -- end of ["fs_forward_LH_leakage"]
+        ["fuel_sys_300left"] = 
+        {
+            ["hh"] = 0,
+            ["id"] = "fuel_sys_300left",
+            ["prob"] = 0,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["hidden"] = true,
+            ["mm"] = 0,
+        }, -- end of ["fuel_sys_300left"]
+        ["Surge_LeftEngine"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "Surge_LeftEngine",
+            ["mm"] = 0,
+        }, -- end of ["Surge_LeftEngine"]
+        ["GMC_GYRO_FAILURE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "GMC_GYRO_FAILURE",
+            ["mm"] = 0,
+        }, -- end of ["GMC_GYRO_FAILURE"]
+        ["es_damage_VU2"] = 
+        {
+            ["hh"] = 0,
+            ["id"] = "es_damage_VU2",
+            ["prob"] = 0,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["hidden"] = true,
+            ["mm"] = 0,
+        }, -- end of ["es_damage_VU2"]
+        ["TransitionalReductor_LowOilPressure"] = 
+        {
+            ["hh"] = 0,
+            ["id"] = "TransitionalReductor_LowOilPressure",
+            ["prob"] = 0,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["hidden"] = true,
+            ["mm"] = 0,
+        }, -- end of ["TransitionalReductor_LowOilPressure"]
+        ["fs_aft_RH_leakage"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["mm"] = 0,
+        }, -- end of ["fs_aft_RH_leakage"]
+        ["TailReductor_LowOilPressure"] = 
+        {
+            ["hh"] = 0,
+            ["id"] = "TailReductor_LowOilPressure",
+            ["prob"] = 0,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["hidden"] = true,
+            ["mm"] = 0,
+        }, -- end of ["TailReductor_LowOilPressure"]
+        ["RIGHT_GUNNER_KILLED_FAILURE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "RIGHT_GUNNER_KILLED_FAILURE",
+            ["mm"] = 0,
+        }, -- end of ["RIGHT_GUNNER_KILLED_FAILURE"]
+        ["es_damage_SpareInverter"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "es_damage_SpareInverter",
+            ["mm"] = 0,
+        }, -- end of ["es_damage_SpareInverter"]
+        ["hydro_diaphragm"] = 
+        {
+            ["hh"] = 0,
+            ["id"] = "hydro_diaphragm",
+            ["prob"] = 0,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["hidden"] = true,
+            ["mm"] = 0,
+        }, -- end of ["hydro_diaphragm"]
+        ["hydro_auxiliary"] = 
+        {
+            ["hh"] = 0,
+            ["id"] = "hydro_auxiliary",
+            ["prob"] = 0,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["hidden"] = true,
+            ["mm"] = 0,
+        }, -- end of ["hydro_auxiliary"]
+        ["es_damage_VU1"] = 
+        {
+            ["hh"] = 0,
+            ["id"] = "es_damage_VU1",
+            ["prob"] = 0,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["hidden"] = true,
+            ["mm"] = 0,
+        }, -- end of ["es_damage_VU1"]
+        ["engine_droop_failure"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "engine_droop_failure",
+            ["mm"] = 0,
+        }, -- end of ["engine_droop_failure"]
+        ["es_damage_MainGenerator"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "es_damage_MainGenerator",
+            ["mm"] = 0,
+        }, -- end of ["es_damage_MainGenerator"]
+        ["APU_Fire"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "APU_Fire",
+            ["mm"] = 0,
+        }, -- end of ["APU_Fire"]
+        ["fuel_sys_right_transfer_pump"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "fuel_sys_right_transfer_pump",
+            ["mm"] = 0,
+        }, -- end of ["fuel_sys_right_transfer_pump"]
+        ["FLEX_S_MAIN_LAMP_DEFECTIVE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "FLEX_S_MAIN_LAMP_DEFECTIVE",
+            ["mm"] = 0,
+        }, -- end of ["FLEX_S_MAIN_LAMP_DEFECTIVE"]
+        ["engine_chip"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "engine_chip",
+            ["mm"] = 0,
+        }, -- end of ["engine_chip"]
+        ["GMC_TOTAL_FAILURE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "GMC_TOTAL_FAILURE",
+            ["mm"] = 0,
+        }, -- end of ["GMC_TOTAL_FAILURE"]
+        ["Failure_LeftEngine"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "Failure_LeftEngine",
+            ["mm"] = 0,
+        }, -- end of ["Failure_LeftEngine"]
+        ["EEC_Failure_RightEngine"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "EEC_Failure_RightEngine",
+            ["mm"] = 0,
+        }, -- end of ["EEC_Failure_RightEngine"]
+        ["LeftEngine_ShaveInOil"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "LeftEngine_ShaveInOil",
+            ["mm"] = 0,
+        }, -- end of ["LeftEngine_ShaveInOil"]
+        ["COPILOT_KILLED_FAILURE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "COPILOT_KILLED_FAILURE",
+            ["mm"] = 0,
+        }, -- end of ["COPILOT_KILLED_FAILURE"]
+        ["hydro_main"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "hydro_main",
+            ["mm"] = 0,
+        }, -- end of ["hydro_main"]
+        ["PPF_RE_TEMPER_LIM_OFF"] = 
+        {
+            ["hh"] = 0,
+            ["id"] = "PPF_RE_TEMPER_LIM_OFF",
+            ["prob"] = 0,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["hidden"] = true,
+            ["mm"] = 0,
+        }, -- end of ["PPF_RE_TEMPER_LIM_OFF"]
+        ["LeftEngine_LowOilPressure"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "LeftEngine_LowOilPressure",
+            ["mm"] = 0,
+        }, -- end of ["LeftEngine_LowOilPressure"]
+        ["MainReductor_ShaveInOil"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "MainReductor_ShaveInOil",
+            ["mm"] = 0,
+        }, -- end of ["MainReductor_ShaveInOil"]
+        ["EEC_Failure_LeftEngine"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "EEC_Failure_LeftEngine",
+            ["mm"] = 0,
+        }, -- end of ["EEC_Failure_LeftEngine"]
+        ["es_damage_MainInverter"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "es_damage_MainInverter",
+            ["mm"] = 0,
+        }, -- end of ["es_damage_MainInverter"]
+        ["SAR_1_95"] = 
+        {
+            ["hh"] = 0,
+            ["id"] = "SAR_1_95",
+            ["prob"] = 0,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["hidden"] = true,
+            ["mm"] = 0,
+        }, -- end of ["SAR_1_95"]
+        ["ILS_FAILURE_TOTAL"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "ILS_FAILURE_TOTAL",
+            ["mm"] = 0,
+        }, -- end of ["ILS_FAILURE_TOTAL"]
+        ["A11_CLOCK_FAILURE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "A11_CLOCK_FAILURE",
+            ["mm"] = 0,
+        }, -- end of ["A11_CLOCK_FAILURE"]
+        ["RADAR_ALT_TOTAL_FAILURE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "RADAR_ALT_TOTAL_FAILURE",
+            ["mm"] = 0,
+        }, -- end of ["RADAR_ALT_TOTAL_FAILURE"]
+        ["Vibration_RightEngine"] = 
+        {
+            ["hh"] = 0,
+            ["id"] = "Vibration_RightEngine",
+            ["prob"] = 0,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["hidden"] = true,
+            ["mm"] = 0,
+        }, -- end of ["Vibration_RightEngine"]
+        ["fuel_sys_swapping_pumps"] = 
+        {
+            ["hh"] = 0,
+            ["id"] = "fuel_sys_swapping_pumps",
+            ["prob"] = 0,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["hidden"] = true,
+            ["mm"] = 0,
+        }, -- end of ["fuel_sys_swapping_pumps"]
         ["SAR_2_95"] = 
         {
             ["hh"] = 0,
@@ -36442,26 +36890,51 @@ mission =
             ["id"] = "CTRL_TAIL_ROTOR_CONTROL_FAILURE",
             ["mm"] = 0,
         }, -- end of ["CTRL_TAIL_ROTOR_CONTROL_FAILURE"]
-        ["hydro_diaphragm"] = 
+        ["RightEngine_Fire"] = 
         {
             ["hh"] = 0,
-            ["id"] = "hydro_diaphragm",
-            ["prob"] = 0,
+            ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["hidden"] = true,
+            ["id"] = "RightEngine_Fire",
             ["mm"] = 0,
-        }, -- end of ["hydro_diaphragm"]
-        ["SAR_hover_flight_glide"] = 
+        }, -- end of ["RightEngine_Fire"]
+        ["MD1_GYRO_TOTAL_FAILURE"] = 
         {
             ["hh"] = 0,
-            ["id"] = "SAR_hover_flight_glide",
-            ["prob"] = 0,
+            ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["hidden"] = true,
+            ["id"] = "MD1_GYRO_TOTAL_FAILURE",
             ["mm"] = 0,
-        }, -- end of ["SAR_hover_flight_glide"]
+        }, -- end of ["MD1_GYRO_TOTAL_FAILURE"]
+        ["engine_driveshaft_failure"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "engine_driveshaft_failure",
+            ["mm"] = 0,
+        }, -- end of ["engine_driveshaft_failure"]
+        ["FLEX_S_NO_GUN_SIGN"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "FLEX_S_NO_GUN_SIGN",
+            ["mm"] = 0,
+        }, -- end of ["FLEX_S_NO_GUN_SIGN"]
+        ["es_damage_GeneratorRight"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "es_damage_GeneratorRight",
+            ["mm"] = 0,
+        }, -- end of ["es_damage_GeneratorRight"]
         ["LeftEngine_Fire"] = 
         {
             ["hh"] = 0,
@@ -36471,26 +36944,6 @@ mission =
             ["id"] = "LeftEngine_Fire",
             ["mm"] = 0,
         }, -- end of ["LeftEngine_Fire"]
-        ["Vibration_RightEngine"] = 
-        {
-            ["hh"] = 0,
-            ["id"] = "Vibration_RightEngine",
-            ["prob"] = 0,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["hidden"] = true,
-            ["mm"] = 0,
-        }, -- end of ["Vibration_RightEngine"]
-        ["RPMFault_LeftEngine"] = 
-        {
-            ["hh"] = 0,
-            ["id"] = "RPMFault_LeftEngine",
-            ["prob"] = 0,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["hidden"] = true,
-            ["mm"] = 0,
-        }, -- end of ["RPMFault_LeftEngine"]
         ["Vibration_LeftEngine"] = 
         {
             ["hh"] = 0,
@@ -36501,61 +36954,60 @@ mission =
             ["hidden"] = true,
             ["mm"] = 0,
         }, -- end of ["Vibration_LeftEngine"]
-        ["APU_Fire"] = 
+        ["SAR_hover_flight_glide"] = 
         {
             ["hh"] = 0,
-            ["prob"] = 100,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["id"] = "APU_Fire",
-            ["mm"] = 0,
-        }, -- end of ["APU_Fire"]
-        ["fuel_sys_feed_tank_pump"] = 
-        {
-            ["hh"] = 0,
-            ["prob"] = 100,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["id"] = "fuel_sys_feed_tank_pump",
-            ["mm"] = 0,
-        }, -- end of ["fuel_sys_feed_tank_pump"]
-        ["TransitionalReductor_LowOilPressure"] = 
-        {
-            ["hh"] = 0,
-            ["id"] = "TransitionalReductor_LowOilPressure",
+            ["id"] = "SAR_hover_flight_glide",
             ["prob"] = 0,
             ["enable"] = false,
             ["mmint"] = 1,
             ["hidden"] = true,
             ["mm"] = 0,
-        }, -- end of ["TransitionalReductor_LowOilPressure"]
-        ["SAR_1_101"] = 
+        }, -- end of ["SAR_hover_flight_glide"]
+        ["VHF_FM_RADIO_FAILURE_TOTAL"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "SAR_1_101",
+            ["id"] = "VHF_FM_RADIO_FAILURE_TOTAL",
             ["mm"] = 0,
-        }, -- end of ["SAR_1_101"]
-        ["es_damage_GeneratorRight"] = 
+        }, -- end of ["VHF_FM_RADIO_FAILURE_TOTAL"]
+        ["fs_forward_RH_leakage"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "es_damage_GeneratorRight",
             ["mm"] = 0,
-        }, -- end of ["es_damage_GeneratorRight"]
-        ["LeftEngine_ShaveInOil"] = 
+        }, -- end of ["fs_forward_RH_leakage"]
+        ["ILS_FAILURE_ANT_LOCALIZER"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "LeftEngine_ShaveInOil",
+            ["id"] = "ILS_FAILURE_ANT_LOCALIZER",
             ["mm"] = 0,
-        }, -- end of ["LeftEngine_ShaveInOil"]
+        }, -- end of ["ILS_FAILURE_ANT_LOCALIZER"]
+        ["GMC_MAGN_COMP_FAILURE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "GMC_MAGN_COMP_FAILURE",
+            ["mm"] = 0,
+        }, -- end of ["GMC_MAGN_COMP_FAILURE"]
+        ["hydro_main_irreversible_valve"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "hydro_main_irreversible_valve",
+            ["mm"] = 0,
+        }, -- end of ["hydro_main_irreversible_valve"]
         ["PPF_LE_TEMPER_LIM_OFF"] = 
         {
             ["hh"] = 0,
@@ -36566,24 +37018,25 @@ mission =
             ["hidden"] = true,
             ["mm"] = 0,
         }, -- end of ["PPF_LE_TEMPER_LIM_OFF"]
-        ["MainReductor_LowOilPressure"] = 
+        ["fuel_sys_feed_tank_pump"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "MainReductor_LowOilPressure",
+            ["id"] = "fuel_sys_feed_tank_pump",
             ["mm"] = 0,
-        }, -- end of ["MainReductor_LowOilPressure"]
-        ["TailReductor_ShaveInOil"] = 
+        }, -- end of ["fuel_sys_feed_tank_pump"]
+        ["RPMFault_LeftEngine"] = 
         {
             ["hh"] = 0,
-            ["prob"] = 100,
+            ["id"] = "RPMFault_LeftEngine",
+            ["prob"] = 0,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "TailReductor_ShaveInOil",
+            ["hidden"] = true,
             ["mm"] = 0,
-        }, -- end of ["TailReductor_ShaveInOil"]
+        }, -- end of ["RPMFault_LeftEngine"]
         ["es_damage_GeneratorLeft"] = 
         {
             ["hh"] = 0,
@@ -36603,64 +37056,61 @@ mission =
             ["hidden"] = true,
             ["mm"] = 0,
         }, -- end of ["RPMFault_RightEngine"]
-        ["Surge_LeftEngine"] = 
+        ["SAR_fast"] = 
+        {
+            ["hh"] = 0,
+            ["id"] = "SAR_fast",
+            ["prob"] = 0,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["hidden"] = true,
+            ["mm"] = 0,
+        }, -- end of ["SAR_fast"]
+        ["engine_surge_failure"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "Surge_LeftEngine",
+            ["id"] = "engine_surge_failure",
             ["mm"] = 0,
-        }, -- end of ["Surge_LeftEngine"]
-        ["PPF_RE_TEMPER_LIM_OFF"] = 
-        {
-            ["hh"] = 0,
-            ["id"] = "PPF_RE_TEMPER_LIM_OFF",
-            ["prob"] = 0,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["hidden"] = true,
-            ["mm"] = 0,
-        }, -- end of ["PPF_RE_TEMPER_LIM_OFF"]
-        ["es_damage_VU2"] = 
-        {
-            ["hh"] = 0,
-            ["id"] = "es_damage_VU2",
-            ["prob"] = 0,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["hidden"] = true,
-            ["mm"] = 0,
-        }, -- end of ["es_damage_VU2"]
-        ["fuel_sys_300left"] = 
-        {
-            ["hh"] = 0,
-            ["id"] = "fuel_sys_300left",
-            ["prob"] = 0,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["hidden"] = true,
-            ["mm"] = 0,
-        }, -- end of ["fuel_sys_300left"]
-        ["EEC_Failure_RightEngine"] = 
+        }, -- end of ["engine_surge_failure"]
+        ["ILS_FAILURE_ANT_GLIDESLOPE"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "EEC_Failure_RightEngine",
+            ["id"] = "ILS_FAILURE_ANT_GLIDESLOPE",
             ["mm"] = 0,
-        }, -- end of ["EEC_Failure_RightEngine"]
-        ["hydro_auxiliary"] = 
+        }, -- end of ["ILS_FAILURE_ANT_GLIDESLOPE"]
+        ["UHF_RADIO_FAILURE_TOTAL"] = 
         {
             ["hh"] = 0,
-            ["id"] = "hydro_auxiliary",
-            ["prob"] = 0,
+            ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["hidden"] = true,
+            ["id"] = "UHF_RADIO_FAILURE_TOTAL",
             ["mm"] = 0,
-        }, -- end of ["hydro_auxiliary"]
+        }, -- end of ["UHF_RADIO_FAILURE_TOTAL"]
+        ["COPILOT_GYRO_TOTAL_FAILURE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "COPILOT_GYRO_TOTAL_FAILURE",
+            ["mm"] = 0,
+        }, -- end of ["COPILOT_GYRO_TOTAL_FAILURE"]
+        ["ARN_83_TOTAL_FAILURE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "ARN_83_TOTAL_FAILURE",
+            ["mm"] = 0,
+        }, -- end of ["ARN_83_TOTAL_FAILURE"]
         ["Surge_RightEngine"] = 
         {
             ["hh"] = 0,
@@ -36679,15 +37129,15 @@ mission =
             ["id"] = "JADRO_1A_FAILURE_TOTAL",
             ["mm"] = 0,
         }, -- end of ["JADRO_1A_FAILURE_TOTAL"]
-        ["RightEngine_Fire"] = 
+        ["LEFT_GUNNER_KILLED_FAILURE"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "RightEngine_Fire",
+            ["id"] = "LEFT_GUNNER_KILLED_FAILURE",
             ["mm"] = 0,
-        }, -- end of ["RightEngine_Fire"]
+        }, -- end of ["LEFT_GUNNER_KILLED_FAILURE"]
         ["RightEngine_ShaveInOil"] = 
         {
             ["hh"] = 0,
@@ -36697,16 +37147,15 @@ mission =
             ["id"] = "RightEngine_ShaveInOil",
             ["mm"] = 0,
         }, -- end of ["RightEngine_ShaveInOil"]
-        ["fuel_sys_swapping_pumps"] = 
+        ["ARN_83_ADF_DAMAGE"] = 
         {
             ["hh"] = 0,
-            ["id"] = "fuel_sys_swapping_pumps",
-            ["prob"] = 0,
+            ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["hidden"] = true,
+            ["id"] = "ARN_83_ADF_DAMAGE",
             ["mm"] = 0,
-        }, -- end of ["fuel_sys_swapping_pumps"]
+        }, -- end of ["ARN_83_ADF_DAMAGE"]
         ["TransitionalReductor_ShaveInOil"] = 
         {
             ["hh"] = 0,
