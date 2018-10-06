@@ -289,7 +289,7 @@ Permet de spécifier le nom du groupe à créer.
 Il est nécessairement défini dans la bibliothèque de groupes ; la liste (pas forcément toujours très à jour) est accessible [ici](group-list.md)
 
 Valeur par défaut : aucune
-Champ d'application : touts les groupes d'unités définis [ici](group-list.md)
+Champ d'application : tous les groupes d'unités définis [ici](group-list.md)
 
 #### b. country
 
@@ -314,6 +314,17 @@ Génère le groupe déjà en déplacement à la vitesse indiquée
 
 Le groupe sera généré en l'air à l'altitude précisée.
 
+### 6.7. Génération d'une bombe
+
+En utilisant la commande `veaf spawn bomb` on peut générer une explosion qui endommagera toutes les unités (ennemies ou alliées).  
+
+#### a. power
+
+Permet de spécifier la puissance de la bombe.  
+
+Valeur par défaut : 100
+Champ d'application : 0-1000
+
 ## 7. Déplacement d'unités
 
 Il est possible de déplacer les navires et les ravitailleurs.
@@ -331,7 +342,7 @@ Les paramètres sont de la forme *paramètre* *valeur*, séparés les uns des au
 
 `veaf move group, name LHA-1 Tarawa, speed 15`
 
-### .2. Liste des paramètres et valeurs par défaut
+### 7.2. Liste des paramètres et valeurs par défaut
 
 #### a. name
 
@@ -371,10 +382,91 @@ Cap de la partie linéaire de l'hippodrome de ravitaillement (en degrés).
 Valeur par défaut : 0  
 Champ d'application : 0 à 359
 
-## 8. Random Air Traffic
+## 8. Entraînement au transport sous élingue
+
+Le script [veafTransportMission.lua](https://github.com/VEAF/VEAF_mission_library/blob/master/scripts/veafTransportMission.lua) permet de générer facilement des missions de ravitaillement par transport aérien, pour permettre un entrainement sur mesure.
+
+Il génère un groupe ami à ravitailler sur le point sélectionné, et (optionnellement) un ensemble de groupes ennemis sur la route et/ou autour du groupe ami (blocus).
+
+### 8.1. Principe
+
+La création de missions de transport, à l'instar de nombreuses autres fonctions de cette mission d'entrainement, nécessite qu'on crée un marqueur sur la carte pour y saisir une commande. Voici une [explication détaillée](creation_marqueur.md) de la création d'un marqueur.
+
+Dans ce marqueur, on doit saisir la commande `veaf transport mission`
+
+Les paramètres sont de la forme *paramètre* *valeur*, séparés les uns des autres (et de la commande) par des virgules. Par exemple :
+
+`veaf transport mission, defense 1, from tbilisi`
+
+### 8.2. Liste des paramètres et valeurs par défaut
+
+Chacun des paramètres possède une valeur par défaut. Si le paramètre est omis, c'est cette valeur qui sera utilisée.
+
+#### a. defense
+
+Règle la difficulté de la mission en ajoutant des groupes ennemis le long de la route vers la drop zone.  
+Attention : la difficulté croît très vite ; n'espérez pas qu'une mission en *defense 5* soit facile, elle sera probablement infaisable sans soutien.
+
+Valeur par défaut : 0
+Champ d'application : 0 à 5  
+*A zéro, aucune défense n'est générée.*
+
+|Defense|Composition des groupes|
+|--|--|
+| 1 | 3-7 soldiers, GAZ-3308 transport |
+| 2 | 3-7 soldiers, BTR-80 APC |
+| 3 | 3-7 soldiers, chance of BMP-1 IFV, chance of Igla manpad |
+| 4 | 3-7 soldiers, big chance of BMP-1 IFV, big chance of Igla-S manpad, chance of ZU-23 on a truck |
+| 5 | 3-7 soldiers, BMP-1 IFV, big chance of Igla-S manpad, chance of ZSU-23-4 Shilka |
+
+Ces groupes sont placés le long de la route, échelonnés à une distance minimale de 10km du point de départ et de 5km de la drop zone.
+Ils sont placés décalés par rapport à la route, de 500 à 1500m à gauche ou à droite.
+En plus, on génère aussi un nombre aléatoire de groupes plus éloignés : de 3km à 7km à gauche ou à droite de la route. Pour chaque groupe placé près de la route, il y a une chance sur deux d'ajouter un groupe éloigné (voire entre 1 et 3 si *defense > 4*)
+
+#### b. from
+
+Règle l'origine de la mission.
+
+Valeur par défaut : KASPI  
+Champ d'application : un point nommé 
+*Les points nommés sont gérés par la commande [**veaf name point**](#9.-Points-nommés)*
+
+#### c. blocade
+
+**pas encore effectif**
+
+Ajoute des unités autour de la drop zone qui ont mis en place un blocus de la zone.
+
+Valeur par défaut : 0
+Champ d'application : 0 à 5
+
+### 8.3. Menu radio
+
+Dans le menu radio de ce module, on peut retrouver des commandes qui permettent :
+
+- d'obtenir des informations sur la drop zone (coordonnées, vent, ...)
+- de marquer la zone d'un fumigène vert
+- d'éclairer la zone avec une bombe éclairante
+- d'annuler la mission
+
+## 9. Points nommés
+
+### 9.1. Principe
+
+La définition de points nommés, à l'instar de nombreuses autres fonctions de cette mission d'entrainement, nécessite qu'on crée un marqueur sur la carte pour y saisir une commande. Voici une [explication détaillée](creation_marqueur.md) de la création d'un marqueur.
+
+Dans ce marqueur, on doit saisir la commande `veaf name point, name [le nom]`
+
+`veaf name point, name FARP PARIS`
+
+### 9.2. Menu radio
+
+Dans le menu radio de ce module, on peut retrouver une commande qui liste tous les points connus et leurs coordonnées.
+
+## 10. Random Air Traffic
 
 **Note :** Ce script a été temporairement désactivé, pour cause d'erreur sur le serveur multijoueur ; en effet, après un certain nombre d'heures, les menus radio étaient remplacés par des menus spécifiques à Moose et toute la dynamique de la mission d'entrainement était compromise.
 
-## 9. VEAF Grass Runways
+## 11. VEAF Grass Runways
 
 > TODO
