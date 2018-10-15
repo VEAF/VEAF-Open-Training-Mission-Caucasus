@@ -66,7 +66,7 @@ options =
         ["rainDroplets"] = true,
         ["preloadRadius"] = 60000,
         ["heatBlr"] = 1,
-        ["anisotropy"] = 3,
+        ["anisotropy"] = 4,
         ["water"] = 2,
         ["motionBlur"] = 0,
         ["outputGamma"] = 1.8,
@@ -98,7 +98,7 @@ options =
         ["visibRange"] = "High",
         ["clutterMaxDistance"] = 1500,
         ["scaleGui"] = false,
-        ["civTraffic"] = "high",
+        ["civTraffic"] = "medium",
     }, -- end of ["graphics"]
     ["plugins"] = 
     {
@@ -221,21 +221,21 @@ options =
             ["Mi8RudderTrimmer"] = false,
             ["Mi8AutopilotAdjustment"] = false,
             ["gunCamera"] = 0,
-            ["Mi8CockpitShake"] = 50,
+            ["Mi8CockpitShake"] = 40,
             ["controlHelperMi8"] = false,
-            ["CPLocalList"] = "default",
+            ["CPLocalList"] = "English Cockpit by Devrim",
             ["Mi8FOV"] = 120,
         }, -- end of ["Mi-8MTV2"]
         ["SA342"] = 
         {
             ["StickRollCurve"] = 0,
-            ["VibrationRate"] = 100,
+            ["VibrationRate"] = 30,
             ["PreloadWaypoints"] = true,
             ["CPLocalList"] = "default",
             ["EngineBreak"] = true,
             ["EasierControls"] = false,
             ["RudderTrim"] = false,
-            ["MiniStick"] = true,
+            ["MiniStick"] = false,
             ["StickPitchCurve"] = 0,
             ["CPLocalListMG"] = "default",
             ["CPLocalListL"] = "default",
