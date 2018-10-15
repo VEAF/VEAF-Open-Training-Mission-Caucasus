@@ -1,5 +1,7 @@
 # Mission ouverte d'entrainement de la VEAF
 
+[Lien vers le helper écrit par Mitch pour générer les commandes](http://jsfiddle.net/mitch10593/kfa3n570/56/embedded/result)
+
 La [VEAF](http://www.veaf.org/) propose à ses membres une mission d'entrainement ouverte qui permet de voler dans un des appareils de DCS et de rejoindre des ateliers variés.
 
 Elle est disponible en temps normal sur le serveur DCS dédié (sauf jours de mission et entrainements particuliers), et peut également être utilisée en solo.
