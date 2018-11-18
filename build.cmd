@@ -5,4 +5,4 @@ mkdir .\build  >nul 2>&1
 mkdir .\build\tempsrc  >nul 2>&1
 
 call build_one.cmd release
-call build_one.cmd openbeta
+rem call build_one.cmd openbeta
