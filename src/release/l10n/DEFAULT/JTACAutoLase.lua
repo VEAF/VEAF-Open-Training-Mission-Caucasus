@@ -72,7 +72,7 @@ Parts of MIST used. Source is  https://github.com/mrSkortch/MissionScriptingTool
 ]]
 
 -- CONFIG
-JTAC_maxDistance = 15000 -- How far a JTAC can "see" in meters (with LOS)
+JTAC_maxDistance = 2500 -- How far a JTAC can "see" in meters (with LOS)
 
 JTAC_smokeOn = true -- enables marking of target with smoke, can be overriden by the JTACAutoLase in editor
 
@@ -82,7 +82,7 @@ JTAC_jtacStatusF10 = true -- enables F10 JTAC Status menu
 
 JTAC_location = true -- shows location in JTAC message, can be overriden by the JTACAutoLase in editor
 
-JTAC_lock =  "vehicle" -- "vehicle" OR "troop" OR "all" forces JTAC to only lock vehicles or troops or all ground units 
+JTAC_lock =  "all" -- "vehicle" OR "troop" OR "all" forces JTAC to only lock vehicles or troops or all ground units 
 
 -- END CONFIG
 
