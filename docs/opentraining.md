@@ -220,6 +220,27 @@ Génère l'unité déjà en déplacement à la vitesse indiquée
 
 L'unité sera générée en l'air à l'altitude précisée.
 
+### 6.2.1 Création d'un JTAC
+
+En utilisant la commande `veaf spawn jtac` on peut créer un jtac qui va désigner les cibles à portée de vue.
+
+Exemples:
+
+* veaf spawn jtac
+* veaf spawn jtac, country russia, laser 1687
+
+#### a. country
+
+* valeur par défaut: USA (pour un JTAC allié)
+* valeurs possibles: USA,RUSSIA
+
+#### b. laser
+
+Code laser pour le guidage (laser search, gbu-12, gbu-16).
+
+* valeur par défaut: 1688
+* valeur possibles: 1111 à 1688
+
 ### 6.3. Génération de fumée
 
 La commande `veaf spawn smoke` permet de générer des fumigènes de couleur.

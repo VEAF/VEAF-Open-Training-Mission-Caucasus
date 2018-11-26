@@ -22,4 +22,5 @@ del /f /q l10n\Default\veafCarrierOperations.lua
 del /f /q l10n\Default\dcsUnits.lua
 del /f /q l10n\Default\WeatherMark.lua
 del /f /q l10n\Default\veafNamedPoints.lua 
+del /f /q l10n\Default\JTACAutoLase.lua 
 popd
