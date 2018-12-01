@@ -565,7 +565,7 @@ function addRadioCommands()
     --looop over all players and add command
     --    missionCommands.addCommandForCoalition( coalition.side.BLUE, "JTAC Status" ,nil, getJTACStatus ,nil)
 
-    timer.scheduleFunction(addRadioCommands, nil, timer.getTime() + 10)
+    --timer.scheduleFunction(addRadioCommands, nil, timer.getTime() + 10)
 
     local blueGroups = coalition.getGroups(coalition.side.BLUE)
     local x = 1

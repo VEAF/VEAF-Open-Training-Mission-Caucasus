@@ -44,7 +44,6 @@ copy %VEAF_LIBRARY_FOLDER%\scripts\veafUnits.lua .\build\tempsrc\l10n\Default  >
 copy %VEAF_LIBRARY_FOLDER%\scripts\veafCarrierOperations.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy %VEAF_LIBRARY_FOLDER%\scripts\dcsUnits.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy %VEAF_LIBRARY_FOLDER%\scripts\veafNamedPoints.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy %VEAF_LIBRARY_FOLDER%\scripts\JTACAutoLase.lua \build\tempsrc\l10n\Default  >nul 2>&1
 
 rem -- compile the mission
 %SEVENZIP% a -r -tzip %MISSION_FILE%_%1.miz .\build\tempsrc\* -mem=AES256
