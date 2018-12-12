@@ -132,6 +132,7 @@ options =
         {
             ["abDetent"] = false,
             ["CPLocalList"] = "default",
+            ["hmdEye"] = 1,
         }, -- end of ["F/A-18C"]
         ["Tacview"] = 
         {
