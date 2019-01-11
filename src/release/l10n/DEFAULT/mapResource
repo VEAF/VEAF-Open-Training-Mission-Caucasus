@@ -3,7 +3,6 @@ mapResource =
     ["ResKey_Action_2609"] = "veafCasMission.lua",
     ["ResKey_Action_2526"] = "WeatherMark.lua",
     ["ResKey_Action_2621"] = "dcsUnits.lua",
-    ["ResKey_ImageBriefing_3015"] = "OT METAR Caucasus.JPG",
     ["ResKey_ImageBriefing_2136"] = "Brief.jpg",
     ["ResKey_Action_2608"] = "veafSpawn.lua",
     ["ResKey_Action_2628"] = "veafTransportMission.lua",

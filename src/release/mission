@@ -660,7 +660,6 @@ mission =
     ["pictureFileNameB"] = 
     {
         [1] = "ResKey_ImageBriefing_2136",
-        [2] = "ResKey_ImageBriefing_3015",
     }, -- end of ["pictureFileNameB"]
     ["coalition"] = 
     {
