@@ -10,7 +10,6 @@ rem extracting MIZ files
 pushd src\%1
 7za x -y ../../%MIZ%
 del /f /q l10n\Default\mist_4_3_74.lua 
-del /f /q l10n\Default\JTACAutoLase.lua 
 del /f /q l10n\Default\WeatherMark.lua
 del /f /q l10n\Default\veaf.lua 
 del /f /q l10n\Default\veafCasMission.lua 

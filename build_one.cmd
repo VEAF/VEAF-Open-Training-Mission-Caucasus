@@ -31,7 +31,6 @@ xcopy /y /e src\%1 .\build\tempsrc\ >nul 2>&1
 rem -- copy all the scripts
 copy community\mist_4_3_74.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy community\WeatherMark.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy community\JTACAutoLase.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy %VEAF_LIBRARY_FOLDER%\scripts\veaf.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 powershell -Command "(gc .\build\tempsrc\l10n\Default\veaf.lua) -replace 'veaf.Development = true', 'veaf.Development = false' | sc .\build\tempsrc\l10n\Default\veaf.lua"
 copy %VEAF_LIBRARY_FOLDER%\scripts\veafMarkers.lua .\build\tempsrc\l10n\Default  >nul 2>&1
