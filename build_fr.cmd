@@ -1,4 +1,5 @@
 @echo off
+set SEVENZIP=C:\tools\bin\7za.exe
 rem -- prepare the folders
 rd /s /q .\build  >nul 2>&1
 mkdir .\build  >nul 2>&1
