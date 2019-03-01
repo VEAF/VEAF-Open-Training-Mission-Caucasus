@@ -98,7 +98,7 @@ options =
         ["useDeferredShading"] = 1,
         ["sync"] = false,
         ["LensEffects"] = 0,
-        ["visibRange"] = "Extreme",
+        ["visibRange"] = "Ultra",
         ["clutterMaxDistance"] = 1500,
         ["scaleGui"] = false,
         ["civTraffic"] = "",
@@ -161,15 +161,16 @@ options =
         ["Ka-50"] = 
         {
             ["Ka50TrimmingMethod"] = 0,
-            ["CPLocalList"] = "ricardo",
+            ["CPLocalList"] = "default",
             ["Ka50RudderTrimmer"] = false,
             ["helmetCircleDisplacement"] = 11,
         }, -- end of ["Ka-50"]
         ["F/A-18C"] = 
         {
             ["abDetent"] = 0,
-            ["CPLocalList"] = "default",
-            ["hmdEye"] = 1,
+            ["CPLocalList"] = "Clean and Dark Cockpit",
+            ["F18RealisticTDC"] = true,
+            ["hmdEye"] = 2,
         }, -- end of ["F/A-18C"]
         ["UH-1H"] = 
         {
@@ -209,7 +210,7 @@ options =
         }, -- end of ["F-5E-3"]
         ["A-10C"] = 
         {
-            ["CPLocalList"] = "Ricardo HD",
+            ["CPLocalList"] = "default",
         }, -- end of ["A-10C"]
         ["AJS37"] = 
         {
@@ -291,12 +292,12 @@ options =
     ["sound"] = 
     {
         ["hear_in_helmet"] = true,
-        ["headphones"] = 92,
-        ["cockpit"] = 76,
-        ["world"] = 15,
+        ["headphones"] = 100,
+        ["cockpit"] = 100,
+        ["world"] = 21,
         ["radioSpeech"] = true,
         ["GBreathEffect"] = true,
-        ["volume"] = 40,
+        ["volume"] = 11,
         ["headphones_on_external_views"] = true,
         ["music"] = 0,
         ["subtitles"] = true,
@@ -308,7 +309,7 @@ options =
         {
             ["mirrors"] = false,
             ["reflections"] = false,
-            ["avionics"] = 3,
+            ["avionics"] = 1,
         }, -- end of ["cockpit"]
     }, -- end of ["views"]
 } -- end of options
