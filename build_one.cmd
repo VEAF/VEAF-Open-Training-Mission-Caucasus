@@ -18,7 +18,7 @@ set MISSION_FILE=.\build\OT_Causacus_%date:~-4,4%%date:~-10,2%%date:~-7,2%
 :DontDefineDefaultMISSION_FILE
 echo MISSION_FILE = %MISSION_FILE%.miz
 
-IF [%SEVENZIP%] == [] GOTO DefineDefaultSEVENZIP
+IF ["%SEVENZIP%"] == [] GOTO DefineDefaultSEVENZIP
 goto DontDefineDefaultSEVENZIP
 :DefineDefaultSEVENZIP
 set SEVENZIP=7za
@@ -45,7 +45,7 @@ copy %VEAF_LIBRARY_FOLDER%\scripts\dcsUnits.lua .\build\tempsrc\l10n\Default  >n
 copy %VEAF_LIBRARY_FOLDER%\scripts\veafNamedPoints.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 
 rem -- compile the mission
-%SEVENZIP% a -r -tzip %MISSION_FILE%_%1.miz .\build\tempsrc\* -mem=AES256
+"%SEVENZIP%" a -r -tzip %MISSION_FILE%_%1.miz .\build\tempsrc\* -mem=AES256
 
 rem -- done !
 echo Built %MISSION_FILE%_%1%.miz
