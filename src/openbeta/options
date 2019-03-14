@@ -74,16 +74,16 @@ options =
         ["motionBlur"] = 0,
         ["outputGamma"] = 1.8,
         ["treesVisibility"] = 10000,
-        ["aspect"] = 1.3650793650794,
+        ["aspect"] = 2.3888888888889,
         ["lights"] = 2,
         ["shadows"] = 4,
         ["MSAA"] = 2,
         ["SSAA"] = 0,
-        ["height"] = 2520,
+        ["height"] = 1440,
         ["forestDistanceFactor"] = 1,
         ["cockpitGI"] = 1,
         ["terrainTextures"] = "max",
-        ["multiMonitorSetup"] = "mfcd bottom screen",
+        ["multiMonitorSetup"] = "1camera",
         ["shadowTree"] = false,
         ["chimneySmokeDensity"] = 5,
         ["fullScreen"] = false,
@@ -98,7 +98,7 @@ options =
         ["useDeferredShading"] = 1,
         ["sync"] = false,
         ["LensEffects"] = 0,
-        ["visibRange"] = "Ultra",
+        ["visibRange"] = "Extreme",
         ["clutterMaxDistance"] = 1500,
         ["scaleGui"] = false,
         ["civTraffic"] = "",
@@ -180,6 +180,15 @@ options =
             ["F18RealisticTDC"] = true,
             ["hmdEye"] = 2,
         }, -- end of ["F/A-18C"]
+        ["UH-1H"] = 
+        {
+            ["UHRudderTrimmer"] = false,
+            ["autoPilot"] = false,
+            ["UH1HCockpitShake"] = 10,
+            ["CPLocalList"] = "default",
+            ["weapTooltips"] = false,
+            ["UHTrimmingMethod"] = 0,
+        }, -- end of ["UH-1H"]
         ["Tacview"] = 
         {
             ["tacviewProfilingPeriod"] = 600,
@@ -210,21 +219,20 @@ options =
             ["CPLocalList"] = "default",
             ["aiHelper"] = true,
         }, -- end of ["F-5E-3"]
-        ["UH-1H"] = 
-        {
-            ["UHRudderTrimmer"] = false,
-            ["autoPilot"] = false,
-            ["UH1HCockpitShake"] = 10,
-            ["CPLocalList"] = "default",
-            ["weapTooltips"] = false,
-            ["UHTrimmingMethod"] = 0,
-        }, -- end of ["UH-1H"]
         ["TF-51D"] = 
         {
             ["assistance"] = 0,
             ["CPLocalList"] = "default",
             ["autoRudder"] = false,
         }, -- end of ["TF-51D"]
+        ["F-14B"] = 
+        {
+            ["JESTER_HeadMenu"] = true,
+            ["JESTER_LandingCallouts"] = true,
+            ["JESTER_SwitchToPSTT"] = true,
+            ["JESTER_Camera"] = true,
+            ["RadioMenuPttOptions"] = 0,
+        }, -- end of ["F-14B"]
         ["Mi-8MTV2"] = 
         {
             ["Mi8TrimmingMethod"] = 0,
@@ -267,10 +275,10 @@ options =
         ["hear_in_helmet"] = true,
         ["headphones"] = 100,
         ["cockpit"] = 100,
-        ["world"] = 21,
+        ["world"] = 61,
         ["radioSpeech"] = true,
         ["GBreathEffect"] = true,
-        ["volume"] = 11,
+        ["volume"] = 20,
         ["headphones_on_external_views"] = true,
         ["music"] = 0,
         ["subtitles"] = true,
@@ -280,7 +288,7 @@ options =
     {
         ["cockpit"] = 
         {
-            ["mirrors"] = false,
+            ["mirrors"] = true,
             ["reflections"] = false,
             ["avionics"] = 1,
         }, -- end of ["cockpit"]
