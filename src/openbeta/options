@@ -109,6 +109,42 @@ options =
         {
             ["CPLocalList"] = "english",
         }, -- end of ["Su-25T"]
+        ["F/A-18C"] = 
+        {
+            ["abDetent"] = 0,
+            ["CPLocalList"] = "Clean and Dark Cockpit",
+            ["F18RealisticTDC"] = true,
+            ["hmdEye"] = 2,
+        }, -- end of ["F/A-18C"]
+        ["Tacview"] = 
+        {
+            ["tacviewProfilingPeriod"] = 600,
+            ["tacviewHostTelemetryPassword"] = "",
+            ["tacviewRemoteControlPort"] = "42675",
+            ["tacviewDataRecordingEnabled"] = true,
+            ["tacviewTerrainExport"] = 0,
+            ["tacviewRecordClientsSessionsEnabled"] = false,
+            ["tacviewPlaybackDelay"] = 0,
+            ["tacviewRealTimeTelemetryPort"] = "42674",
+            ["tacviewBookmarkShortcut"] = 0,
+            ["tacviewCompressionLevel"] = 1,
+            ["tacviewDebugModeEnabled"] = false,
+            ["tacviewClientTelemetryPassword"] = "",
+            ["tacviewRemoteControlPassword"] = "",
+        }, -- end of ["Tacview"]
+        ["AV8BNA"] = 
+        {
+            ["CPLocalList"] = "default",
+            ["INS_Alignment"] = 1,
+            ["INS_GYROHasNAV"] = false,
+            ["MPCD_EXPORT"] = false,
+        }, -- end of ["AV8BNA"]
+        ["TF-51D"] = 
+        {
+            ["assistance"] = 0,
+            ["CPLocalList"] = "default",
+            ["autoRudder"] = false,
+        }, -- end of ["TF-51D"]
         ["M-2000C"] = 
         {
             ["UNI_ALIGNED"] = false,
@@ -121,6 +157,13 @@ options =
             ["enable"] = false,
             ["armBending"] = 60,
         }, -- end of ["CaptoGlove"]
+        ["Ka-50"] = 
+        {
+            ["Ka50TrimmingMethod"] = 0,
+            ["CPLocalList"] = "default",
+            ["Ka50RudderTrimmer"] = false,
+            ["helmetCircleDisplacement"] = 11,
+        }, -- end of ["Ka-50"]
         ["NS430"] = 
         {
             ["bf109k4_enabled"] = true,
@@ -165,21 +208,6 @@ options =
             ["yak52_enabled"] = true,
             ["sa342mistral_enabled"] = true,
         }, -- end of ["NS430"]
-        ["Yak52"] = 
-        {
-            ["aileronTrim"] = 0,
-            ["rudderTrim"] = 0,
-            ["CPLocalList"] = "english",
-            ["assistance"] = 0,
-            ["autoRudder"] = false,
-        }, -- end of ["Yak52"]
-        ["F/A-18C"] = 
-        {
-            ["abDetent"] = 0,
-            ["CPLocalList"] = "Clean and Dark Cockpit",
-            ["F18RealisticTDC"] = true,
-            ["hmdEye"] = 2,
-        }, -- end of ["F/A-18C"]
         ["UH-1H"] = 
         {
             ["UHRudderTrimmer"] = false,
@@ -189,29 +217,30 @@ options =
             ["weapTooltips"] = false,
             ["UHTrimmingMethod"] = 0,
         }, -- end of ["UH-1H"]
-        ["Tacview"] = 
+        ["FC3"] = 
         {
-            ["tacviewProfilingPeriod"] = 600,
-            ["tacviewHostTelemetryPassword"] = "",
-            ["tacviewRemoteControlPort"] = "42675",
-            ["tacviewDataRecordingEnabled"] = true,
-            ["tacviewTerrainExport"] = 0,
-            ["tacviewRecordClientsSessionsEnabled"] = false,
-            ["tacviewPlaybackDelay"] = 0,
-            ["tacviewRealTimeTelemetryPort"] = "42674",
-            ["tacviewBookmarkShortcut"] = 0,
-            ["tacviewCompressionLevel"] = 1,
-            ["tacviewDebugModeEnabled"] = false,
-            ["tacviewClientTelemetryPassword"] = "",
-            ["tacviewRemoteControlPassword"] = "",
-        }, -- end of ["Tacview"]
-        ["AV8BNA"] = 
+            ["CPLocalList_Su-25"] = "default",
+            ["CPLocalList_Su-27"] = "default",
+            ["CPLocalList_A-10A"] = "default",
+            ["CPLocalList_Su-33"] = "default",
+            ["CPLocalList_MiG-29S"] = "default",
+            ["CPLocalList_MiG-29A"] = "default",
+            ["CPLocalList_J-11A"] = "default",
+            ["CPLocalList_MiG-29G"] = "default",
+            ["CPLocalList_F-15C"] = "default",
+        }, -- end of ["FC3"]
+        ["CA"] = 
+        {
+            ["kompass_options"] = 1,
+            ["ground_target_info"] = true,
+            ["ground_aim_helper"] = true,
+            ["ground_platform_shake"] = true,
+            ["ground_automatic"] = true,
+        }, -- end of ["CA"]
+        ["AJS37"] = 
         {
             ["CPLocalList"] = "default",
-            ["INS_Alignment"] = 1,
-            ["INS_GYROHasNAV"] = false,
-            ["MPCD_EXPORT"] = false,
-        }, -- end of ["AV8BNA"]
+        }, -- end of ["AJS37"]
         ["F-5E-3"] = 
         {
             ["JoystickMode"] = 0,
@@ -219,12 +248,10 @@ options =
             ["CPLocalList"] = "default",
             ["aiHelper"] = true,
         }, -- end of ["F-5E-3"]
-        ["TF-51D"] = 
+        ["A-10C"] = 
         {
-            ["assistance"] = 0,
             ["CPLocalList"] = "default",
-            ["autoRudder"] = false,
-        }, -- end of ["TF-51D"]
+        }, -- end of ["A-10C"]
         ["F-14B"] = 
         {
             ["JESTER_HeadMenu"] = true,
@@ -260,14 +287,14 @@ options =
             ["ControlsDisplayLocation"] = 1,
             ["CPLocalListM"] = "default",
         }, -- end of ["SA342"]
-        ["CA"] = 
+        ["Yak52"] = 
         {
-            ["kompass_options"] = 1,
-            ["ground_target_info"] = true,
-            ["ground_aim_helper"] = true,
-            ["ground_platform_shake"] = true,
-            ["ground_automatic"] = true,
-        }, -- end of ["CA"]
+            ["aileronTrim"] = 0,
+            ["rudderTrim"] = 0,
+            ["CPLocalList"] = "english",
+            ["assistance"] = 0,
+            ["autoRudder"] = false,
+        }, -- end of ["Yak52"]
     }, -- end of ["plugins"]
     ["format"] = 1,
     ["sound"] = 
@@ -290,7 +317,7 @@ options =
         {
             ["mirrors"] = true,
             ["reflections"] = false,
-            ["avionics"] = 1,
+            ["avionics"] = 3,
         }, -- end of ["cockpit"]
     }, -- end of ["views"]
 } -- end of options
