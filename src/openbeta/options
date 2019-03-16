@@ -51,7 +51,7 @@ options =
         ["fuel"] = false,
         ["weapons"] = false,
         ["setGlobal"] = false,
-        ["labels"] = false,
+        ["labels"] = 3,
     }, -- end of ["difficulty"]
     ["VR"] = 
     {
