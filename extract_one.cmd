@@ -20,6 +20,8 @@ del /f /q l10n\Default\veafMove.lua
 del /f /q l10n\Default\veafGrass.lua
 del /f /q l10n\Default\veafUnits.lua
 del /f /q l10n\Default\veafCarrierOperations.lua 
+del /f /q l10n\Default\veafAssets.lua
 del /f /q l10n\Default\dcsUnits.lua
 del /f /q l10n\Default\veafNamedPoints.lua 
+del /f /q l10n\Default\veafRadio.lua 
 popd

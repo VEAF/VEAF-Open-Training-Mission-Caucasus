@@ -68,22 +68,22 @@ options =
     {
         ["rainDroplets"] = true,
         ["preloadRadius"] = 150000,
-        ["heatBlr"] = 2,
+        ["heatBlr"] = 1,
         ["anisotropy"] = 4,
         ["water"] = 2,
         ["motionBlur"] = 0,
         ["outputGamma"] = 1.8,
         ["treesVisibility"] = 10000,
-        ["aspect"] = 2.3888888888889,
+        ["aspect"] = 1.3650793650794,
         ["lights"] = 2,
         ["shadows"] = 4,
         ["MSAA"] = 2,
         ["SSAA"] = 0,
-        ["height"] = 1440,
+        ["height"] = 2520,
         ["forestDistanceFactor"] = 1,
         ["cockpitGI"] = 1,
         ["terrainTextures"] = "max",
-        ["multiMonitorSetup"] = "1camera",
+        ["multiMonitorSetup"] = "mfcd bottom screen",
         ["shadowTree"] = false,
         ["chimneySmokeDensity"] = 5,
         ["fullScreen"] = false,
@@ -258,7 +258,7 @@ options =
             ["JESTER_LandingCallouts"] = true,
             ["JESTER_SwitchToPSTT"] = true,
             ["JESTER_Camera"] = true,
-            ["RadioMenuPttOptions"] = 0,
+            ["RadioMenuPttOptions"] = 1,
         }, -- end of ["F-14B"]
         ["Mi-8MTV2"] = 
         {
@@ -317,7 +317,7 @@ options =
         {
             ["mirrors"] = true,
             ["reflections"] = false,
-            ["avionics"] = 3,
+            ["avionics"] = 1,
         }, -- end of ["cockpit"]
     }, -- end of ["views"]
 } -- end of options

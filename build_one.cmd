@@ -34,6 +34,7 @@ copy community\WeatherMark.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy %VEAF_LIBRARY_FOLDER%\scripts\veaf.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 powershell -Command "(gc .\build\tempsrc\l10n\Default\veaf.lua) -replace 'veaf.Development = true', 'veaf.Development = false' | sc .\build\tempsrc\l10n\Default\veaf.lua"
 copy %VEAF_LIBRARY_FOLDER%\scripts\veafMarkers.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy %VEAF_LIBRARY_FOLDER%\scripts\veafAssets.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy %VEAF_LIBRARY_FOLDER%\scripts\veafSpawn.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy %VEAF_LIBRARY_FOLDER%\scripts\veafCasMission.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy %VEAF_LIBRARY_FOLDER%\scripts\veafTransportMission.lua .\build\tempsrc\l10n\Default  >nul 2>&1
@@ -43,6 +44,7 @@ copy %VEAF_LIBRARY_FOLDER%\scripts\veafUnits.lua .\build\tempsrc\l10n\Default  >
 copy %VEAF_LIBRARY_FOLDER%\scripts\veafCarrierOperations.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy %VEAF_LIBRARY_FOLDER%\scripts\dcsUnits.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy %VEAF_LIBRARY_FOLDER%\scripts\veafNamedPoints.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy %VEAF_LIBRARY_FOLDER%\scripts\veafRadio.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 
 rem -- compile the mission
 "%SEVENZIP%" a -r -tzip %MISSION_FILE%_%1.miz .\build\tempsrc\* -mem=AES256
