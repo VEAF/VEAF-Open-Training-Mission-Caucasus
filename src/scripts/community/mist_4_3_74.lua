@@ -2721,12 +2721,13 @@ function mist.getAvgPos(unitNames)
 end
 
 function mist.getAvgGroupPos(groupName)
+	local group = groupName -- sometimes this parameter is actually a group
 	if type(groupName) == 'string' and Group.getByName(groupName) and Group.getByName(groupName):isExist() == true then
-		groupName = Group.getByName(groupName)
+		group = Group.getByName(groupName)
 	end
 	local units = {}
-	for i = 1, #groupName:getSize() do
-		table.insert(units, groupName.getUnit(i):getName())
+	for i = 1, group:getSize() do
+		table.insert(units, group:getUnit(i):getName())
 	end
 
 	return mist.getAvgPos(units)

@@ -1,4 +1,12 @@
-mkdir .\build\tempsrc  >nul 2>&1
+rem @echo off
+echo -
+echo ------------------------------
+echo building OpenTraining
+echo ------------------------------
 
-call build_one.cmd release
-rem call build_one.cmd openbeta
+rem -- prepare the folders
+rd /s /q .\build  
+mkdir .\build  
+mkdir .\build\tempsrc  
+
+call build_one.cmd caucasus
