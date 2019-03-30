@@ -5,15 +5,15 @@ mission =
     }, -- end of ["requiredModules"]
     ["date"] = 
     {
-        ["Day"] = 1,
         ["Year"] = 2011,
+        ["Day"] = 1,
         ["Month"] = 6,
     }, -- end of ["date"]
     ["trig"] = 
     {
         ["actions"] = 
         {
-            [1] = "a_do_script_file(getValueResourceByKey(\"ResKey_Action_12\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_148\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_25\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_21\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_147\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_29\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_30\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_22\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_23\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_27\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_28\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_26\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_35\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_80\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_93\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_24\"));",
+            [1] = "a_do_script_file(getValueResourceByKey(\"ResKey_Action_12\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_149\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_148\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_25\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_21\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_147\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_29\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_30\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_22\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_23\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_27\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_28\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_26\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_35\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_80\"));a_do_script_file(getValueResourceByKey(\"ResKey_Action_93\"));a_do_script(getValueDictByKey(\"DictKey_ActionText_24\"));",
         }, -- end of ["actions"]
         ["events"] = 
         {
@@ -80,7 +80,7 @@ mission =
             }, -- end of ["func"]
         }, -- end of ["red"]
     }, -- end of ["result"]
-    ["maxDictId"] = 148,
+    ["maxDictId"] = 149,
     ["pictureFileNameN"] = 
     {
     }, -- end of ["pictureFileNameN"]
@@ -128,19 +128,23 @@ mission =
                 ["speed"] = 10.308,
                 ["dir"] = 234,
             }, -- end of ["at8000"]
-            ["at2000"] = 
-            {
-                ["speed"] = 5.154,
-                ["dir"] = 285,
-            }, -- end of ["at2000"]
             ["atGround"] = 
             {
                 ["speed"] = 5.6694,
                 ["dir"] = 74,
             }, -- end of ["atGround"]
+            ["at2000"] = 
+            {
+                ["speed"] = 5.154,
+                ["dir"] = 285,
+            }, -- end of ["at2000"]
         }, -- end of ["wind"]
         ["enable_fog"] = false,
-        ["dust_density"] = 0,
+        ["fog"] = 
+        {
+            ["thickness"] = 0,
+            ["visibility"] = 25,
+        }, -- end of ["fog"]
         ["season"] = 
         {
             ["temperature"] = 20,
@@ -169,17 +173,13 @@ mission =
             }, -- end of [2]
         }, -- end of ["cyclones"]
         ["name"] = "Tbilissi Wet Weather - less wind",
-        ["fog"] = 
-        {
-            ["thickness"] = 0,
-            ["visibility"] = 25,
-        }, -- end of ["fog"]
-        ["enable_dust"] = false,
-        ["groundTurbulence"] = 5,
+        ["dust_density"] = 0,
         ["visibility"] = 
         {
             ["distance"] = 60000,
         }, -- end of ["visibility"]
+        ["groundTurbulence"] = 5,
+        ["enable_dust"] = false,
         ["clouds"] = 
         {
             ["thickness"] = 830,
@@ -203,6 +203,30 @@ mission =
     }, -- end of ["map"]
     ["coalitions"] = 
     {
+        ["blue"] = 
+        {
+            [1] = 21,
+            [2] = 11,
+            [3] = 8,
+            [4] = 28,
+            [5] = 26,
+            [6] = 13,
+            [7] = 5,
+            [8] = 16,
+            [9] = 6,
+            [10] = 15,
+            [11] = 20,
+            [12] = 12,
+            [13] = 40,
+            [14] = 45,
+            [15] = 9,
+            [16] = 46,
+            [17] = 10,
+            [18] = 3,
+            [19] = 4,
+            [20] = 1,
+            [21] = 2,
+        }, -- end of ["blue"]
         ["neutrals"] = 
         {
             [1] = 70,
@@ -250,30 +274,6 @@ mission =
             [43] = 48,
             [44] = 67,
         }, -- end of ["neutrals"]
-        ["blue"] = 
-        {
-            [1] = 21,
-            [2] = 11,
-            [3] = 8,
-            [4] = 28,
-            [5] = 26,
-            [6] = 13,
-            [7] = 5,
-            [8] = 16,
-            [9] = 6,
-            [10] = 15,
-            [11] = 20,
-            [12] = 12,
-            [13] = 40,
-            [14] = 45,
-            [15] = 9,
-            [16] = 46,
-            [17] = 10,
-            [18] = 3,
-            [19] = 4,
-            [20] = 1,
-            [21] = 2,
-        }, -- end of ["blue"]
         ["red"] = 
         {
             [1] = 18,
@@ -477,10 +477,10 @@ mission =
                                         ["speed"] = 46.25,
                                         ["AddPropAircraft"] = 
                                         {
-                                            ["EngineResource"] = 90,
+                                            ["ExhaustScreen"] = true,
                                             ["NetCrewControlPriority"] = 1,
                                             ["GunnersAISkill"] = 90,
-                                            ["ExhaustScreen"] = true,
+                                            ["EngineResource"] = 90,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "UH-1H",
                                         ["Radio"] = 
@@ -507,8 +507,8 @@ mission =
                                                     [13] = 269,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [15] = 263,
                                                     [19] = 253,
+                                                    [15] = 263,
                                                 }, -- end of ["channels"]
                                             }, -- end of [1]
                                         }, -- end of ["Radio"]
@@ -611,10 +611,10 @@ mission =
                                         {
                                             ["LeftEngineResource"] = 90,
                                             ["RightEngineResource"] = 90,
-                                            ["GunnersAISkill"] = 90,
+                                            ["NetCrewControlPriority"] = 1,
                                             ["ExhaustScreen"] = true,
                                             ["CargoHalfdoor"] = true,
-                                            ["NetCrewControlPriority"] = 1,
+                                            ["GunnersAISkill"] = 90,
                                             ["AdditionalArmor"] = true,
                                             ["NS430allow"] = true,
                                         }, -- end of ["AddPropAircraft"]
@@ -643,8 +643,8 @@ mission =
                                                     [13] = 123,
                                                     [7] = 141,
                                                     [14] = 131,
-                                                    [19] = 124,
                                                     [15] = 134,
+                                                    [19] = 124,
                                                 }, -- end of ["channels"]
                                             }, -- end of [1]
                                             [2] = 
@@ -760,10 +760,10 @@ mission =
                                         {
                                             ["LeftEngineResource"] = 90,
                                             ["RightEngineResource"] = 90,
-                                            ["GunnersAISkill"] = 90,
+                                            ["NetCrewControlPriority"] = 1,
                                             ["ExhaustScreen"] = true,
                                             ["CargoHalfdoor"] = true,
-                                            ["NetCrewControlPriority"] = 1,
+                                            ["GunnersAISkill"] = 90,
                                             ["AdditionalArmor"] = true,
                                             ["NS430allow"] = true,
                                         }, -- end of ["AddPropAircraft"]
@@ -792,8 +792,8 @@ mission =
                                                     [13] = 123,
                                                     [7] = 141,
                                                     [14] = 131,
-                                                    [15] = 134,
                                                     [19] = 124,
+                                                    [15] = 134,
                                                 }, -- end of ["channels"]
                                             }, -- end of [1]
                                             [2] = 
@@ -880,10 +880,10 @@ mission =
                                                     {
                                                         [1] = 
                                                         {
-                                                            ["enabled"] = true,
+                                                            ["number"] = 1,
                                                             ["key"] = "CAS",
                                                             ["id"] = "EngageTargets",
-                                                            ["number"] = 1,
+                                                            ["enabled"] = true,
                                                             ["auto"] = true,
                                                             ["params"] = 
                                                             {
@@ -898,10 +898,10 @@ mission =
                                                         }, -- end of [1]
                                                         [2] = 
                                                         {
-                                                            ["enabled"] = true,
+                                                            ["number"] = 2,
                                                             ["auto"] = true,
                                                             ["id"] = "WrappedAction",
-                                                            ["number"] = 2,
+                                                            ["enabled"] = true,
                                                             ["params"] = 
                                                             {
                                                                 ["action"] = 
@@ -1047,10 +1047,10 @@ mission =
                                                     {
                                                         [1] = 
                                                         {
-                                                            ["enabled"] = true,
+                                                            ["number"] = 1,
                                                             ["key"] = "CAS",
                                                             ["id"] = "EngageTargets",
-                                                            ["number"] = 1,
+                                                            ["enabled"] = true,
                                                             ["auto"] = true,
                                                             ["params"] = 
                                                             {
@@ -1065,10 +1065,10 @@ mission =
                                                         }, -- end of [1]
                                                         [2] = 
                                                         {
-                                                            ["enabled"] = true,
+                                                            ["number"] = 2,
                                                             ["auto"] = true,
                                                             ["id"] = "WrappedAction",
-                                                            ["number"] = 2,
+                                                            ["enabled"] = true,
                                                             ["params"] = 
                                                             {
                                                                 ["action"] = 
@@ -1314,11 +1314,11 @@ mission =
                                                                     {
                                                                         ["type"] = 4,
                                                                         ["AA"] = false,
-                                                                        ["callsign"] = "C01",
+                                                                        ["unitId"] = 6,
                                                                         ["modeChannel"] = "X",
                                                                         ["name"] = "Activate TACAN",
                                                                         ["channel"] = 1,
-                                                                        ["unitId"] = 6,
+                                                                        ["callsign"] = "C01",
                                                                         ["system"] = 3,
                                                                         ["bearing"] = true,
                                                                         ["frequency"] = 962000000,
@@ -1624,10 +1624,10 @@ mission =
                                                     {
                                                         [1] = 
                                                         {
-                                                            ["number"] = 1,
+                                                            ["enabled"] = true,
                                                             ["key"] = "CAP",
                                                             ["id"] = "EngageTargets",
-                                                            ["enabled"] = true,
+                                                            ["number"] = 1,
                                                             ["auto"] = true,
                                                             ["params"] = 
                                                             {
@@ -1640,10 +1640,10 @@ mission =
                                                         }, -- end of [1]
                                                         [2] = 
                                                         {
-                                                            ["number"] = 2,
+                                                            ["enabled"] = true,
                                                             ["auto"] = true,
                                                             ["id"] = "WrappedAction",
-                                                            ["enabled"] = true,
+                                                            ["number"] = 2,
                                                             ["params"] = 
                                                             {
                                                                 ["action"] = 
@@ -1743,8 +1743,8 @@ mission =
                                                     [13] = 269,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [19] = 253,
                                                     [15] = 263,
+                                                    [19] = 253,
                                                 }, -- end of ["channels"]
                                             }, -- end of [1]
                                             [2] = 
@@ -1769,8 +1769,8 @@ mission =
                                                     [13] = 269,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [19] = 253,
                                                     [15] = 263,
+                                                    [19] = 253,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -1837,8 +1837,8 @@ mission =
                                                     [13] = 269,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [19] = 253,
                                                     [15] = 263,
+                                                    [19] = 253,
                                                 }, -- end of ["channels"]
                                             }, -- end of [1]
                                             [2] = 
@@ -1863,8 +1863,8 @@ mission =
                                                     [13] = 269,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [19] = 253,
                                                     [15] = 263,
+                                                    [19] = 253,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -1931,8 +1931,8 @@ mission =
                                                     [13] = 269,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [19] = 253,
                                                     [15] = 263,
+                                                    [19] = 253,
                                                 }, -- end of ["channels"]
                                             }, -- end of [1]
                                             [2] = 
@@ -1957,8 +1957,8 @@ mission =
                                                     [13] = 269,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [19] = 253,
                                                     [15] = 263,
+                                                    [19] = 253,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2025,8 +2025,8 @@ mission =
                                                     [13] = 269,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [19] = 253,
                                                     [15] = 263,
+                                                    [19] = 253,
                                                 }, -- end of ["channels"]
                                             }, -- end of [1]
                                             [2] = 
@@ -2051,8 +2051,8 @@ mission =
                                                     [13] = 269,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [19] = 253,
                                                     [15] = 263,
+                                                    [19] = 253,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                         }, -- end of ["Radio"]
@@ -2126,10 +2126,10 @@ mission =
                                                     {
                                                         [1] = 
                                                         {
-                                                            ["enabled"] = true,
+                                                            ["number"] = 1,
                                                             ["key"] = "CAS",
                                                             ["id"] = "EngageTargets",
-                                                            ["number"] = 1,
+                                                            ["enabled"] = true,
                                                             ["auto"] = true,
                                                             ["params"] = 
                                                             {
@@ -2173,14 +2173,14 @@ mission =
                                             ["EWDispenserTBL"] = 2,
                                             ["EWDispenserBR"] = 2,
                                             ["EWDispenserTFR"] = 1,
-                                            ["EWDispenserTBR"] = 2,
-                                            ["ClockTime"] = 1,
-                                            ["WpBullseye"] = 0,
-                                            ["EWDispenserTFL"] = 1,
-                                            ["EWDispenserBL"] = 2,
-                                            ["RocketBurst"] = 1,
-                                            ["ForceINSRules"] = false,
                                             ["MountNVG"] = false,
+                                            ["ForceINSRules"] = false,
+                                            ["RocketBurst"] = 1,
+                                            ["WpBullseye"] = 0,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTFL"] = 1,
+                                            ["ClockTime"] = 1,
+                                            ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AV8BNA",
                                         ["Radio"] = 
@@ -2212,9 +2212,9 @@ mission =
                                                     [26] = 385,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [15] = 263,
-                                                    [19] = 253,
                                                     [23] = 122.1,
+                                                    [19] = 253,
+                                                    [15] = 263,
                                                 }, -- end of ["channels"]
                                             }, -- end of [1]
                                             [2] = 
@@ -2244,9 +2244,9 @@ mission =
                                                     [26] = 127,
                                                     [7] = 130,
                                                     [14] = 129,
-                                                    [15] = 138,
-                                                    [19] = 128,
                                                     [23] = 135,
+                                                    [19] = 128,
+                                                    [15] = 138,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                             [3] = 
@@ -2264,7 +2264,7 @@ mission =
                                                     [5] = 254,
                                                     [10] = 262,
                                                     [20] = 266,
-                                                    [15] = 263,
+                                                    [30] = 123.3,
                                                     [21] = 133,
                                                     [11] = 259,
                                                     [22] = 257.8,
@@ -2276,13 +2276,13 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [23] = 122.1,
+                                                    [27] = 133,
                                                     [7] = 270,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [27] = 133,
+                                                    [23] = 122.1,
                                                     [29] = 122.1,
-                                                    [30] = 123.3,
+                                                    [15] = 263,
                                                 }, -- end of ["channels"]
                                             }, -- end of [3]
                                         }, -- end of ["Radio"]
@@ -2325,14 +2325,14 @@ mission =
                                             ["ClockTime"] = 1,
                                             ["EWDispenserBR"] = 2,
                                             ["EWDispenserTFR"] = 1,
-                                            ["MountNVG"] = false,
-                                            ["ForceINSRules"] = false,
-                                            ["EWDispenserTFL"] = 1,
-                                            ["WpBullseye"] = 0,
-                                            ["EWDispenserTBL"] = 2,
-                                            ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["EWDispenserTBR"] = 2,
+                                            ["EWDispenserBL"] = 2,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserTFL"] = 1,
+                                            ["EWDispenserTBL"] = 2,
+                                            ["WpBullseye"] = 0,
+                                            ["ForceINSRules"] = false,
+                                            ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AV8BNA",
                                         ["Radio"] = 
@@ -2364,9 +2364,9 @@ mission =
                                                     [26] = 385,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [15] = 263,
-                                                    [19] = 253,
                                                     [23] = 122.1,
+                                                    [19] = 253,
+                                                    [15] = 263,
                                                 }, -- end of ["channels"]
                                             }, -- end of [1]
                                             [2] = 
@@ -2396,9 +2396,9 @@ mission =
                                                     [26] = 127,
                                                     [7] = 130,
                                                     [14] = 129,
-                                                    [15] = 138,
-                                                    [19] = 128,
                                                     [23] = 135,
+                                                    [19] = 128,
+                                                    [15] = 138,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                             [3] = 
@@ -2416,7 +2416,7 @@ mission =
                                                     [5] = 254,
                                                     [10] = 262,
                                                     [20] = 266,
-                                                    [15] = 263,
+                                                    [30] = 123.3,
                                                     [21] = 133,
                                                     [11] = 259,
                                                     [22] = 257.8,
@@ -2428,13 +2428,13 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [23] = 122.1,
+                                                    [7] = 270,
                                                     [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [7] = 270,
+                                                    [23] = 122.1,
                                                     [29] = 122.1,
-                                                    [30] = 123.3,
+                                                    [15] = 263,
                                                 }, -- end of ["channels"]
                                             }, -- end of [3]
                                         }, -- end of ["Radio"]
@@ -2477,14 +2477,14 @@ mission =
                                             ["EWDispenserTBL"] = 2,
                                             ["EWDispenserBR"] = 2,
                                             ["ForceINSRules"] = false,
-                                            ["EWDispenserTBR"] = 2,
-                                            ["EWDispenserBL"] = 2,
-                                            ["WpBullseye"] = 0,
-                                            ["EWDispenserTFL"] = 1,
-                                            ["ClockTime"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = false,
+                                            ["EWDispenserTFR"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["WpBullseye"] = 0,
+                                            ["ClockTime"] = 1,
+                                            ["EWDispenserTFL"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AV8BNA",
                                         ["Radio"] = 
@@ -2516,9 +2516,9 @@ mission =
                                                     [26] = 385,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [15] = 263,
-                                                    [19] = 253,
                                                     [23] = 122.1,
+                                                    [19] = 253,
+                                                    [15] = 263,
                                                 }, -- end of ["channels"]
                                             }, -- end of [1]
                                             [2] = 
@@ -2548,9 +2548,9 @@ mission =
                                                     [26] = 127,
                                                     [7] = 130,
                                                     [14] = 129,
-                                                    [15] = 138,
-                                                    [19] = 128,
                                                     [23] = 135,
+                                                    [19] = 128,
+                                                    [15] = 138,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                             [3] = 
@@ -2568,7 +2568,7 @@ mission =
                                                     [5] = 254,
                                                     [10] = 262,
                                                     [20] = 266,
-                                                    [15] = 263,
+                                                    [30] = 123.3,
                                                     [21] = 133,
                                                     [11] = 259,
                                                     [22] = 257.8,
@@ -2580,13 +2580,13 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [23] = 122.1,
+                                                    [7] = 270,
                                                     [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [7] = 270,
+                                                    [23] = 122.1,
                                                     [29] = 122.1,
-                                                    [30] = 123.3,
+                                                    [15] = 263,
                                                 }, -- end of ["channels"]
                                             }, -- end of [3]
                                         }, -- end of ["Radio"]
@@ -2629,14 +2629,14 @@ mission =
                                             ["ClockTime"] = 1,
                                             ["EWDispenserBR"] = 2,
                                             ["EWDispenserBL"] = 2,
-                                            ["MountNVG"] = false,
-                                            ["EWDispenserTFR"] = 1,
-                                            ["EWDispenserTFL"] = 1,
-                                            ["WpBullseye"] = 0,
-                                            ["EWDispenserTBL"] = 2,
-                                            ["RocketBurst"] = 1,
-                                            ["ForceINSRules"] = false,
                                             ["EWDispenserTBR"] = 2,
+                                            ["ForceINSRules"] = false,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserTFL"] = 1,
+                                            ["EWDispenserTBL"] = 2,
+                                            ["WpBullseye"] = 0,
+                                            ["EWDispenserTFR"] = 1,
+                                            ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "AV8BNA",
                                         ["Radio"] = 
@@ -2668,9 +2668,9 @@ mission =
                                                     [26] = 385,
                                                     [7] = 270,
                                                     [14] = 260,
-                                                    [15] = 263,
-                                                    [19] = 253,
                                                     [23] = 122.1,
+                                                    [19] = 253,
+                                                    [15] = 263,
                                                 }, -- end of ["channels"]
                                             }, -- end of [1]
                                             [2] = 
@@ -2700,9 +2700,9 @@ mission =
                                                     [26] = 127,
                                                     [7] = 130,
                                                     [14] = 129,
-                                                    [15] = 138,
-                                                    [19] = 128,
                                                     [23] = 135,
+                                                    [19] = 128,
+                                                    [15] = 138,
                                                 }, -- end of ["channels"]
                                             }, -- end of [2]
                                             [3] = 
@@ -2720,7 +2720,7 @@ mission =
                                                     [5] = 254,
                                                     [10] = 262,
                                                     [20] = 266,
-                                                    [15] = 263,
+                                                    [30] = 123.3,
                                                     [21] = 133,
                                                     [11] = 259,
                                                     [22] = 257.8,
@@ -2732,13 +2732,13 @@ mission =
                                                     [25] = 344,
                                                     [13] = 269,
                                                     [26] = 385,
-                                                    [23] = 122.1,
+                                                    [7] = 270,
                                                     [27] = 133,
                                                     [14] = 260,
                                                     [28] = 257.8,
-                                                    [7] = 270,
+                                                    [23] = 122.1,
                                                     [29] = 122.1,
-                                                    [30] = 123.3,
+                                                    [15] = 263,
                                                 }, -- end of ["channels"]
                                             }, -- end of [3]
                                         }, -- end of ["Radio"]
@@ -2812,10 +2812,10 @@ mission =
                                                     {
                                                         [1] = 
                                                         {
-                                                            ["enabled"] = true,
+                                                            ["number"] = 1,
                                                             ["key"] = "SEAD",
                                                             ["id"] = "EngageTargets",
-                                                            ["number"] = 1,
+                                                            ["enabled"] = true,
                                                             ["auto"] = true,
                                                             ["params"] = 
                                                             {
@@ -2828,10 +2828,10 @@ mission =
                                                         }, -- end of [1]
                                                         [2] = 
                                                         {
-                                                            ["enabled"] = true,
+                                                            ["number"] = 2,
                                                             ["auto"] = true,
                                                             ["id"] = "WrappedAction",
-                                                            ["number"] = 2,
+                                                            ["enabled"] = true,
                                                             ["params"] = 
                                                             {
                                                                 ["action"] = 
@@ -2847,10 +2847,10 @@ mission =
                                                         }, -- end of [2]
                                                         [3] = 
                                                         {
-                                                            ["enabled"] = true,
+                                                            ["number"] = 3,
                                                             ["auto"] = true,
                                                             ["id"] = "WrappedAction",
-                                                            ["number"] = 3,
+                                                            ["enabled"] = true,
                                                             ["params"] = 
                                                             {
                                                                 ["action"] = 
@@ -3166,10 +3166,10 @@ mission =
                                                     {
                                                         [1] = 
                                                         {
-                                                            ["enabled"] = true,
+                                                            ["number"] = 1,
                                                             ["key"] = "CAP",
                                                             ["id"] = "EngageTargets",
-                                                            ["number"] = 1,
+                                                            ["enabled"] = true,
                                                             ["auto"] = true,
                                                             ["params"] = 
                                                             {
@@ -3355,8 +3355,8 @@ mission =
             ["rules"] = 
             {
             }, -- end of ["rules"]
+            ["comment"] = "mission start",
             ["eventlist"] = "",
-            ["predicate"] = "triggerStart",
             ["actions"] = 
             {
                 [1] = 
@@ -3371,7 +3371,7 @@ mission =
                 }, -- end of [1]
                 [2] = 
                 {
-                    ["file"] = "ResKey_Action_148",
+                    ["file"] = "ResKey_Action_149",
                     ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
@@ -3381,9 +3381,8 @@ mission =
                 }, -- end of [2]
                 [3] = 
                 {
-                    ["KeyDict_text"] = "DictKey_ActionText_25",
-                    ["text"] = "DictKey_ActionText_25",
-                    ["predicate"] = "a_do_script",
+                    ["file"] = "ResKey_Action_148",
+                    ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
                         [1] = "",
@@ -3392,8 +3391,9 @@ mission =
                 }, -- end of [3]
                 [4] = 
                 {
-                    ["file"] = "ResKey_Action_21",
-                    ["predicate"] = "a_do_script_file",
+                    ["predicate"] = "a_do_script",
+                    ["text"] = "DictKey_ActionText_25",
+                    ["KeyDict_text"] = "DictKey_ActionText_25",
                     ["ai_task"] = 
                     {
                         [1] = "",
@@ -3402,7 +3402,7 @@ mission =
                 }, -- end of [4]
                 [5] = 
                 {
-                    ["file"] = "ResKey_Action_147",
+                    ["file"] = "ResKey_Action_21",
                     ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
@@ -3412,7 +3412,7 @@ mission =
                 }, -- end of [5]
                 [6] = 
                 {
-                    ["file"] = "ResKey_Action_29",
+                    ["file"] = "ResKey_Action_147",
                     ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
@@ -3422,7 +3422,7 @@ mission =
                 }, -- end of [6]
                 [7] = 
                 {
-                    ["file"] = "ResKey_Action_30",
+                    ["file"] = "ResKey_Action_29",
                     ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
@@ -3432,7 +3432,7 @@ mission =
                 }, -- end of [7]
                 [8] = 
                 {
-                    ["file"] = "ResKey_Action_22",
+                    ["file"] = "ResKey_Action_30",
                     ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
@@ -3442,7 +3442,7 @@ mission =
                 }, -- end of [8]
                 [9] = 
                 {
-                    ["file"] = "ResKey_Action_23",
+                    ["file"] = "ResKey_Action_22",
                     ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
@@ -3452,7 +3452,7 @@ mission =
                 }, -- end of [9]
                 [10] = 
                 {
-                    ["file"] = "ResKey_Action_27",
+                    ["file"] = "ResKey_Action_23",
                     ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
@@ -3462,7 +3462,7 @@ mission =
                 }, -- end of [10]
                 [11] = 
                 {
-                    ["file"] = "ResKey_Action_28",
+                    ["file"] = "ResKey_Action_27",
                     ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
@@ -3472,7 +3472,7 @@ mission =
                 }, -- end of [11]
                 [12] = 
                 {
-                    ["file"] = "ResKey_Action_26",
+                    ["file"] = "ResKey_Action_28",
                     ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
@@ -3482,7 +3482,7 @@ mission =
                 }, -- end of [12]
                 [13] = 
                 {
-                    ["file"] = "ResKey_Action_35",
+                    ["file"] = "ResKey_Action_26",
                     ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
@@ -3492,7 +3492,7 @@ mission =
                 }, -- end of [13]
                 [14] = 
                 {
-                    ["file"] = "ResKey_Action_80",
+                    ["file"] = "ResKey_Action_35",
                     ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
@@ -3502,7 +3502,7 @@ mission =
                 }, -- end of [14]
                 [15] = 
                 {
-                    ["file"] = "ResKey_Action_93",
+                    ["file"] = "ResKey_Action_80",
                     ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
@@ -3512,35 +3512,45 @@ mission =
                 }, -- end of [15]
                 [16] = 
                 {
-                    ["KeyDict_text"] = "DictKey_ActionText_24",
-                    ["text"] = "DictKey_ActionText_24",
-                    ["predicate"] = "a_do_script",
+                    ["file"] = "ResKey_Action_93",
+                    ["predicate"] = "a_do_script_file",
                     ["ai_task"] = 
                     {
                         [1] = "",
                         [2] = "",
                     }, -- end of ["ai_task"]
                 }, -- end of [16]
+                [17] = 
+                {
+                    ["predicate"] = "a_do_script",
+                    ["text"] = "DictKey_ActionText_24",
+                    ["KeyDict_text"] = "DictKey_ActionText_24",
+                    ["ai_task"] = 
+                    {
+                        [1] = "",
+                        [2] = "",
+                    }, -- end of ["ai_task"]
+                }, -- end of [17]
             }, -- end of ["actions"]
-            ["comment"] = "mission start",
+            ["predicate"] = "triggerStart",
         }, -- end of [1]
     }, -- end of ["trigrules"]
-    ["currentKey"] = 4110,
+    ["currentKey"] = 4191,
     ["start_time"] = 28800,
     ["forcedOptions"] = 
     {
     }, -- end of ["forcedOptions"]
     ["failures"] = 
     {
-        ["CMS_FAILURE_RIGHT_DISPENSER"] = 
+        ["CADC_WING_SWEEP_INDICATOR"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "CMS_FAILURE_RIGHT_DISPENSER",
+            ["id"] = "CADC_WING_SWEEP_INDICATOR",
             ["mm"] = 0,
-        }, -- end of ["CMS_FAILURE_RIGHT_DISPENSER"]
+        }, -- end of ["CADC_WING_SWEEP_INDICATOR"]
         ["ILS_FAILURE_ANTENNA"] = 
         {
             ["hh"] = 0,
@@ -3577,15 +3587,15 @@ mission =
             ["id"] = "UHF_ARC_159_FAILURE_REMOTE_DISPLAY",
             ["mm"] = 0,
         }, -- end of ["UHF_ARC_159_FAILURE_REMOTE_DISPLAY"]
-        ["RWR_FAILURE_COMPUTER"] = 
+        ["RWR_FAILURE_CONTROL_BOX"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "RWR_FAILURE_COMPUTER",
+            ["id"] = "RWR_FAILURE_CONTROL_BOX",
             ["mm"] = 0,
-        }, -- end of ["RWR_FAILURE_COMPUTER"]
+        }, -- end of ["RWR_FAILURE_CONTROL_BOX"]
         ["VHF_ARC_182_FAILURE_TRANSCEIVER"] = 
         {
             ["hh"] = 0,
@@ -3595,15 +3605,15 @@ mission =
             ["id"] = "VHF_ARC_182_FAILURE_TRANSCEIVER",
             ["mm"] = 0,
         }, -- end of ["VHF_ARC_182_FAILURE_TRANSCEIVER"]
-        ["CADC_STABILIZER_AUTHORITY_COMMAND"] = 
+        ["CADC_RUDDER_AUTHORITY_COMMAND"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "CADC_STABILIZER_AUTHORITY_COMMAND",
+            ["id"] = "CADC_RUDDER_AUTHORITY_COMMAND",
             ["mm"] = 0,
-        }, -- end of ["CADC_STABILIZER_AUTHORITY_COMMAND"]
+        }, -- end of ["CADC_RUDDER_AUTHORITY_COMMAND"]
         ["HYD_Combined"] = 
         {
             ["hh"] = 0,
@@ -3766,15 +3776,15 @@ mission =
             ["id"] = "ILS_FAILURE_DECODER",
             ["mm"] = 0,
         }, -- end of ["ILS_FAILURE_DECODER"]
-        ["ICS_FAILURE_AMPLIFIER_RIO_NORM"] = 
+        ["VDI_FAILURE_TOTAL"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "ICS_FAILURE_AMPLIFIER_RIO_NORM",
+            ["id"] = "VDI_FAILURE_TOTAL",
             ["mm"] = 0,
-        }, -- end of ["ICS_FAILURE_AMPLIFIER_RIO_NORM"]
+        }, -- end of ["VDI_FAILURE_TOTAL"]
         ["CADC_FAILURE_TOTAL"] = 
         {
             ["hh"] = 0,
@@ -3919,15 +3929,24 @@ mission =
             ["id"] = "W_S_R",
             ["mm"] = 0,
         }, -- end of ["W_S_R"]
-        ["VDI_FAILURE_TOTAL"] = 
+        ["UHF_ARC_159_FAILURE_TRANSCEIVER"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "VDI_FAILURE_TOTAL",
+            ["id"] = "UHF_ARC_159_FAILURE_TRANSCEIVER",
             ["mm"] = 0,
-        }, -- end of ["VDI_FAILURE_TOTAL"]
+        }, -- end of ["UHF_ARC_159_FAILURE_TRANSCEIVER"]
+        ["ICS_FAILURE_AMPLIFIER_RIO_NORM"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "ICS_FAILURE_AMPLIFIER_RIO_NORM",
+            ["mm"] = 0,
+        }, -- end of ["ICS_FAILURE_AMPLIFIER_RIO_NORM"]
         ["RWR_FAILURE_QUAD225"] = 
         {
             ["hh"] = 0,
@@ -3937,15 +3956,6 @@ mission =
             ["id"] = "RWR_FAILURE_QUAD225",
             ["mm"] = 0,
         }, -- end of ["RWR_FAILURE_QUAD225"]
-        ["TACAN_FAILURE_TRANSMITTER"] = 
-        {
-            ["hh"] = 0,
-            ["prob"] = 100,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["id"] = "TACAN_FAILURE_TRANSMITTER",
-            ["mm"] = 0,
-        }, -- end of ["TACAN_FAILURE_TRANSMITTER"]
         ["UHF_ARC_159_FAILURE_TOTAL"] = 
         {
             ["hh"] = 0,
@@ -3955,42 +3965,6 @@ mission =
             ["id"] = "UHF_ARC_159_FAILURE_TOTAL",
             ["mm"] = 0,
         }, -- end of ["UHF_ARC_159_FAILURE_TOTAL"]
-        ["TACAN_FAILURE_TOTAL"] = 
-        {
-            ["hh"] = 0,
-            ["prob"] = 100,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["id"] = "TACAN_FAILURE_TOTAL",
-            ["mm"] = 0,
-        }, -- end of ["TACAN_FAILURE_TOTAL"]
-        ["IMU_FAILURE_TOTAL"] = 
-        {
-            ["hh"] = 0,
-            ["prob"] = 100,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["id"] = "IMU_FAILURE_TOTAL",
-            ["mm"] = 0,
-        }, -- end of ["IMU_FAILURE_TOTAL"]
-        ["CADC_WING_SWEEP_INDICATOR"] = 
-        {
-            ["hh"] = 0,
-            ["prob"] = 100,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["id"] = "CADC_WING_SWEEP_INDICATOR",
-            ["mm"] = 0,
-        }, -- end of ["CADC_WING_SWEEP_INDICATOR"]
-        ["CADC_WING_SWEEP_COMMAND_CHANNEL_2"] = 
-        {
-            ["hh"] = 0,
-            ["prob"] = 100,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["id"] = "CADC_WING_SWEEP_COMMAND_CHANNEL_2",
-            ["mm"] = 0,
-        }, -- end of ["CADC_WING_SWEEP_COMMAND_CHANNEL_2"]
         ["UHF_ARC_159_FAILURE_INTERNAL_MODULE"] = 
         {
             ["hh"] = 0,
@@ -4000,33 +3974,69 @@ mission =
             ["id"] = "UHF_ARC_159_FAILURE_INTERNAL_MODULE",
             ["mm"] = 0,
         }, -- end of ["UHF_ARC_159_FAILURE_INTERNAL_MODULE"]
-        ["CADC_RUDDER_AUTHORITY_COMMAND"] = 
+        ["IMU_FAILURE_TOTAL"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "CADC_RUDDER_AUTHORITY_COMMAND",
+            ["id"] = "IMU_FAILURE_TOTAL",
             ["mm"] = 0,
-        }, -- end of ["CADC_RUDDER_AUTHORITY_COMMAND"]
-        ["RWR_FAILURE_QUAD135"] = 
+        }, -- end of ["IMU_FAILURE_TOTAL"]
+        ["CMS_FAILURE_RIGHT_DISPENSER"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "RWR_FAILURE_QUAD135",
+            ["id"] = "CMS_FAILURE_RIGHT_DISPENSER",
             ["mm"] = 0,
-        }, -- end of ["RWR_FAILURE_QUAD135"]
-        ["RWR_FAILURE_CONTROL_BOX"] = 
+        }, -- end of ["CMS_FAILURE_RIGHT_DISPENSER"]
+        ["TACAN_FAILURE_TOTAL"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "RWR_FAILURE_CONTROL_BOX",
+            ["id"] = "TACAN_FAILURE_TOTAL",
             ["mm"] = 0,
-        }, -- end of ["RWR_FAILURE_CONTROL_BOX"]
+        }, -- end of ["TACAN_FAILURE_TOTAL"]
+        ["CADC_WING_SWEEP_COMMAND_CHANNEL_2"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "CADC_WING_SWEEP_COMMAND_CHANNEL_2",
+            ["mm"] = 0,
+        }, -- end of ["CADC_WING_SWEEP_COMMAND_CHANNEL_2"]
+        ["CADC_STABILIZER_AUTHORITY_COMMAND"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "CADC_STABILIZER_AUTHORITY_COMMAND",
+            ["mm"] = 0,
+        }, -- end of ["CADC_STABILIZER_AUTHORITY_COMMAND"]
+        ["RWR_FAILURE_MBE"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "RWR_FAILURE_MBE",
+            ["mm"] = 0,
+        }, -- end of ["RWR_FAILURE_MBE"]
+        ["RWR_FAILURE_COMPUTER"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "RWR_FAILURE_COMPUTER",
+            ["mm"] = 0,
+        }, -- end of ["RWR_FAILURE_COMPUTER"]
         ["CADC_CSDC_CONNECTION"] = 
         {
             ["hh"] = 0,
@@ -4045,15 +4055,6 @@ mission =
             ["id"] = "VHF_ARC_182_FAILURE_REMOTE_DISPLAY",
             ["mm"] = 0,
         }, -- end of ["VHF_ARC_182_FAILURE_REMOTE_DISPLAY"]
-        ["RWR_FAILURE_MBE"] = 
-        {
-            ["hh"] = 0,
-            ["prob"] = 100,
-            ["enable"] = false,
-            ["mmint"] = 1,
-            ["id"] = "RWR_FAILURE_MBE",
-            ["mm"] = 0,
-        }, -- end of ["RWR_FAILURE_MBE"]
         ["UHF_ARC_159_FAILURE_ANTENNA"] = 
         {
             ["hh"] = 0,
@@ -4063,6 +4064,15 @@ mission =
             ["id"] = "UHF_ARC_159_FAILURE_ANTENNA",
             ["mm"] = 0,
         }, -- end of ["UHF_ARC_159_FAILURE_ANTENNA"]
+        ["RWR_FAILURE_QUAD135"] = 
+        {
+            ["hh"] = 0,
+            ["prob"] = 100,
+            ["enable"] = false,
+            ["mmint"] = 1,
+            ["id"] = "RWR_FAILURE_QUAD135",
+            ["mm"] = 0,
+        }, -- end of ["RWR_FAILURE_QUAD135"]
         ["INS_FAILURE_NAV_COMPUTER"] = 
         {
             ["hh"] = 0,
@@ -4099,15 +4109,15 @@ mission =
             ["id"] = "AHRS_FAILURE_TOTAL",
             ["mm"] = 0,
         }, -- end of ["AHRS_FAILURE_TOTAL"]
-        ["UHF_ARC_159_FAILURE_TRANSCEIVER"] = 
+        ["TACAN_FAILURE_TRANSMITTER"] = 
         {
             ["hh"] = 0,
             ["prob"] = 100,
             ["enable"] = false,
             ["mmint"] = 1,
-            ["id"] = "UHF_ARC_159_FAILURE_TRANSCEIVER",
+            ["id"] = "TACAN_FAILURE_TRANSMITTER",
             ["mm"] = 0,
-        }, -- end of ["UHF_ARC_159_FAILURE_TRANSCEIVER"]
+        }, -- end of ["TACAN_FAILURE_TRANSMITTER"]
         ["VHF_ARC_182_FAILURE_DISPLAY"] = 
         {
             ["hh"] = 0,

@@ -4,7 +4,7 @@ echo ------------------------------
 echo extracting %1 
 echo ------------------------------
 
-set MIZ=to_extract.miz
+set MIZ=extract.miz
 
 rem extracting MIZ files
 pushd src\%1

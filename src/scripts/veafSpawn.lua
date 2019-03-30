@@ -66,7 +66,7 @@ veafSpawn = {}
 veafSpawn.Id = "SPAWN - "
 
 --- Version.
-veafSpawn.Version = "1.3.0"
+veafSpawn.Version = "1.3.1"
 
 --- Key phrase to look for in the mark text which triggers the weather report.
 veafSpawn.Keyphrase = "veaf spawn "
@@ -675,12 +675,6 @@ function veafSpawn.spawnUnit(spawnPosition, name, country, speed, alt, hdg, unit
         return    
     end
     
-    if role == 'jtac' and country:lower() == "russia" then
-        hidden = true
-    else 
-        hidden = false
-    end
-
     local units = {}
     local groupName = nil
     
@@ -727,24 +721,41 @@ function veafSpawn.spawnUnit(spawnPosition, name, country, speed, alt, hdg, unit
     -- actually spawn the unit
     if unit.naval then
         veafSpawn.logTrace("Spawning SHIP")
-        mist.dynAdd({country = country, category = "SHIP", name = groupName, hidden = hidden, units = units})
+        mist.dynAdd({country = country, category = "SHIP", name = groupName, units = units})
     elseif unit.air then
         veafSpawn.logTrace("Spawning AIRPLANE")
-        mist.dynAdd({country = country, category = "PLANE", name = groupName, hidden = hidden, units = units})
+        mist.dynAdd({country = country, category = "PLANE", name = groupName, units = units})
     else
         veafSpawn.logTrace("Spawning GROUND_UNIT")
-        mist.dynAdd({country = country, category = "GROUND_UNIT", name = groupName, hidden = hidden, units = units})
+        mist.dynAdd({country = country, category = "GROUND_UNIT", name = groupName, units = units})
     end
-    
-    -- get spwaned groupd
-    local spawnGroup = 	Group.getByName(groupName)
-    
-    -- JTAC needs to be invisible and immortal
+
     if role == "jtac" then
-      -- @todo later - need to refactor JTACAutoLase library
-      -- require lib DCS-JTACAutoLaze
-      --JTACAutoLase(groupName, laserCode, false, "all")
-    end
+        -- JTAC needs to be invisible and immortal
+        local _setImmortal = {
+            id = 'SetImmortal',
+            params = {
+                value = true
+            }
+        }
+        -- invisible to AI, Shagrat
+        local _setInvisible = {
+            id = 'SetInvisible',
+            params = {
+                value = true
+            }
+        }
+
+        local spawnedGroup = Group.getByName(groupName)
+        local controller = spawnedGroup:getController()
+        Controller.setCommand(controller, _setImmortal)
+        Controller.setCommand(controller, _setInvisible)
+
+        -- start lasing 
+        JTACAutoLase(groupName, laserCode, false, "all")
+      end
+  
+
 
     if speed > 0 then
         veaf.moveGroupAt(groupName, hdg, speed) -- TODO check if this still works (no leadUnitName parameter)
