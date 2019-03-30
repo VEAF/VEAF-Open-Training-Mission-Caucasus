@@ -43,18 +43,7 @@ veafNamedPoints.Version = "1.0.1"
 veafNamedPoints.Keyphrase = "veaf name "
 
 veafNamedPoints.Points = {
-    -- airbases
-    {name="AIRBASE Tbilisi",point={x=-315414,y=480,z=897262}},
-    {name="AIRBASE Sukhumi",point={x=-219998,y=0,z=563926}},
-    {name="AIRBASE Batumi",point={x=-355808,y=0,z=617385}},
-    -- farps
-    {name="FARP Java",point={x=-247450,y=0,z=799583}},
-    {name="FARP Lentehi",point={x=-214442,y=0,z=695610}},
-    {name="FARP Aibgha",point={x=-146615,y=0,z=486334}},
-    {name="FARP Rista",point={x=-151631,y=0,z=518384}},
-    {name="FARP Kaspi",point={x=-290955,y=0,z=847525}}, 
-    -- points of interest
-    {name="RANGE Kobuleti",point={x=-328289,y=0,z=631228}},
+    --- these points will be processed at initialisation time
 }
 
 veafNamedPoints.RadioMenuName = "NAMED POINTS (" .. veafNamedPoints.Version .. ")"

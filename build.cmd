@@ -10,4 +10,5 @@ mkdir .\build
 mkdir .\build\tempsrc  
 
 call build_one.cmd caucasus
+call build_one.cmd persiangulf
 call build_one.cmd test
