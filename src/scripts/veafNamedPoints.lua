@@ -261,8 +261,10 @@ end
 --- refresh the Weather Reports radio menu
 function veafNamedPoints._refreshWeatherReportsRadioMenu()
     if veafNamedPoints.weatherPath then
+        veafNamedPoints.logTrace("deleting weather report submenu")
         veafRadio.delSubmenu(veafNamedPoints.weatherPath, veafNamedPoints.rootPath)
     end
+    veafNamedPoints.logTrace("adding weather report submenu")
     veafNamedPoints.weatherPath = veafRadio.addSubMenu("Get weather report over a point", veafNamedPoints.rootPath)
     names = {}
     for name, point in pairs(veafNamedPoints.namedPoints) do

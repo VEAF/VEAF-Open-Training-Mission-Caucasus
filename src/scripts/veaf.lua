@@ -71,6 +71,29 @@ function veaf.logTrace(message)
     end
 end
 
+--- efficiently remove elements from a table
+--- credit : Mitch McMabers (https://stackoverflow.com/questions/12394841/safely-remove-items-from-an-array-table-while-iterating)
+function veaf.arrayRemoveWhen(t, fnKeep)
+    local pristine = true    
+    local j, n = 1, #t;
+    for i=1,n do
+        if (fnKeep(t, i, j)) then
+            if (i ~= j) then
+                -- Keep i's value, move it to j's pos.
+                t[j] = t[i];
+                t[i] = nil;
+            else
+                -- Keep i's value, already at j's pos.
+            end
+            j = j + 1;
+        else
+            t[i] = nil;
+            pristine = false
+        end
+    end
+    return not pristine;
+end
+
 function veaf.vecToString(vec)
     local result = ""
     if vec.x then

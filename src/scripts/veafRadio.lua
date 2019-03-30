@@ -241,21 +241,19 @@ function veafRadio.delSubmenu(subMenu, radioMenu)
   if radioMenu then
      menu = radioMenu 
   end
-  for count = 1,#menu.subMenus do
-    local menu = menu.subMenus[count]
-    local found = false
-    if type(subMenu) == "string" then
-      found = menu.title == subMenu
+  veaf.arrayRemoveWhen(menu.subMenus, function(t, i, j)
+    -- Return true to keep the value, or false to discard it.
+    veafRadio.logTrace("searching for " .. subMenu.title)
+    local v = menu.subMenus[i]
+    veafRadio.logTrace("checking " .. v.title)
+    if v == subMenu then
+      veafRadio.logTrace("found ! removing " .. v.title)
+      return false
     else
-      found = menu == subMenu
-    end
-    if found then
-      table.remove(menu.subMenus, count)
+      veafRadio.logTrace("keeping " .. v.title)
       return true
     end
-  end
-  
-  return false
+  end);
 end
 
 -- prepare humans groups
