@@ -4,3 +4,7 @@ mission/*
 mission/
 *.miz
 setup_zip\.cmd
+
+build_zip\.cmd
+
+\.vscode/tasks\.json
