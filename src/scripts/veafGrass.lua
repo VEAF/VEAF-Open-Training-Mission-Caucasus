@@ -45,7 +45,7 @@ veafGrass = {}
 veafGrass.Id = "GRASS - "
 
 --- Version.
-veafGrass.Version = "1.0.1"
+veafGrass.Version = "1.0.3"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Utility methods
@@ -70,6 +70,7 @@ end
 -- @return nil
 ------------------------------------------------------------------------------
 function veafGrass.buildGrassRunway(runwayOrigin)
+	veafGrass.logInfo("Building grass runway for unit " .. runwayOrigin.unitName)
 
 	-- runway length in meters
 	local length = 600;
@@ -144,7 +145,9 @@ end
 function veafGrass.buildFarpsUnits()
 
 	for name, unit in pairs(mist.DBs.unitsByName) do
-		if (unit.type == "SINGLE_HELIPAD" or unit.type == "FARP") and string.find(name, 'FARP ') then
+		veafGrass.logTrace("buildFarpsUnits: testing " .. unit.type .. " " .. name)
+
+		if (unit.type == "SINGLE_HELIPAD" or unit.type == "FARP") and string.find(name:upper(), 'FARP ') then
 			veafGrass.buildFarpUnits(unit)
 		end
 	end
@@ -156,6 +159,7 @@ end
 -- @param unit farp : the FARP unit
 ------------------------------------------------------------------------------
 function veafGrass.buildFarpUnits(farp)
+	veafGrass.logInfo("Building FARP for unit " .. farp.unitName)
 
 	local angle = mist.utils.toDegree(farp.heading);
 	local tentSpacing = 20
