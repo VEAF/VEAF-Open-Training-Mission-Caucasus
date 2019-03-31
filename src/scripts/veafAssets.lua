@@ -24,17 +24,10 @@ veafAssets = {}
 veafAssets.Id = "ASSETS - "
 
 --- Version.
-veafAssets.Version = "1.0.2"
+veafAssets.Version = "1.0.3"
 
 veafAssets.Assets = {
-    {name="T1-Arco", description="Arco (KC-135)", information="Tacan 6Y\nVHF 138.2 Mhz"}, 
-    {name="T2-Shell", description="Shell (KC-135 MPRS)", information="Tacan 14Y\nVHF 134.7 Mhz"},  
-    {name="T3-Texaco", description="Texaco (KC-135 MPRS)", information="Tacan 12Y\nVHF 132.5 Mhz"},  
-    {name="A1-Overlord", description="Overlord (E-2D)", information="UHF 251 Mhz"},  
-    {name="Meet Mig-21", description="RED Mig-21 (dogfight zone)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
-    {name="Meet Mig-29", description="RED Mig-29 (dogfight zone)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\"" },
-    {name="Meet Mig-29*2", description="RED Mig-29x2 (dogfight zone)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
-    {name="Meet Mig-29*4", description="RED Mig-29x4 (dogfight zone)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
+    -- list the assets common to all missions below
 }
 
 veafAssets.RadioMenuName = "ASSETS (" .. veafAssets.Version .. ")"
@@ -44,6 +37,8 @@ veafAssets.RadioMenuName = "ASSETS (" .. veafAssets.Version .. ")"
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 veafAssets.rootPath = nil
+
+veafAssets.assets = {}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Utility methods
@@ -69,7 +64,7 @@ end
 function veafAssets.buildRadioMenu()
     veafAssets.rootPath = veafRadio.addSubMenu(veafAssets.RadioMenuName)
     veafRadio.addCommandToSubmenu("HELP", veafAssets.rootPath, veafAssets.help, nil, true)
-    for _, asset in pairs(veafAssets.Assets) do
+    for _, asset in pairs(veafAssets.assets) do
         if asset.disposable or asset.information then -- in this case we need a submenu
             local radioMenu = veafRadio.addSubMenu(asset.description, veafAssets.rootPath)
             veafRadio.addCommandToSubmenu("Respawn "..asset.description, radioMenu, veafAssets.respawn, asset.name, false)
@@ -91,7 +86,7 @@ function veafAssets.info(parameters)
     local name, groupId = unpack(parameters)
     veafAssets.logDebug("veafAssets.info "..name)
     local theAsset = nil
-    for _, asset in pairs(veafAssets.Assets) do
+    for _, asset in pairs(veafAssets.assets) do
         if asset.name == name then
             theAsset = asset
         end
@@ -124,7 +119,7 @@ end
 function veafAssets.dispose(name)
     veafAssets.logDebug("veafAssets.dispose "..name)
     local theAsset = nil
-    for _, asset in pairs(veafAssets.Assets) do
+    for _, asset in pairs(veafAssets.assets) do
         if asset.name == name then
             theAsset = asset
         end
@@ -145,7 +140,7 @@ end
 function veafAssets.respawn(name)
     veafAssets.logDebug("veafAssets.respawn "..name)
     local theAsset = nil
-    for _, asset in pairs(veafAssets.Assets) do
+    for _, asset in pairs(veafAssets.assets) do
         if asset.name == name then
             theAsset = asset
         end
@@ -170,7 +165,16 @@ end
 -- initialisation
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+function veafAssets.buildAssetsDatabase()
+    veafAssets.assets = {}
+    for i, v in ipairs(veafAssets.Assets) do
+        veafAssets.assets[i] = v
+    end
+end
+
+
 function veafAssets.initialize()
+    veafAssets.buildAssetsDatabase()
     veafAssets.buildRadioMenu()
 end
 
