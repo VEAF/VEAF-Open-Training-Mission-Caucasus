@@ -1,65 +1,66 @@
 
-# Créer une QRA réarmable
+# Create an infinite QRA on a trigger zone
 
-Pré-requis:
-- MIST
+Requirements:
+- [MIST](https://github.com/mrSkortch/MissionScriptingTools)
 
-## Editeur - créer une zone
+## Editor - create a trigger zone
 
-Créer une zone de déclenchement, et la nommer (ex: QRA Minevody). Elle servira à déterminer quand la QRA s'active, et une fois détruite, quand la QRA peut être de nouveau prête.
+Create a trigger zone, and name it (ex: QRA Minevody). It should be used to enable QRA and, when destroyed, used to grant a new QRA group.
 
-## Editeur - créer un groupe
+## Mission Editor - Create a group
 
-Créer un groupe ennemi (ex: 2 mig 21, Rouge) et le nommer (ex: QRA Minevody 21)
+Create a enemy group (ex: 2 mig 21, Red) and name it (ex: QRA Minevody 21)
 
-## Editeur - créer les triggers
+## Mission Editor - Create all (3) triggers
 
-### Créer le trigger d'initialisation
+### Create the Init trigger
 
-Il doit être créé avant les autres triggers gérant la QRA.
+It should be created before others QRA triggers.
 
 #### Trigger
-* Type: une fois
-* Nom: QRA Init
-* Evénement: n/a
+* Type: ONCE
+* Name: QRA Init
+* Event: n/a
 
-#### Règles
+#### Rules
 
 n/a
 
 #### Actions
 
-* EXECUTER SCRIPT:
+* DO SCRIPT:
 
 ```lua
 qraMinevody="ready";
 qraMinevodyTimer=0;
 ```
 
-* GROUPE - DESACTIVER:
+* GROUPE - DEACTIVATE:
   GROUPE: QRA Minevody 21
 
-### Créer le trigger de début de QRA
+### Create the QRA start trigger
 
 #### Trigger
-* Type: une fois
-* Nom: QRA Minevody Start
-* Evénement: n/a
+* Type: CONTINUOUS ACTION
+* Name: QRA Minevody Start
+* Event: n/a
 
-#### Règles
+#### Rules
 
-* Type: coalition en partie dans la zone
-Coalition: Bleu
-Zone: QRA Minevody
+* Type: PART OF COALITION IN ZONE
+  Coalition: Blue
+  Zone: QRA Minevody
 
 * Type: LUA PREDICATE
+  Text:
 ```lua
 return qraMinevody=="ready"
 ```
 
 #### Actions
 
-* EXECUTER SCRIPT:
+* DO SCRIPT:
 
 ```lua
 qraMinevody="doing";
@@ -67,19 +68,19 @@ qraMinevodyTimer=0;
 mist.respawnGroup("QRA Minevody 21", true);
 ```
 
-* MESSAGE A LA COALITION:
+* MESSAGE TO COALITION:
 
-Texte: QRA detected near Minevody
-Secondes: 30
+Text: QRA detected near Minevody
+Seconds: 30
 
-### Créer le trigger de fin de QRA
+### Create the QRA end trigger
 
 #### Trigger
-Type: en continu
-Nom: QRA Minevody Finished
-Evénement: n/a
+Type: CONTINUOUS ACTION
+Name: QRA Minevody Finished
+Event: n/a
 
-#### Règles
+#### Rules
 
 Type: LUA PREDICATE
 Texte:
@@ -97,32 +98,31 @@ return not Group.getByName("QRA Minevody 21")
 
 #### Actions
 
-* EXECUTER SCRIPT:
+* DO SCRIPT:
 
 ```lua
 qraMinevody="dead";
 ```
 
-* MESSAGE A LA COALITION:
+* MESSAGE TO COALITION:
 
 Coalition: Bleu
-Texte: QRA destroyed near Minevody 
-Secondes: 30
+Text: QRA destroyed near Minevody 
+Seconds: 30
 
-### Créer le trigger de réactivation de la QRA
+### Create the QRA reactivate trigger
 
-Ce trigger permet de réactiver la QRA pour qu'elle soit à nouveau disponible dans la zone.
+This trigger prepare the QRA ready again in the trigger zone.
 
 #### Trigger
-Type: en continu
-Nom: QRA Minevody Reload
-Evénement: n/a
+Type: CONTINUOUS ACTION
+Name: QRA Minevody Reload
+Event: n/a
 
+#### Rules
 
-#### Règles
-
-* Type: toute la coalition en dehors de la zone
-Coalition: Bleu
+* Type: ALL OF COALITION OUT OF ZONE
+Coalition: Blue
 Zone: QRA Minevody
 
 * Type: LUA PREDICATE
@@ -132,14 +132,14 @@ return qraMinevody=="dead"
 
 #### Actions
 
-* EXECUTER SCRIPT:
+* DO SCRIPT:
 
 ```lua
 qraMinevody="ready";
 ```
 
-* MESSAGE A LA COALITION:
+* MESSAGE TO COALITION:
 
-Coalition: Bleu
-Texte: QRA near Minevody is ready again.
-Secondes: 30
+Coalition: Blue
+Text: QRA near Minevody is ready again.
+Seconds: 30
