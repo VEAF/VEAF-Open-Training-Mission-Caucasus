@@ -12,16 +12,7 @@ requirements:
 * the VEAF_mission_library git repository checked out somewhere
 * an IDE (notepad++, visual studio code...)
 
-## Prepare your environment
-
-By default, the VEAF_mission_library git repository is supposed to be checked out in `..\VEAF_mission_library`  
-If you want to override the default, simply set the *VEAF_LIBRARY_FOLDER* variable to something else  
-Example :  
-```
-# set VEAF_LIBRARY_FOLDER=c:\dev\VEAF_mission_library
-```
-
-In the same spirit, by default the mission is generated in the build folder, using a pattern that adds the current date in ISO format to the prefix *OT_Causacus_*  
+By default the mission is generated in the build folder, using a pattern that adds the current date in ISO format to the prefix *OT_Causacus_*  
 If you want to override the default, simply set the *MISSION_FILE* variable to something else  
 Example :  
 
@@ -35,6 +26,10 @@ Never make changes in scripts and in mission editor at the same time.
 Always use this defined process:
 
 ![editor_workflow](docs/editor_workflow.png)
+
+## Mission maker tips
+
+* [QRA missions](doc/missionMaker/qra.md)
 
 ### Extracting data from an edited mission
 
@@ -50,7 +45,6 @@ It will compile the mission file and tell you where it is stored.
 
 ```
 # build                                        
-VEAF_LIBRARY_FOLDER = ..\VEAF_mission_library  
 MISSION_FILE = .\build\OT_Causacus_20182708.miz
 Built .\build\OT_Causacus_20182708.miz         
 ```
