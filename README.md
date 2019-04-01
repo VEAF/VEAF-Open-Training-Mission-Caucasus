@@ -12,6 +12,8 @@ requirements:
 * the VEAF_mission_library git repository checked out somewhere
 * an IDE (notepad++, visual studio code...)
 
+## Prepare your environment
+
 By default the mission is generated in the build folder, using a pattern that adds the current date in ISO format to the prefix *OT_Causacus_*  
 If you want to override the default, simply set the *MISSION_FILE* variable to something else  
 Example :  
