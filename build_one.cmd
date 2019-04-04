@@ -36,6 +36,7 @@ rem -- copy all the community scripts
 copy .\src\scripts\community\mist_4_3_74.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\community\WeatherMark.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\community\JTACAutoLase.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\community\autogft-1_12.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 
 rem -- copy all the scripts
 copy .\src\scripts\dcsUnits.lua .\build\tempsrc\l10n\Default  >nul 2>&1
