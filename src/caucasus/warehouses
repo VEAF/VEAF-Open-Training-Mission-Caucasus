@@ -632,7 +632,7 @@ warehouses =
             ["suppliers"] = 
             {
             }, -- end of ["suppliers"]
-            ["coalition"] = "BLUE",
+            ["coalition"] = "RED",
             ["jet_fuel"] = 
             {
                 ["InitFuel"] = 100,
@@ -1069,7 +1069,7 @@ warehouses =
             ["OperatingLevel_Fuel"] = 10,
             ["unlimitedAircrafts"] = true,
         }, -- end of [1331]
-        [902] = 
+        [1245] = 
         {
             ["gasoline"] = 
             {
@@ -1106,7 +1106,7 @@ warehouses =
             }, -- end of ["weapons"]
             ["OperatingLevel_Fuel"] = 10,
             ["unlimitedAircrafts"] = true,
-        }, -- end of [902]
+        }, -- end of [1245]
         [1169] = 
         {
             ["gasoline"] = 
@@ -1715,7 +1715,7 @@ warehouses =
             ["OperatingLevel_Fuel"] = 10,
             ["unlimitedAircrafts"] = true,
         }, -- end of [1168]
-        [1245] = 
+        [902] = 
         {
             ["gasoline"] = 
             {
@@ -1752,6 +1752,6 @@ warehouses =
             }, -- end of ["weapons"]
             ["OperatingLevel_Fuel"] = 10,
             ["unlimitedAircrafts"] = true,
-        }, -- end of [1245]
+        }, -- end of [902]
     }, -- end of ["warehouses"]
 } -- end of warehouses

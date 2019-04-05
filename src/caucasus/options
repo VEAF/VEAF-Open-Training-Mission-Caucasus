@@ -1,6 +1,6 @@
 options = 
 {
-    ["playerName"] = "New callsign",
+    ["playerName"] = "Zip",
     ["miscellaneous"] = 
     {
         ["headmove"] = false,

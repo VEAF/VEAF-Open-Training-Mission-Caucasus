@@ -752,7 +752,7 @@ function veafSpawn.spawnUnit(spawnPosition, name, country, speed, alt, hdg, unit
         Controller.setCommand(controller, _setInvisible)
 
         -- start lasing 
-        JTACAutoLase(groupName, laserCode, false, "all")
+        ctld.JTACAutoLase(groupName, laserCode, false, "vehicle")
       end
   
 
