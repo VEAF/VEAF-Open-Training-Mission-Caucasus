@@ -66,7 +66,7 @@ veafSpawn = {}
 veafSpawn.Id = "SPAWN - "
 
 --- Version.
-veafSpawn.Version = "1.3.1"
+veafSpawn.Version = "1.4.1"
 
 --- Key phrase to look for in the mark text which triggers the weather report.
 veafSpawn.Keyphrase = "veaf spawn "
@@ -78,6 +78,10 @@ veafSpawn.RedSpawnedUnitsGroupName = "VEAF Spawned Units"
 veafSpawn.IlluminationFlareAglAltitude = 1000
 
 veafSpawn.RadioMenuName = "SPAWN (" .. veafSpawn.Version .. ")"
+
+--- static object type spawned when using the "logistic" keyword
+veafSpawn.LogisticUnitType = "FARP Ammo Dump Coating"
+veafSpawn.LogisticUnitCategory = "Structures"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Do not change anything below unless you know what you are doing!
@@ -125,7 +129,9 @@ function veafSpawn.onEventMarkChange(eventPos, event)
             elseif options.convoy then
                 veafSpawn.spawnConvoy(eventPos, options.country, options.patrol, options.offroad, options.destination, options.defense, options.transports, options.armor)
             elseif options.cargo then
-                veafSpawn.spawnCargo(eventPos, options.cargoType, options.cargoSmoke, options.unitName)
+                veafSpawn.spawnCargo(eventPos, options.cargoType, options.cargoSmoke, options.unitName, false)
+            elseif options.logistic then
+                veafSpawn.spawnLogistic(eventPos)
             elseif options.destroy then
                 veafSpawn.destroy(eventPos, options.radius, options.unitName)
             elseif options.bomb then
@@ -158,6 +164,7 @@ function veafSpawn.markTextAnalysis(text)
     switch.unit = false
     switch.group = false
     switch.cargo = false
+    switch.logistic = false
     switch.smoke = false
     switch.flare = false
     switch.bomb = false
@@ -234,6 +241,8 @@ function veafSpawn.markTextAnalysis(text)
         switch.flare = true
     elseif text:lower():find(veafSpawn.Keyphrase .. "cargo") then
         switch.cargo = true
+    elseif text:lower():find(veafSpawn.Keyphrase .. "logistic") then
+        switch.logistic = true
     elseif text:lower():find(veafSpawn.Keyphrase .. "bomb") then
         switch.bomb = true
     elseif text:lower():find(veafSpawn.Keyphrase .. "destroy") then
@@ -777,6 +786,22 @@ function veafSpawn.spawnCargo(spawnSpot, cargoType, cargoSmoke, unitName)
     veafSpawn.doSpawnCargo(spawnSpot, cargoType, unitName, cargoSmoke, false)
 end
 
+--- Spawn a logistic unit for CTLD at a specific spot
+function veafSpawn.spawnLogistic(spawnSpot)
+    veafSpawn.logDebug("spawnLogistic()")
+    veafSpawn.logDebug(string.format("spawnLogistic: spawnSpot  x=%.1f y=%.1f, z=%.1f", spawnSpot.x, spawnSpot.y, spawnSpot.z))
+
+    local unitName = veafSpawn.doSpawnStatic(spawnSpot, veafSpawn.LogisticUnitCategory, veafSpawn.LogisticUnitType, nil, false, true)
+    
+    veafSpawn.logDebug(string.format("spawnLogistic: inserting %s into CTLD logistics list", unitName))
+    table.insert(ctld.logisticUnits, unitName)
+
+    -- message the unit spawning
+    local message = "Logistic unit " .. unitName .. " has been spawned and was added to CTLD."
+    trigger.action.outText(message, 5)
+    
+end
+
 --- Spawn a specific cargo at a specific spot
 function veafSpawn.doSpawnCargo(spawnSpot, cargoType, unitName, cargoSmoke, silent)
     veafSpawn.logDebug("spawnCargo(cargoType = " .. cargoType ..")")
@@ -851,8 +876,71 @@ function veafSpawn.doSpawnCargo(spawnSpot, cargoType, unitName, cargoSmoke, sile
             if not(silent) then trigger.action.outText(message, 5) end
         end
     end
-    
+    return unitName
 end
+
+
+--- Spawn a specific static at a specific spot
+function veafSpawn.doSpawnStatic(spawnSpot, staticCategory, staticType, unitName, smoke, silent)
+    veafSpawn.logDebug("doSpawnStatic(staticCategory = " .. staticCategory ..")")
+    veafSpawn.logDebug("doSpawnStatic(staticType = " .. staticType ..")")
+    veafSpawn.logDebug(string.format("doSpawnStatic: spawnSpot  x=%.1f y=%.1f, z=%.1f", spawnSpot.x, spawnSpot.y, spawnSpot.z))
+
+    local units = {}
+
+    local spawnPosition = veaf.findPointInZone(spawnSpot, 50, false)
+
+    -- check spawned position validity
+    if spawnPosition == nil then
+        veafSpawn.logInfo("cannot find a suitable position for spawning static "..staticType)
+        if not(silent) then trigger.action.outText("cannot find a suitable position for spawning static "..staticType, 5) end
+        return
+    end
+
+    veafSpawn.logDebug(string.format("doSpawnStatic: spawnPosition  x=%.1f y=%.1f", spawnPosition.x, spawnPosition.y))
+  
+    local unit = veafUnits.findDcsUnit(staticType)
+    if unit then
+        if not(unitName) then
+            veafSpawn.spawnedUnitsCounter = veafSpawn.spawnedUnitsCounter + 1
+            unitName = unit.desc.displayName .. " #" .. veafSpawn.spawnedUnitsCounter
+        end
+
+        -- create the static
+        local staticTable = {
+            category = staticCategory,
+            type = staticType,
+            country = 'USA',
+            name = unitName,
+            x = spawnPosition.x,
+            y = spawnPosition.y
+        }
+        
+        mist.dynAddStatic(staticTable)
+        
+        -- smoke if needed
+        if smoke then 
+            local smokePosition={x=spawnPosition.x + mist.random(10,20), y=0, z=spawnPosition.y + mist.random(10,20)}
+            local height = veaf.getLandHeight(smokePosition)
+            smokePosition.y = height
+            veafSpawn.logDebug(string.format("doSpawnStatic: smokePosition  x=%.1f y=%.1f z=%.1f", smokePosition.x, smokePosition.y, smokePosition.z))
+            veafSpawn.spawnSmoke(smokePosition, trigger.smokeColor.Green)
+            for i = 1, 10 do
+                veafSpawn.logDebug("Signal flare 1 at " .. timer.getTime() + i*7)
+                mist.scheduleFunction(veafSpawn.spawnSignalFlare, {smokePosition,trigger.flareColor.Red, mist.random(359)}, timer.getTime() + i*3)
+            end
+        end
+
+        -- message the unit spawning
+        local message = "Static " .. unitName .. " has been spawned"
+        if smoke then 
+            message = message .. ". It's marked with green smoke and red flares"
+        end
+        if not(silent) then trigger.action.outText(message, 5) end
+    end
+    return unitName
+end
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Smoke and Flare commands
 -------------------------------------------------------------------------------------------------------------------------------------------------------------

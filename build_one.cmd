@@ -38,7 +38,7 @@ copy .\src\scripts\community\WeatherMark.lua .\build\tempsrc\l10n\Default  >nul 
 copy .\src\scripts\community\CTLD.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\community\autogft-1_12.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 
-rem -- copy all the scripts
+rem -- copy all the common scripts
 copy .\src\scripts\dcsUnits.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\veaf.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\veaf_library.lua .\build\tempsrc\l10n\Default  >nul 2>&1
@@ -53,6 +53,10 @@ copy .\src\scripts\veafRadio.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\veafSpawn.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\veafTransportMission.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\veafUnits.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+
+rem -- copy all the mission-specific scripts
+copy .\src\scripts\mission-specific\%VERSION%\*.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+
 
 rem -- set the debug flag to off
 powershell -Command "(gc .\build\tempsrc\l10n\Default\veaf.lua) -replace 'veaf.Development = %DEBUG_FLAG%', 'veaf.Development = false' | sc .\build\tempsrc\l10n\Default\veaf.lua" >nul 2>&1

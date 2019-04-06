@@ -41,7 +41,7 @@ ctld.slingLoad = false -- if false, crates can be used WITHOUT slingloading, by 
 ctld.enableSmokeDrop = true -- if false, helis and c-130 will not be able to drop smoke
 
 ctld.maxExtractDistance = 125 -- max distance from vehicle to troops to allow a group extraction
-ctld.maximumDistanceLogistic = 200 -- max distance from vehicle to logistics to allow a loading or spawning operation
+ctld.maximumDistanceLogistic = 500 -- max distance from vehicle to logistics to allow a loading or spawning operation
 ctld.maximumSearchDistance = 4000 -- max distance for troops to search for enemy
 ctld.maximumMoveDistance = 2000 -- max distance for troops to move from drop point if no enemy is nearby
 
@@ -315,6 +315,16 @@ ctld.logisticUnits = {
     "logistic8",
     "logistic9",
     "logistic10",
+    "logistic11",
+    "logistic12",
+    "logistic13",
+    "logistic14",
+    "logistic15",
+    "logistic16",
+    "logistic17",
+    "logistic18",
+    "logistic19",
+    "logistic20",
 }
 
 -- ************** UNITS ABLE TO TRANSPORT VEHICLES ******************
@@ -1372,13 +1382,13 @@ function ctld.spawnCrateStatic(_country, _unitId, _point, _name, _weight,_side)
 ]]--
 	else	
             _crate = {
-                ["shape_name"] = "GeneratorF",
-                ["type"] = "GeneratorF",
+                ["shape_name"] = "bw_container_cargo", --new slingloadable container
+                ["type"] = "container_cargo", --new type
              --   ["unitId"] = _unitId,
                 ["y"] = _point.z,
                 ["x"] = _point.x,
                 ["name"] = _name,
-                ["category"] = "Fortifications",
+                ["category"] = "Cargos", --now plurar
                 ["canCargo"] = false,
                 ["heading"] = 0,
             }
@@ -5696,301 +5706,303 @@ end
 
 
 -- ***************** SETUP SCRIPT ****************
+function ctld.initialize()
 
-assert(mist ~= nil, "\n\n** HEY MISSION-DESIGNER! **\n\nMiST has not been loaded!\n\nMake sure MiST 3.6 or higher is running\n*before* running this script!\n")
+    assert(mist ~= nil, "\n\n** HEY MISSION-DESIGNER! **\n\nMiST has not been loaded!\n\nMake sure MiST 3.6 or higher is running\n*before* running this script!\n")
 
-ctld.addedTo = {}
-ctld.spawnedCratesRED = {} -- use to store crates that have been spawned
-ctld.spawnedCratesBLUE = {} -- use to store crates that have been spawned
+    ctld.addedTo = {}
+    ctld.spawnedCratesRED = {} -- use to store crates that have been spawned
+    ctld.spawnedCratesBLUE = {} -- use to store crates that have been spawned
 
-ctld.droppedTroopsRED = {} -- stores dropped troop groups
-ctld.droppedTroopsBLUE = {} -- stores dropped troop groups
+    ctld.droppedTroopsRED = {} -- stores dropped troop groups
+    ctld.droppedTroopsBLUE = {} -- stores dropped troop groups
 
-ctld.droppedVehiclesRED = {} -- stores vehicle groups for c-130 / hercules
-ctld.droppedVehiclesBLUE = {} -- stores vehicle groups for c-130 / hercules
+    ctld.droppedVehiclesRED = {} -- stores vehicle groups for c-130 / hercules
+    ctld.droppedVehiclesBLUE = {} -- stores vehicle groups for c-130 / hercules
 
-ctld.inTransitTroops = {}
+    ctld.inTransitTroops = {}
 
-ctld.inTransitFOBCrates = {}
+    ctld.inTransitFOBCrates = {}
 
-ctld.inTransitSlingLoadCrates = {} -- stores crates that are being transported by helicopters for alternative to real slingload
+    ctld.inTransitSlingLoadCrates = {} -- stores crates that are being transported by helicopters for alternative to real slingload
 
-ctld.droppedFOBCratesRED = {}
-ctld.droppedFOBCratesBLUE = {}
+    ctld.droppedFOBCratesRED = {}
+    ctld.droppedFOBCratesBLUE = {}
 
-ctld.builtFOBS = {} -- stores fully built fobs
+    ctld.builtFOBS = {} -- stores fully built fobs
 
-ctld.completeAASystems = {} -- stores complete spawned groups from multiple crates
+    ctld.completeAASystems = {} -- stores complete spawned groups from multiple crates
 
-ctld.fobBeacons = {} -- stores FOB radio beacon details, refreshed every 60 seconds
+    ctld.fobBeacons = {} -- stores FOB radio beacon details, refreshed every 60 seconds
 
-ctld.deployedRadioBeacons = {} -- stores details of deployed radio beacons
+    ctld.deployedRadioBeacons = {} -- stores details of deployed radio beacons
 
-ctld.beaconCount = 1
+    ctld.beaconCount = 1
 
-ctld.usedUHFFrequencies = {}
-ctld.usedVHFFrequencies = {}
-ctld.usedFMFrequencies = {}
+    ctld.usedUHFFrequencies = {}
+    ctld.usedVHFFrequencies = {}
+    ctld.usedFMFrequencies = {}
 
-ctld.freeUHFFrequencies = {}
-ctld.freeVHFFrequencies = {}
-ctld.freeFMFrequencies = {}
+    ctld.freeUHFFrequencies = {}
+    ctld.freeVHFFrequencies = {}
+    ctld.freeFMFrequencies = {}
 
---used to lookup what the crate will contain
-ctld.crateLookupTable = {}
+    --used to lookup what the crate will contain
+    ctld.crateLookupTable = {}
 
-ctld.extractZones = {} -- stored extract zones
+    ctld.extractZones = {} -- stored extract zones
 
-ctld.missionEditorCargoCrates = {} --crates added by mission editor for triggering cratesinzone
-ctld.hoverStatus = {} -- tracks status of a helis hover above a crate
+    ctld.missionEditorCargoCrates = {} --crates added by mission editor for triggering cratesinzone
+    ctld.hoverStatus = {} -- tracks status of a helis hover above a crate
 
-ctld.callbacks = {} -- function callback
-
-
--- Remove intransit troops when heli / cargo plane dies
---ctld.eventHandler = {}
---function ctld.eventHandler:onEvent(_event)
---
---    if _event == nil or _event.initiator == nil then
---        env.info("CTLD null event")
---    elseif _event.id == 9 then
---        -- Pilot dead
---        ctld.inTransitTroops[_event.initiator:getName()] = nil
---
---    elseif world.event.S_EVENT_EJECTION == _event.id or _event.id == 8 then
---        -- env.info("Event unit - Pilot Ejected or Unit Dead")
---        ctld.inTransitTroops[_event.initiator:getName()] = nil
---
---        -- env.info(_event.initiator:getName())
---    end
---
---end
-
--- create crate lookup table
-for _subMenuName, _crates in pairs(ctld.spawnableCrates) do
-
-    for _, _crate in pairs(_crates) do
-        -- convert number to string otherwise we'll have a pointless giant
-        -- table. String means 'hashmap' so it will only contain the right number of elements
-        ctld.crateLookupTable[tostring(_crate.weight)] = _crate
-    end
-end
+    ctld.callbacks = {} -- function callback
 
 
---sort out pickup zones
-for _, _zone in pairs(ctld.pickupZones) do
+    -- Remove intransit troops when heli / cargo plane dies
+    --ctld.eventHandler = {}
+    --function ctld.eventHandler:onEvent(_event)
+    --
+    --    if _event == nil or _event.initiator == nil then
+    --        env.info("CTLD null event")
+    --    elseif _event.id == 9 then
+    --        -- Pilot dead
+    --        ctld.inTransitTroops[_event.initiator:getName()] = nil
+    --
+    --    elseif world.event.S_EVENT_EJECTION == _event.id or _event.id == 8 then
+    --        -- env.info("Event unit - Pilot Ejected or Unit Dead")
+    --        ctld.inTransitTroops[_event.initiator:getName()] = nil
+    --
+    --        -- env.info(_event.initiator:getName())
+    --    end
+    --
+    --end
 
-    local _zoneName = _zone[1]
-    local _zoneColor = _zone[2]
-    local _zoneActive = _zone[4]
+    -- create crate lookup table
+    for _subMenuName, _crates in pairs(ctld.spawnableCrates) do
 
-    if _zoneColor == "green" then
-        _zone[2] = trigger.smokeColor.Green
-    elseif _zoneColor == "red" then
-        _zone[2] = trigger.smokeColor.Red
-    elseif _zoneColor == "white" then
-        _zone[2] = trigger.smokeColor.White
-    elseif _zoneColor == "orange" then
-        _zone[2] = trigger.smokeColor.Orange
-    elseif _zoneColor == "blue" then
-        _zone[2] = trigger.smokeColor.Blue
-    else
-        _zone[2] = -1 -- no smoke colour
+        for _, _crate in pairs(_crates) do
+            -- convert number to string otherwise we'll have a pointless giant
+            -- table. String means 'hashmap' so it will only contain the right number of elements
+            ctld.crateLookupTable[tostring(_crate.weight)] = _crate
+        end
     end
 
-    -- add in counter for troops or units
-    if _zone[3] == -1 then
-        _zone[3] = 10000;
-    end
 
-    -- change active to 1 / 0
-    if _zoneActive == "yes" then
-        _zone[4] = 1
-    else
-        _zone[4] = 0
-    end
-end
+    --sort out pickup zones
+    for _, _zone in pairs(ctld.pickupZones) do
 
---sort out dropoff zones
-for _, _zone in pairs(ctld.dropOffZones) do
+        local _zoneName = _zone[1]
+        local _zoneColor = _zone[2]
+        local _zoneActive = _zone[4]
 
-    local _zoneColor = _zone[2]
-
-    if _zoneColor == "green" then
-        _zone[2] = trigger.smokeColor.Green
-    elseif _zoneColor == "red" then
-        _zone[2] = trigger.smokeColor.Red
-    elseif _zoneColor == "white" then
-        _zone[2] = trigger.smokeColor.White
-    elseif _zoneColor == "orange" then
-        _zone[2] = trigger.smokeColor.Orange
-    elseif _zoneColor == "blue" then
-        _zone[2] = trigger.smokeColor.Blue
-    else
-        _zone[2] = -1 -- no smoke colour
-    end
-
-    --mark as active for refresh smoke logic to work
-    _zone[4] = 1
-end
-
---sort out waypoint zones
-for _, _zone in pairs(ctld.wpZones) do
-
-    local _zoneColor = _zone[2]
-
-    if _zoneColor == "green" then
-        _zone[2] = trigger.smokeColor.Green
-    elseif _zoneColor == "red" then
-        _zone[2] = trigger.smokeColor.Red
-    elseif _zoneColor == "white" then
-        _zone[2] = trigger.smokeColor.White
-    elseif _zoneColor == "orange" then
-        _zone[2] = trigger.smokeColor.Orange
-    elseif _zoneColor == "blue" then
-        _zone[2] = trigger.smokeColor.Blue
-    else
-        _zone[2] = -1 -- no smoke colour
-    end
-
-    --mark as active for refresh smoke logic to work
-    -- change active to 1 / 0
-    if  _zone[3] == "yes" then
-        _zone[3] = 1
-    else
-        _zone[3] = 0
-    end
-end
-
--- Sort out extractable groups
-for _, _groupName in pairs(ctld.extractableGroups) do
-
-    local _group = Group.getByName(_groupName)
-
-    if _group ~= nil then
-
-        if _group:getCoalition() == 1 then
-            table.insert(ctld.droppedTroopsRED, _group:getName())
+        if _zoneColor == "green" then
+            _zone[2] = trigger.smokeColor.Green
+        elseif _zoneColor == "red" then
+            _zone[2] = trigger.smokeColor.Red
+        elseif _zoneColor == "white" then
+            _zone[2] = trigger.smokeColor.White
+        elseif _zoneColor == "orange" then
+            _zone[2] = trigger.smokeColor.Orange
+        elseif _zoneColor == "blue" then
+            _zone[2] = trigger.smokeColor.Blue
         else
-            table.insert(ctld.droppedTroopsBLUE, _group:getName())
+            _zone[2] = -1 -- no smoke colour
+        end
+
+        -- add in counter for troops or units
+        if _zone[3] == -1 then
+            _zone[3] = 10000;
+        end
+
+        -- change active to 1 / 0
+        if _zoneActive == "yes" then
+            _zone[4] = 1
+        else
+            _zone[4] = 0
         end
     end
-end
+
+    --sort out dropoff zones
+    for _, _zone in pairs(ctld.dropOffZones) do
+
+        local _zoneColor = _zone[2]
+
+        if _zoneColor == "green" then
+            _zone[2] = trigger.smokeColor.Green
+        elseif _zoneColor == "red" then
+            _zone[2] = trigger.smokeColor.Red
+        elseif _zoneColor == "white" then
+            _zone[2] = trigger.smokeColor.White
+        elseif _zoneColor == "orange" then
+            _zone[2] = trigger.smokeColor.Orange
+        elseif _zoneColor == "blue" then
+            _zone[2] = trigger.smokeColor.Blue
+        else
+            _zone[2] = -1 -- no smoke colour
+        end
+
+        --mark as active for refresh smoke logic to work
+        _zone[4] = 1
+    end
+
+    --sort out waypoint zones
+    for _, _zone in pairs(ctld.wpZones) do
+
+        local _zoneColor = _zone[2]
+
+        if _zoneColor == "green" then
+            _zone[2] = trigger.smokeColor.Green
+        elseif _zoneColor == "red" then
+            _zone[2] = trigger.smokeColor.Red
+        elseif _zoneColor == "white" then
+            _zone[2] = trigger.smokeColor.White
+        elseif _zoneColor == "orange" then
+            _zone[2] = trigger.smokeColor.Orange
+        elseif _zoneColor == "blue" then
+            _zone[2] = trigger.smokeColor.Blue
+        else
+            _zone[2] = -1 -- no smoke colour
+        end
+
+        --mark as active for refresh smoke logic to work
+        -- change active to 1 / 0
+        if  _zone[3] == "yes" then
+            _zone[3] = 1
+        else
+            _zone[3] = 0
+        end
+    end
+
+    -- Sort out extractable groups
+    for _, _groupName in pairs(ctld.extractableGroups) do
+
+        local _group = Group.getByName(_groupName)
+
+        if _group ~= nil then
+
+            if _group:getCoalition() == 1 then
+                table.insert(ctld.droppedTroopsRED, _group:getName())
+            else
+                table.insert(ctld.droppedTroopsBLUE, _group:getName())
+            end
+        end
+    end
 
 
--- Seperate troop teams into red and blue for random AI pickups
-if ctld.allowRandomAiTeamPickups == true then
-    ctld.redTeams = {}
-    ctld.blueTeams = {}
+    -- Seperate troop teams into red and blue for random AI pickups
+    if ctld.allowRandomAiTeamPickups == true then
+        ctld.redTeams = {}
+        ctld.blueTeams = {}
+        for _,_loadGroup in pairs(ctld.loadableGroups) do
+            if not _loadGroup.side then
+                table.insert(ctld.redTeams, _)
+                table.insert(ctld.blueTeams, _)
+            elseif _loadGroup.side == 1 then
+                table.insert(ctld.redTeams, _)
+            elseif _loadGroup.side == 2 then
+                table.insert(ctld.blueTeams, _)
+            end
+        end
+    end
+
+    -- add total count
+
     for _,_loadGroup in pairs(ctld.loadableGroups) do
-        if not _loadGroup.side then
-            table.insert(ctld.redTeams, _)
-            table.insert(ctld.blueTeams, _)
-        elseif _loadGroup.side == 1 then
-            table.insert(ctld.redTeams, _)
-        elseif _loadGroup.side == 2 then
-            table.insert(ctld.blueTeams, _)
+
+        _loadGroup.total = 0
+        if _loadGroup.aa then
+            _loadGroup.total = _loadGroup.aa + _loadGroup.total
         end
-    end
-end
 
--- add total count
-
-for _,_loadGroup in pairs(ctld.loadableGroups) do
-
-    _loadGroup.total = 0
-    if _loadGroup.aa then
-        _loadGroup.total = _loadGroup.aa + _loadGroup.total
-    end
-
-    if _loadGroup.inf then
-        _loadGroup.total = _loadGroup.inf + _loadGroup.total
-    end
+        if _loadGroup.inf then
+            _loadGroup.total = _loadGroup.inf + _loadGroup.total
+        end
 
 
-    if _loadGroup.mg then
-        _loadGroup.total = _loadGroup.mg + _loadGroup.total
-    end
+        if _loadGroup.mg then
+            _loadGroup.total = _loadGroup.mg + _loadGroup.total
+        end
 
-    if _loadGroup.at then
-        _loadGroup.total = _loadGroup.at + _loadGroup.total
+        if _loadGroup.at then
+            _loadGroup.total = _loadGroup.at + _loadGroup.total
+        end
+
+        if _loadGroup.mortar then
+            _loadGroup.total = _loadGroup.mortar + _loadGroup.total
+        end
+
     end
 
-    if _loadGroup.mortar then
-        _loadGroup.total = _loadGroup.mortar + _loadGroup.total
-    end
 
-end
+    -- Scheduled functions (run cyclically) -- but hold execution for a second so we can override parts
 
+    timer.scheduleFunction(ctld.checkAIStatus, nil, timer.getTime() + 1)
+    timer.scheduleFunction(ctld.checkTransportStatus, nil, timer.getTime() + 5)
 
--- Scheduled functions (run cyclically) -- but hold execution for a second so we can override parts
+    timer.scheduleFunction(function()
 
-timer.scheduleFunction(ctld.checkAIStatus, nil, timer.getTime() + 1)
-timer.scheduleFunction(ctld.checkTransportStatus, nil, timer.getTime() + 5)
+        timer.scheduleFunction(ctld.refreshRadioBeacons, nil, timer.getTime() + 5)
+        timer.scheduleFunction(ctld.refreshSmoke, nil, timer.getTime() + 5)
+        timer.scheduleFunction(ctld.addF10MenuOptions, nil, timer.getTime() + 5)
 
-timer.scheduleFunction(function()
+        if ctld.enableCrates == true and ctld.slingLoad == false and ctld.hoverPickup == true then
+            timer.scheduleFunction(ctld.checkHoverStatus, nil, timer.getTime() + 1)
+        end
 
-    timer.scheduleFunction(ctld.refreshRadioBeacons, nil, timer.getTime() + 5)
-    timer.scheduleFunction(ctld.refreshSmoke, nil, timer.getTime() + 5)
-    timer.scheduleFunction(ctld.addF10MenuOptions, nil, timer.getTime() + 5)
+    end,nil, timer.getTime()+1 )
 
-    if ctld.enableCrates == true and ctld.slingLoad == false and ctld.hoverPickup == true then
-        timer.scheduleFunction(ctld.checkHoverStatus, nil, timer.getTime() + 1)
-    end
+    --event handler for deaths
+    --world.addEventHandler(ctld.eventHandler)
 
-end,nil, timer.getTime()+1 )
+    --env.info("CTLD event handler added")
 
---event handler for deaths
---world.addEventHandler(ctld.eventHandler)
-
---env.info("CTLD event handler added")
-
-env.info("Generating Laser Codes")
-ctld.generateLaserCode()
-env.info("Generated Laser Codes")
+    env.info("Generating Laser Codes")
+    ctld.generateLaserCode()
+    env.info("Generated Laser Codes")
 
 
 
-env.info("Generating UHF Frequencies")
-ctld.generateUHFrequencies()
-env.info("Generated  UHF Frequencies")
+    env.info("Generating UHF Frequencies")
+    ctld.generateUHFrequencies()
+    env.info("Generated  UHF Frequencies")
 
-env.info("Generating VHF Frequencies")
-ctld.generateVHFrequencies()
-env.info("Generated VHF Frequencies")
+    env.info("Generating VHF Frequencies")
+    ctld.generateVHFrequencies()
+    env.info("Generated VHF Frequencies")
 
 
-env.info("Generating FM Frequencies")
-ctld.generateFMFrequencies()
-env.info("Generated FM Frequencies")
+    env.info("Generating FM Frequencies")
+    ctld.generateFMFrequencies()
+    env.info("Generated FM Frequencies")
 
--- Search for crates
--- Crates are NOT returned by coalition.getStaticObjects() for some reason
--- Search for crates in the mission editor instead
-env.info("Searching for Crates")
-for _coalitionName, _coalitionData in pairs(env.mission.coalition) do
+    -- Search for crates
+    -- Crates are NOT returned by coalition.getStaticObjects() for some reason
+    -- Search for crates in the mission editor instead
+    env.info("Searching for Crates")
+    for _coalitionName, _coalitionData in pairs(env.mission.coalition) do
 
-    if (_coalitionName == 'red' or _coalitionName == 'blue')
-            and type(_coalitionData) == 'table' then
-        if _coalitionData.country then --there is a country table
-        for _, _countryData in pairs(_coalitionData.country) do
+        if (_coalitionName == 'red' or _coalitionName == 'blue')
+                and type(_coalitionData) == 'table' then
+            if _coalitionData.country then --there is a country table
+            for _, _countryData in pairs(_coalitionData.country) do
 
-            if type(_countryData) == 'table' then
-                for _objectTypeName, _objectTypeData in pairs(_countryData) do
-                    if _objectTypeName == "static" then
+                if type(_countryData) == 'table' then
+                    for _objectTypeName, _objectTypeData in pairs(_countryData) do
+                        if _objectTypeName == "static" then
 
-                        if ((type(_objectTypeData) == 'table')
-                                and _objectTypeData.group
-                                and (type(_objectTypeData.group) == 'table')
-                                and (#_objectTypeData.group > 0)) then
+                            if ((type(_objectTypeData) == 'table')
+                                    and _objectTypeData.group
+                                    and (type(_objectTypeData.group) == 'table')
+                                    and (#_objectTypeData.group > 0)) then
 
-                            for _groupId, _group in pairs(_objectTypeData.group) do
-                                if _group and _group.units and type(_group.units) == 'table' then
-                                    for _unitNum, _unit in pairs(_group.units) do
-                                        if _unit.canCargo == true then
-                                            local _cargoName = env.getValueDictByKey(_unit.name)
-                                            ctld.missionEditorCargoCrates[_cargoName] = _cargoName
-                                            env.info("Crate Found: " .. _unit.name.." - Unit: ".._cargoName)
+                                for _groupId, _group in pairs(_objectTypeData.group) do
+                                    if _group and _group.units and type(_group.units) == 'table' then
+                                        for _unitNum, _unit in pairs(_group.units) do
+                                            if _unit.canCargo == true then
+                                                local _cargoName = env.getValueDictByKey(_unit.name)
+                                                ctld.missionEditorCargoCrates[_cargoName] = _cargoName
+                                                env.info("Crate Found: " .. _unit.name.." - Unit: ".._cargoName)
+                                            end
                                         end
                                     end
                                 end
@@ -5999,14 +6011,13 @@ for _coalitionName, _coalitionData in pairs(env.mission.coalition) do
                     end
                 end
             end
-        end
+            end
         end
     end
+    env.info("END search for crates")
+
+    env.info("CTLD READY")
 end
-env.info("END search for crates")
-
-env.info("CTLD READY")
-
 
 --DEBUG FUNCTION
 --        for key, value in pairs(getmetatable(_spawnedCrate)) do

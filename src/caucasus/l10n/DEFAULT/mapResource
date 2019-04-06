@@ -19,6 +19,7 @@ mapResource =
     ["ResKey_Action_2629"] = "veafNamedPoints.lua",
     ["ResKey_Action_3265"] = "veafRadio.lua",
     ["ResKey_Action_3306"] = "autogft-1_12.lua",
-    ["ResKey_Action_2546"] = "veafGrass.lua",
     ["ResKey_Action_3310"] = "beaconsilent.ogg",
+    ["ResKey_Action_2546"] = "veafGrass.lua",
+    ["ResKey_Action_3353"] = "veafCTLDConfig.lua",
 } -- end of mapResource
