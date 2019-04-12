@@ -41,7 +41,7 @@ ctld.slingLoad = false -- if false, crates can be used WITHOUT slingloading, by 
 ctld.enableSmokeDrop = true -- if false, helis and c-130 will not be able to drop smoke
 
 ctld.maxExtractDistance = 125 -- max distance from vehicle to troops to allow a group extraction
-ctld.maximumDistanceLogistic = 500 -- max distance from vehicle to logistics to allow a loading or spawning operation
+ctld.maximumDistanceLogistic = 200 -- max distance from vehicle to logistics to allow a loading or spawning operation
 ctld.maximumSearchDistance = 4000 -- max distance for troops to search for enemy
 ctld.maximumMoveDistance = 2000 -- max distance for troops to move from drop point if no enemy is nearby
 
@@ -150,19 +150,20 @@ ctld.JTAC_lock = "all" -- "vehicle" OR "troop" OR "all" forces JTAC to only lock
 
 --pickupZones = { "Zone name or Ship Unit Name", "smoke color", "limit (-1 unlimited)", "ACTIVE (yes/no)", "side (0 = Both sides / 1 = Red / 2 = Blue )", flag number (optional) }
 ctld.pickupZones = {
-    { "pickzone1", "none", -1, "yes", 0 },
-    { "pickzone2", "none", -1, "yes", 0 },
+    { "pickzone1", "blue", -1, "yes", 0 },
+    { "pickzone2", "red", -1, "yes", 0 },
     { "pickzone3", "none", -1, "yes", 0 },
     { "pickzone4", "none", -1, "yes", 0 },
     { "pickzone5", "none", -1, "yes", 0 },
     { "pickzone6", "none", -1, "yes", 0 },
     { "pickzone7", "none", -1, "yes", 0 },
     { "pickzone8", "none", -1, "yes", 0 },
-    { "pickzone9", "blue", -1, "yes", 0 }, 
-    { "pickzone10", "none", -1, "yes", 0 },
-    { "pickzone11", "none", -1, "yes", 0 }, 
-    { "pickzone12", "none", -1, "yes", 0 }, 
-    { "pickzone13", "none", -1, "yes", 0 }, 
+    { "pickzone9", "none", 5, "yes", 1 }, -- limits pickup zone 9 to 5 groups of soldiers or vehicles, only red can pick up
+    { "pickzone10", "none", 10, "yes", 2 },  -- limits pickup zone 10 to 10 groups of soldiers or vehicles, only blue can pick up
+
+    { "pickzone11", "blue", 20, "no", 2 },  -- limits pickup zone 11 to 20 groups of soldiers or vehicles, only blue can pick up. Zone starts inactive!
+    { "pickzone12", "red", 20, "no", 1 },  -- limits pickup zone 11 to 20 groups of soldiers or vehicles, only blue can pick up. Zone starts inactive!
+    { "pickzone13", "none", -1, "yes", 0 },
     { "pickzone14", "none", -1, "yes", 0 },
     { "pickzone15", "none", -1, "yes", 0 },
     { "pickzone16", "none", -1, "yes", 0 },
@@ -171,9 +172,9 @@ ctld.pickupZones = {
     { "pickzone19", "none", 5, "yes", 0 },
     { "pickzone20", "none", 10, "yes", 0, 1000 }, -- optional extra flag number to store the current number of groups available in
 
-    { "CVN-74 Stennis", "none", 10, "yes", 0, 1001 }, -- instead of a Zone Name you can also use the UNIT NAME of a ship
-    { "LHA-1 Tarawa", "none", 10, "yes", 0, 1002 }, -- instead of a Zone Name you can also use the UNIT NAME of a ship
+    { "USA Carrier", "blue", 10, "yes", 0, 1001 }, -- instead of a Zone Name you can also use the UNIT NAME of a ship
 }
+
 
 -- dropOffZones = {"name","smoke colour",0,side 1 = Red or 2 = Blue or 0 = Both sides}
 ctld.dropOffZones = {
@@ -209,8 +210,6 @@ ctld.wpZones = {
 
 -- Use any of the predefined names or set your own ones
 ctld.transportPilotNames = {
-
-    "helicargo1",
     "helicargo1",
     "helicargo2",
     "helicargo3",
@@ -221,6 +220,7 @@ ctld.transportPilotNames = {
     "helicargo8",
     "helicargo9",
     "helicargo10",
+
     "helicargo11",
     "helicargo12",
     "helicargo13",
@@ -231,38 +231,105 @@ ctld.transportPilotNames = {
     "helicargo18",
     "helicargo19",
     "helicargo20",
+
     "helicargo21",
     "helicargo22",
     "helicargo23",
     "helicargo24",
     "helicargo25",
-    "helicargo26",
-    "helicargo27",
-    "helicargo28",
-    "helicargo29",
-    "helicargo30",
-    "helicargo31",
-    "helicargo32",
-    "helicargo33",
-    "helicargo34",
-    "helicargo35",
-    "helicargo36",
-    "helicargo37",
-    "helicargo38",
-    "helicargo39",
-    "helicargo40",
 
-    "yak1",
-    "yak2",
-    "yak3",
-    "yak4",
-    "yak5",
-    "yak6",
-    "yak7",
-    "yak8",
-    "yak9",
-    "yak10",
+    "MEDEVAC #1",
+    "MEDEVAC #2",
+    "MEDEVAC #3",
+    "MEDEVAC #4",
+    "MEDEVAC #5",
+    "MEDEVAC #6",
+    "MEDEVAC #7",
+    "MEDEVAC #8",
+    "MEDEVAC #9",
+    "MEDEVAC #10",
+    "MEDEVAC #11",
+    "MEDEVAC #12",
+    "MEDEVAC #13",
+    "MEDEVAC #14",
+    "MEDEVAC #15",
+    "MEDEVAC #16",
 
+    "MEDEVAC RED #1",
+    "MEDEVAC RED #2",
+    "MEDEVAC RED #3",
+    "MEDEVAC RED #4",
+    "MEDEVAC RED #5",
+    "MEDEVAC RED #6",
+    "MEDEVAC RED #7",
+    "MEDEVAC RED #8",
+    "MEDEVAC RED #9",
+    "MEDEVAC RED #10",
+    "MEDEVAC RED #11",
+    "MEDEVAC RED #12",
+    "MEDEVAC RED #13",
+    "MEDEVAC RED #14",
+    "MEDEVAC RED #15",
+    "MEDEVAC RED #16",
+    "MEDEVAC RED #17",
+    "MEDEVAC RED #18",
+    "MEDEVAC RED #19",
+    "MEDEVAC RED #20",
+    "MEDEVAC RED #21",
+
+    "MEDEVAC BLUE #1",
+    "MEDEVAC BLUE #2",
+    "MEDEVAC BLUE #3",
+    "MEDEVAC BLUE #4",
+    "MEDEVAC BLUE #5",
+    "MEDEVAC BLUE #6",
+    "MEDEVAC BLUE #7",
+    "MEDEVAC BLUE #8",
+    "MEDEVAC BLUE #9",
+    "MEDEVAC BLUE #10",
+    "MEDEVAC BLUE #11",
+    "MEDEVAC BLUE #12",
+    "MEDEVAC BLUE #13",
+    "MEDEVAC BLUE #14",
+    "MEDEVAC BLUE #15",
+    "MEDEVAC BLUE #16",
+    "MEDEVAC BLUE #17",
+    "MEDEVAC BLUE #18",
+    "MEDEVAC BLUE #19",
+    "MEDEVAC BLUE #20",
+    "MEDEVAC BLUE #21",
+
+    -- *** AI transports names (different names only to ease identification in mission) ***
+
+    -- Use any of the predefined names or set your own ones
+
+    "transport1",
+    "transport2",
+    "transport3",
+    "transport4",
+    "transport5",
+    "transport6",
+    "transport7",
+    "transport8",
+    "transport9",
+    "transport10",
+
+    "transport11",
+    "transport12",
+    "transport13",
+    "transport14",
+    "transport15",
+    "transport16",
+    "transport17",
+    "transport18",
+    "transport19",
+    "transport20",
+
+    "transport21",
+    "transport22",
+    "transport23",
+    "transport24",
+    "transport25",
 }
 
 -- *************** Optional Extractable GROUPS *****************
@@ -315,16 +382,6 @@ ctld.logisticUnits = {
     "logistic8",
     "logistic9",
     "logistic10",
-    "logistic11",
-    "logistic12",
-    "logistic13",
-    "logistic14",
-    "logistic15",
-    "logistic16",
-    "logistic17",
-    "logistic18",
-    "logistic19",
-    "logistic20",
 }
 
 -- ************** UNITS ABLE TO TRANSPORT VEHICLES ******************
