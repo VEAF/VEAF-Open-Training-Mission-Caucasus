@@ -21,6 +21,7 @@ veafAssets.Assets = {
     {name="T2-Shell", description="Shell (KC-135 MPRS)", information="Tacan 14Y\nVHF 134.7 Mhz"},  
     {name="T3-Texaco", description="Texaco (KC-135 MPRS)", information="Tacan 12Y\nVHF 132.5 Mhz"},  
     {name="A1-Overlord", description="Overlord (E-2D)", information="UHF 251 Mhz"},  
+    {name="A2-Overlordsky", description="(RED) Overlordsky (A-50)", information="UHF 266 Mhz"},  
     {name="Meet Mig-21", description="RED Mig-21 (dogfight zone)", disposable=true, information="They spawn near N25° 25' 49\" E055° 39' 06\""},
     {name="Meet Mig-29", description="RED Mig-29 (dogfight zone)", disposable=true, information="They spawn near N25° 25' 49\" E055° 39' 06\""},
     {name="Meet Mig-29*2", description="RED Mig-29x2 (dogfight zone)", disposable=true, information="They spawn near N25° 25' 49\" E055° 39' 06\""},
