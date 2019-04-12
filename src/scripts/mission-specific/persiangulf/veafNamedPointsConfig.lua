@@ -18,19 +18,13 @@
 
 veafNamedPoints.Points = {
     -- airbases
-    {name="AIRBASE Tbilisi",point={x=-315414,y=480,z=897262}},
-    {name="AIRBASE Sukhumi",point={x=-219998,y=0,z=563926}},
-    {name="AIRBASE Batumi",point={x=-355808,y=0,z=617385}},
+    {name="AIRBASE Al Dhafra",point={x=-211168,y=0,z=-173476}},
     -- farps
-    {name="FARP Java",point={x=-247450,y=0,z=799583}},
-    {name="FARP Lentehi",point={x=-214442,y=0,z=695610}},
-    {name="FARP Aibgha",point={x=-146615,y=0,z=486334}},
-    {name="FARP Rista",point={x=-151631,y=0,z=518384}},
-    {name="FARP Kaspi",point={x=-290955,y=0,z=847525}}, 
-    {name="FARP Beslan",point={x=-131270,y=0,z=846128}}, 
+    {name="FARP Berlin",point={x=-218745,y=0,z=-93998}},
+    {name="FARP Kish",point={x=62077,y=0,z=-188061}},
     -- points of interest
-    {name="RANGE Kobuleti",point={x=-328289,y=0,z=631228}},
-    {name="WAR BlueBase",point={x=-131270,y=0,z=846128}}, 
-    {name="WAR RedBase",point={x=-104957,y=0,z=846181}},
-    {name="WAR Objective1",point={x=-117764,y=0,z=847293}},
+    {name="RANGE",point={x=-328289,y=0,z=631228}},
+    {name="WAR BlueBase",point={x=62638,y=0,z=-186423}}, 
+    {name="WAR RedBase",point={x=56709,y=0,z=-157838}},
+    {name="WAR Objective1",point={x=59435,y=0,z=-172369}},
 }
