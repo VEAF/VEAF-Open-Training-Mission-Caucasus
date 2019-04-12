@@ -4,7 +4,7 @@
 --
 -- Features:
 -- ---------
--- Contains all the VEAF specific configuration for CTLD
+-- Contains all the Caucasus mission-specific configuration for CTLD
 -- 
 -- Prerequisite:
 -- ------------
@@ -32,7 +32,7 @@ ctld.enableSmokeDrop = true -- if false, helis and c-130 will not be able to dro
 
 ctld.maxExtractDistance = 125 -- max distance from vehicle to troops to allow a group extraction
 ctld.maximumDistanceLogistic = 500 -- max distance from vehicle to logistics to allow a loading or spawning operation
-ctld.maximumSearchDistance = 4000 -- max distance for troops to search for enemy
+ctld.maximumSearchDistance = 8000 -- max distance for troops to search for enemy
 ctld.maximumMoveDistance = 2000 -- max distance for troops to move from drop point if no enemy is nearby
 
 ctld.minimumDeployDistance = 1000 -- minimum distance from a friendly pickup zone where you can deploy a crate

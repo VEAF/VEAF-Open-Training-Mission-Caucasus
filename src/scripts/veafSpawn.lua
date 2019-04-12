@@ -81,7 +81,7 @@ veafSpawn.RadioMenuName = "SPAWN (" .. veafSpawn.Version .. ")"
 
 --- static object type spawned when using the "logistic" keyword
 veafSpawn.LogisticUnitType = "FARP Ammo Dump Coating"
-veafSpawn.LogisticUnitCategory = "Structures"
+veafSpawn.LogisticUnitCategory = "Fortifications"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Do not change anything below unless you know what you are doing!

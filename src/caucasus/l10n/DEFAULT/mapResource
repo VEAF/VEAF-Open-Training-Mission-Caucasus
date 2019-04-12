@@ -1,6 +1,7 @@
 mapResource = 
 {
     ["ResKey_Action_2526"] = "WeatherMark.lua",
+    ["ResKey_Action_3624"] = "veafAssetsConfig.lua",
     ["ResKey_Action_2621"] = "dcsUnits.lua",
     ["ResKey_Action_2608"] = "veafSpawn.lua",
     ["ResKey_Action_2628"] = "veafTransportMission.lua",
@@ -18,9 +19,10 @@ mapResource =
     ["ResKey_Action_2617"] = "veafMarkers.lua",
     ["ResKey_Action_2629"] = "veafNamedPoints.lua",
     ["ResKey_Action_3353"] = "veafCTLDConfig.lua",
-    ["ResKey_Action_3306"] = "autogft-1_12.lua",
-    ["ResKey_Action_3265"] = "veafRadio.lua",
-    ["ResKey_Action_3310"] = "beaconsilent.ogg",
-    ["ResKey_Action_2546"] = "veafGrass.lua",
     ["ResKey_Action_3480"] = "mist_4_3_74.lua",
+    ["ResKey_Action_3310"] = "beaconsilent.ogg",
+    ["ResKey_Action_3265"] = "veafRadio.lua",
+    ["ResKey_Action_3306"] = "autogft-1_12.lua",
+    ["ResKey_Action_2546"] = "veafGrass.lua",
+    ["ResKey_Action_3623"] = "veafNamedPointsConfig.lua",
 } -- end of mapResource
