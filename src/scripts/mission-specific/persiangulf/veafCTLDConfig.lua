@@ -292,7 +292,7 @@ ctld.vehicleTransportEnabled = {
 -- Make sure the unit name is exactly right or it wont work
 
 ctld.unitLoadLimits = {
-    ["Yak-52"] = 20
+    ["Mi-8MT"] = 24
 
     -- Remove the -- below to turn on options
     -- ["SA342Mistral"] = 4,
@@ -341,7 +341,7 @@ ctld.loadableGroups = {
     {name = "Anti Air", inf = 2, aa = 3  },
     {name = "Anti Tank", inf = 2, at = 6  },
     {name = "Mortar Squad", mortar = 6 },
-    {name = "Mortar Company", mortar = 12, mg = 2, at = 2, inf = 4},
+    {name = "Mortar Squad x 4", mortar = 24},
     -- {name = "Mortar Squad Red", inf = 2, mortar = 5, side =1 }, --would make a group loadable by RED only
 }
 

@@ -358,6 +358,7 @@ ctld.vehicleTransportEnabled = {
 -- Make sure the unit name is exactly right or it wont work
 
 ctld.unitLoadLimits = {
+    ["Mi-8MT"] = 24
 
     -- Remove the -- below to turn on options
     -- ["SA342Mistral"] = 4,
@@ -382,6 +383,7 @@ ctld.unitLoadLimits = {
 -- Will allow Mistral Gazelle to only transport crates, not troops
 
 ctld.unitActions = {
+    ["Yak-52"] = {crates=false, troops=true}
 
     -- Remove the -- below to turn on options
     -- ["SA342Mistral"] = {crates=true, troops=true},
@@ -405,6 +407,7 @@ ctld.loadableGroups = {
     {name = "Anti Air", inf = 2, aa = 3  },
     {name = "Anti Tank", inf = 2, at = 6  },
     {name = "Mortar Squad", mortar = 6 },
+    {name = "Mortar Squad x 4", mortar = 24},
     -- {name = "Mortar Squad Red", inf = 2, mortar = 5, side =1 }, --would make a group loadable by RED only
 }
 
