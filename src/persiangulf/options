@@ -1,6 +1,6 @@
 options = 
 {
-    ["playerName"] = "New callsign",
+    ["playerName"] = "Zip",
     ["miscellaneous"] = 
     {
         ["headmove"] = false,
@@ -77,8 +77,8 @@ options =
         ["aspect"] = 1.3650793650794,
         ["lights"] = 2,
         ["shadows"] = 4,
-        ["MSAA"] = 2,
-        ["SSAA"] = 0,
+        ["MSAA"] = 1,
+        ["SSAA"] = 1,
         ["height"] = 2520,
         ["forestDistanceFactor"] = 1,
         ["cockpitGI"] = 1,
@@ -318,7 +318,7 @@ options =
         {
             ["mirrors"] = false,
             ["reflections"] = false,
-            ["avionics"] = 3,
+            ["avionics"] = 1,
         }, -- end of ["cockpit"]
     }, -- end of ["views"]
 } -- end of options

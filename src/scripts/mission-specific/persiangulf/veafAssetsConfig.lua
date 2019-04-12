@@ -15,7 +15,6 @@
 -- ----------------
 -- load it in a trigger after loading veafAssets
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 veafAssets.Assets = {
     -- list the assets common to all missions below
     {name="T1-Arco", description="Arco (KC-135)", information="Tacan 6Y\nVHF 138.2 Mhz"}, 
@@ -23,9 +22,9 @@ veafAssets.Assets = {
     {name="T3-Texaco", description="Texaco (KC-135 MPRS)", information="Tacan 12Y\nVHF 132.5 Mhz"},  
     {name="A1-Overlord", description="Overlord (E-2D)", information="UHF 251 Mhz"},  
     {name="A2-Overlordsky", description="(RED) Overlordsky (A-50)", information="UHF 266 Mhz"},  
-    {name="Meet Mig-21", description="RED Mig-21 (dogfight zone)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
-    {name="Meet Mig-29", description="RED Mig-29 (dogfight zone)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\"" },
-    {name="Meet Mig-29*2", description="RED Mig-29x2 (dogfight zone)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
-    {name="Meet Mig-29*4", description="RED Mig-29x4 (dogfight zone)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
-    {name="Meet F-5E-3 *2", description="RED F-5E-3x2 (dogfight zone)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
+    {name="Meet Mig-21", description="RED Mig-21 (dogfight zone)", disposable=true, information="They spawn near N25° 25' 49\" E055° 39' 06\""},
+    {name="Meet Mig-29", description="RED Mig-29 (dogfight zone)", disposable=true, information="They spawn near N25° 25' 49\" E055° 39' 06\""},
+    {name="Meet Mig-29*2", description="RED Mig-29x2 (dogfight zone)", disposable=true, information="They spawn near N25° 25' 49\" E055° 39' 06\""},
+    {name="Meet Mig-29*4", description="RED Mig-29x4 (dogfight zone)", disposable=true, information="They spawn near N25° 25' 49\" E055° 39' 06\""},
+    {name="Meet F-5E-3 *2", description="RED F-5E-3x2 (dogfight zone)", disposable=true, information="They spawn near N25° 25' 49\" E055° 39' 06\""},
 }
