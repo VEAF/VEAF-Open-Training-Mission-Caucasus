@@ -148,6 +148,10 @@ function veafAssets.respawn(name)
     if theAsset then
         mist.respawnGroup(name, true)
         local text = "I've respawned " .. theAsset.description
+        if theAsset.jtac then
+            ctld.JTACAutoLase(name, theAsset.jtac, false, "vehicle")
+            text = text .. " lasing with code " .. theAsset.jtac
+        end
         trigger.action.outText(text, 30)
     end
 end
@@ -176,6 +180,12 @@ end
 function veafAssets.initialize()
     veafAssets.buildAssetsDatabase()
     veafAssets.buildRadioMenu()
+    -- start any action-bound asset (e.g. jtacs)
+    for name, asset in pairs(veafAssets.assets) do
+        if asset.jtac then
+            ctld.JTACAutoLase(name, asset.jtac, false, "vehicle")
+        end
+    end
 end
 
 veafAssets.logInfo(string.format("Loading version %s", veafAssets.Version))
