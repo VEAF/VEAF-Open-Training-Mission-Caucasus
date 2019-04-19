@@ -33,7 +33,6 @@ n/a
 
 ```lua
 qraMinevody="ready";
-qraMinevodyTimer=0;
 ```
 
 * GROUPE - DEACTIVATE:
@@ -64,7 +63,6 @@ return qraMinevody=="ready"
 
 ```lua
 qraMinevody="doing";
-qraMinevodyTimer=0;
 mist.respawnGroup("QRA Minevody 21", true);
 ```
 
