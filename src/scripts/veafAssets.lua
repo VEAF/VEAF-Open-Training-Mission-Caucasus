@@ -24,7 +24,7 @@ veafAssets = {}
 veafAssets.Id = "ASSETS - "
 
 --- Version.
-veafAssets.Version = "1.0.3"
+veafAssets.Version = "1.1.0"
 
 veafAssets.Assets = {
     -- list the assets common to all missions below
@@ -60,25 +60,56 @@ end
 -- Radio menu and help
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+function veafAssets._buildAssetRadioMenu(menu, asset)
+    if asset.disposable or asset.information then -- in this case we need a submenu
+        local radioMenu = veafRadio.addSubMenu(asset.description, menu)
+        veafRadio.addCommandToSubmenu("Respawn "..asset.description, radioMenu, veafAssets.respawn, asset.name, false)
+        if asset.information then
+            veafRadio.addCommandToSubmenu("Get info on "..asset.description, radioMenu, veafAssets.info, asset.name, true)
+        end
+        if asset.disposable then
+            veafRadio.addCommandToSubmenu("Dispose of "..asset.description, radioMenu, veafAssets.dispose, asset.name, false)
+        end
+    else
+        veafRadio.addCommandToSubmenu("Respawn "..asset.description, menu, veafAssets.respawn, asset.name, false)
+    end
+end
+
+function veafAssets._buildAssetsRadioMenuPage(menu, names, pageSize, startIndex)
+    veafAssets.logDebug(string.format("veafAssets._buildAssetsRadioMenuPage(pageSize=%d, startIndex=%d)",pageSize, startIndex))
+    
+    local namesCount = #names
+    veafAssets.logTrace(string.format("namesCount = %d",namesCount))
+
+    local endIndex = namesCount
+    if endIndex - startIndex >= pageSize then
+        endIndex = startIndex + pageSize - 2
+    end
+    veafAssets.logTrace(string.format("endIndex = %d",endIndex))
+    veafAssets.logDebug(string.format("adding commands from %d to %d",startIndex, endIndex))
+    for index = startIndex, endIndex do
+        local name = names[index]
+        veafAssets.logTrace(string.format("names[%d] = %s",index, name))
+        local asset = veafAssets.assets[name]
+        veafAssets._buildAssetRadioMenu(menu, asset)
+    end
+    if endIndex < namesCount then
+        veafAssets.logDebug("adding next page menu")
+        local nextPageMenu = veafRadio.addSubMenu("Next page", menu)
+        veafAssets._buildAssetsRadioMenuPage(nextPageMenu, names, 10, endIndex+1)
+    end
+end
+
 --- Build the initial radio menu
 function veafAssets.buildRadioMenu()
     veafAssets.rootPath = veafRadio.addSubMenu(veafAssets.RadioMenuName)
     veafRadio.addCommandToSubmenu("HELP", veafAssets.rootPath, veafAssets.help, nil, true)
+    names = {}
     for _, asset in pairs(veafAssets.assets) do
-        if asset.disposable or asset.information then -- in this case we need a submenu
-            local radioMenu = veafRadio.addSubMenu(asset.description, veafAssets.rootPath)
-            veafRadio.addCommandToSubmenu("Respawn "..asset.description, radioMenu, veafAssets.respawn, asset.name, false)
-            if asset.information then
-                veafRadio.addCommandToSubmenu("Get info on "..asset.description, radioMenu, veafAssets.info, asset.name, true)
-            end
-            if asset.disposable then
-                veafRadio.addCommandToSubmenu("Dispose of "..asset.description, radioMenu, veafAssets.dispose, asset.name, false)
-            end
-        else
-            veafRadio.addCommandToSubmenu("Respawn "..asset.description, veafAssets.rootPath, veafAssets.respawn, asset.name, false)
-        end
+        table.insert(names, asset.name)
     end
-    
+    table.sort(names)
+    veafAssets._buildAssetsRadioMenuPage(veafAssets.rootPath, names, 9, 1)
     veafRadio.refreshRadioMenu()
 end
 
@@ -171,8 +202,8 @@ end
 
 function veafAssets.buildAssetsDatabase()
     veafAssets.assets = {}
-    for i, v in ipairs(veafAssets.Assets) do
-        veafAssets.assets[i] = v
+    for _, asset in ipairs(veafAssets.Assets) do
+        veafAssets.assets[asset.name] = asset
     end
 end
 
