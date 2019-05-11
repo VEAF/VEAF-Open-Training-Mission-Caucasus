@@ -495,8 +495,8 @@ end
 
 
 -- Makes a group move to a specific waypoint at a specific speed
-function veaf.moveGroupTo(groupName, pos, speed)
-    veaf.logDebug("veaf.moveGroupTo(groupName=" .. groupName .. ", speed=".. speed)
+function veaf.moveGroupTo(groupName, pos, speed, altitude)
+    veaf.logDebug("veaf.moveGroupTo(groupName=" .. groupName .. ", speed=".. speed .. ", altitude=".. altitude)
     veaf.logDebug("pos="..veaf.vecToString(pos))
 
 	local unitGroup = Group.getByName(groupName)
@@ -508,7 +508,7 @@ function veaf.moveGroupTo(groupName, pos, speed)
 	-- new route point
 	local newWaypoint = {
 		["action"] = "Turning Point",
-		["alt"] = 0,
+		["alt"] = altitude,
 		["alt_type"] = "BARO",
 		["form"] = "Turning Point",
 		["speed"] = speed,

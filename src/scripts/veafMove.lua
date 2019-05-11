@@ -70,7 +70,7 @@ veafMove = {}
 veafMove.Id = "MOVE - "
 
 --- Version.
-veafMove.Version = "1.1"
+veafMove.Version = "1.2"
 
 --- Key phrase to look for in the mark text which triggers the command.
 veafMove.Keyphrase = "_move"
@@ -118,9 +118,11 @@ function veafMove.onEventMarkChange(eventPos, event)
         if options then
             -- Check options commands
             if options.moveGroup then
-                result = veafMove.moveGroup(eventPos, options.groupName, options.speed)
+                result = veafMove.moveGroup(eventPos, options.groupName, options.speed, options.altitude)
             elseif options.moveTanker then
                 result = veafMove.moveTanker(eventPos, options.groupName, options.speed, options.heading, options.distance, options.altitude)
+            elseif options.moveAfac then
+                result = veafMove.moveAfac(eventPos, options.groupName, options.speed, options.altitude)
             end
         else
             -- None of the keywords matched.
@@ -138,9 +140,9 @@ function veafMove.onEventMarkChange(eventPos, event)
                 markText = "Tanker " .. options.groupName .. " refuel leg at " .. options.speed .. " kn, " .. options.altitude .. " ft, heading " .. options.heading .. " for " .. options.distance .. " nm"
                 message = veafMove.Id .. "Tanker " .. options.groupName .. " initiating new refuel leg from ".. llString .. ", at " .. options.speed .. " kn, " .. options.altitude .. " ft, heading " .. options.heading .. " for " .. options.distance .. " nm"
             end
-            veafMove.logDebug("Adding a new mark")
-            trigger.action.markToCoalition(veafMove.markid, markText, eventPos, event.coalition , false, message)
-            veafMove.markid = veafMove.markid + 1
+            --veafMove.logDebug("Adding a new mark")
+            --trigger.action.markToCoalition(veafMove.markid, markText, eventPos, event.coalition , false, message)
+            --veafMove.markid = veafMove.markid + 1
 
             -- Delete old mark.
             veafMove.logTrace(string.format("Removing mark # %d.", event.idx))
@@ -161,18 +163,19 @@ function veafMove.markTextAnalysis(text)
     local switch = {}
     switch.moveGroup = false
     switch.moveTanker = false
+    switch.moveAfac = false
 
     -- the name of the group to move ; mandatory
     switch.groupName = ""
 
     -- speed in knots
-    switch.speed = 0
+    switch.speed = 250
 
     -- tanker refuel leg altitude in feet
     switch.altitude = 20000
 
     -- tanker refuel leg distance in nautical miles
-    switch.distance = 20
+    switch.distance = 30
 
     -- tanker refuel leg heading in degrees
     switch.heading = 0
@@ -183,7 +186,12 @@ function veafMove.markTextAnalysis(text)
         switch.speed = 20
     elseif text:lower():find(veafMove.Keyphrase .. " tanker") then
         switch.moveTanker = true
-        switch.speed = 250
+        switch.speed = 400
+        switch.altitude = 20000
+    elseif text:lower():find(veafMove.Keyphrase .. " afac") then
+        switch.moveAfac = true
+        switch.speed = 300
+        switch.altitude = 15000
     else
         return nil
     end
@@ -197,21 +205,21 @@ function veafMove.markTextAnalysis(text)
         local key = str[1]
         local val = str[2]
 
-        if (switch.moveTanker or switch.moveGroup) and key:lower() == "name" then
+        if key:lower() == "name" then
             -- Set group name
-            veafSpawn.logDebug(string.format("Keyword name = %s", val))
+            veafMove.logDebug(string.format("Keyword name = %s", val))
             switch.groupName = val
         end
 
-        if (switch.moveTanker or switch.moveGroup) and key:lower() == "speed" then
-            -- Set size.
+        if key:lower() == "speed" then
+            -- Set speed.
             veafMove.logDebug(string.format("Keyword speed = %d", val))
             local nVal = tonumber(val)
             switch.speed = nVal
         end
 
-        if switch.moveTanker and key:lower() == "alt" then
-            -- Set size.
+        if key:lower() == "alt" then
+            -- Set altitude.
             veafMove.logDebug(string.format("Keyword alt = %d", val))
             local nVal = tonumber(val)
             switch.altitude = nVal
@@ -248,15 +256,15 @@ end
 -- @param string groupName the group name to move on
 -- @param float speed in knots
 ------------------------------------------------------------------------------
-function veafMove.moveGroup(eventPos, groupName, speed)
-    veafMove.logDebug("veafMove.moveGroup(groupName = " .. groupName .. ", speed = " .. speed)
-    veafSpawn.logDebug(string.format("veafMove.moveGroup: eventPos  x=%.1f z=%.1f", eventPos.x, eventPos.z))
+function veafMove.moveGroup(eventPos, groupName, speed, altitude)
+    veafMove.logDebug("veafMove.moveGroup(groupName = " .. groupName .. ", speed = " .. speed .. ", altitude=".. altitude)
+    veafMove.logDebug(string.format("veafMove.moveGroup: eventPos  x=%.1f z=%.1f", eventPos.x, eventPos.z))
 
-    local result = veaf.moveGroupTo(groupName, eventPos, speed/1.94384)
+    local result = veaf.moveGroupTo(groupName, eventPos, speed, altitude)
     if not(result) then
         trigger.action.outText(groupName .. ' not found for move group command' , 10)
     end
-    return resut
+    return result
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -273,8 +281,8 @@ end
 -- @param float alt in feet
 ------------------------------------------------------------------------------
 function veafMove.moveTanker(eventPos, groupName, speed, hdg ,distance,alt)
-    veafMove.logDebug("veafMove.moveGroup(groupName = " .. groupName .. ", speed = " .. speed .. ", hdg = " .. hdg .. ", distance = " .. distance .. ", alt = " .. alt)
-    veafSpawn.logDebug(string.format("veafMove.moveGroup: eventPos  x=%.1f z=%.1f", eventPos.x, eventPos.z))
+    veafMove.logDebug("veafMove.moveTanker(groupName = " .. groupName .. ", speed = " .. speed .. ", hdg = " .. hdg .. ", distance = " .. distance .. ", alt = " .. alt)
+    veafMove.logDebug(string.format("veafMove.moveTanker: eventPos  x=%.1f z=%.1f", eventPos.x, eventPos.z))
 
 	local unitGroup = Group.getByName(groupName)
 	if unitGroup == nil then
@@ -283,7 +291,13 @@ function veafMove.moveTanker(eventPos, groupName, speed, hdg ,distance,alt)
 		return false
 	end
 
-	-- starting position
+	-- teleport position
+	local teleportPosition = {
+		["x"] = eventPos.x + 5 * 1852 * math.cos(mist.utils.toRadian(180)),
+		["y"] = eventPos.z + 5 * 1852 * math.sin(mist.utils.toRadian(180))
+	}
+
+    -- starting position
 	local fromPosition = {
 		["x"] = eventPos.x,
 		["y"] = eventPos.z
@@ -291,8 +305,8 @@ function veafMove.moveTanker(eventPos, groupName, speed, hdg ,distance,alt)
 	
 	-- ending position
 	local toPosition = {
-		["x"] = fromPosition.x + distance * 1000 * 0.539957 * math.cos(mist.utils.toRadian(hdg)),
-		["y"] = fromPosition.y + distance * 1000 * 0.539957 * math.sin(mist.utils.toRadian(hdg))
+		["x"] = fromPosition.x + distance * 1852 * math.cos(mist.utils.toRadian(hdg)),
+		["y"] = fromPosition.y + distance * 1852 * math.sin(mist.utils.toRadian(hdg))
 	}
 
 	local mission = { 
@@ -378,11 +392,130 @@ function veafMove.moveTanker(eventPos, groupName, speed, hdg ,distance,alt)
 		} 
 	}
 
-	-- replace whole mission
+    local vars = { groupName = groupName, point = teleportPosition, action = "teleport" }
+    local grp = mist.teleportToPoint(vars)
+
+    -- replace whole mission
 	unitGroup:getController():setTask(mission)
     
     return true
 end
+
+------------------------------------------------------------------------------
+-- veafMove.moveAfac
+-- @param point eventPos
+-- @param string groupName 
+-- @param float speed in knots
+-- @param float hdg heading (0-359)
+-- @param float distance in Nm
+-- @param float alt in feet
+------------------------------------------------------------------------------
+function veafMove.moveAfac(eventPos, groupName, speed, alt)
+    if not speed then
+        speed = 300
+    end
+    if not alt then
+        alt = 20000
+    end
+    veafMove.logDebug("veafMove.moveAfac(groupName = " .. groupName .. ", speed = " .. speed .. ", alt = " .. alt)
+    veafMove.logDebug(string.format("veafMove.moveAfac: eventPos  x=%.1f z=%.1f", eventPos.x, eventPos.z))
+
+	local unitGroup = Group.getByName(groupName)
+	if unitGroup == nil then
+        veafMove.logInfo(groupName .. ' not found for move afac command')
+		trigger.action.outText(groupName .. ' not found for move afac command' , 10)
+		return false
+	end
+
+	-- teleport position
+	local teleportPosition = {
+		["x"] = eventPos.x + 5 * 1852 * math.cos(mist.utils.toRadian(180)),
+        ["y"] = eventPos.z + 5 * 1852 * math.sin(mist.utils.toRadian(180)),
+        ["alt"] = alt * 0.3048 -- in meters
+	}
+
+    -- starting position
+	local fromPosition = {
+		["x"] = eventPos.x,
+		["y"] = eventPos.z
+	}
+	
+	local mission = { 
+		id = 'Mission', 
+		params = { 
+			["communication"] = true,
+			["start_time"] = 0,
+			["task"] = "AFAC",
+			route = { 
+				points = { 
+					-- first point
+					[1] = { 
+						["type"] = "Turning Point",
+						["action"] = "Turning Point",
+						["x"] = fromPosition.x,
+						["y"] = fromPosition.y,
+						["alt"] = alt * 0.3048, -- in meters
+						["alt_type"] = "BARO", 
+						["speed"] = speed/1.94384,  -- speed in m/s
+						["speed_locked"] = boolean, 
+						["task"] = 
+						{
+							["id"] = "ComboTask",
+							["params"] = 
+							{
+                                ["tasks"] = 
+                                {
+                                    [1] = 
+                                    {
+                                        ["number"] = 1,
+                                        ["auto"] = false,
+                                        ["id"] = "Orbit",
+                                        ["enabled"] = true,
+                                        ["params"] = 
+                                        {
+                                            ["altitude"] = alt * 0.3048, -- in meters,
+                                            ["pattern"] = "Circle",
+                                            ["speed"] = speed/1.94384,  -- speed in m/s
+                                            ["altitudeEdited"] = true,
+                                            ["speedEdited"] = true,
+                                        }, -- end of ["params"]
+                                    }, -- end of [1]
+                                }, -- end of ["tasks"]
+                            }, -- end of ["params"]
+						}, -- end of ["task"]
+					}, -- enf of [1]
+				}, 
+			} 
+		} 
+	}
+
+    local vars = { groupName = groupName, point = teleportPosition, action = "teleport" }
+    local grp = mist.teleportToPoint(vars)
+
+    -- JTAC needs to be invisible and immortal
+    local _setImmortal = {
+        id = 'SetImmortal',
+        params = {
+            value = true
+        }
+    }
+    -- invisible to AI, Shagrat
+    local _setInvisible = {
+        id = 'SetInvisible',
+        params = {
+            value = true
+        }
+    }
+
+    -- replace whole mission
+    local controller = unitGroup:getController()
+	controller:setTask(mission)
+    Controller.setCommand(controller, _setImmortal)
+    Controller.setCommand(controller, _setInvisible)
+    
+    return true
+end
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Radio menu and help
 -------------------------------------------------------------------------------------------------------------------------------------------------------------

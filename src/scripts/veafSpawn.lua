@@ -66,13 +66,16 @@ veafSpawn = {}
 veafSpawn.Id = "SPAWN - "
 
 --- Version.
-veafSpawn.Version = "1.5"
+veafSpawn.Version = "1.6"
 
 --- Key phrase to look for in the mark text which triggers the spawn command.
 veafSpawn.SpawnKeyphrase = "_spawn"
 
 --- Key phrase to look for in the mark text which triggers the destroy command.
 veafSpawn.DestroyKeyphrase = "_destroy"
+
+--- Key phrase to look for in the mark text which triggers the teleport command.
+veafSpawn.TeleportKeyphrase = "_teleport"
 
 --- Name of the spawned units group 
 veafSpawn.RedSpawnedUnitsGroupName = "VEAF Spawned Units"
@@ -118,7 +121,7 @@ end
 --- Function executed when a mark has changed. This happens when text is entered or changed.
 function veafSpawn.onEventMarkChange(eventPos, event)
     -- Check if marker has a text and the veafSpawn.keyphrase keyphrase.
-    if event.text ~= nil and (event.text:lower():find(veafSpawn.SpawnKeyphrase) or (event.text:lower():find(veafSpawn.DestroyKeyphrase))) then
+    if event.text ~= nil and (event.text:lower():find(veafSpawn.SpawnKeyphrase) or event.text:lower():find(veafSpawn.DestroyKeyphrase) or event.text:lower():find(veafSpawn.TeleportKeyphrase)) then
 
         -- Analyse the mark point text and extract the keywords.
         local options = veafSpawn.markTextAnalysis(event.text)
@@ -137,6 +140,8 @@ function veafSpawn.onEventMarkChange(eventPos, event)
                 veafSpawn.spawnLogistic(eventPos)
             elseif options.destroy then
                 veafSpawn.destroy(eventPos, options.radius, options.unitName)
+            elseif options.teleport then
+                veafSpawn.teleport(eventPos, options.name)
             elseif options.bomb then
                 veafSpawn.spawnBomb(eventPos, options.bombPower, options.unlock)
             elseif options.smoke then
@@ -172,6 +177,7 @@ function veafSpawn.markTextAnalysis(text)
     switch.flare = false
     switch.bomb = false
     switch.destroy = false
+    switch.teleport = false
     switch.convoy = false
     switch.role = nil
     switch.laserCode = 1688
@@ -259,6 +265,8 @@ function veafSpawn.markTextAnalysis(text)
         switch.unitName = "JTAC1"
     elseif text:lower():find(veafSpawn.DestroyKeyphrase) then
         switch.destroy = true
+    elseif text:lower():find(veafSpawn.TeleportKeyphrase) then
+        switch.teleport = true
     else
         return nil
     end
@@ -278,7 +286,7 @@ function veafSpawn.markTextAnalysis(text)
             switch.unitName = val
         end
 
-        if (switch.group or switch.unit) and key:lower() == "name" then
+        if (switch.group or switch.teleport or switch.unit) and key:lower() == "name" then
             -- Set name.
             veafSpawn.logDebug(string.format("Keyword name = %s", val))
             switch.name = val
@@ -986,19 +994,19 @@ end
 function veafSpawn.destroy(spawnSpot, radius, unitName)
     if unitName then
         -- destroy a specific unit
-        local c = Unit.getByName(name)
+        local c = Unit.getByName(unitName)
         if c then
             Unit.destroy(c)
         end
 
         -- or a specific static
-        c = StaticObject.getByName(name)
+        c = StaticObject.getByName(unitName)
         if c then
             StaticObject.destroy(c)
         end
 
         -- or a specific group
-        c = Group.getByName(name)
+        c = Group.getByName(unitName)
         if c then
             Group.destroy(c)
         end
@@ -1022,6 +1030,17 @@ function veafSpawn.destroy(spawnSpot, radius, unitName)
     end
 end
 
+--- teleport group
+function veafSpawn.teleport(spawnSpot, name)
+    veafSpawn.logDebug("teleport(name = " .. name ..")")
+    local vars = { groupName = name, point = spawnSpot, action = "teleport" }
+    local grp = mist.teleportToPoint(vars)
+    if grp then
+        trigger.action.outText("Teleported group "..name, 5) 
+    else
+        trigger.action.outText("Cannot teleport group : "..name, 5) 
+    end
+end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Radio menu and help
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1072,6 +1091,8 @@ function veafSpawn.help(groupId)
         '"_destroy" will destroy the units around the marker\n' ..
         '   "radius <radius in meters>" specifies the destruction radius\n' ..
         '   "unit <unit name>" specifies the name of the unit to destroy' ..
+        '"_teleport" will teleport a group to the marker\n' ..
+        '   "name <group name>" specifies the name of the group to teleport' ..
             
     trigger.action.outTextForGroup(groupId, text, 30)
 end
