@@ -66,10 +66,13 @@ veafSpawn = {}
 veafSpawn.Id = "SPAWN - "
 
 --- Version.
-veafSpawn.Version = "1.4.1"
+veafSpawn.Version = "1.5"
 
---- Key phrase to look for in the mark text which triggers the weather report.
-veafSpawn.Keyphrase = "veaf spawn "
+--- Key phrase to look for in the mark text which triggers the spawn command.
+veafSpawn.SpawnKeyphrase = "_spawn"
+
+--- Key phrase to look for in the mark text which triggers the destroy command.
+veafSpawn.DestroyKeyphrase = "_destroy"
 
 --- Name of the spawned units group 
 veafSpawn.RedSpawnedUnitsGroupName = "VEAF Spawned Units"
@@ -115,7 +118,7 @@ end
 --- Function executed when a mark has changed. This happens when text is entered or changed.
 function veafSpawn.onEventMarkChange(eventPos, event)
     -- Check if marker has a text and the veafSpawn.keyphrase keyphrase.
-    if event.text ~= nil and event.text:lower():find(veafSpawn.Keyphrase) then
+    if event.text ~= nil and (event.text:lower():find(veafSpawn.SpawnKeyphrase) or (event.text:lower():find(veafSpawn.DestroyKeyphrase))) then
 
         -- Analyse the mark point text and extract the keywords.
         local options = veafSpawn.markTextAnalysis(event.text)
@@ -229,25 +232,23 @@ function veafSpawn.markTextAnalysis(text)
     switch.unlock = nil
 
     -- Check for correct keywords.
-    if text:lower():find(veafSpawn.Keyphrase .. "unit") then
+    if text:lower():find(veafSpawn.SpawnKeyphrase .. " unit") then
         switch.unit = true
-    elseif text:lower():find(veafSpawn.Keyphrase .. "group") then
+    elseif text:lower():find(veafSpawn.SpawnKeyphrase .. " group") then
         switch.group = true
-    elseif text:lower():find(veafSpawn.Keyphrase .. "convoy") then
+    elseif text:lower():find(veafSpawn.SpawnKeyphrase .. " convoy") then
         switch.convoy = true
-    elseif text:lower():find(veafSpawn.Keyphrase .. "smoke") then
+    elseif text:lower():find(veafSpawn.SpawnKeyphrase .. " smoke") then
         switch.smoke = true
-    elseif text:lower():find(veafSpawn.Keyphrase .. "flare") then
+    elseif text:lower():find(veafSpawn.SpawnKeyphrase .. " flare") then
         switch.flare = true
-    elseif text:lower():find(veafSpawn.Keyphrase .. "cargo") then
+    elseif text:lower():find(veafSpawn.SpawnKeyphrase .. " cargo") then
         switch.cargo = true
-    elseif text:lower():find(veafSpawn.Keyphrase .. "logistic") then
+    elseif text:lower():find(veafSpawn.SpawnKeyphrase .. " logistic") then
         switch.logistic = true
-    elseif text:lower():find(veafSpawn.Keyphrase .. "bomb") then
+    elseif text:lower():find(veafSpawn.SpawnKeyphrase .. " bomb") then
         switch.bomb = true
-    elseif text:lower():find(veafSpawn.Keyphrase .. "destroy") then
-        switch.destroy = true
-    elseif text:lower():find(veafSpawn.Keyphrase .. "jtac") then
+    elseif text:lower():find(veafSpawn.SpawnKeyphrase .. " jtac") then
         switch.role = 'jtac'
         switch.unit = true
         -- default country for friendly JTAC: USA
@@ -256,6 +257,8 @@ function veafSpawn.markTextAnalysis(text)
         switch.name = "APC M1025 HMMWV"
         -- default JTAC name (will overwrite previous unit with same name)
         switch.unitName = "JTAC1"
+    elseif text:lower():find(veafSpawn.DestroyKeyphrase) then
+        switch.destroy = true
     else
         return nil
     end
@@ -1035,36 +1038,40 @@ end
 
 function veafSpawn.help(groupId)
     local text = 
-        'Create a marker and type "veaf spawn <unit|group|smoke|flare> " in the text\n' ..
+        'Create a marker and type "_spawn <unit|group|convoy|cargo|bomb|logistic|smoke|flare> " in the text\n' ..
         'This will spawn the requested object in the DCS world\n' ..
         'You can add options (comma separated) :\n' ..
-        '"veaf spawn unit" spawns a target vehicle/ship\n' ..
+        '"_spawn unit" spawns a target vehicle/ship\n' ..
         '   "name [unit name]" spawns a specific unit ; name can be any DCS type\n' ..
         '   "country [country name]" spawns a unit of a specific country ; name can be any DCS country\n' ..
         '   "speed [speed]" spawns the unit already moving\n' ..
         '   "alt [altitude]" spawns the unit at the specified altitude\n' ..
         '   "hdg [heading]" spawns the unit facing a heading\n' ..
-        'veaf spawn group, name [group name]" spawns a specific group ; name must be a group name from the VEAF Groups Database\n' ..
+        '_spawn group, name [group name]" spawns a specific group ; name must be a group name from the VEAF Groups Database\n' ..
         '   "spacing <spacing>" specifies the (randomly modified) units spacing in unit size multiples\n' ..
         '   "country [country name]" spawns a group of a specific country ; name can be any DCS country\n' ..
         '   "speed [speed]" spawns the group already moving\n' ..
         '   "alt [altitude]" spawns the group at the specified altitude\n' ..
         '   "hdg [heading]" spawns the group facing a heading\n' ..
-        'veaf spawn convoy, destination [named point]" spawns a convoy ; destination must be a known named point\n' ..
+        '_spawn convoy, destination [named point]" spawns a convoy ; destination must be a known named point\n' ..
         '   "country [country name]" spawns a group of a specific country ; name can be any DCS country\n' ..
         '   "defense 0" completely disables air defenses\n' ..
         '   "defense [1-5]" specifies air defense cover (1 = light, 5 = heavy)\n' ..
         '   "transports [nb]" changes the number of transports vehicles\n' ..
         '   "armor [1-5]" specifies armor presence (1 = light, 5 = heavy)\n' ..
-        '"veaf spawn cargo" creates a cargo ready to be picked up\n' ..
+        '"_spawn cargo" creates a cargo ready to be picked up\n' ..
         '   "name [cargo type]" spawns a specific cargo ; name can be any of [ammo, barrels, container, fueltank, f_bar, iso_container, iso_container_small, m117, oiltank, pipes_big, pipes_small, tetrapod, trunks_long, trunks_small, uh1h]\n' ..
         '   "smoke adds a smoke marker\n' ..
-        '"veaf spawn bomb" spawns a bomb on the ground\n' ..
+        '"_spawn bomb" spawns a bomb on the ground\n' ..
         '   "power [value]" specifies the bomb power (default is 100, max is 1000)\n' ..
-        '"veaf spawn smoke" spawns a smoke on the ground\n' ..
+        '"_spawn logistic" spawns a logistic respawn area for CTLD on the ground\n' ..
+        '"_spawn smoke" spawns a smoke on the ground\n' ..
         '   "color [red|green|blue|white|orange]" specifies the smoke color\n' ..
-        '"veaf spawn flare" lights things up with a flare\n' ..
-        '   "alt <altitude in meters agl>" specifies the initial altitude'
+        '"_spawn flare" lights things up with a flare\n' ..
+        '   "alt <altitude in meters agl>" specifies the initial altitude\n' ..
+        '"_destroy" will destroy the units around the marker\n' ..
+        '   "radius <radius in meters>" specifies the destruction radius\n' ..
+        '   "unit <unit name>" specifies the name of the unit to destroy' ..
             
     trigger.action.outTextForGroup(groupId, text, 30)
 end

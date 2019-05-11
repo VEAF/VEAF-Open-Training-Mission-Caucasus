@@ -42,7 +42,7 @@
 -- Basic Usage:
 -- ------------
 -- 1.) Place a mark on the F10 map.
--- 2.) As text enter "veaf cas mission"
+-- 2.) As text enter "_cas"
 -- 3.) Click somewhere else on the map to submit the new text.
 -- 4.) The command will be processed. A message will appear to confirm this
 -- 5.) The original mark will disappear.
@@ -72,10 +72,10 @@ veafCasMission = {}
 veafCasMission.Id = "CAS MISSION - "
 
 --- Version.
-veafCasMission.Version = "1.2.0"
+veafCasMission.Version = "1.3"
 
 --- Key phrase to look for in the mark text which triggers the command.
-veafCasMission.Keyphrase = "veaf cas "
+veafCasMission.Keyphrase = "_cas"
 
 --- Number of seconds between each check of the CAS group watchdog function
 veafCasMission.SecondsBetweenWatchdogChecks = 15
@@ -181,7 +181,7 @@ function veafCasMission.markTextAnalysis(text)
     switch.disperseOnAttack = false
 
     -- Check for correct keywords.
-    if text:lower():find(veafCasMission.Keyphrase .. "mission") then
+    if text:lower():find(veafCasMission.Keyphrase) then
         switch.casmission = true
     else
         return nil
@@ -832,7 +832,7 @@ end
 
 function veafCasMission.help(groupId)
     local text =
-        'Create a marker and type "veaf cas mission" in the text\n' ..
+        'Create a marker and type "_cas" in the text\n' ..
         'This will create a default CAS target group\n' ..
         'You can add options (comma separated) :\n' ..
         '   "defense 0" completely disables air defenses\n' ..

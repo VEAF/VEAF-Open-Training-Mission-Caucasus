@@ -27,7 +27,7 @@
 --
 -- Options:
 -- --------
--- Type "veaf transport mission" to create a default transport mission
+-- Type "_transport" to create a default transport mission
 --      add ", from [named point]" to specify starting position from the named points database (veafNamedPoints.lua) ; default is KASPI
 --      add ", defense [1-5]" to specify air defense cover on the way (1 = light, 5 = heavy)
 --      add ", size [1-5]" to change the number of cargo items to be transported (1 per participating helo, usually)
@@ -49,10 +49,10 @@ veafTransportMission = {}
 veafTransportMission.Id = "TRANSPORT MISSION - "
 
 --- Version.
-veafTransportMission.Version = "1.1.1"
+veafTransportMission.Version = "1.2"
 
 --- Key phrase to look for in the mark text which triggers the command.
-veafTransportMission.Keyphrase = "veaf transport "
+veafTransportMission.Keyphrase = "_transport"
 
 veafTransportMission.CargoTypes = {"ammo_cargo", "barrels_cargo", "container_cargo", "fueltank_cargo" }
 
@@ -201,7 +201,7 @@ function veafTransportMission.markTextAnalysis(text)
     switch.from = veafTransportMission.DefaultStartPosition
 
     -- Check for correct keywords.
-    if text:lower():find(veafTransportMission.Keyphrase .. "mission") then
+    if text:lower():find(veafTransportMission.Keyphrase) then
         switch.transportmission = true
     else
         return nil
@@ -235,7 +235,7 @@ function veafTransportMission.markTextAnalysis(text)
         end
 
         if switch.transportmission and key:lower() == "blocade" then
-            -- Set armor.
+            -- Set blocade.
             veafTransportMission.logDebug(string.format("Keyword blocade = %d", val))
             local nVal = tonumber(val)
             if nVal <= 5 and nVal >= 0 then
@@ -449,6 +449,7 @@ function veafTransportMission.generateTransportMission(targetSpot, size, defense
     -- generate enemy blocade forces
     if blocade > 0 then
         veafTransportMission.logDebug("Generating blocade")
+        -- TODO
         veafTransportMission.logDebug("Done generating blocade")
     end
 
@@ -658,7 +659,7 @@ end
 
 function veafTransportMission.help(groupId)
     local text =
-        'Create a marker and type "veaf transport mission" in the text\n' ..
+        'Create a marker and type "_transport" in the text\n' ..
         'This will create a default friendly group awaiting cargo that you need to transport\n' ..
         'You can add options (comma separated) :\n' ..
         '   "defense [0-5]" to specify air defense cover on the way (1 = light, 5 = heavy)\n' ..
@@ -668,7 +669,7 @@ function veafTransportMission.help(groupId)
         '        defense = 4 : 3-7 soldiers, big chance of BMP-1 IFV, big chance of Igla-S manpad, chance of ZU-23 on a truck\n' ..
         '        defense = 5 : 3-7 soldiers, BMP-1 IFV, big chance of Igla-S manpad, chance of ZSU-23-4 Shilka\n' ..
         '   "size [1-5]" to change the number of cargo items to be transported (1 per participating helo, usually)\n' ..
-        '   "sblocade [0-5]" to specify enemy blocade around the drop zone (1 = light, 5 = heavy)'
+        '   "blocade [0-5]" to specify enemy blocade around the drop zone (1 = light, 5 = heavy)'
 
     trigger.action.outTextForGroup(groupId, text, 30)
 end

@@ -45,8 +45,8 @@ veafMarkers.Version = "1.1.0"
 --- DCS bug regarding wrong marker vector components was fixed. If so, set to true!
 veafMarkers.DCSbugfixed = false
 
---- Key phrase to look for in the mark text which triggers the weather report.
-veafMarkers.Keyphrase = "veaf "
+--- Key phrase to look for in the mark text which triggers the command.
+veafMarkers.Keyphrase = "_"
 
 veafMarkers.MarkerAdd = 1
 veafMarkers.MarkerChange = 2

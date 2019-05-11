@@ -45,9 +45,9 @@
 --
 -- Options:
 -- --------
--- Type "veaf move group, name [groupname]" to move the specified group to the marker point
+-- Type "_move group, name [groupname]" to move the specified group to the marker point
 --      add ", speed [speed]" to make the group move and at the specified speed (in knots)
--- Type "veaf move tanker, name [groupname]" to create a new tanker flight plan and move the specified tanker.
+-- Type "_move tanker, name [groupname]" to create a new tanker flight plan and move the specified tanker.
 --      add ", speed [speed]" to make the tanker move and execute its refuel mission at the specified speed (in knots)
 --      add ", hdg [heading]" to specify the refuel leg heading (from the marker point, in degrees)
 --      add ", dist [distance]" to specify the refuel leg length (from the marker point, in nautical miles)
@@ -70,10 +70,10 @@ veafMove = {}
 veafMove.Id = "MOVE - "
 
 --- Version.
-veafMove.Version = "1.0.1"
+veafMove.Version = "1.1"
 
---- Key phrase to look for in the mark text which triggers the weather report.
-veafMove.Keyphrase = "veaf move "
+--- Key phrase to look for in the mark text which triggers the command.
+veafMove.Keyphrase = "_move"
 
 veafMove.RadioMenuName = "MOVE (" .. veafMove.Version .. ")"
 
@@ -178,10 +178,10 @@ function veafMove.markTextAnalysis(text)
     switch.heading = 0
 
     -- Check for correct keywords.
-    if text:lower():find(veafMove.Keyphrase .. "group") then
+    if text:lower():find(veafMove.Keyphrase .. " group") then
         switch.moveGroup = true
         switch.speed = 20
-    elseif text:lower():find(veafMove.Keyphrase .. "tanker") then
+    elseif text:lower():find(veafMove.Keyphrase .. " tanker") then
         switch.moveTanker = true
         switch.speed = 250
     else
@@ -396,11 +396,11 @@ end
 
 function veafMove.help(groupId)
     local text = 
-        'Create a marker and type "veaf move <group|tanker>, name <groupname> " in the text\n' ..
+        'Create a marker and type "_move <group|tanker>, name <groupname> " in the text\n' ..
         'This will issue a move command to the specified group in the DCS world\n' ..
-        'Type "veaf move group, name [groupname]" to move the specified group to the marker point\n' ..
+        'Type "_move group, name [groupname]" to move the specified group to the marker point\n' ..
         '     add ", speed [speed]" to make the group move and at the specified speed (in knots)\n' ..
-        'Type "veaf move tanker, name [groupname]" to create a new tanker flight plan and move the specified tanker.\n' ..
+        'Type "_move tanker, name [groupname]" to create a new tanker flight plan and move the specified tanker.\n' ..
         '     add ", speed [speed]" to make the tanker move and execute its refuel mission at the specified speed (in knots)\n' ..
         '     add ", hdg [heading]" to specify the refuel leg heading (from the marker point, in degrees)\n' ..
         '     add ", dist [distance]" to specify the refuel leg length (from the marker point, in nautical miles)\n' ..
