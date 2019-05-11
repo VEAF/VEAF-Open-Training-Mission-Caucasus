@@ -109,7 +109,7 @@ mission =
             }, -- end of ["func"]
         }, -- end of ["red"]
     }, -- end of ["result"]
-    ["maxDictId"] = 3709,
+    ["maxDictId"] = 3713,
     ["pictureFileNameN"] = 
     {
     }, -- end of ["pictureFileNameN"]
@@ -121,26 +121,26 @@ mission =
             ["artillery_commander"] = 
             {
                 ["neutrals"] = 0,
-                ["blue"] = 2,
-                ["red"] = 2,
+                ["blue"] = 5,
+                ["red"] = 5,
             }, -- end of ["artillery_commander"]
             ["instructor"] = 
             {
                 ["neutrals"] = 0,
-                ["blue"] = 1,
-                ["red"] = 1,
+                ["blue"] = 5,
+                ["red"] = 5,
             }, -- end of ["instructor"]
             ["observer"] = 
             {
                 ["neutrals"] = 0,
-                ["blue"] = 2,
-                ["red"] = 2,
+                ["blue"] = 5,
+                ["red"] = 5,
             }, -- end of ["observer"]
             ["forward_observer"] = 
             {
                 ["neutrals"] = 0,
-                ["blue"] = 2,
-                ["red"] = 2,
+                ["blue"] = 5,
+                ["red"] = 5,
             }, -- end of ["forward_observer"]
         }, -- end of ["roles"]
     }, -- end of ["groundControl"]
@@ -682,9 +682,9 @@ mission =
     }, -- end of ["triggers"]
     ["map"] = 
     {
-        ["centerY"] = 285000,
-        ["zoom"] = 1744837.7581121,
-        ["centerX"] = -171019.1740413,
+        ["centerY"] = 614919.69323806,
+        ["zoom"] = 825009.14317832,
+        ["centerX"] = -282468.48641281,
     }, -- end of ["map"]
     ["coalitions"] = 
     {
@@ -12562,11 +12562,11 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["MissileToneVolume"] = 4,
+                                            ["ADF_Selected_Frequency"] = 1,
                                             ["MountSIRENA"] = true,
-                                            ["NAV_Initial_Hdg"] = 0,
                                             ["ADF_NEAR_Frequency"] = 303,
                                             ["ADF_FAR_Frequency"] = 625,
-                                            ["ADF_Selected_Frequency"] = 1,
+                                            ["NAV_Initial_Hdg"] = 0,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "A-10C",
                                         ["unitId"] = 1270,
@@ -12672,11 +12672,11 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["MissileToneVolume"] = 4,
+                                            ["ADF_NEAR_Frequency"] = 303,
                                             ["MountSIRENA"] = true,
-                                            ["ADF_Selected_Frequency"] = 1,
                                             ["NAV_Initial_Hdg"] = 0,
                                             ["ADF_FAR_Frequency"] = 625,
-                                            ["ADF_NEAR_Frequency"] = 303,
+                                            ["ADF_Selected_Frequency"] = 1,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "A-10C",
                                         ["unitId"] = 1271,
@@ -12777,11 +12777,11 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["MissileToneVolume"] = 4,
+                                            ["ADF_NEAR_Frequency"] = 303,
                                             ["MountSIRENA"] = true,
-                                            ["ADF_Selected_Frequency"] = 1,
                                             ["NAV_Initial_Hdg"] = 0,
                                             ["ADF_FAR_Frequency"] = 625,
-                                            ["ADF_NEAR_Frequency"] = 303,
+                                            ["ADF_Selected_Frequency"] = 1,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "A-10C",
                                         ["unitId"] = 1272,
@@ -12887,11 +12887,11 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["MissileToneVolume"] = 4,
+                                            ["ADF_NEAR_Frequency"] = 303,
                                             ["MountSIRENA"] = true,
-                                            ["ADF_Selected_Frequency"] = 1,
                                             ["NAV_Initial_Hdg"] = 0,
                                             ["ADF_FAR_Frequency"] = 625,
-                                            ["ADF_NEAR_Frequency"] = 303,
+                                            ["ADF_Selected_Frequency"] = 1,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "A-10C",
                                         ["unitId"] = 1273,
@@ -12997,11 +12997,11 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["MissileToneVolume"] = 4,
+                                            ["ADF_NEAR_Frequency"] = 303,
                                             ["MountSIRENA"] = true,
-                                            ["ADF_Selected_Frequency"] = 1,
                                             ["NAV_Initial_Hdg"] = 0,
                                             ["ADF_FAR_Frequency"] = 625,
-                                            ["ADF_NEAR_Frequency"] = 303,
+                                            ["ADF_Selected_Frequency"] = 1,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "A-10C",
                                         ["unitId"] = 1274,
@@ -13102,11 +13102,11 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["MissileToneVolume"] = 4,
+                                            ["NAV_Initial_Hdg"] = 0,
                                             ["MountSIRENA"] = true,
-                                            ["ADF_NEAR_Frequency"] = 303,
                                             ["ADF_Selected_Frequency"] = 1,
                                             ["ADF_FAR_Frequency"] = 625,
-                                            ["NAV_Initial_Hdg"] = 0,
+                                            ["ADF_NEAR_Frequency"] = 303,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "A-10C",
                                         ["unitId"] = 1275,
@@ -13207,11 +13207,11 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["MissileToneVolume"] = 4,
+                                            ["NAV_Initial_Hdg"] = 0,
                                             ["MountSIRENA"] = true,
-                                            ["ADF_NEAR_Frequency"] = 303,
                                             ["ADF_Selected_Frequency"] = 1,
                                             ["ADF_FAR_Frequency"] = 625,
-                                            ["NAV_Initial_Hdg"] = 0,
+                                            ["ADF_NEAR_Frequency"] = 303,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "A-10C",
                                         ["unitId"] = 1276,
@@ -13317,11 +13317,11 @@ mission =
                                         ["AddPropAircraft"] = 
                                         {
                                             ["MissileToneVolume"] = 4,
+                                            ["NAV_Initial_Hdg"] = 0,
                                             ["MountSIRENA"] = true,
-                                            ["ADF_NEAR_Frequency"] = 303,
                                             ["ADF_Selected_Frequency"] = 1,
                                             ["ADF_FAR_Frequency"] = 625,
-                                            ["NAV_Initial_Hdg"] = 0,
+                                            ["ADF_NEAR_Frequency"] = 303,
                                         }, -- end of ["AddPropAircraft"]
                                         ["type"] = "A-10C",
                                         ["unitId"] = 1277,
@@ -20475,10 +20475,10 @@ mission =
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
                                             ["type"] = "Turning Point",
-                                            ["ETA"] = 245.91501998832,
+                                            ["ETA"] = 292.23652838889,
                                             ["ETA_locked"] = false,
-                                            ["y"] = 847284.70190684,
-                                            ["x"] = -117749.61707101,
+                                            ["y"] = 847266.31486552,
+                                            ["x"] = -117950.92620306,
                                             ["name"] = "DictKey_WptName_3541",
                                             ["formation_template"] = "",
                                             ["speed_locked"] = true,
@@ -29600,10 +29600,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["WpBullseye"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -29752,10 +29752,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["WpBullseye"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -29904,10 +29904,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["WpBullseye"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -30056,10 +30056,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["WpBullseye"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -30268,10 +30268,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 0,
-                                            ["EWDispenserBL"] = 2,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["WpBullseye"] = 0,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -30420,10 +30420,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 0,
-                                            ["EWDispenserBL"] = 2,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["WpBullseye"] = 0,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -30572,10 +30572,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 0,
-                                            ["EWDispenserBL"] = 2,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["WpBullseye"] = 0,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -30724,10 +30724,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 0,
-                                            ["EWDispenserBL"] = 2,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["WpBullseye"] = 0,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -30938,10 +30938,10 @@ mission =
                                             ["ForceINSRules"] = true,
                                             ["EWDispenserTBR"] = 2,
                                             ["EWDispenserBL"] = 2,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 1,
-                                            ["EWDispenserTBL"] = 2,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserTBL"] = 2,
+                                            ["WpBullseye"] = 1,
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = true,
                                         }, -- end of ["AddPropAircraft"]
@@ -31122,10 +31122,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = true,
                                             ["ForceINSRules"] = true,
-                                            ["WpBullseye"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["ClockTime"] = 1,
                                             ["EWDispenserTFL"] = 1,
+                                            ["WpBullseye"] = 1,
+                                            ["ClockTime"] = 1,
+                                            ["RocketBurst"] = 1,
                                             ["EWDispenserBL"] = 2,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -31306,10 +31306,10 @@ mission =
                                             ["EWDispenserBL"] = 2,
                                             ["EWDispenserTBR"] = 2,
                                             ["EWDispenserTFR"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 1,
-                                            ["EWDispenserTBL"] = 2,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserTBL"] = 2,
+                                            ["WpBullseye"] = 1,
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = true,
                                         }, -- end of ["AddPropAircraft"]
@@ -31490,10 +31490,10 @@ mission =
                                             ["ForceINSRules"] = true,
                                             ["MountNVG"] = true,
                                             ["EWDispenserBL"] = 2,
-                                            ["WpBullseye"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["ClockTime"] = 1,
                                             ["EWDispenserTFL"] = 1,
+                                            ["WpBullseye"] = 1,
+                                            ["ClockTime"] = 1,
+                                            ["RocketBurst"] = 1,
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                         }, -- end of ["AddPropAircraft"]
@@ -31692,7 +31692,7 @@ mission =
                                                 {
                                                 }, -- end of ["addopt"]
                                             }, -- end of ["properties"]
-                                            ["speed"] = 164.44444444444,
+                                            ["speed"] = 220.97222222222,
                                             ["task"] = 
                                             {
                                                 ["id"] = "ComboTask",
@@ -31702,20 +31702,20 @@ mission =
                                                     {
                                                         [1] = 
                                                         {
-                                                            ["number"] = 1,
+                                                            ["enabled"] = true,
                                                             ["auto"] = true,
                                                             ["id"] = "Tanker",
-                                                            ["enabled"] = true,
+                                                            ["number"] = 1,
                                                             ["params"] = 
                                                             {
                                                             }, -- end of ["params"]
                                                         }, -- end of [1]
                                                         [2] = 
                                                         {
-                                                            ["number"] = 2,
+                                                            ["enabled"] = true,
                                                             ["auto"] = true,
                                                             ["id"] = "WrappedAction",
-                                                            ["enabled"] = true,
+                                                            ["number"] = 2,
                                                             ["params"] = 
                                                             {
                                                                 ["action"] = 
@@ -31725,11 +31725,11 @@ mission =
                                                                     {
                                                                         ["type"] = 4,
                                                                         ["AA"] = true,
-                                                                        ["callsign"] = "ARC",
-                                                                        ["system"] = 4,
-                                                                        ["channel"] = 6,
-                                                                        ["modeChannel"] = "Y",
                                                                         ["unitId"] = 945,
+                                                                        ["modeChannel"] = "Y",
+                                                                        ["channel"] = 6,
+                                                                        ["system"] = 4,
+                                                                        ["callsign"] = "ARC",
                                                                         ["bearing"] = true,
                                                                         ["frequency"] = 1093000000,
                                                                     }, -- end of ["params"]
@@ -31759,7 +31759,7 @@ mission =
                                                 {
                                                 }, -- end of ["addopt"]
                                             }, -- end of ["properties"]
-                                            ["speed"] = 164.44444444444,
+                                            ["speed"] = 220.97222222222,
                                             ["task"] = 
                                             {
                                                 ["id"] = "ComboTask",
@@ -31777,7 +31777,7 @@ mission =
                                                             {
                                                                 ["speedEdited"] = true,
                                                                 ["pattern"] = "Race-Track",
-                                                                ["speed"] = 164.44444444444,
+                                                                ["speed"] = 205.55555555556,
                                                                 ["altitude"] = 5791.2,
                                                                 ["altitudeEdited"] = true,
                                                             }, -- end of ["params"]
@@ -31786,7 +31786,7 @@ mission =
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
                                             ["type"] = "Turning Point",
-                                            ["ETA"] = 87.420408623205,
+                                            ["ETA"] = 15.653729974163,
                                             ["ETA_locked"] = false,
                                             ["y"] = 768646.32961385,
                                             ["x"] = -227950.01186122,
@@ -31805,7 +31805,7 @@ mission =
                                                 {
                                                 }, -- end of ["addopt"]
                                             }, -- end of ["properties"]
-                                            ["speed"] = 164.44444444444,
+                                            ["speed"] = 220.97222222222,
                                             ["task"] = 
                                             {
                                                 ["id"] = "ComboTask",
@@ -31835,16 +31835,10 @@ mission =
                                     {
                                         ["alt"] = 5791.2,
                                         ["alt_type"] = "BARO",
-                                        ["livery_id"] = "Standard USAF",
+                                        ["livery_id"] = "100th ARW",
                                         ["skill"] = "Excellent",
-                                        ["speed"] = 164.44444444444,
-                                        ["AddPropAircraft"] = 
-                                        {
-                                            ["Rb04GroupTarget"] = 3,
-                                            ["Rb04VinkelHopp"] = 0,
-                                            ["WeapSafeHeight"] = 1,
-                                        }, -- end of ["AddPropAircraft"]
-                                        ["type"] = "KC-135",
+                                        ["speed"] = 220.97222222222,
+                                        ["type"] = "KC135MPRS",
                                         ["unitId"] = 945,
                                         ["psi"] = 1.512040504079,
                                         ["y"] = 772099.40010096,
@@ -31856,8 +31850,8 @@ mission =
                                             {
                                             }, -- end of ["pylons"]
                                             ["fuel"] = 90700,
-                                            ["flare"] = 0,
-                                            ["chaff"] = 0,
+                                            ["flare"] = 60,
+                                            ["chaff"] = 120,
                                             ["gun"] = 100,
                                         }, -- end of ["payload"]
                                         ["heading"] = -1.512040504079,
@@ -31876,7 +31870,7 @@ mission =
                                 ["name"] = "DictKey_GroupName_2031",
                                 ["communication"] = true,
                                 ["start_time"] = 0,
-                                ["frequency"] = 138.2,
+                                ["frequency"] = 251,
                             }, -- end of [10]
                             [11] = 
                             {
@@ -31893,7 +31887,7 @@ mission =
                                     {
                                         [1] = 
                                         {
-                                            ["alt"] = 6096,
+                                            ["alt"] = 6400.8,
                                             ["action"] = "Turning Point",
                                             ["alt_type"] = "BARO",
                                             ["properties"] = 
@@ -31960,7 +31954,7 @@ mission =
                                         }, -- end of [1]
                                         [2] = 
                                         {
-                                            ["alt"] = 6096,
+                                            ["alt"] = 6400.8,
                                             ["action"] = "Turning Point",
                                             ["alt_type"] = "BARO",
                                             ["properties"] = 
@@ -31985,9 +31979,9 @@ mission =
                                                             ["enabled"] = true,
                                                             ["params"] = 
                                                             {
-                                                                ["altitude"] = 6096,
+                                                                ["altitude"] = 6400.8,
                                                                 ["pattern"] = "Race-Track",
-                                                                ["speed"] = 164.44444444444,
+                                                                ["speed"] = 205.55555555556,
                                                                 ["speedEdited"] = true,
                                                             }, -- end of ["params"]
                                                         }, -- end of [1]
@@ -31995,7 +31989,7 @@ mission =
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
                                             ["type"] = "Turning Point",
-                                            ["ETA"] = 6.6040557339816,
+                                            ["ETA"] = 10.23625751745,
                                             ["ETA_locked"] = false,
                                             ["y"] = 564569.58857143,
                                             ["x"] = -273457.59085714,
@@ -32042,7 +32036,7 @@ mission =
                                 {
                                     [1] = 
                                     {
-                                        ["alt"] = 6096,
+                                        ["alt"] = 6400.8,
                                         ["alt_type"] = "BARO",
                                         ["livery_id"] = "100th ARW",
                                         ["skill"] = "Excellent",
@@ -32704,7 +32698,7 @@ mission =
                                                             {
                                                                 ["altitude"] = 6096,
                                                                 ["pattern"] = "Race-Track",
-                                                                ["speed"] = 164.44444444444,
+                                                                ["speed"] = 205.55555555556,
                                                                 ["speedEdited"] = true,
                                                             }, -- end of ["params"]
                                                         }, -- end of [1]
@@ -32712,7 +32706,7 @@ mission =
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
                                             ["type"] = "Turning Point",
-                                            ["ETA"] = 32.951136854608,
+                                            ["ETA"] = 20.376333040801,
                                             ["ETA_locked"] = false,
                                             ["y"] = 871019.71346693,
                                             ["x"] = -228762.49903466,
@@ -36440,7 +36434,7 @@ mission =
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
                                             ["type"] = "Turning Point",
-                                            ["ETA"] = 139.70108716707,
+                                            ["ETA"] = 139.67470108065,
                                             ["ETA_locked"] = false,
                                             ["y"] = 847329.929806,
                                             ["x"] = -117759.78310079,
@@ -36562,10 +36556,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 5,
-                                            ["EWDispenserBL"] = 2,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["WpBullseye"] = 5,
                                             ["ForceINSRules"] = false,
                                             ["MountNVG"] = true,
                                         }, -- end of ["AddPropAircraft"]
@@ -36855,7 +36849,7 @@ mission =
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
                                             ["type"] = "Turning Point",
-                                            ["ETA"] = 139.70108716707,
+                                            ["ETA"] = 139.69460150074,
                                             ["ETA_locked"] = false,
                                             ["y"] = 847331.56928479,
                                             ["x"] = -117757.56403349,
@@ -36977,10 +36971,10 @@ mission =
                                             ["ForceINSRules"] = false,
                                             ["EWDispenserTBR"] = 2,
                                             ["EWDispenserBL"] = 2,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 5,
-                                            ["ClockTime"] = 1,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["ClockTime"] = 1,
+                                            ["WpBullseye"] = 5,
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = true,
                                         }, -- end of ["AddPropAircraft"]
@@ -37270,7 +37264,7 @@ mission =
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
                                             ["type"] = "Turning Point",
-                                            ["ETA"] = 139.70108716707,
+                                            ["ETA"] = 139.70216913539,
                                             ["ETA_locked"] = false,
                                             ["y"] = 847355.35041163,
                                             ["x"] = -117756.80222448,
@@ -37392,10 +37386,10 @@ mission =
                                             ["ForceINSRules"] = false,
                                             ["EWDispenserTBR"] = 2,
                                             ["EWDispenserBL"] = 2,
-                                            ["RocketBurst"] = 1,
-                                            ["WpBullseye"] = 5,
-                                            ["ClockTime"] = 1,
                                             ["EWDispenserTFL"] = 1,
+                                            ["RocketBurst"] = 1,
+                                            ["ClockTime"] = 1,
+                                            ["WpBullseye"] = 5,
                                             ["EWDispenserTFR"] = 1,
                                             ["MountNVG"] = true,
                                         }, -- end of ["AddPropAircraft"]
@@ -37642,8 +37636,8 @@ mission =
                                             ["type"] = "Turning Point",
                                             ["ETA"] = 0,
                                             ["ETA_locked"] = true,
-                                            ["y"] = 847080.24367605,
-                                            ["x"] = -122389.79745952,
+                                            ["y"] = 844736.47289351,
+                                            ["x"] = -145943.26440726,
                                             ["name"] = "DictKey_WptName_3645",
                                             ["formation_template"] = "",
                                             ["speed_locked"] = true,
@@ -37686,10 +37680,10 @@ mission =
                                                 }, -- end of ["params"]
                                             }, -- end of ["task"]
                                             ["type"] = "Turning Point",
-                                            ["ETA"] = 74.255689622093,
+                                            ["ETA"] = 230.38980521747,
                                             ["ETA_locked"] = false,
-                                            ["y"] = 847223.27075752,
-                                            ["x"] = -117812.9308523,
+                                            ["y"] = 845744.34604396,
+                                            ["x"] = -142326.77839682,
                                             ["name"] = "DictKey_WptName_3646",
                                             ["formation_template"] = "",
                                             ["speed_locked"] = true,
@@ -37709,9 +37703,9 @@ mission =
                                         ["speed"] = 61.666666666667,
                                         ["type"] = "MQ-9 Reaper",
                                         ["unitId"] = 1515,
-                                        ["psi"] = -0.031239833429042,
-                                        ["y"] = 847080.24367605,
-                                        ["x"] = -122389.79745952,
+                                        ["psi"] = -0.27179215867456,
+                                        ["y"] = 844736.47289351,
+                                        ["x"] = -145943.26440726,
                                         ["name"] = "DictKey_UnitName_3644",
                                         ["payload"] = 
                                         {
@@ -37723,7 +37717,7 @@ mission =
                                             ["chaff"] = 0,
                                             ["gun"] = 100,
                                         }, -- end of ["payload"]
-                                        ["heading"] = 0.031239833429042,
+                                        ["heading"] = 0.27179215867456,
                                         ["callsign"] = 
                                         {
                                             [1] = 4,
@@ -37734,8 +37728,8 @@ mission =
                                         ["onboard_num"] = "974",
                                     }, -- end of [1]
                                 }, -- end of ["units"]
-                                ["y"] = 847080.24367605,
-                                ["x"] = -122389.79745952,
+                                ["y"] = 844736.47289351,
+                                ["x"] = -145943.26440726,
                                 ["name"] = "DictKey_GroupName_3643",
                                 ["communication"] = true,
                                 ["start_time"] = 0,
@@ -40950,6 +40944,179 @@ mission =
                                 ["start_time"] = 0,
                                 ["frequency"] = 251,
                             }, -- end of [29]
+                            [30] = 
+                            {
+                                ["modulation"] = 0,
+                                ["tasks"] = 
+                                {
+                                }, -- end of ["tasks"]
+                                ["radioSet"] = true,
+                                ["task"] = "AFAC",
+                                ["uncontrolled"] = false,
+                                ["taskSelected"] = true,
+                                ["route"] = 
+                                {
+                                    ["points"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["alt"] = 4572,
+                                            ["action"] = "Turning Point",
+                                            ["alt_type"] = "BARO",
+                                            ["properties"] = 
+                                            {
+                                                ["addopt"] = 
+                                                {
+                                                }, -- end of ["addopt"]
+                                            }, -- end of ["properties"]
+                                            ["speed"] = 61.666666666667,
+                                            ["task"] = 
+                                            {
+                                                ["id"] = "ComboTask",
+                                                ["params"] = 
+                                                {
+                                                    ["tasks"] = 
+                                                    {
+                                                        [1] = 
+                                                        {
+                                                            ["enabled"] = true,
+                                                            ["auto"] = true,
+                                                            ["id"] = "FAC",
+                                                            ["number"] = 1,
+                                                            ["params"] = 
+                                                            {
+                                                                ["number"] = 1,
+                                                                ["designation"] = "Auto",
+                                                                ["modulation"] = 0,
+                                                                ["callname"] = 5,
+                                                                ["datalink"] = true,
+                                                                ["frequency"] = 254000000,
+                                                            }, -- end of ["params"]
+                                                        }, -- end of [1]
+                                                        [2] = 
+                                                        {
+                                                            ["enabled"] = true,
+                                                            ["auto"] = true,
+                                                            ["id"] = "WrappedAction",
+                                                            ["number"] = 2,
+                                                            ["params"] = 
+                                                            {
+                                                                ["action"] = 
+                                                                {
+                                                                    ["id"] = "EPLRS",
+                                                                    ["params"] = 
+                                                                    {
+                                                                        ["value"] = true,
+                                                                        ["groupId"] = 5,
+                                                                    }, -- end of ["params"]
+                                                                }, -- end of ["action"]
+                                                            }, -- end of ["params"]
+                                                        }, -- end of [2]
+                                                    }, -- end of ["tasks"]
+                                                }, -- end of ["params"]
+                                            }, -- end of ["task"]
+                                            ["type"] = "Turning Point",
+                                            ["ETA"] = 0,
+                                            ["ETA_locked"] = true,
+                                            ["y"] = 647812.69889867,
+                                            ["x"] = -278691.06134826,
+                                            ["name"] = "DictKey_WptName_3712",
+                                            ["formation_template"] = "",
+                                            ["speed_locked"] = true,
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["alt"] = 4572,
+                                            ["action"] = "Turning Point",
+                                            ["alt_type"] = "BARO",
+                                            ["properties"] = 
+                                            {
+                                                ["addopt"] = 
+                                                {
+                                                }, -- end of ["addopt"]
+                                            }, -- end of ["properties"]
+                                            ["speed"] = 61.666666666667,
+                                            ["task"] = 
+                                            {
+                                                ["id"] = "ComboTask",
+                                                ["params"] = 
+                                                {
+                                                    ["tasks"] = 
+                                                    {
+                                                        [1] = 
+                                                        {
+                                                            ["number"] = 1,
+                                                            ["auto"] = false,
+                                                            ["id"] = "Orbit",
+                                                            ["enabled"] = true,
+                                                            ["params"] = 
+                                                            {
+                                                                ["altitude"] = 4572,
+                                                                ["pattern"] = "Circle",
+                                                                ["speed"] = 61.666666666667,
+                                                                ["altitudeEdited"] = true,
+                                                                ["speedEdited"] = true,
+                                                            }, -- end of ["params"]
+                                                        }, -- end of [1]
+                                                    }, -- end of ["tasks"]
+                                                }, -- end of ["params"]
+                                            }, -- end of ["task"]
+                                            ["type"] = "Turning Point",
+                                            ["ETA"] = 45.847415564635,
+                                            ["ETA_locked"] = false,
+                                            ["y"] = 646352.78994397,
+                                            ["x"] = -278080.5539672,
+                                            ["name"] = "DictKey_WptName_3713",
+                                            ["formation_template"] = "",
+                                            ["speed_locked"] = true,
+                                        }, -- end of [2]
+                                    }, -- end of ["points"]
+                                }, -- end of ["route"]
+                                ["groupId"] = 683,
+                                ["hidden"] = false,
+                                ["units"] = 
+                                {
+                                    [1] = 
+                                    {
+                                        ["alt"] = 4572,
+                                        ["alt_type"] = "BARO",
+                                        ["livery_id"] = "'camo' scheme",
+                                        ["skill"] = "High",
+                                        ["speed"] = 61.666666666667,
+                                        ["type"] = "MQ-9 Reaper",
+                                        ["unitId"] = 1557,
+                                        ["psi"] = 1.1747148852285,
+                                        ["y"] = 647812.69889867,
+                                        ["x"] = -278691.06134826,
+                                        ["name"] = "DictKey_UnitName_3711",
+                                        ["payload"] = 
+                                        {
+                                            ["pylons"] = 
+                                            {
+                                            }, -- end of ["pylons"]
+                                            ["fuel"] = 1300,
+                                            ["flare"] = 0,
+                                            ["chaff"] = 0,
+                                            ["gun"] = 100,
+                                        }, -- end of ["payload"]
+                                        ["heading"] = -1.1747148852285,
+                                        ["callsign"] = 
+                                        {
+                                            [1] = 5,
+                                            [2] = 1,
+                                            [3] = 1,
+                                            ["name"] = "Dodge11",
+                                        }, -- end of ["callsign"]
+                                        ["onboard_num"] = "974",
+                                    }, -- end of [1]
+                                }, -- end of ["units"]
+                                ["y"] = 647812.69889867,
+                                ["x"] = -278691.06134826,
+                                ["name"] = "DictKey_GroupName_3710",
+                                ["communication"] = true,
+                                ["start_time"] = 0,
+                                ["frequency"] = 254,
+                            }, -- end of [30]
                         }, -- end of ["group"]
                     }, -- end of ["plane"]
                     ["static"] = 
@@ -53776,10 +53943,10 @@ mission =
                                             ["EWDispenserTFR"] = 1,
                                             ["EWDispenserTBR"] = 2,
                                             ["ClockTime"] = 1,
-                                            ["EWDispenserTFL"] = 1,
-                                            ["RocketBurst"] = 1,
-                                            ["EWDispenserBL"] = 2,
                                             ["WpBullseye"] = 0,
+                                            ["EWDispenserTFL"] = 1,
+                                            ["EWDispenserBL"] = 2,
+                                            ["RocketBurst"] = 1,
                                             ["ForceINSRules"] = false,
                                             ["MountNVG"] = false,
                                         }, -- end of ["AddPropAircraft"]
@@ -58253,7 +58420,7 @@ mission =
             ["comment"] = "Qra Minevody Reload",
         }, -- end of [8]
     }, -- end of ["trigrules"]
-    ["currentKey"] = 1158653,
+    ["currentKey"] = 1166357,
     ["start_time"] = 22500,
     ["forcedOptions"] = 
     {

@@ -100,7 +100,7 @@ options =
         ["LensEffects"] = 0,
         ["visibRange"] = "Extreme",
         ["clutterMaxDistance"] = 1500,
-        ["scaleGui"] = true,
+        ["scaleGui"] = false,
         ["civTraffic"] = "",
     }, -- end of ["graphics"]
     ["plugins"] = 
@@ -318,7 +318,7 @@ options =
         {
             ["mirrors"] = false,
             ["reflections"] = false,
-            ["avionics"] = 1,
+            ["avionics"] = 3,
         }, -- end of ["cockpit"]
     }, -- end of ["views"]
 } -- end of options

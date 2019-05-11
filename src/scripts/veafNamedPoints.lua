@@ -37,10 +37,10 @@ veafNamedPoints = {}
 veafNamedPoints.Id = "NAMED POINTS - "
 
 --- Version.
-veafNamedPoints.Version = "1.0.1"
+veafNamedPoints.Version = "1.1"
 
 --- Key phrase to look for in the mark text which triggers the command.
-veafNamedPoints.Keyphrase = "veaf name "
+veafNamedPoints.Keyphrase = "_name point"
 
 veafNamedPoints.Points = {
     --- these points will be processed at initialisation time
@@ -119,27 +119,16 @@ function veafNamedPoints.markTextAnalysis(text)
     switch.name = "point"
 
     -- Check for correct keywords.
-    if text:lower():find(veafNamedPoints.Keyphrase .. "point") then
+    local pos = text:lower():find(veafNamedPoints.Keyphrase)
+    if pos then
         switch.namepoint = true
     else
         return nil
     end
 
-    -- keywords are split by ","
-    local keywords = veaf.split(text, ",")
-
-    for _, keyphrase in pairs(keywords) do
-        -- Split keyphrase by space. First one is the key and second, ... the parameter(s) until the next comma.
-        local str = veaf.breakString(veaf.trim(keyphrase), " ")
-        local key = str[1]
-        local val = str[2]
-
-        if key:lower() == "name" then
-            -- Set name.
-            veafNamedPoints.logDebug(string.format("Keyword name = %s", val))
-            switch.name = val
-        end
-    end
+    -- the point name should follow a space
+    switch.name = text:sub(pos+1)
+    veafNamedPoints.logDebug(string.format("Keyword name = %s", switch.name))
 
     return switch
 end
@@ -277,7 +266,7 @@ end
 --      add ", blocade [1-5]" to specify enemy blocade around the drop zone (1 = light, 5 = heavy)
 function veafNamedPoints.help(groupId)
     local text =
-        'Create a marker and type "veaf name point, name [a name]" in the text\n' ..
+        'Create a marker and type "_name point [a name]" in the text\n' ..
         'This will store the position in the named points database for later reference\n'
     trigger.action.outTextForGroup(groupId, text, 30)
 end
