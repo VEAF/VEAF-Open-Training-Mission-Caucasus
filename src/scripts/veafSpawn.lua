@@ -1057,11 +1057,10 @@ end
 
 function veafSpawn.help(groupId)
     local text = 
-        'Create a marker and type "_spawn <unit|group|convoy|cargo|bomb|logistic|smoke|flare> " in the text\n' ..
+        'Create a marker and type "_spawn <unit|group|convoy|cargo|bomb|logistic|smoke|flare|jtac> " in the text\n' ..
         'This will spawn the requested object in the DCS world\n' ..
         'You can add options (comma separated) :\n' ..
-        '"_spawn unit" spawns a target vehicle/ship\n' ..
-        '   "name [unit name]" spawns a specific unit ; name can be any DCS type\n' ..
+        '"_spawn unit, name [unit name]" spawns a target vehicle/ship  ; name can be any DCS type\n' ..
         '   "country [country name]" spawns a unit of a specific country ; name can be any DCS country\n' ..
         '   "speed [speed]" spawns the unit already moving\n' ..
         '   "alt [altitude]" spawns the unit at the specified altitude\n' ..
@@ -1088,6 +1087,7 @@ function veafSpawn.help(groupId)
         '   "color [red|green|blue|white|orange]" specifies the smoke color\n' ..
         '"_spawn flare" lights things up with a flare\n' ..
         '   "alt <altitude in meters agl>" specifies the initial altitude\n' ..
+        '"_spawn jtac" spawns a humvee with JTAC capacity\n' ..
         '"_destroy" will destroy the units around the marker\n' ..
         '   "radius <radius in meters>" specifies the destruction radius\n' ..
         '   "unit <unit name>" specifies the name of the unit to destroy' ..
