@@ -529,7 +529,7 @@ end
 
 function veafMove.help(groupId)
     local text = 
-        'Create a marker and type "_move <group|tanker>, name <groupname> " in the text\n' ..
+        'Create a marker and type "_move <group|tanker|afac>, name <groupname> " in the text\n' ..
         'This will issue a move command to the specified group in the DCS world\n' ..
         'Type "_move group, name [groupname]" to move the specified group to the marker point\n' ..
         '     add ", speed [speed]" to make the group move and at the specified speed (in knots)\n' ..
@@ -537,7 +537,10 @@ function veafMove.help(groupId)
         '     add ", speed [speed]" to make the tanker move and execute its refuel mission at the specified speed (in knots)\n' ..
         '     add ", hdg [heading]" to specify the refuel leg heading (from the marker point, in degrees)\n' ..
         '     add ", dist [distance]" to specify the refuel leg length (from the marker point, in nautical miles)\n' ..
-        '     add ", alt [altitude]" to specify the refuel leg altitude (in feet)'
+        '     add ", alt [altitude]" to specify the refuel leg altitude (in feet)\n' ..
+        'Type "_move afac, name [groupname]" to create a new JTAC flight plan and move the specified afac drone.\n' ..
+        '     add ", speed [speed]" to make the tanker move and execute its mission at the specified speed (in knots)\n' ..
+        '     add ", alt [altitude]" to specify the altitude at which the drone will circle (in feet)'
     trigger.action.outTextForGroup(groupId, text, 30)
 end
 
