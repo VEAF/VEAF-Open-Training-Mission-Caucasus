@@ -388,34 +388,8 @@ function veaf.moveGroupAt(groupName, leadUnitName, heading, speed, timeInSeconds
     local headingRad = mist.utils.toRadian(heading)
     veaf.logTrace("headingRad="..headingRad)
     local fromPosition = leadUnit:getPosition().p
+    fromPosition = { x = fromPosition.x, y = fromPosition.z }
     veaf.logTrace("fromPosition="..veaf.vecToString(fromPosition))
-
-    -- middle point (helps with having a more exact final bearing, specially with big hunks of steel like carriers)
-    local middlePointDistance = 2000
-    if pMiddlePointDistance then
-        middlePointDistance = pMiddlePointDistance
-    end
-
-	local newWaypoint1 = {
-		x = fromPosition.x + middlePointDistance * math.cos(headingRad),
-		y = fromPosition.z + middlePointDistance * math.sin(headingRad),
-	}
-    veaf.logTrace("newWaypoint1="..veaf.vecToString(newWaypoint1))
-
-    local length
-    if timeInSeconds then 
-        length = speed * timeInSeconds
-    else
-        length = speed * 3600 -- m travelled in 1 hour
-    end
-    veaf.logTrace("length="..length)
-
-    -- new route point
-	local newWaypoint2 = {
-		x = newWaypoint1.x + length * math.cos(headingRad),
-		y = newWaypoint1.y + length * math.sin(headingRad),
-	}
-    veaf.logTrace("newWaypoint2="..veaf.vecToString(newWaypoint2))
 
     local mission = { 
 		id = 'Mission', 
@@ -438,53 +412,87 @@ function veaf.moveGroupAt(groupName, leadUnitName, heading, speed, timeInSeconds
                         ["speed"] = 9999, -- ahead flank
                         ["speed_locked"] = true,
                     }, -- end of [1]
-					-- second point
-                    [2] = 
-                    {
-                        ["alt"] = 0,
-                        ["type"] = "Turning Point",
-                        ["formation_template"] = "Diamond",
-                        ["alt_type"] = "BARO",
-                        ["x"] = newWaypoint1.x,
-                        ["y"] = newWaypoint1.y,
-                        ["name"] = "Air Operations START",
-                        ["action"] = "Turning Point",
-                        ["speed"] = 9999, -- ahead flank
-                        ["speed_locked"] = true,
-					}, -- end of [2]
-					-- thirs point
-                    [3] = 
-                    {
-                        ["alt"] = 0,
-                        ["type"] = "Turning Point",
-                        ["formation_template"] = "Diamond",
-                        ["alt_type"] = "BARO",
-                        ["x"] = newWaypoint2.x,
-                        ["y"] = newWaypoint2.y,
-                        ["name"] = "Air Operations END",
-                        ["action"] = "Turning Point",
-                        ["speed"] = speed,
-                        ["speed_locked"] = true,
-					}, -- end of [3]
 				}, 
 			} 
 		} 
 	}
 
-    if endPosition then
-        mission.params.route.points[4] =
+    if pMiddlePointDistance then
+        -- middle point (helps with having a more exact final bearing, specially with big hunks of steel like carriers)
+        local middlePointDistance = 2000
+        if pMiddlePointDistance then
+            middlePointDistance = pMiddlePointDistance
+        end
+
+        local newWaypoint1 = {
+            x = fromPosition.x + middlePointDistance * math.cos(headingRad),
+            y = fromPosition.y + middlePointDistance * math.sin(headingRad),
+        }
+        fromPosition.x = newWaypoint1.x
+        fromPosition.y = newWaypoint1.y
+        veaf.logTrace("newWaypoint1="..veaf.vecToString(newWaypoint1))
+
+        table.insert(mission.params.route.points, 
+            {
+                ["alt"] = 0,
+                ["type"] = "Turning Point",
+                ["formation_template"] = "Diamond",
+                ["alt_type"] = "BARO",
+                ["x"] = newWaypoint1.x,
+                ["y"] = newWaypoint1.y,
+                ["name"] = "Middle point",
+                ["action"] = "Turning Point",
+                ["speed"] = 9999, -- ahead flank
+                ["speed_locked"] = true,
+            }
+        )
+    end
+
+    local length
+    if timeInSeconds then 
+        length = speed * timeInSeconds
+    else
+        length = speed * 3600 -- m travelled in 1 hour
+    end
+    veaf.logTrace("length="..length .. " m")
+
+    -- new route point
+	local newWaypoint2 = {
+		x = fromPosition.x + length * math.cos(headingRad),
+		y = fromPosition.y + length * math.sin(headingRad),
+	}
+    veaf.logTrace("newWaypoint2="..veaf.vecToString(newWaypoint2))
+
+    table.insert(mission.params.route.points, 
         {
             ["alt"] = 0,
             ["type"] = "Turning Point",
             ["formation_template"] = "Diamond",
             ["alt_type"] = "BARO",
-            ["x"] = endPosition.x,
-            ["y"] = endPosition.z,
-            ["name"] = "Back to starting position",
+            ["x"] = newWaypoint2.x,
+            ["y"] = newWaypoint2.y,
+            ["name"] = "",
             ["action"] = "Turning Point",
-            ["speed"] = 9999, -- ahead flank
+            ["speed"] = speed,
             ["speed_locked"] = true,
         }
+    )
+
+    if endPosition then
+        table.insert(mission.params.route.points, 
+            {
+                ["alt"] = 0,
+                ["type"] = "Turning Point",
+                ["formation_template"] = "Diamond",
+                ["alt_type"] = "BARO",
+                ["x"] = endPosition.x,
+                ["y"] = endPosition.z,
+                ["name"] = "Back to starting position",
+                ["action"] = "Turning Point",
+                ["speed"] = 9999, -- ahead flank
+                ["speed_locked"] = true,
+            }
+        )
     end
 
 	-- replace whole mission
@@ -511,7 +519,7 @@ function veaf.moveGroupTo(groupName, pos, speed, altitude)
 		["alt"] = altitude,
 		["alt_type"] = "BARO",
 		["form"] = "Turning Point",
-		["speed"] = speed,
+		["speed"] = veaf.round(speed, 2),
 		["type"] = "Turning Point",
 		["x"] = pos.x,
 		["y"] = pos.z,

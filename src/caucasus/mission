@@ -182,7 +182,7 @@ mission =
                 ["centerZ"] = 850000,
                 ["ellipticity"] = 3,
                 ["rotation"] = -1,
-                ["pressure_excess"] = 514,
+                ["pressure_excess"] = 300,
                 ["centerX"] = -350000,
             }, -- end of [1]
             [2] = 
@@ -191,7 +191,7 @@ mission =
                 ["centerZ"] = 800000,
                 ["pressure_spread"] = 200000,
                 ["rotation"] = -0.64882076496654,
-                ["pressure_excess"] = 124,
+                ["pressure_excess"] = 100,
                 ["centerX"] = -50000,
             }, -- end of [2]
             [3] = 
@@ -200,7 +200,7 @@ mission =
                 ["centerZ"] = 550000,
                 ["ellipticity"] = 1,
                 ["rotation"] = 1,
-                ["pressure_excess"] = 134,
+                ["pressure_excess"] = 110,
                 ["centerX"] = -335000,
             }, -- end of [3]
         }, -- end of ["cyclones"]
@@ -60652,7 +60652,7 @@ mission =
         }, -- end of [8]
     }, -- end of ["trigrules"]
     ["currentKey"] = 1178562,
-    ["start_time"] = 22500,
+    ["start_time"] = 23400,
     ["forcedOptions"] = 
     {
         ["easyFlight"] = false,

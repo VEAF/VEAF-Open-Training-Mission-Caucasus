@@ -59,6 +59,11 @@ veafCarrierOperations.AllCarriers =
     ["KUZNECOW"] = 0
 }
 
+veafCarrierOperations.ALT_FOR_MEASURING_WIND = 30 -- wind is measured at 30 meters, 10 meters above deck
+veafCarrierOperations.ALIGNMENT_MANOEUVER_SPEED = 8 -- carrier speed when not yet aligned to the wind (in m/s)
+veafCarrierOperations.MAX_OPERATIONS_DURATION = 30 -- operations are stopped after 30 minutes
+veafCarrierOperations.SCHEDULER_INTERVAL = 2 -- scheduler runs every 2 minutes
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Do not change anything below unless you know what you are doing!
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -90,8 +95,41 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --- Start carrier operations ; changes the radio menu item to END and make the carrier move
-function veafCarrierOperations.startCarrierOperations(groupName)
+function veafCarrierOperations.startCarrierOperations(parameters)
+    local groupName, duration = unpack(parameters)
     veafCarrierOperations.logDebug("startCarrierOperations(".. groupName .. ")")
+
+    local carrier = veafCarrierOperations.carriers[groupName]
+
+    if not(carrier) then
+        local text = "Cannot find the carrier group "..groupName
+        veafCarrierOperations.logError(text)
+        trigger.action.outText(text, 5)
+        return
+    end
+
+    veafCarrierOperations.continueCarrierOperations(groupName) -- will update the *carrier* structure
+
+    local text = 
+        "The carrier group "..groupName.." BRC will be " .. carrier.heading .. " (true) at " .. carrier.speed .. " kn \n" ..
+        "Getting a good alignment may require up to 5 minutes\n"
+
+    veafCarrierOperations.logInfo(text)
+    trigger.action.outText(text, 25)
+
+    carrier.conductingAirOperations = true
+    carrier.airOperationsStartedAt = timer.getTime()
+    carrier.airOperationsEndAt = carrier.airOperationsStartedAt + duration * 60
+
+    -- change the menu
+    veafCarrierOperations.logTrace("change the menu")
+    veafCarrierOperations.rebuildRadioMenu()
+
+end
+
+--- Continue carrier operations ; make the carrier move according to the wind. Called by startCarrierOperations and by the scheduler.
+function veafCarrierOperations.continueCarrierOperations(groupName)
+    veafCarrierOperations.logDebug("continueCarrierOperations(".. groupName .. ")")
 
     local carrier = veafCarrierOperations.carriers[groupName]
 
@@ -116,11 +154,22 @@ function veafCarrierOperations.startCarrierOperations(groupName)
             end
         end
     end
-
+    
     -- take note of the starting position
     local startPosition = veaf.getAvgGroupPos(groupName)
-    startPosition = { x=startPosition.x, z=startPosition.z, y=startPosition.y+25} -- on deck, 25 meters above the water
+    local currentHeading = 0
+    if carrierUnit then 
+        startPosition = carrierUnit:getPosition().p
+        veafCarrierOperations.logTrace("startPosition (raw) ="..veaf.vecToString(startPosition))
+        currentHeading = mist.utils.round(mist.utils.toDegree(mist.getHeading(carrierUnit)), 0)
+    end    
+    startPosition = { x=startPosition.x, z=startPosition.z, y=startPosition.y + veafCarrierOperations.ALT_FOR_MEASURING_WIND} -- on deck, 50 meters above the water
     veafCarrierOperations.logTrace("startPosition="..veaf.vecToString(startPosition))
+
+    -- compute magnetic deviation at carrier position
+    local magdev = veaf.round(mist.getNorthCorrection(startPosition) * 180 / math.pi,1)
+    veafCarrierOperations.logTrace("magdev = " .. magdev)
+
 
     -- make the carrier move
     if startPosition ~= nil then
@@ -128,7 +177,7 @@ function veafCarrierOperations.startCarrierOperations(groupName)
         --get wind info
         local wind = atmosphere.getWind(startPosition)
         local windspeed = mist.vec.mag(wind)
-        veafCarrierOperations.logTrace("windspeed="..windspeed)
+        veafCarrierOperations.logTrace("windspeed="..windspeed.." m/s")
 
         --get wind direction sorted
         local dir = veaf.round(math.atan2(wind.z, wind.x) * 180 / math.pi,0)
@@ -141,45 +190,47 @@ function veafCarrierOperations.startCarrierOperations(groupName)
             dir = dir - 180
         end
 
-        dir = dir - carrier.deckAngle --to account for angle of landing deck and movement of the ship
+        dir = dir + carrier.deckAngle --to account for angle of landing deck and movement of the ship
         
         if dir > 360 then
             dir = dir - 360
         end
 
-        veafCarrierOperations.logTrace("dir="..dir)
+        veafCarrierOperations.logTrace("dir="..dir .. " (true)")
 
         local speed = 1
-        if windspeed < 12.8611 then
-            speed = 12.8611 - windspeed
+        if windspeed < 11.8611 then
+            speed = 11.8611 - windspeed -- minimum 1 m/s
         end
-        veafCarrierOperations.logTrace("speed="..speed)
+        veafCarrierOperations.logTrace("BRC speed="..speed.." m/s")
 
         -- compute a new waypoint
         if speed > 0 then
 
-            veaf.moveGroupAt(groupName, carrier.carrierUnitName, dir, speed, 1800, carrier.initialPosition, 1000) -- move for 30 minutes with a temp point 1000m from here
+            -- new route point
+            local headingRad = mist.utils.toRadian(dir)
+            local length = 4000
+            local newWaypoint = {
+                x = startPosition.x + length * math.cos(headingRad),
+                z = startPosition.z + length * math.sin(headingRad),
+            }
+            veafCarrierOperations.logTrace("headingRad="..headingRad)
+            veafCarrierOperations.logTrace("length="..length)
+            veafCarrierOperations.logTrace("newWaypoint="..veaf.vecToString(newWaypoint))
+            local actualSpeed = speed
+            if math.abs(dir - currentHeading) > 15 then -- still aligning
+                actualSpeed = veafCarrierOperations.ALIGNMENT_MANOEUVER_SPEED
+            end
+            veaf.moveGroupTo(groupName, newWaypoint, actualSpeed, 0)
             carrier.heading = dir
             carrier.speed = veaf.round(speed * 1.94384, 0)
-
-            local text = 
-                "The carrier group "..groupName.." BRC will be " .. carrier.heading .. " (true) at " .. carrier.speed .. " kn \n" ..
-                "First it will sail ahead flank to a starting point located roughly on BRC for 1000 m\n" ..
-                "This will allow for a better final alignment and will require about 5 minutes\n"
-
-            veafCarrierOperations.logInfo(text)
-            trigger.action.outText(text, 25)
-    
-            carrier.conductingAirOperations = true
-
-            -- change the menu
-            veafCarrierOperations.logTrace("change the menu")
-            veafCarrierOperations.rebuildRadioMenu()
-
+            veafCarrierOperations.logTrace("carrier.heading = " .. carrier.heading .. " (true)")
+            veafCarrierOperations.logTrace("carrier.heading = " .. carrier.heading + magdev .. " (mag)")
+            veafCarrierOperations.logTrace("carrier.speed = " .. carrier.speed .. " kn")
         end  
+
     end
 end
-
 
 --- Gets informations about current carrier operations
 function veafCarrierOperations.getAtcForCarrierOperations(parameters)
@@ -192,9 +243,7 @@ function veafCarrierOperations.getAtcForCarrierOperations(parameters)
     currentSpeed = -1
     if carrierUnit then 
         currentHeading = mist.utils.round(mist.utils.toDegree(mist.getHeading(carrierUnit)), 0)
-        veafCarrierOperations.logTrace("currentHeading ".. currentHeading)
         currentSpeed = mist.utils.round(mist.utils.mpsToKnots(mist.vec.mag(carrierUnit:getVelocity())),0)
-        veafCarrierOperations.logTrace("currentSpeed ".. currentSpeed)
     end
 
     if not(carrier) then
@@ -205,28 +254,53 @@ function veafCarrierOperations.getAtcForCarrierOperations(parameters)
     end
 
     local result = ""
+    local groupPosition = veaf.getAvgGroupPos(groupName)
     
     if carrier.conductingAirOperations then
+        local remainingTime = veaf.round((carrier.airOperationsEndAt - timer.getTime()) /60, 1)
         result = "The carrier group "..groupName.." is conducting air operations :\n" ..
-        "  - Base Recovery Course " .. carrier.heading .. " (true)\n"
+        "  - Base Recovery Course : " .. carrier.heading .. " (true) at " .. carrier.speed .. " kn\n" ..
+        "  - Remaining time : " .. remainingTime .. " minutes\n"
     else
         result = "The carrier group "..groupName.." is not conducting carrier air operations\n"
     end
 
+    local startPosition = carrierUnit:getPosition().p
+    startPosition = { x=startPosition.x, z=startPosition.z, y=startPosition.y + veafCarrierOperations.ALT_FOR_MEASURING_WIND} -- on deck, 50 meters above the water
+
+    --get wind info
+    local wind = atmosphere.getWind(startPosition)
+    local windspeed = mist.vec.mag(wind)
+    veafCarrierOperations.logTrace("windspeed="..windspeed.." m/s")
+
+    --get wind direction sorted
+    local winddir = veaf.round(math.atan2(wind.z, wind.x) * 180 / math.pi,0)
+    if winddir < 0 then
+        winddir = winddir + 360 --converts to positive numbers		
+    end
+    if winddir <= 180 then
+        winddir = winddir + 180
+    else
+        winddir = winddir - 180
+    end
+
     if currentHeading > -1 and currentSpeed > -1 then
+        -- compute magnetic deviation at carrier position
+        local magdev = veaf.round(mist.getNorthCorrection(startPosition) * 180 / math.pi,1)
+        veafCarrierOperations.logTrace("magdev = " .. magdev)
+        
         result = result ..
-        "  - Current heading " .. currentHeading .. " (mag)\n" ..
-        "  - Speed " .. currentSpeed .. " kn"
+        "  - Current heading (true) " .. veaf.round(currentHeading - magdev, 0) .. "\n" ..
+        "  - Current heading (mag)  " .. currentHeading .. "\n" ..
+        "  - Current speed " .. currentSpeed .. " kn"
     end
 
     -- add wind information
-    local windDirection, windStrength = veaf.getWind(veaf.placePointOnLand(veaf.getAvgGroupPos(groupName)))
     local windText =     'no wind.\n'
-    if windStrength > 0 then
-        windText = string.format(
-                         'from %s at %s m/s.\n', windDirection, windStrength)
+    if windspeed > 0 then
+        windText = string.format('from %s at %s kn (%s m/s).\n', winddir, veaf.round(windspeed * 1.94384, 0), veaf.round(windspeed, 1))
     end
-    result = result .. '\nWIND: ' .. windText
+    result = result .. '\n - Wind ' .. windText
 
     trigger.action.outTextForGroup(groupId, result, 15)
 
@@ -287,9 +361,13 @@ function veafCarrierOperations.rebuildRadioMenu()
         veafCarrierOperations.logTrace("rebuildRadioMenu processing "..name)
         
         -- remove the start menu
-        if carrier.startMenuName then
-            veafCarrierOperations.logTrace("remove carrier.startMenuName="..carrier.startMenuName)
-            veafRadio.delCommand(veafCarrierOperations.rootPath, carrier.startMenuName)
+        if carrier.startMenuName1 then
+            veafCarrierOperations.logTrace("remove carrier.startMenuName1="..carrier.startMenuName1)
+            veafRadio.delCommand(veafCarrierOperations.rootPath, carrier.startMenuName1)
+        end
+        if carrier.startMenuName2 then
+            veafCarrierOperations.logTrace("remove carrier.startMenuName2="..carrier.startMenuName2)
+            veafRadio.delCommand(veafCarrierOperations.rootPath, carrier.startMenuName2)
         end
 
         -- remove the stop menu
@@ -310,10 +388,15 @@ function veafCarrierOperations.rebuildRadioMenu()
             veafCarrierOperations.logTrace("add carrier.stopMenuName="..carrier.stopMenuName)
             veafRadio.addCommandToSubmenu(carrier.stopMenuName, veafCarrierOperations.rootPath, veafCarrierOperations.stopCarrierOperations, name)
         else
-            -- add the start menu
-            carrier.startMenuName = name .. " - Start carrier air operations"
-            veafCarrierOperations.logTrace("add carrier.startMenuName="..carrier.startMenuName)
-            veafRadio.addCommandToSubmenu(carrier.startMenuName, veafCarrierOperations.rootPath, veafCarrierOperations.startCarrierOperations, name)
+            -- add the "start for veafCarrierOperations.MAX_OPERATIONS_DURATION" menu
+            carrier.startMenuName1 = name .. " - Start carrier air operations for " .. veafCarrierOperations.MAX_OPERATIONS_DURATION .. " minutes"
+            veafCarrierOperations.logTrace("add carrier.startMenuName1="..carrier.startMenuName1)
+            veafRadio.addCommandToSubmenu(carrier.startMenuName1, veafCarrierOperations.rootPath, veafCarrierOperations.startCarrierOperations, { name, veafCarrierOperations.MAX_OPERATIONS_DURATION })
+
+            -- add the "start for veafCarrierOperations.MAX_OPERATIONS_DURATION * 2" menu
+            carrier.startMenuName2 = name .. " - Start carrier air operations for " .. veafCarrierOperations.MAX_OPERATIONS_DURATION * 2 .. " minutes"
+            veafCarrierOperations.logTrace("add carrier.startMenuName2="..carrier.startMenuName2)
+            veafRadio.addCommandToSubmenu(carrier.startMenuName2, veafCarrierOperations.rootPath, veafCarrierOperations.startCarrierOperations, { name, veafCarrierOperations.MAX_OPERATIONS_DURATION * 2 })
         end
 
         -- add the ATC menu (by player group)
@@ -378,6 +461,36 @@ function veafCarrierOperations.help()
     trigger.action.outText(text, 30)
 end
 
+--- This function is called at regular interval (see veafCarrierOperations.SCHEDULER_INTERVAL) and manages the carrier operations schedules
+--- It will make any carrier group that has started carrier operations maintain a correct course for recovery, even if wind changes.
+--- Also, it will stop carrier operations after a set time (see veafCarrierOperations.MAX_OPERATIONS_DURATION).
+function veafCarrierOperations.operationsScheduler()
+    veafCarrierOperations.logDebug("veafCarrierOperations.operationsScheduler()")
+
+    -- find the carriers in the veafCarrierOperations.carriers table and check if they are operating
+    for name, carrier in pairs(veafCarrierOperations.carriers) do
+        veafCarrierOperations.logDebug("checking " .. name)
+        if carrier.conductingAirOperations then
+            veafCarrierOperations.logDebug(name .. " is conducting operations ; checking course and ops duration")
+            if carrier.airOperationsEndAt < timer.getTime() then
+                -- time to stop operations
+                veafCarrierOperations.logInfo(name .. " has been conducting operations long enough ; stopping ops")
+                veafCarrierOperations.stopCarrierOperations(name)
+            else
+                local remainingTime = veaf.round((carrier.airOperationsEndAt - timer.getTime()) /60, 1)
+                veafCarrierOperations.logDebug(name .. " will continue conducting operations for " .. remainingTime .. " more minutes")
+                -- check and reset course
+                veafCarrierOperations.continueCarrierOperations(name)
+            end
+        else
+            veafCarrierOperations.logDebug(name .. " is not conducting operations")
+        end
+    end
+
+    veafCarrierOperations.logDebug("veafCarrierOperations.operationsScheduler() - rescheduling in " .. veafCarrierOperations.SCHEDULER_INTERVAL * 60 .. " s")
+    mist.scheduleFunction(veafCarrierOperations.operationsScheduler,{},timer.getTime() + veafCarrierOperations.SCHEDULER_INTERVAL * 60)
+end
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialisation
@@ -385,6 +498,7 @@ end
 
 function veafCarrierOperations.initialize()
     veafCarrierOperations.buildRadioMenu()
+    veafCarrierOperations.operationsScheduler()
 end
 
 veafCarrierOperations.logInfo(string.format("Loading version %s", veafCarrierOperations.Version))
