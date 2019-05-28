@@ -8,3 +8,5 @@ setup_zip\.cmd
 build_zip\.cmd
 
 \.vscode/tasks\.json
+
+setup_zip_production\.cmd
