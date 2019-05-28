@@ -45,7 +45,7 @@ veafCarrierOperations = {}
 veafCarrierOperations.Id = "CARRIER - "
 
 --- Version.
-veafCarrierOperations.Version = "1.1.3"
+veafCarrierOperations.Version = "1.2.0"
 
 --- All the carrier groups must comply with this name
 veafCarrierOperations.CarrierGroupNamePattern = "^CSG-.*$"
