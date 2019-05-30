@@ -37,7 +37,7 @@ veafNamedPoints = {}
 veafNamedPoints.Id = "NAMED POINTS - "
 
 --- Version.
-veafNamedPoints.Version = "1.1"
+veafNamedPoints.Version = "1.1.1"
 
 --- Key phrase to look for in the mark text which triggers the command.
 veafNamedPoints.Keyphrase = "_name point"
@@ -127,7 +127,7 @@ function veafNamedPoints.markTextAnalysis(text)
     end
 
     -- the point name should follow a space
-    switch.name = text:sub(pos+1)
+    switch.name = text:sub(pos+string.len(veafNamedPoints.Keyphrase)+1)
     veafNamedPoints.logDebug(string.format("Keyword name = %s", switch.name))
 
     return switch
