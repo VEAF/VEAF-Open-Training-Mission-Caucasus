@@ -45,7 +45,7 @@ veafCarrierOperations = {}
 veafCarrierOperations.Id = "CARRIER - "
 
 --- Version.
-veafCarrierOperations.Version = "1.2.0"
+veafCarrierOperations.Version = "1.3.0"
 
 --- All the carrier groups must comply with this name
 veafCarrierOperations.CarrierGroupNamePattern = "^CSG-.*$"
@@ -62,7 +62,7 @@ veafCarrierOperations.AllCarriers =
 veafCarrierOperations.ALT_FOR_MEASURING_WIND = 30 -- wind is measured at 30 meters, 10 meters above deck
 veafCarrierOperations.ALIGNMENT_MANOEUVER_SPEED = 8 -- carrier speed when not yet aligned to the wind (in m/s)
 veafCarrierOperations.MAX_OPERATIONS_DURATION = 30 -- operations are stopped after 30 minutes
-veafCarrierOperations.SCHEDULER_INTERVAL = 2 -- scheduler runs every 2 minutes
+veafCarrierOperations.SCHEDULER_INTERVAL = 2 -- scheduler runs every 2 minutes -- TODO reset
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Do not change anything below unless you know what you are doing!
@@ -74,6 +74,7 @@ veafCarrierOperations.rootPath = nil
 --- Carrier groups data, for Carrier Operations commands
 veafCarrierOperations.carriers = {}
 
+veafCarrierOperations.markersId = {}
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Utility methods
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -90,6 +91,18 @@ function veafCarrierOperations.logTrace(message)
     veaf.logTrace(veafCarrierOperations.Id .. message)
 end
 
+function veafCarrierOperations.logMarker(id, message, position, cleanup)
+    if cleanup then
+        for _, markerId in pairs(veafCarrierOperations.markersId) do
+            trigger.action.removeMark(markerId)    
+        end
+    end
+    if veaf.Trace then
+        trigger.action.markToAll(id, "CARRIER-TRACE-"..id.." "..message, position, false) 
+        table.insert(veafCarrierOperations.markersId, id)
+    end
+    return id + 1
+end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Carrier operations commands
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -108,6 +121,20 @@ function veafCarrierOperations.startCarrierOperations(parameters)
         return
     end
 
+    -- find the actual carrier unit
+    local group = Group.getByName(groupName)
+    for _, unit in pairs(group:getUnits()) do
+        local unitType = unit:getDesc()["typeName"]
+        for knownCarrierType, knownCarrierDeckAngle in pairs(veafCarrierOperations.AllCarriers) do
+            if unitType == knownCarrierType then
+                carrier.carrierUnitName = unit:getName()
+                carrier.pedroGroupName = carrier.carrierUnitName .. " Pedro" -- rescue helo unit name
+                carrier.deckAngle = knownCarrierDeckAngle
+                break
+            end
+        end
+    end
+    
     veafCarrierOperations.continueCarrierOperations(groupName) -- will update the *carrier* structure
 
     local text = 
@@ -129,6 +156,10 @@ end
 
 --- Continue carrier operations ; make the carrier move according to the wind. Called by startCarrierOperations and by the scheduler.
 function veafCarrierOperations.continueCarrierOperations(groupName)
+    if not traceMarkerId then
+        traceMarkerId = 2727
+    end
+
     veafCarrierOperations.logDebug("continueCarrierOperations(".. groupName .. ")")
 
     local carrier = veafCarrierOperations.carriers[groupName]
@@ -142,18 +173,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
 
     -- find the actual carrier unit
     local group = Group.getByName(groupName)
-    local carrierUnit = nil
-    for _, unit in pairs(group:getUnits()) do
-        local unitType = unit:getDesc()["typeName"]
-        for knownCarrierType, knownCarrierDeckAngle in pairs(veafCarrierOperations.AllCarriers) do
-            if unitType == knownCarrierType then
-                carrier.carrierUnitName = unit:getName()
-                carrier.deckAngle = knownCarrierDeckAngle
-                carrierUnit = unit -- temporary
-                break
-            end
-        end
-    end
+    local carrierUnit = Unit.getByName(carrier.carrierUnitName)
     
     -- take note of the starting position
     local startPosition = veaf.getAvgGroupPos(groupName)
@@ -165,6 +185,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
     end    
     startPosition = { x=startPosition.x, z=startPosition.z, y=startPosition.y + veafCarrierOperations.ALT_FOR_MEASURING_WIND} -- on deck, 50 meters above the water
     veafCarrierOperations.logTrace("startPosition="..veaf.vecToString(startPosition))
+    traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "startPosition", startPosition, true)
 
     -- compute magnetic deviation at carrier position
     local magdev = veaf.round(mist.getNorthCorrection(startPosition) * 180 / math.pi,1)
@@ -205,30 +226,129 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
         veafCarrierOperations.logTrace("BRC speed="..speed.." m/s")
 
         -- compute a new waypoint
-        if speed > 0 then
+        local headingRad = mist.utils.toRadian(dir)
+        local length = 4000
+        local newWaypoint = {
+            x = startPosition.x + length * math.cos(headingRad),
+            z = startPosition.z + length * math.sin(headingRad),
+            y = startPosition.y
+        }
+        veafCarrierOperations.logTrace("headingRad="..headingRad)
+        veafCarrierOperations.logTrace("length="..length)
+        veafCarrierOperations.logTrace("newWaypoint="..veaf.vecToString(newWaypoint))
+        traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "newWaypoint", newWaypoint)
+        
+        local actualSpeed = speed
+        if math.abs(dir - currentHeading) > 15 then -- still aligning
+            actualSpeed = veafCarrierOperations.ALIGNMENT_MANOEUVER_SPEED
+        end
+        veaf.moveGroupTo(groupName, newWaypoint, actualSpeed, 0)
+        carrier.heading = dir
+        carrier.speed = veaf.round(speed * 1.94384, 0)
+        veafCarrierOperations.logTrace("carrier.heading = " .. carrier.heading .. " (true)")
+        veafCarrierOperations.logTrace("carrier.heading = " .. carrier.heading + magdev .. " (mag)")
+        veafCarrierOperations.logTrace("carrier.speed = " .. carrier.speed .. " kn")
 
-            -- new route point
-            local headingRad = mist.utils.toRadian(dir)
-            local length = 4000
-            local newWaypoint = {
-                x = startPosition.x + length * math.cos(headingRad),
-                z = startPosition.z + length * math.sin(headingRad),
-            }
-            veafCarrierOperations.logTrace("headingRad="..headingRad)
-            veafCarrierOperations.logTrace("length="..length)
-            veafCarrierOperations.logTrace("newWaypoint="..veaf.vecToString(newWaypoint))
-            local actualSpeed = speed
-            if math.abs(dir - currentHeading) > 15 then -- still aligning
-                actualSpeed = veafCarrierOperations.ALIGNMENT_MANOEUVER_SPEED
+        -- check if a Pedro group exists for this carrier
+       if not(mist.getGroupData(carrier.pedroGroupName)) then
+            veafCarrierOperations.logInfo("No Pedro group named " .. carrier.pedroGroupName)
+       else
+        -- prepare or correct the Pedro route (SH-60B, 250ft high, 1nm to the starboard side of the carrier, riding along at the same speed and heading)
+            local pedroUnit = Unit.getByName(carrier.pedroGroupName)
+            if (pedroUnit) then
+                veafCarrierOperations.logDebug("found Pedro unit")
+                -- check if unit is still alive
+                if pedroUnit:getLife() < 1 then
+                    pedroUnit = nil -- respawn when damaged
+                end
             end
-            veaf.moveGroupTo(groupName, newWaypoint, actualSpeed, 0)
-            carrier.heading = dir
-            carrier.speed = veaf.round(speed * 1.94384, 0)
-            veafCarrierOperations.logTrace("carrier.heading = " .. carrier.heading .. " (true)")
-            veafCarrierOperations.logTrace("carrier.heading = " .. carrier.heading + magdev .. " (mag)")
-            veafCarrierOperations.logTrace("carrier.speed = " .. carrier.speed .. " kn")
-        end  
+            
+            -- spawn if needed
+            if not(pedroUnit and carrier.pedroIsSpawned) then
+                veafCarrierOperations.logDebug("respawning Pedro unit")
+                local pedroGroupName = mist.respawnGroup(carrier.pedroGroupName, true)
+                carrier.pedroIsSpawned = true
+            end
 
+            pedroUnit = Unit.getByName(carrier.pedroGroupName)
+            local pedroGroup = Group.getByName(carrier.pedroGroupName) -- group has the same name as the unit
+            if (pedroGroup) then
+                veafCarrierOperations.logDebug("found Pedro group")
+                
+                -- waypoint #1 is 250m to port
+                local offsetPointOnLand, offsetPoint = veaf.computeCoordinatesOffsetFromRoute(startPosition, newWaypoint, 0, 250)
+                local pedroWaypoint1 = offsetPoint
+                local distanceFromWP1 = ((pedroUnit:getPosition().p.x - pedroWaypoint1.x)^2 + (pedroUnit:getPosition().p.z - pedroWaypoint1.z)^2)^0.5
+                if distanceFromWP1 > 1000 then
+                    veafCarrierOperations.logTrace("Pedro WP1 = " .. veaf.vecToString(pedroWaypoint1))
+                    traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "pedroWaypoint1", pedroWaypoint1)
+                else
+                    pedroWaypoint1 = nil
+                end
+
+                -- waypoint #2 is 250m to port, near the end of the carrier route
+                local offsetPointOnLand, offsetPoint = veaf.computeCoordinatesOffsetFromRoute(startPosition, newWaypoint, length - 250, 250)
+                local pedroWaypoint2 = offsetPoint
+                veafCarrierOperations.logTrace("Pedro WP2 = " .. veaf.vecToString(pedroWaypoint2))
+                traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "pedroWaypoint2", pedroWaypoint2)
+
+                local mission = { 
+                    id = 'Mission', 
+                    params = { 
+                        ["communication"] = false,
+                        ["start_time"] = 0,
+                        ["task"] = "Transport",
+                        route = { 
+                            points = { }
+                        } 
+                    } 
+                }
+
+                if pedroWaypoint1 then 
+                    mission.params.route.points = {
+                        [1] = { 
+                            ["type"] = "Turning Point",
+                            ["action"] = "Turning Point",
+                            ["x"] = pedroWaypoint1.x,
+                            ["y"] = pedroWaypoint1.z,
+                            ["alt"] = 35, -- in meters
+                            ["alt_type"] = "BARO", 
+                            ["speed"] = 999,  -- max speed
+                            ["speed_locked"] = true, 
+                        }, -- enf of [1]
+                        [2] = { 
+                            ["type"] = "Turning Point",
+                            ["action"] = "Turning Point",
+                            ["x"] = pedroWaypoint2.x,
+                            ["y"] = pedroWaypoint2.z,
+                            ["alt"] = 35, -- in meters
+                            ["alt_type"] = "BARO", 
+                            ["speed"] = speed,  -- speed in m/s
+                            ["speed_locked"] = true, 
+                        }, -- enf of [2]
+                    } 
+                else
+                    mission.params.route.points = {
+                        [1] = { 
+                            ["type"] = "Turning Point",
+                            ["action"] = "Turning Point",
+                            ["x"] = pedroWaypoint2.x,
+                            ["y"] = pedroWaypoint2.z,
+                            ["alt"] = 35, -- in meters
+                            ["alt_type"] = "BARO", 
+                            ["speed"] = speed,  -- speed in m/s
+                            ["speed_locked"] = true, 
+                        }, -- enf of [1]
+                    } 
+                end
+
+                -- replace whole mission
+                veafCarrierOperations.logDebug("Setting Pedro mission")
+                local controller = pedroGroup:getController()
+                controller:setTask(mission)
+
+            end
+        end
     end
 end
 
@@ -346,6 +466,50 @@ function veafCarrierOperations.stopCarrierOperations(groupName)
         veafCarrierOperations.logTrace("change the menu")
         veafCarrierOperations.rebuildRadioMenu()
     end
+
+    -- make the Pedro land
+    if (carrier.pedroIsSpawned) then
+        carrier.pedroIsSpawned = false
+        local carrierUnit = Unit.getByName(carrier.carrierUnitName)
+        local carrierPosition = carrierUnit:getPosition().p
+        local pedroGroup = Group.getByName(carrier.pedroGroupName)
+        if (pedroGroup) then
+            veafCarrierOperations.logDebug("found Pedro group")
+
+            local mission = { 
+                id = 'Mission', 
+                params = { 
+                    ["communication"] = false,
+                    ["start_time"] = 0,
+                    ["task"] = "Transport",
+                    route = { 
+                        points = { 
+                            [1] = { 
+                                --["linkUnit"] = 2,
+                                --["helipadId"] = 2,
+                                ["type"] = "Land",
+                                ["action"] = "Landing",
+                                ["x"] = carrierPosition.x,
+                                ["y"] = carrierPosition.z,
+                                ["alt"] = 0,
+                                ["alt_type"] = "BARO", 
+                                ["speed"] = 50,  -- speed in m/s
+                                ["speed_locked"] = true, 
+                            }, -- enf of [1]
+                        }
+                    } 
+                } 
+            }
+
+            -- replace whole mission
+            veafCarrierOperations.logDebug("Setting Pedro mission")
+            local controller = pedroGroup:getController()
+            controller:setTask(mission)
+
+            --veafCarrierOperations.logDebug("despawning Pedro unit")
+            --pedroUnit:destroy()
+        end
+    end    
 
 end
 
