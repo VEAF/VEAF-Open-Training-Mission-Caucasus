@@ -40,6 +40,7 @@ autogft_Setup:new()
 :addRandomUnitAlternative(1, "Vulcan", 1)
 :addRandomUnitAlternative(1, "M1097 Avenger", 1)
 :addRandomUnitAlternative(1, "M48 Chaparral", 1)
+:setReinforceTimerMax(30)
     
 -- RED
 autogft_Setup:new()
@@ -62,3 +63,4 @@ autogft_Setup:new()
 :addRandomUnitAlternative(4, "BMP-2", 4)
 :addRandomUnitAlternative(1, "ZSU-23-4 Shilka", 1)
 :addRandomUnitAlternative(1, "Strela-1 9P31", 1)
+:setReinforceTimerMax(30)

@@ -74,10 +74,11 @@ veafCarrierOperations.rootPath = nil
 --- Carrier groups data, for Carrier Operations commands
 veafCarrierOperations.carriers = {}
 
-veafCarrierOperations.markersId = {}
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Utility methods
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+debugMarkersErasedAtEachStep = {}
+debugMarkersForTanker = {}
 
 function veafCarrierOperations.logInfo(message)
     veaf.logInfo(veafCarrierOperations.Id .. message)
@@ -91,17 +92,18 @@ function veafCarrierOperations.logTrace(message)
     veaf.logTrace(veafCarrierOperations.Id .. message)
 end
 
-function veafCarrierOperations.logMarker(id, message, position, cleanup)
-    if cleanup then
-        for _, markerId in pairs(veafCarrierOperations.markersId) do
-            trigger.action.removeMark(markerId)    
-        end
-    end
+function veafCarrierOperations.logMarker(id, message, position, markersTable)
     if veaf.Trace then
         trigger.action.markToAll(id, "CARRIER-TRACE-"..id.." "..message, position, false) 
-        table.insert(veafCarrierOperations.markersId, id)
+        table.insert(markersTable, id)
     end
     return id + 1
+end
+
+function veafCarrierOperations.cleanupLogMarkers(markersTable)
+    for _, markerId in pairs(markersTable) do
+        trigger.action.removeMark(markerId)    
+    end
 end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Carrier operations commands
@@ -129,6 +131,8 @@ function veafCarrierOperations.startCarrierOperations(parameters)
             if unitType == knownCarrierType then
                 carrier.carrierUnitName = unit:getName()
                 carrier.pedroGroupName = carrier.carrierUnitName .. " Pedro" -- rescue helo unit name
+                carrier.tankerGroupName = carrier.carrierUnitName .. " S3B-Tanker" -- emergency tanker unit name
+                carrier.tankerRouteSet = 0
                 carrier.deckAngle = knownCarrierDeckAngle
                 break
             end
@@ -185,7 +189,10 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
     end    
     startPosition = { x=startPosition.x, z=startPosition.z, y=startPosition.y + veafCarrierOperations.ALT_FOR_MEASURING_WIND} -- on deck, 50 meters above the water
     veafCarrierOperations.logTrace("startPosition="..veaf.vecToString(startPosition))
-    traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "startPosition", startPosition, true)
+    veafCarrierOperations.cleanupLogMarkers(debugMarkersErasedAtEachStep)
+    traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "startPosition", startPosition, debugMarkersErasedAtEachStep)
+    local carrierDistanceFromInitialPosition = ((startPosition.x - carrier.initialPosition.x)^2 + (startPosition.z - carrier.initialPosition.z)^2)^0.5
+    veafCarrierOperations.logTrace("carrierDistanceFromInitialPosition="..carrierDistanceFromInitialPosition)
 
     -- compute magnetic deviation at carrier position
     local magdev = veaf.round(mist.getNorthCorrection(startPosition) * 180 / math.pi,1)
@@ -236,7 +243,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
         veafCarrierOperations.logTrace("headingRad="..headingRad)
         veafCarrierOperations.logTrace("length="..length)
         veafCarrierOperations.logTrace("newWaypoint="..veaf.vecToString(newWaypoint))
-        traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "newWaypoint", newWaypoint)
+        traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "newWaypoint", newWaypoint, debugMarkersErasedAtEachStep)
         
         local actualSpeed = speed
         if math.abs(dir - currentHeading) > 15 then -- still aligning
@@ -250,9 +257,9 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
         veafCarrierOperations.logTrace("carrier.speed = " .. carrier.speed .. " kn")
 
         -- check if a Pedro group exists for this carrier
-       if not(mist.getGroupData(carrier.pedroGroupName)) then
+        if not(mist.getGroupData(carrier.pedroGroupName)) then
             veafCarrierOperations.logInfo("No Pedro group named " .. carrier.pedroGroupName)
-       else
+        else
         -- prepare or correct the Pedro route (SH-60B, 250ft high, 1nm to the starboard side of the carrier, riding along at the same speed and heading)
             local pedroUnit = Unit.getByName(carrier.pedroGroupName)
             if (pedroUnit) then
@@ -266,7 +273,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
             -- spawn if needed
             if not(pedroUnit and carrier.pedroIsSpawned) then
                 veafCarrierOperations.logDebug("respawning Pedro unit")
-                local pedroGroupName = mist.respawnGroup(carrier.pedroGroupName, true)
+                mist.respawnGroup(carrier.pedroGroupName, true)
                 carrier.pedroIsSpawned = true
             end
 
@@ -279,9 +286,9 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                 local offsetPointOnLand, offsetPoint = veaf.computeCoordinatesOffsetFromRoute(startPosition, newWaypoint, 0, 250)
                 local pedroWaypoint1 = offsetPoint
                 local distanceFromWP1 = ((pedroUnit:getPosition().p.x - pedroWaypoint1.x)^2 + (pedroUnit:getPosition().p.z - pedroWaypoint1.z)^2)^0.5
-                if distanceFromWP1 > 1000 then
+                if distanceFromWP1 > 500 then
                     veafCarrierOperations.logTrace("Pedro WP1 = " .. veaf.vecToString(pedroWaypoint1))
-                    traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "pedroWaypoint1", pedroWaypoint1)
+                    traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "pedroWaypoint1", pedroWaypoint1, debugMarkersErasedAtEachStep)
                 else
                     pedroWaypoint1 = nil
                 end
@@ -290,7 +297,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                 local offsetPointOnLand, offsetPoint = veaf.computeCoordinatesOffsetFromRoute(startPosition, newWaypoint, length - 250, 250)
                 local pedroWaypoint2 = offsetPoint
                 veafCarrierOperations.logTrace("Pedro WP2 = " .. veaf.vecToString(pedroWaypoint2))
-                traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "pedroWaypoint2", pedroWaypoint2)
+                traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "pedroWaypoint2", pedroWaypoint2, debugMarkersErasedAtEachStep)
 
                 local mission = { 
                     id = 'Mission', 
@@ -349,7 +356,189 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
 
             end
         end
-    end
+
+
+        -- check if a S3B-Tanker group exists for this carrier
+        if not(mist.getGroupData(carrier.tankerGroupName)) then
+            veafCarrierOperations.logInfo("No Tanker group named " .. carrier.tankerGroupName)
+        else
+
+            local routeTanker = (carrierDistanceFromInitialPosition > 18520)
+            carrier.tankerRouteSet = carrier.tankerRouteSet + 1
+            if carrier.tankerRouteSet <= 2 then
+                -- prepare or correct the Tanker route (8000ft high, 10nm aft and 4nm to the starboard side of the carrier, refueling on BRC)
+                local tankerUnit = Unit.getByName(carrier.tankerGroupName)
+                if (tankerUnit) then
+                    veafCarrierOperations.logDebug("found Tanker unit")
+                    -- check if unit is still alive
+                    if tankerUnit:getLife() < 1 then
+                        tankerUnit = nil -- respawn when damaged
+                    end
+                end
+                
+                -- spawn if needed
+                if not(tankerUnit and carrier.tankerIsSpawned) then
+                    veafCarrierOperations.logDebug("respawning Tanker unit")
+                    mist.respawnGroup(carrier.tankerGroupName, true)
+                    carrier.tankerIsSpawned = true
+                end
+
+                tankerUnit = Unit.getByName(carrier.tankerGroupName)
+                local tankerGroup = Group.getByName(carrier.tankerGroupName) -- group has the same name as the unit
+                if (tankerGroup) then
+                    veafCarrierOperations.logDebug("found Tanker group")
+                    
+                    -- waypoint #1 is 5nm to port, 5nm to the front
+                    local offsetPointOnLand, offsetPoint = veaf.computeCoordinatesOffsetFromRoute(startPosition, newWaypoint, 9000, 9000)
+                    local tankerWaypoint1 = offsetPoint
+                    veafCarrierOperations.logTrace("Tanker WP1 = " .. veaf.vecToString(tankerWaypoint1))
+                    veafCarrierOperations.cleanupLogMarkers(debugMarkersForTanker)
+                    traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "tankerWaypoint1", tankerWaypoint1, debugMarkersForTanker)
+
+                    -- waypoint #2 is 20nm ahead of waypoint #2, on BRC
+                    local offsetPointOnLand, offsetPoint = veaf.computeCoordinatesOffsetFromRoute(startPosition, newWaypoint, 37000 + 9000, 9000)
+                    local tankerWaypoint2 = offsetPoint
+                    veafCarrierOperations.logTrace("Tanker WP2 = " .. veaf.vecToString(tankerWaypoint2))
+                    traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "tankerWaypoint2", tankerWaypoint2, debugMarkersForTanker)
+
+                    local mission = { 
+                        id = 'Mission', 
+                        params = { 
+                            ["communication"] = true,
+                            ["start_time"] = 0,
+                            ["task"] = "Refueling",
+                            ["taskSelected"] = true,
+                            ["route"] = 
+                            {
+                                ["points"] = 
+                                {
+                                    [1] = 
+                                    {
+                                        ["alt"] = 2500,
+                                        ["action"] = "Turning Point",
+                                        ["alt_type"] = "BARO",
+                                        ["speed"] = 110,
+                                        ["type"] = "Turning Point",
+                                        ["x"] = startPosition.x,
+                                        ["y"] = startPosition.z,
+                                        ["speed_locked"] = true,
+                                    },
+                                    [2] = 
+                                    {
+                                        ["alt"] = 2500,
+                                        ["action"] = "Turning Point",
+                                        ["alt_type"] = "BARO",
+                                        ["speed"] = 110,
+                                        ["task"] = 
+                                        {
+                                            ["id"] = "ComboTask",
+                                            ["params"] = 
+                                            {
+                                                ["tasks"] = 
+                                                {
+                                                    [1] = 
+                                                    {
+                                                        ["enabled"] = true,
+                                                        ["auto"] = true,
+                                                        ["id"] = "Tanker",
+                                                        ["number"] = 1,
+                                                    }, -- end of [1]
+                                                    [2] = 
+                                                    {
+                                                        ["enabled"] = true,
+                                                        ["auto"] = true,
+                                                        ["id"] = "WrappedAction",
+                                                        ["number"] = 2,
+                                                        ["params"] = 
+                                                        {
+                                                            ["action"] = 
+                                                            {
+                                                                ["id"] = "ActivateBeacon",
+                                                                ["params"] = 
+                                                                {
+                                                                    ["type"] = 4,
+                                                                    ["AA"] = true,
+                                                                    ["unitId"] = tankerUnit:getID(),
+                                                                    ["modeChannel"] = "X",
+                                                                    ["channel"] = 75, -- TODO make the Tacan dynamic
+                                                                    ["system"] = 4,
+                                                                    ["callsign"] = "S3B",
+                                                                    ["bearing"] = true,
+                                                                    ["frequency"] = 1036000000,
+                                                                }, -- end of ["params"]
+                                                            }, -- end of ["action"]
+                                                        }, -- end of ["params"]
+                                                    }, -- end of [2]
+                                                }, -- end of ["tasks"]
+                                            }, -- end of ["params"]
+                                        }, -- end of ["task"]
+                                        ["type"] = "Turning Point",
+                                        ["ETA"] = 0,
+                                        ["ETA_locked"] = true,
+                                        ["x"] = startPosition.x,
+                                        ["y"] = startPosition.z,
+                                        ["speed_locked"] = true,
+                                    },
+                                    [3] = 
+                                    {
+                                        ["alt"] = 2500,
+                                        ["action"] = "Turning Point",
+                                        ["alt_type"] = "BARO",
+                                        ["speed"] = 110,
+                                        ["task"] = 
+                                        {
+                                            ["id"] = "ComboTask",
+                                            ["params"] = 
+                                            {
+                                                ["tasks"] = 
+                                                {
+                                                    [1] = 
+                                                    {
+                                                        ["enabled"] = true,
+                                                        ["auto"] = false,
+                                                        ["id"] = "Orbit",
+                                                        ["number"] = 1,
+                                                        ["params"] = 
+                                                        {
+                                                            ["altitude"] = 2500,
+                                                            ["pattern"] = "Race-Track",
+                                                            ["speed"] = 110,
+                                                        }, -- end of ["params"]
+                                                    }, -- end of [1]
+                                                }, -- end of ["tasks"]
+                                            }, -- end of ["params"]
+                                        }, -- end of ["task"]
+                                        ["type"] = "Turning Point",
+                                        ["x"] = tankerWaypoint1.x,
+                                        ["y"] = tankerWaypoint1.z,
+                                        ["speed_locked"] = true,
+                                    },
+                                    [4] = 
+                                    {
+                                        ["alt"] = 2500,
+                                        ["action"] = "Turning Point",
+                                        ["alt_type"] = "BARO",
+                                        ["speed"] = 110,
+                                        ["type"] = "Turning Point",
+                                        ["x"] = tankerWaypoint2.x,
+                                        ["y"] = tankerWaypoint2.z,
+                                        ["speed_locked"] = true,
+                                    }, -- end of [3]
+                                }, -- end of ["points"]
+                            }, -- end of ["route"]
+                        }
+                    }                
+
+                    -- replace whole mission
+                    veafCarrierOperations.logDebug("Setting Tanker mission")
+                    local controller = tankerGroup:getController()
+                    controller:setTask(mission)
+                    carrier.tankerRouteIsSet = true
+
+                end
+            end
+        end
+    end   
 end
 
 --- Gets informations about current carrier operations
