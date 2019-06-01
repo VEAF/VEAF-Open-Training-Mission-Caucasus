@@ -124,11 +124,14 @@ function veafAssets.info(parameters)
     end
     if theAsset then
         local group = Group.getByName(theAsset.name)
+        veafAssets.logTrace(string.format("assets[%s] = '%s'",theAsset.name, theAsset.description))
         local text = theAsset.description .. " is not active nor alive"
         if group then
+            veafAssets.logDebug("found asset group")
             local nAlive = 0
             for _, unit in pairs(group:getUnits()) do
-                if unit:getLife() > 0 then
+                veafAssets.logTrace("unit life = "..unit:getLife())
+                if unit:getLife() >= 1 then
                     nAlive = nAlive + 1
                 end
             end

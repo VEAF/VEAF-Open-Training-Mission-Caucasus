@@ -313,16 +313,51 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
 
                 if pedroWaypoint1 then 
                     mission.params.route.points = {
-                        [1] = { 
+                        [1] = 
+                        {
+                            ["alt"] = 35,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 50,
+                            ["type"] = "Turning Point",
+                            ["x"] = pedroUnit:getPosition().p.x,
+                            ["y"] = pedroUnit:getPosition().p.z,
+                            ["speed_locked"] = true,
+                        },
+                        [2] = { 
                             ["type"] = "Turning Point",
                             ["action"] = "Turning Point",
                             ["x"] = pedroWaypoint1.x,
                             ["y"] = pedroWaypoint1.z,
                             ["alt"] = 35, -- in meters
                             ["alt_type"] = "BARO", 
-                            ["speed"] = 999,  -- max speed
+                            ["speed"] = 50,
                             ["speed_locked"] = true, 
-                        }, -- enf of [1]
+                        },
+                        [3] = { 
+                            ["type"] = "Turning Point",
+                            ["action"] = "Turning Point",
+                            ["x"] = pedroWaypoint2.x,
+                            ["y"] = pedroWaypoint2.z,
+                            ["alt"] = 35, -- in meters
+                            ["alt_type"] = "BARO", 
+                            ["speed"] = speed,  -- speed in m/s
+                            ["speed_locked"] = true, 
+                        },
+                    } 
+                else
+                    mission.params.route.points = {
+                        [1] = 
+                        {
+                            ["alt"] = 35,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 50,
+                            ["type"] = "Turning Point",
+                            ["x"] = pedroUnit:getPosition().p.x,
+                            ["y"] = pedroUnit:getPosition().p.z,
+                            ["speed_locked"] = true,
+                        },
                         [2] = { 
                             ["type"] = "Turning Point",
                             ["action"] = "Turning Point",
@@ -332,20 +367,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                             ["alt_type"] = "BARO", 
                             ["speed"] = speed,  -- speed in m/s
                             ["speed_locked"] = true, 
-                        }, -- enf of [2]
-                    } 
-                else
-                    mission.params.route.points = {
-                        [1] = { 
-                            ["type"] = "Turning Point",
-                            ["action"] = "Turning Point",
-                            ["x"] = pedroWaypoint2.x,
-                            ["y"] = pedroWaypoint2.z,
-                            ["alt"] = 35, -- in meters
-                            ["alt_type"] = "BARO", 
-                            ["speed"] = speed,  -- speed in m/s
-                            ["speed_locked"] = true, 
-                        }, -- enf of [1]
+                        },
                     } 
                 end
 
@@ -387,6 +409,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                 local tankerGroup = Group.getByName(carrier.tankerGroupName) -- group has the same name as the unit
                 if (tankerGroup) then
                     veafCarrierOperations.logDebug("found Tanker group")
+                    veafCarrierOperations.logTrace("groupName="..tankerGroup:getName())
                     
                     -- waypoint #1 is 5nm to port, 5nm to the front
                     local offsetPointOnLand, offsetPoint = veaf.computeCoordinatesOffsetFromRoute(startPosition, newWaypoint, 9000, 9000)
@@ -459,10 +482,10 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                                                                     ["type"] = 4,
                                                                     ["AA"] = true,
                                                                     ["unitId"] = tankerUnit:getID(),
-                                                                    ["modeChannel"] = "X",
+                                                                    ["modeChannel"] = "Y",
+                                                                    ["system"] = 5,
+                                                                    ["callsign"] = "T74",
                                                                     ["channel"] = 75, -- TODO make the Tacan dynamic
-                                                                    ["system"] = 4,
-                                                                    ["callsign"] = "S3B",
                                                                     ["bearing"] = true,
                                                                     ["frequency"] = 1036000000,
                                                                 }, -- end of ["params"]
