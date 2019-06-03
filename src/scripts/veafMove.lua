@@ -86,6 +86,8 @@ veafMove.rootPath = nil
 --- Initial Marker id.
 veafMove.markid = 20000
 
+traceMarkerId = 6548
+debugMarkers = {}
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Utility methods
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -101,6 +103,11 @@ end
 function veafMove.logTrace(message)
     veaf.logTrace(veafMove.Id .. message)
 end
+
+function veafMove.logMarker(id, message, position, markersTable)
+    return veaf.logMarker(id, veafMove.Id, message, position, markersTable)
+end
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Event handler functions.
@@ -291,113 +298,181 @@ function veafMove.moveTanker(eventPos, groupName, speed, hdg ,distance,alt)
 		return false
 	end
 
+    local task2 = nil
+    local points = mist.getGroupRoute(groupName, true)
+    if points then
+        veafMove.logTrace("found a " .. #points .. "-points route for tanker " .. groupName)
+        for i, point in pairs(points) do
+            veafMove.logTrace("found point #" .. i)
+            local tasks = point.task.params.tasks
+            if (tasks) then
+                veafMove.logTrace("found " .. #tasks .. " tasks")
+                for j, task in pairs(tasks) do
+                    veafMove.logTrace("found task #" .. j)
+                    if task.params then
+                        veafMove.logTrace("has .params")
+                        if task.params.action then
+                            veafMove.logTrace("has .action")
+                            if task.params.action.params then
+                                veafMove.logTrace("has .params")
+                                if task.params.action.params.channel then
+                                    veafMove.logTrace("has .channel")
+                                    veafMove.logInfo("Found a TACAN task for tanker " .. groupName)
+                                    task2 = task
+                                    break
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    if not(task2) then
+        local text = "Cannot move tanker " .. groupName .. " because it has no TACAN task defined"
+        veafMove.logInfo(text)
+        trigger.action.outText(text)
+        return
+    end
+
 	-- teleport position
 	local teleportPosition = {
 		["x"] = eventPos.x + 5 * 1852 * math.cos(mist.utils.toRadian(180)),
 		["y"] = eventPos.z + 5 * 1852 * math.sin(mist.utils.toRadian(180))
-	}
+    }
+    veafMove.logTrace("teleportPosition="..veaf.vecToString(teleportPosition))
+    traceMarkerId = veafMove.logMarker(traceMarkerId, "teleportPosition", teleportPosition, debugMarkers)
 
     -- starting position
 	local fromPosition = {
 		["x"] = eventPos.x,
 		["y"] = eventPos.z
 	}
+    veafMove.logTrace("fromPosition="..veaf.vecToString(fromPosition))
+    traceMarkerId = veafMove.logMarker(traceMarkerId, "fromPosition", fromPosition, debugMarkers)
 	
 	-- ending position
 	local toPosition = {
 		["x"] = fromPosition.x + distance * 1852 * math.cos(mist.utils.toRadian(hdg)),
 		["y"] = fromPosition.y + distance * 1852 * math.sin(mist.utils.toRadian(hdg))
 	}
-
-	local mission = { 
-		id = 'Mission', 
-		params = { 
-			["communication"] = true,
-			["start_time"] = 0,
-			--["frequency"] = 253,
-			--["radioSet"] = true,
-			["task"] = "Refueling",
-			route = { 
-				points = { 
-					-- first point
-					[1] = { 
-						["type"] = "Turning Point",
-						["action"] = "Turning Point",
-						["x"] = fromPosition.x,
-						["y"] = fromPosition.y,
-						["alt"] = alt * 0.3048, -- in meters
-						["alt_type"] = "BARO", 
-						["speed"] = speed/1.94384,  -- speed in m/s
-						["speed_locked"] = boolean, 
-						["task"] = 
-						{
-							["id"] = "ComboTask",
-							["params"] = 
-							{
-								["tasks"] = 
-								{
-									[1] = 
-									{
-										["enabled"] = true,
-										["auto"] = true,
-										["id"] = "Tanker",
-										["number"] = 1,
-									}, -- end of [1]
-								}, -- end of ["tasks"]
-							}, -- end of ["params"]
-						}, -- end of ["task"]
-					}, -- enf of [1]
-					[2] = 
-					{
-						["type"] = "Turning Point",
-						["alt"] = alt * 0.3048, -- in meters
-						["action"] = "Turning Point",
-						["alt_type"] = "BARO",
-						["speed"] = speed/1.94384,
-						["speed_locked"] = true,
-						["x"] = toPosition.x,
-						["y"] = toPosition.y,
-						["task"] = 
-						{
-							["id"] = "ComboTask",
-							["params"] = 
-							{
-								["tasks"] = 
-								{
-									[1] = 
-									{
-										["enabled"] = true,
-										["auto"] = false,
-										["id"] = "WrappedAction",
-										["number"] = 1,
-										["params"] = 
-										{
-											["action"] = 
-											{
-												["id"] = "SwitchWaypoint",
-												["params"] = 
-												{
-													["goToWaypointIndex"] = 1,
-													["fromWaypointIndex"] = 2,
-												}, -- end of ["params"]
-											}, -- end of ["action"]
-										}, -- end of ["params"]
-									}, -- end of [1]
-								}, -- end of ["tasks"]
-							}, -- end of ["params"]
-						}, -- end of ["task"]
-					}, -- end of [2]
-				}, 
-			} 
-		} 
-	}
+    veafMove.logTrace("toPosition="..veaf.vecToString(toPosition))
+    traceMarkerId = veafMove.logMarker(traceMarkerId, "toPosition", toPosition, debugMarkers)
 
     local vars = { groupName = groupName, point = teleportPosition, action = "teleport" }
     local grp = mist.teleportToPoint(vars)
+    local tankerUnit = unitGroup:getUnits()[1]
+
+    -- replace the mission
+    local mission = { 
+        id = 'Mission', 
+        params = { 
+            ["communication"] = true,
+            ["start_time"] = 0,
+            ["task"] = "Refueling",
+            ["taskSelected"] = true,
+            ["route"] = 
+            {
+                ["points"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = alt * 0.3048, -- in meters
+                        ["action"] = "Turning Point",
+                        ["alt_type"] = "BARO",
+                        ["speed"] = speed/1.94384,  -- speed in m/s
+                        ["type"] = "Turning Point",
+                        ["x"] = teleportPosition.x,
+                        ["y"] = teleportPosition.y,
+                        ["speed_locked"] = true,
+                    },
+                    [2] = 
+                    {
+                        ["alt"] = alt * 0.3048, -- in meters
+                        ["action"] = "Turning Point",
+                        ["alt_type"] = "BARO",
+                        ["speed"] = speed/1.94384,  -- speed in m/s
+                        ["task"] = 
+                        {
+                            ["id"] = "ComboTask",
+                            ["params"] = 
+                            {
+                                ["tasks"] = 
+                                {
+                                    [1] = 
+                                    {
+                                        ["enabled"] = true,
+                                        ["auto"] = true,
+                                        ["id"] = "Tanker",
+                                        ["number"] = 1,
+                                    }, -- end of [1]
+                                    [2] = task2
+                                }, -- end of ["tasks"]
+                            }, -- end of ["params"]
+                        }, -- end of ["task"]
+                        ["type"] = "Turning Point",
+                        ["ETA"] = 0,
+                        ["ETA_locked"] = true,
+                        ["x"] = teleportPosition.x,
+                        ["y"] = teleportPosition.y,
+                        ["speed_locked"] = true,
+                    },
+                    [3] = 
+                    {
+                        ["alt"] = alt * 0.3048, -- in meters
+                        ["action"] = "Turning Point",
+                        ["alt_type"] = "BARO",
+                        ["speed"] = speed/1.94384,  -- speed in m/s
+                        ["task"] = 
+                        {
+                            ["id"] = "ComboTask",
+                            ["params"] = 
+                            {
+                                ["tasks"] = 
+                                {
+                                    [1] = 
+                                    {
+                                        ["enabled"] = true,
+                                        ["auto"] = false,
+                                        ["id"] = "Orbit",
+                                        ["number"] = 1,
+                                        ["params"] = 
+                                        {
+                                            ["altitude"] = alt * 0.3048, -- in meters
+                                            ["pattern"] = "Race-Track",
+                                            ["speed"] = speed/1.94384,  -- speed in m/s
+                                        }, -- end of ["params"]
+                                    }, -- end of [1]
+                                }, -- end of ["tasks"]
+                            }, -- end of ["params"]
+                        }, -- end of ["task"]
+                        ["type"] = "Turning Point",
+                        ["x"] = fromPosition.x,
+                        ["y"] = fromPosition.y,
+                        ["speed_locked"] = true,
+                    },
+                    [4] = 
+                    {
+                        ["alt"] = alt * 0.3048, -- in meters
+                        ["action"] = "Turning Point",
+                        ["alt_type"] = "BARO",
+                        ["speed"] = speed/1.94384,  -- speed in m/s
+                        ["type"] = "Turning Point",
+                        ["x"] = toPosition.x,
+                        ["y"] = toPosition.y,
+                        ["speed_locked"] = true,
+                    }, -- end of [3]
+                }, -- end of ["points"]
+            }, -- end of ["route"]
+        }
+    }                
 
     -- replace whole mission
-	unitGroup:getController():setTask(mission)
-    
+    veafMove.logDebug("Resetting moved tanker mission")
+    local controller = unitGroup:getController()
+    controller:setTask(mission)
+        
     return true
 end
 

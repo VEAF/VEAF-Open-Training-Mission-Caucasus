@@ -93,18 +93,9 @@ function veafCarrierOperations.logTrace(message)
 end
 
 function veafCarrierOperations.logMarker(id, message, position, markersTable)
-    if veaf.Trace then
-        trigger.action.markToAll(id, "CARRIER-TRACE-"..id.." "..message, position, false) 
-        table.insert(markersTable, id)
-    end
-    return id + 1
+    return veaf.logMarker(id, veafCarrierOperations.Id, message, position, markersTable)
 end
 
-function veafCarrierOperations.cleanupLogMarkers(markersTable)
-    for _, markerId in pairs(markersTable) do
-        trigger.action.removeMark(markerId)    
-    end
-end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Carrier operations commands
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -175,6 +166,11 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
         return
     end
 
+    if not(carrier.conductingAirOperations) then
+        veafCarrierOperations.logInfo("continueCarrierOperations - ".. groupName .. " is not conduction air operations !")
+        return
+    end
+
     -- find the actual carrier unit
     local group = Group.getByName(groupName)
     local carrierUnit = Unit.getByName(carrier.carrierUnitName)
@@ -189,7 +185,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
     end    
     startPosition = { x=startPosition.x, z=startPosition.z, y=startPosition.y + veafCarrierOperations.ALT_FOR_MEASURING_WIND} -- on deck, 50 meters above the water
     veafCarrierOperations.logTrace("startPosition="..veaf.vecToString(startPosition))
-    veafCarrierOperations.cleanupLogMarkers(debugMarkersErasedAtEachStep)
+    veaf.cleanupLogMarkers(debugMarkersErasedAtEachStep)
     traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "startPosition", startPosition, debugMarkersErasedAtEachStep)
     local carrierDistanceFromInitialPosition = ((startPosition.x - carrier.initialPosition.x)^2 + (startPosition.z - carrier.initialPosition.z)^2)^0.5
     veafCarrierOperations.logTrace("carrierDistanceFromInitialPosition="..carrierDistanceFromInitialPosition)
@@ -415,7 +411,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                     local offsetPointOnLand, offsetPoint = veaf.computeCoordinatesOffsetFromRoute(startPosition, newWaypoint, 9000, 9000)
                     local tankerWaypoint1 = offsetPoint
                     veafCarrierOperations.logTrace("Tanker WP1 = " .. veaf.vecToString(tankerWaypoint1))
-                    veafCarrierOperations.cleanupLogMarkers(debugMarkersForTanker)
+                    veaf.cleanupLogMarkers(debugMarkersForTanker)
                     traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "tankerWaypoint1", tankerWaypoint1, debugMarkersForTanker)
 
                     -- waypoint #2 is 20nm ahead of waypoint #2, on BRC
@@ -423,6 +419,64 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                     local tankerWaypoint2 = offsetPoint
                     veafCarrierOperations.logTrace("Tanker WP2 = " .. veaf.vecToString(tankerWaypoint2))
                     traceMarkerId = veafCarrierOperations.logMarker(traceMarkerId, "tankerWaypoint2", tankerWaypoint2, debugMarkersForTanker)
+
+                    -- try and recover original TACAN tasking
+                    local task2 =
+                        {
+                            ["enabled"] = true,
+                            ["auto"] = true,
+                            ["id"] = "WrappedAction",
+                            ["number"] = 2,
+                            ["params"] = 
+                            {
+                                ["action"] = 
+                                {
+                                    ["id"] = "ActivateBeacon",
+                                    ["params"] = 
+                                    {
+                                        ["type"] = 4,
+                                        ["AA"] = true,
+                                        ["unitId"] = tankerUnit:getID(),
+                                        ["modeChannel"] = "Y",
+                                        ["system"] = 5,
+                                        ["callsign"] = "T74",
+                                        ["channel"] = 75, -- TODO make the Tacan dynamic
+                                        ["bearing"] = true,
+                                        ["frequency"] = 1036000000,
+                                    }, -- end of ["params"]
+                                }, -- end of ["action"]
+                            }, -- end of ["params"]
+                        } -- end of [2]
+                    
+                    local points = mist.getGroupRoute(carrier.tankerGroupName, true)
+                    if points then
+                        veafCarrierOperations.logTrace("found a " .. #points .. "-points route for tanker " .. carrier.tankerGroupName)
+                        for i, point in pairs(points) do
+                            veafCarrierOperations.logTrace("found point #" .. i)
+                            local tasks = point.task.params.tasks
+                            if (tasks) then
+                                veafCarrierOperations.logTrace("found " .. #tasks .. " tasks")
+                                for j, task in pairs(tasks) do
+                                    veafCarrierOperations.logTrace("found task #" .. j)
+                                    if task.params then
+                                        veafCarrierOperations.logTrace("has .params")
+                                        if task.params.action then
+                                            veafCarrierOperations.logTrace("has .action")
+                                            if task.params.action.params then
+                                                veafCarrierOperations.logTrace("has .params")
+                                                if task.params.action.params.channel then
+                                                    veafCarrierOperations.logTrace("has .channel")
+                                                    veafCarrierOperations.logInfo("Found a TACAN task for tanker " .. carrier.tankerGroupName)
+                                                    task2 = task
+                                                    break
+                                                end
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
 
                     local mission = { 
                         id = 'Mission', 
@@ -440,7 +494,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                                         ["alt"] = 2500,
                                         ["action"] = "Turning Point",
                                         ["alt_type"] = "BARO",
-                                        ["speed"] = 110,
+                                        ["speed"] = 165,
                                         ["type"] = "Turning Point",
                                         ["x"] = startPosition.x,
                                         ["y"] = startPosition.z,
@@ -451,7 +505,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                                         ["alt"] = 2500,
                                         ["action"] = "Turning Point",
                                         ["alt_type"] = "BARO",
-                                        ["speed"] = 110,
+                                        ["speed"] = 165,
                                         ["task"] = 
                                         {
                                             ["id"] = "ComboTask",
@@ -466,32 +520,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                                                         ["id"] = "Tanker",
                                                         ["number"] = 1,
                                                     }, -- end of [1]
-                                                    [2] = 
-                                                    {
-                                                        ["enabled"] = true,
-                                                        ["auto"] = true,
-                                                        ["id"] = "WrappedAction",
-                                                        ["number"] = 2,
-                                                        ["params"] = 
-                                                        {
-                                                            ["action"] = 
-                                                            {
-                                                                ["id"] = "ActivateBeacon",
-                                                                ["params"] = 
-                                                                {
-                                                                    ["type"] = 4,
-                                                                    ["AA"] = true,
-                                                                    ["unitId"] = tankerUnit:getID(),
-                                                                    ["modeChannel"] = "Y",
-                                                                    ["system"] = 5,
-                                                                    ["callsign"] = "T74",
-                                                                    ["channel"] = 75, -- TODO make the Tacan dynamic
-                                                                    ["bearing"] = true,
-                                                                    ["frequency"] = 1036000000,
-                                                                }, -- end of ["params"]
-                                                            }, -- end of ["action"]
-                                                        }, -- end of ["params"]
-                                                    }, -- end of [2]
+                                                    [2] = task2
                                                 }, -- end of ["tasks"]
                                             }, -- end of ["params"]
                                         }, -- end of ["task"]
@@ -507,7 +536,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                                         ["alt"] = 2500,
                                         ["action"] = "Turning Point",
                                         ["alt_type"] = "BARO",
-                                        ["speed"] = 110,
+                                        ["speed"] = 165,
                                         ["task"] = 
                                         {
                                             ["id"] = "ComboTask",
@@ -525,7 +554,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                                                         {
                                                             ["altitude"] = 2500,
                                                             ["pattern"] = "Race-Track",
-                                                            ["speed"] = 110,
+                                                            ["speed"] = 165,
                                                         }, -- end of ["params"]
                                                     }, -- end of [1]
                                                 }, -- end of ["tasks"]
@@ -541,7 +570,7 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                                         ["alt"] = 2500,
                                         ["action"] = "Turning Point",
                                         ["alt_type"] = "BARO",
-                                        ["speed"] = 110,
+                                        ["speed"] = 165,
                                         ["type"] = "Turning Point",
                                         ["x"] = tankerWaypoint2.x,
                                         ["y"] = tankerWaypoint2.z,
@@ -639,6 +668,7 @@ function veafCarrierOperations.getAtcForCarrierOperations(parameters)
 end
 
 --- Ends carrier operations ; changes the radio menu item to START and send the carrier back to its starting point
+-- TODO make the S3B land -- DONE, test
 function veafCarrierOperations.stopCarrierOperations(groupName)
     veafCarrierOperations.logDebug("stopCarrierOperations(".. groupName .. ")")
 
@@ -650,6 +680,9 @@ function veafCarrierOperations.stopCarrierOperations(groupName)
         trigger.action.outText(text, 5)
         return
     end
+
+    local carrierUnit = Unit.getByName(carrier.carrierUnitName)
+    local carrierPosition = carrierUnit:getPosition().p
 
     -- make the carrier move to its initial position
     if carrier.initialPosition ~= nil then
@@ -682,8 +715,6 @@ function veafCarrierOperations.stopCarrierOperations(groupName)
     -- make the Pedro land
     if (carrier.pedroIsSpawned) then
         carrier.pedroIsSpawned = false
-        local carrierUnit = Unit.getByName(carrier.carrierUnitName)
-        local carrierPosition = carrierUnit:getPosition().p
         local pedroGroup = Group.getByName(carrier.pedroGroupName)
         if (pedroGroup) then
             veafCarrierOperations.logDebug("found Pedro group")
@@ -718,8 +749,46 @@ function veafCarrierOperations.stopCarrierOperations(groupName)
             local controller = pedroGroup:getController()
             controller:setTask(mission)
 
-            --veafCarrierOperations.logDebug("despawning Pedro unit")
-            --pedroUnit:destroy()
+        end
+    end    
+
+    -- make the tanker land
+    if (carrier.tankerIsSpawned) then
+        carrier.tankerIsSpawned = false
+        local tankerGroup = Group.getByName(carrier.tankerGroupName)
+        if (tankerGroup) then
+            veafCarrierOperations.logDebug("found tanker group")
+
+            local mission = { 
+                id = 'Mission', 
+                params = { 
+                    ["communication"] = false,
+                    ["start_time"] = 0,
+                    ["task"] = "Transport",
+                    route = { 
+                        points = { 
+                            [1] = { 
+                                --["linkUnit"] = 2,
+                                --["helipadId"] = 2,
+                                ["type"] = "Land",
+                                ["action"] = "Landing",
+                                ["x"] = carrierPosition.x,
+                                ["y"] = carrierPosition.z,
+                                ["alt"] = 0,
+                                ["alt_type"] = "BARO", 
+                                ["speed"] = 200,  -- speed in m/s
+                                ["speed_locked"] = true, 
+                            }, -- enf of [1]
+                        }
+                    } 
+                } 
+            }
+
+            -- replace whole mission
+            veafCarrierOperations.logDebug("Setting tanker mission")
+            local controller = tankerGroup:getController()
+            controller:setTask(mission)
+
         end
     end    
 

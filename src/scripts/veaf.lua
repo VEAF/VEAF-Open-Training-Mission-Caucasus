@@ -71,6 +71,29 @@ function veaf.logTrace(message)
     end
 end
 
+function veaf.logMarker(id, header, message, position, markersTable)
+    if veaf.Trace then
+        local correctedPos = {}
+        correctedPos.x = position.x
+        if not(position.z) then
+            correctedPos.z = position.y
+            correctedPos.y = position.alt
+            if not (correctedPos.y) then
+                correctedPos.y = 0
+            end
+        end
+        trigger.action.markToAll(id, header..id.." "..message, correctedPos, false) 
+        table.insert(markersTable, id)
+    end
+    return id + 1
+end
+
+function veaf.cleanupLogMarkers(markersTable)
+    for _, markerId in pairs(markersTable) do
+        trigger.action.removeMark(markerId)    
+    end
+end
+
 --- efficiently remove elements from a table
 --- credit : Mitch McMabers (https://stackoverflow.com/questions/12394841/safely-remove-items-from-an-array-table-while-iterating)
 function veaf.arrayRemoveWhen(t, fnKeep)
