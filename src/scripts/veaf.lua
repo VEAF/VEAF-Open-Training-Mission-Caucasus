@@ -82,6 +82,7 @@ function veaf.logMarker(id, header, message, position, markersTable)
                 correctedPos.y = 0
             end
         end
+        veaf.logTrace("creating trace marker #"..id)
         trigger.action.markToAll(id, header..id.." "..message, correctedPos, false) 
         table.insert(markersTable, id)
     end
@@ -90,6 +91,7 @@ end
 
 function veaf.cleanupLogMarkers(markersTable)
     for _, markerId in pairs(markersTable) do
+        veaf.logTrace("deleting trace marker #"..markerId)
         trigger.action.removeMark(markerId)    
     end
 end
