@@ -356,7 +356,7 @@ function veafUnits.makeUnitFromDcsStructure(dcsUnit, cell)
     result.vehicle = (dcsUnit.desc.attributes.Vehicles == true)
     result.size = { x = veaf.round(dcsUnit.desc.box.max.x - dcsUnit.desc.box.min.x, 1), y = veaf.round(dcsUnit.desc.box.max.y - dcsUnit.desc.box.min.y, 1), z = veaf.round(dcsUnit.desc.box.max.z - dcsUnit.desc.box.min.z, 1)}
     result.width = result.size.z
-    result.length= result.size.x -- TODO check if this is correct ; may as well be z !
+    result.length= result.size.x
     -- invert if width > height
     if result.width > result.length then
         local width = result.width

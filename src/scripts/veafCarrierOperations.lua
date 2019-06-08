@@ -413,34 +413,6 @@ function veafCarrierOperations.continueCarrierOperations(groupName)
                     veafCarrierOperations.logTrace("Tanker WP2 = " .. veaf.vecToString(tankerWaypoint2))
                     veafCarrierOperations.traceMarkerId = veafCarrierOperations.logMarker(veafCarrierOperations.traceMarkerId, "tankerWaypoint2", tankerWaypoint2, veafCarrierOperations.debugMarkersForTanker)
 
-                    -- try and recover original TACAN tasking
-                    local task2 =
-                        {
-                            ["enabled"] = true,
-                            ["auto"] = true,
-                            ["id"] = "WrappedAction",
-                            ["number"] = 2,
-                            ["params"] = 
-                            {
-                                ["action"] = 
-                                {
-                                    ["id"] = "ActivateBeacon",
-                                    ["params"] = 
-                                    {
-                                        ["type"] = 4,
-                                        ["AA"] = true,
-                                        ["unitId"] = tankerUnit:getID(),
-                                        ["modeChannel"] = "Y",
-                                        ["system"] = 5,
-                                        ["callsign"] = "T74",
-                                        ["channel"] = 75, -- TODO make the Tacan dynamic
-                                        ["bearing"] = true,
-                                        ["frequency"] = 1036000000,
-                                    }, -- end of ["params"]
-                                }, -- end of ["action"]
-                            }, -- end of ["params"]
-                        } -- end of [2]
-                    
                     local mission = { 
                         id = 'Mission', 
                         params = { 
@@ -646,7 +618,6 @@ function veafCarrierOperations.atcForCarrierOperations(parameters)
 end
 
 --- Ends carrier operations ; changes the radio menu item to START and send the carrier back to its starting point
--- TODO make the S3B land -- DONE, test
 function veafCarrierOperations.stopCarrierOperations(groupName)
     veafCarrierOperations.logDebug("stopCarrierOperations(".. groupName .. ")")
 
@@ -864,7 +835,7 @@ function veafCarrierOperations.doOperations()
                 if carrierDistanceFromMissionStartPosition < 2000 then
                     speed = 0
                 end
-                veaf.moveGroupTo(name, carrier.missionStartPosition, 9999)
+                veaf.moveGroupTo(name, carrier.missionStartPosition, speed)
             end
     
         end
