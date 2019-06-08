@@ -126,6 +126,8 @@ function veafCarrierOperations.startCarrierOperations(parameters)
                 carrier.tankerGroupName = carrier.carrierUnitName .. " S3B-Tanker" -- emergency tanker unit name
                 carrier.tankerRouteSet = 0
                 carrier.deckAngle = knownCarrierDeckAngle
+                carrier.initialPosition = unit:getPosition().p
+                veafCarrierOperations.logTrace("initialPosition="..veaf.vecToString(carrier.initialPosition))
                 break
             end
         end
@@ -682,17 +684,17 @@ function veafCarrierOperations.stopCarrierOperations(groupName)
     local carrierPosition = carrierUnit:getPosition().p
 
     -- make the carrier move to its initial position
-    if carrier.initialPosition ~= nil then
+    if carrier.missionStartPosition ~= nil then
 	
-        veafCarrierOperations.logTrace("carrier.initialPosition="..veaf.vecToString(carrier.initialPosition))
+        veafCarrierOperations.logTrace("carrier.missionStartPosition="..veaf.vecToString(carrier.missionStartPosition))
 
         local newWaypoint = {
             ["action"] = "Turning Point",
             ["form"] = "Turning Point",
             ["speed"] = 300,  -- ahead flank !
             ["type"] = "Turning Point",
-            ["x"] = carrier.initialPosition.x,
-            ["y"] = carrier.initialPosition.z,
+            ["x"] = carrier.missionStartPosition.x,
+            ["y"] = carrier.missionStartPosition.z,
         }
 
         -- order group to new waypoint
@@ -715,36 +717,36 @@ function veafCarrierOperations.stopCarrierOperations(groupName)
         local pedroGroup = Group.getByName(carrier.pedroGroupName)
         if (pedroGroup) then
             veafCarrierOperations.logDebug("found Pedro group")
+            pedroGroup:destroy()
+            -- local mission = { 
+            --     id = 'Mission', 
+            --     params = { 
+            --         ["communication"] = false,
+            --         ["start_time"] = 0,
+            --         ["task"] = "Transport",
+            --         route = { 
+            --             points = { 
+            --                 [1] = { 
+            --                     --["linkUnit"] = 2,
+            --                     --["helipadId"] = 2,
+            --                     ["type"] = "Land",
+            --                     ["action"] = "Landing",
+            --                     ["x"] = carrierPosition.x,
+            --                     ["y"] = carrierPosition.z,
+            --                     ["alt"] = 0,
+            --                     ["alt_type"] = "BARO", 
+            --                     ["speed"] = 50,  -- speed in m/s
+            --                     ["speed_locked"] = true, 
+            --                 }, -- enf of [1]
+            --             }
+            --         } 
+            --     } 
+            -- }
 
-            local mission = { 
-                id = 'Mission', 
-                params = { 
-                    ["communication"] = false,
-                    ["start_time"] = 0,
-                    ["task"] = "Transport",
-                    route = { 
-                        points = { 
-                            [1] = { 
-                                --["linkUnit"] = 2,
-                                --["helipadId"] = 2,
-                                ["type"] = "Land",
-                                ["action"] = "Landing",
-                                ["x"] = carrierPosition.x,
-                                ["y"] = carrierPosition.z,
-                                ["alt"] = 0,
-                                ["alt_type"] = "BARO", 
-                                ["speed"] = 50,  -- speed in m/s
-                                ["speed_locked"] = true, 
-                            }, -- enf of [1]
-                        }
-                    } 
-                } 
-            }
-
-            -- replace whole mission
-            veafCarrierOperations.logDebug("Setting Pedro mission")
-            local controller = pedroGroup:getController()
-            controller:setTask(mission)
+            -- -- replace whole mission
+            -- veafCarrierOperations.logDebug("Setting Pedro mission")
+            -- local controller = pedroGroup:getController()
+            -- controller:setTask(mission)
 
         end
     end    
@@ -755,36 +757,37 @@ function veafCarrierOperations.stopCarrierOperations(groupName)
         local tankerGroup = Group.getByName(carrier.tankerGroupName)
         if (tankerGroup) then
             veafCarrierOperations.logDebug("found tanker group")
+            tankerGroup:destroy()
 
-            local mission = { 
-                id = 'Mission', 
-                params = { 
-                    ["communication"] = false,
-                    ["start_time"] = 0,
-                    ["task"] = "Transport",
-                    route = { 
-                        points = { 
-                            [1] = { 
-                                --["linkUnit"] = 2,
-                                --["helipadId"] = 2,
-                                ["type"] = "Land",
-                                ["action"] = "Landing",
-                                ["x"] = carrierPosition.x,
-                                ["y"] = carrierPosition.z,
-                                ["alt"] = 0,
-                                ["alt_type"] = "BARO", 
-                                ["speed"] = 200,  -- speed in m/s
-                                ["speed_locked"] = true, 
-                            }, -- enf of [1]
-                        }
-                    } 
-                } 
-            }
+            -- local mission = { 
+            --     id = 'Mission', 
+            --     params = { 
+            --         ["communication"] = false,
+            --         ["start_time"] = 0,
+            --         ["task"] = "Transport",
+            --         route = { 
+            --             points = { 
+            --                 [1] = { 
+            --                     --["linkUnit"] = 2,
+            --                     --["helipadId"] = 2,
+            --                     ["type"] = "Land",
+            --                     ["action"] = "Landing",
+            --                     ["x"] = carrierPosition.x,
+            --                     ["y"] = carrierPosition.z,
+            --                     ["alt"] = 0,
+            --                     ["alt_type"] = "BARO", 
+            --                     ["speed"] = 200,  -- speed in m/s
+            --                     ["speed_locked"] = true, 
+            --                 }, -- enf of [1]
+            --             }
+            --         } 
+            --     } 
+            -- }
 
-            -- replace whole mission
-            veafCarrierOperations.logDebug("Setting tanker mission")
-            local controller = tankerGroup:getController()
-            controller:setTask(mission)
+            -- -- replace whole mission
+            -- veafCarrierOperations.logDebug("Setting tanker mission")
+            -- local controller = tankerGroup:getController()
+            -- controller:setTask(mission)
 
         end
     end    
@@ -883,9 +886,9 @@ function veafCarrierOperations.buildRadioMenu()
             end
 
             -- take note of the starting position, heading and speed
-            carrier.initialPosition = veaf.getAvgGroupPos(name)
-            veafCarrierOperations.logTrace("carrier.initialPosition="..veaf.vecToString(carrier.initialPosition))
-
+            carrier.missionStartPosition = veaf.getAvgGroupPos(name)
+            veafCarrierOperations.logTrace("carrier.missionStartPosition="..veaf.vecToString(carrier.missionStartPosition))
+            veafCarrierOperations.traceMarkerId = veafCarrierOperations.logMarker(veafCarrierOperations.traceMarkerId, "missionStartPosition", carrier.missionStartPosition)
         end
     end
 

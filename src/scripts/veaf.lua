@@ -78,13 +78,18 @@ function veaf.logMarker(id, header, message, position, markersTable)
         if not(position.z) then
             correctedPos.z = position.y
             correctedPos.y = position.alt
-            if not (correctedPos.y) then
-                correctedPos.y = 0
-            end
+        else
+            correctedPos.z = position.z
+            correctedPos.y = position.y
         end
-        veaf.logTrace("creating trace marker #"..id)
+        if not (correctedPos.y) then
+            correctedPos.y = 0
+        end
+        veaf.logTrace("creating trace marker #"..id.." at point "..veaf.vecToString(correctedPos))
         trigger.action.markToAll(id, header..id.." "..message, correctedPos, false) 
-        table.insert(markersTable, id)
+        if markersTable then
+            table.insert(markersTable, id)
+        end
     end
     return id + 1
 end
