@@ -298,38 +298,9 @@ function veafMove.moveTanker(eventPos, groupName, speed, hdg ,distance,alt)
 		return false
 	end
 
-    local task2 = nil
-    local points = mist.getGroupRoute(groupName, true)
-    if points then
-        veafMove.logTrace("found a " .. #points .. "-points route for tanker " .. groupName)
-        for i, point in pairs(points) do
-            veafMove.logTrace("found point #" .. i)
-            local tasks = point.task.params.tasks
-            if (tasks) then
-                veafMove.logTrace("found " .. #tasks .. " tasks")
-                for j, task in pairs(tasks) do
-                    veafMove.logTrace("found task #" .. j)
-                    if task.params then
-                        veafMove.logTrace("has .params")
-                        if task.params.action then
-                            veafMove.logTrace("has .action")
-                            if task.params.action.params then
-                                veafMove.logTrace("has .params")
-                                if task.params.action.params.channel then
-                                    veafMove.logTrace("has .channel")
-                                    veafMove.logInfo("Found a TACAN task for tanker " .. groupName)
-                                    task2 = task
-                                    break
-                                end
-                            end
-                        end
-                    end
-                end
-            end
-        end
-    end
+    local tankerData = veaf.getTankerData(groupName)
 
-    if not(task2) then
+    if not(tankerData) then
         local text = "Cannot move tanker " .. groupName .. " because it has no TACAN task defined"
         veafMove.logInfo(text)
         trigger.action.outText(text)
@@ -407,7 +378,7 @@ function veafMove.moveTanker(eventPos, groupName, speed, hdg ,distance,alt)
                                         ["id"] = "Tanker",
                                         ["number"] = 1,
                                     }, -- end of [1]
-                                    [2] = task2
+                                    [2] = tankerData.tankerTacanTask
                                 }, -- end of ["tasks"]
                             }, -- end of ["params"]
                         }, -- end of ["task"]

@@ -431,10 +431,10 @@ function veaf.moveGroupAt(groupName, leadUnitName, heading, speed, timeInSeconds
 					-- first point
                     [1] = 
                     {
-                        ["alt"] = 0,
+                        --["alt"] = 0,
                         ["type"] = "Turning Point",
-                        ["formation_template"] = "Diamond",
-                        ["alt_type"] = "BARO",
+                        --["formation_template"] = "Diamond",
+                        --["alt_type"] = "BARO",
                         ["x"] = fromPosition.x,
                         ["y"] = fromPosition.z,
                         ["name"] = "Starting position",
@@ -464,10 +464,10 @@ function veaf.moveGroupAt(groupName, leadUnitName, heading, speed, timeInSeconds
 
         table.insert(mission.params.route.points, 
             {
-                ["alt"] = 0,
+                --["alt"] = 0,
                 ["type"] = "Turning Point",
-                ["formation_template"] = "Diamond",
-                ["alt_type"] = "BARO",
+                --["formation_template"] = "Diamond",
+                --["alt_type"] = "BARO",
                 ["x"] = newWaypoint1.x,
                 ["y"] = newWaypoint1.y,
                 ["name"] = "Middle point",
@@ -495,10 +495,10 @@ function veaf.moveGroupAt(groupName, leadUnitName, heading, speed, timeInSeconds
 
     table.insert(mission.params.route.points, 
         {
-            ["alt"] = 0,
+            --["alt"] = 0,
             ["type"] = "Turning Point",
-            ["formation_template"] = "Diamond",
-            ["alt_type"] = "BARO",
+            --["formation_template"] = "Diamond",
+            --["alt_type"] = "BARO",
             ["x"] = newWaypoint2.x,
             ["y"] = newWaypoint2.y,
             ["name"] = "",
@@ -511,10 +511,10 @@ function veaf.moveGroupAt(groupName, leadUnitName, heading, speed, timeInSeconds
     if endPosition then
         table.insert(mission.params.route.points, 
             {
-                ["alt"] = 0,
+                --["alt"] = 0,
                 ["type"] = "Turning Point",
-                ["formation_template"] = "Diamond",
-                ["alt_type"] = "BARO",
+                --["formation_template"] = "Diamond",
+                --["alt_type"] = "BARO",
                 ["x"] = endPosition.x,
                 ["y"] = endPosition.z,
                 ["name"] = "Back to starting position",
@@ -534,6 +534,9 @@ end
 
 -- Makes a group move to a specific waypoint at a specific speed
 function veaf.moveGroupTo(groupName, pos, speed, altitude)
+    if not(altitude) then
+        altitude = 0
+    end
     veaf.logDebug("veaf.moveGroupTo(groupName=" .. groupName .. ", speed=".. speed .. ", altitude=".. altitude)
     veaf.logDebug("pos="..veaf.vecToString(pos))
 
@@ -541,23 +544,35 @@ function veaf.moveGroupTo(groupName, pos, speed, altitude)
     if unitGroup == nil then
         veaf.logError("veaf.moveGroupTo: " .. groupName .. ' not found')
 		return false
-	end
+    end
     
-	-- new route point
-	local newWaypoint = {
-		["action"] = "Turning Point",
-		["alt"] = altitude,
-		["alt_type"] = "BARO",
-		["form"] = "Turning Point",
-		["speed"] = veaf.round(speed, 2),
-		["type"] = "Turning Point",
-		["x"] = pos.x,
-		["y"] = pos.z,
-	}
-    veaf.logTrace("newWaypoint="..veaf.vecToString(newWaypoint))
+    local route = {
+        [1] =
+        {
+            ["alt"] = altitude,
+            ["action"] = "Turning Point",
+            ["alt_type"] = "BARO",
+            ["speed"] = veaf.round(speed, 2),
+            ["type"] = "Turning Point",
+            ["x"] = pos.x,
+            ["y"] = pos.z,
+            ["speed_locked"] = true,
+        },
+        [2] = 
+        {
+            ["alt"] = altitude,
+            ["action"] = "Turning Point",
+            ["alt_type"] = "BARO",
+            ["speed"] = 0,
+            ["type"] = "Turning Point",
+            ["x"] = pos.x,
+            ["y"] = pos.z,
+            ["speed_locked"] = true,
+        },
+    }
 
-	-- order group to new waypoint
-	mist.goRoute(groupName, {newWaypoint})
+    -- order group to new waypoint
+	mist.goRoute(groupName, route)
 
     return true
 end
@@ -620,6 +635,102 @@ function veaf.findUnitsInCircle(center, radius)
     return result
 end
 
+--- modified version of mist.getGroupRoute that returns raw DCS group data
+function veaf.getGroupData(groupIdent)
+    -- refactor to search by groupId and allow groupId and groupName as inputs
+    local gpId = groupIdent
+        if mist.DBs.MEgroupsByName[groupIdent] then
+            gpId = mist.DBs.MEgroupsByName[groupIdent].groupId
+        else
+            veaf.logError(groupIdent..' not found in mist.DBs.MEgroupsByName')
+        end
+
+    for coa_name, coa_data in pairs(env.mission.coalition) do
+        if (coa_name == 'red' or coa_name == 'blue') and type(coa_data) == 'table' then
+            if coa_data.country then --there is a country table
+                for cntry_id, cntry_data in pairs(coa_data.country) do
+                    for obj_type_name, obj_type_data in pairs(cntry_data) do
+                        if obj_type_name == "helicopter" or obj_type_name == "ship" or obj_type_name == "plane" or obj_type_name == "vehicle" then	-- only these types have points
+                            if ((type(obj_type_data) == 'table') and obj_type_data.group and (type(obj_type_data.group) == 'table') and (#obj_type_data.group > 0)) then	--there's a group!
+                                for group_num, group_data in pairs(obj_type_data.group) do
+                                    if group_data and group_data.groupId == gpId	then -- this is the group we are looking for
+                                        return group_data
+                                    end	--if group_data and group_data.name and group_data.name == 'groupname'
+                                end --for group_num, group_data in pairs(obj_type_data.group) do
+                            end --if ((type(obj_type_data) == 'table') and obj_type_data.group and (type(obj_type_data.group) == 'table') and (#obj_type_data.group > 0)) then
+                        end --if obj_type_name == "helicopter" or obj_type_name == "ship" or obj_type_name == "plane" or obj_type_name == "vehicle" or obj_type_name == "static" then
+                    end --for obj_type_name, obj_type_data in pairs(cntry_data) do
+                end --for cntry_id, cntry_data in pairs(coa_data.country) do
+            end --if coa_data.country then --there is a country table
+        end --if coa_name == 'red' or coa_name == 'blue' and type(coa_data) == 'table' then
+    end --for coa_name, coa_data in pairs(mission.coalition) do
+    
+    veaf.logError(' no group data found for '..groupIdent)
+    return nil
+end
+
+function veaf.getTankerData(tankerGroupName)
+    local result = {}
+    local tankerData = veaf.getGroupData(tankerGroupName)
+    if tankerData then
+        -- find callsign
+        local units = veaf.findInTable(tankerData, "units")
+        if units and units[1] then 
+            local callsign = veaf.findInTable(units[1], "callsign")
+            if callsign then 
+                local name = veaf.findInTable(callsign, "name")
+                if name then 
+                    result.tankerCallsign = name
+                end
+            end
+        end
+
+        -- find frequency
+        local communication = veaf.findInTable(tankerData, "communication")
+        if communication == true then
+            local frequency = veaf.findInTable(tankerData, "frequency")
+            if frequency then 
+                result.tankerFrequency = frequency
+            end
+        end
+        local route = veaf.findInTable(tankerData, "route")
+        local points = veaf.findInTable(route, "points")
+        if points then
+            veaf.logTrace("found a " .. #points .. "-points route for tanker " .. tankerGroupName)
+            for i, point in pairs(points) do
+                veaf.logTrace("found point #" .. i)
+                local task = veaf.findInTable(point, "task")
+                if task then
+                    local tasks = task.params.tasks
+                    if (tasks) then
+                        veaf.logTrace("found " .. #tasks .. " tasks")
+                        for j, task in pairs(tasks) do
+                            veaf.logTrace("found task #" .. j)
+                            if task.params then
+                                veaf.logTrace("has .params")
+                                if task.params.action then
+                                    veaf.logTrace("has .action")
+                                    if task.params.action.params then
+                                        veaf.logTrace("has .params")
+                                        if task.params.action.params.channel then
+                                            veaf.logTrace("has .channel")
+                                            veaf.logInfo("Found a TACAN task for tanker " .. tankerGroupName)
+                                            result.tankerTacanTask = task
+                                            result.tankerTacanChannel = task.params.action.params.channel
+                                            result.tankerTacanMode = task.params.action.params.modeChannel
+                                            break
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return result
+end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialisation
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
