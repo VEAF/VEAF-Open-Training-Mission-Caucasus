@@ -45,6 +45,9 @@ veafMarkers.Version = "1.1.0"
 --- DCS bug regarding wrong marker vector components was fixed. If so, set to true!
 veafMarkers.DCSbugfixed = false
 
+veafMarkers.markerEventsTraceMessages = false
+veafMarkers.markerEventsDebugMessages = false
+
 --- Key phrase to look for in the mark text which triggers the command.
 veafMarkers.Keyphrase = "_"
 
@@ -74,11 +77,15 @@ function veafMarkers.logInfo(message)
 end
 
 function veafMarkers.logDebug(message)
-    veaf.logDebug(veafMarkers.Id .. message)
+    if veafMarkers.markerEventsDebugMessages then
+        veaf.logDebug(veafMarkers.Id .. message)
+    end
 end
 
 function veafMarkers.logTrace(message)
-    veaf.logTrace(veafMarkers.Id .. message)
+    if veafMarkers.markerEventsTraceMessages then
+        veaf.logTrace(veafMarkers.Id .. message)
+    end
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
