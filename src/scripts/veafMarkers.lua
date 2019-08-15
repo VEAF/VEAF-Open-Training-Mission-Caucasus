@@ -43,7 +43,7 @@ veafMarkers.Id = "MARKERS - "
 veafMarkers.Version = "1.1.0"
 
 --- DCS bug regarding wrong marker vector components was fixed. If so, set to true!
-veafMarkers.DCSbugfixed = false
+veafMarkers.DCSbugfixed = true
 
 veafMarkers.markerEventsTraceMessages = false
 veafMarkers.markerEventsDebugMessages = false
