@@ -11,6 +11,7 @@
 -- ------------
 -- * This script requires DCS 2.5.1 or higher and MIST 4.3.74 or higher.
 -- * It also requires the base veaf.lua script library (version 1.0 or higher)
+-- * It also requires the base veafRadio.lua script library (version 1.0 or higher)
 --
 -- Load the script:
 -- ----------------
@@ -23,9 +24,11 @@
 --     * ACTION "DO SCRIPT FILE"
 --     * OPEN --> Browse to the location of veaf.lua and click OK.
 --     * ACTION "DO SCRIPT FILE"
+--     * OPEN --> Browse to the location of veafRadio.lua and click OK.
+--     * ACTION "DO SCRIPT FILE"
 --     * OPEN --> Browse to the location of this script and click OK.
 --     * ACTION "DO SCRIPT"
---     * set the script command to "veafCarrierOperations.initialize()" and click OK.
+--     * set the script command to "veafRadio.initialize();veafCarrierOperations.initialize()" and click OK.
 -- 4.) Save the mission and start it.
 -- 5.) Have fun :)
 --
