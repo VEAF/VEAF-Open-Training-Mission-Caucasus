@@ -45,7 +45,7 @@ veafGrass = {}
 veafGrass.Id = "GRASS - "
 
 --- Version.
-veafGrass.Version = "1.0.3"
+veafGrass.Version = "1.1.0"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Utility methods
@@ -71,6 +71,8 @@ end
 ------------------------------------------------------------------------------
 function veafGrass.buildGrassRunway(runwayOrigin)
 	veafGrass.logInfo("Building grass runway for unit " .. runwayOrigin.unitName)
+	local tower = true
+	local endMarkers = false
 
 	-- runway length in meters
 	local length = 600;
@@ -119,8 +121,51 @@ function veafGrass.buildGrassRunway(runwayOrigin)
 		local rightPlot = mist.utils.deepCopy(template)
 		rightPlot.x = leftOrigin.x + i * space * math.cos(mist.utils.toRadian(angle))
 		rightPlot.y = leftOrigin.y + i * space * math.sin(mist.utils.toRadian(angle))
-        mist.dynAddStatic(rightPlot)
+        mist.dynAddStatic(rightPlot)		
+	end
+	
+	if (endMarkers) then
+		-- close the runway with optional markers (airshow cones)
+		template = {
+			["category"] = "Fortifications",
+			["categoryStatic"] = runwayOrigin.categoryStatic,
+			["coalition"] = runwayOrigin.coalition,
+			["country"] = runwayOrigin.country,
+			["countryId"] = runwayOrigin.countryId,
+			["heading"] = runwayOrigin.heading,
+			["shape_name"] =  "Comp_cone",
+			["type"] = "Airshow_Cone",
+		}
+		-- right plot
+		local leftPlot = mist.utils.deepCopy(template)
+		leftPlot.x = runwayOrigin.x + (nbPlots+1) * space * math.cos(mist.utils.toRadian(angle))
+		leftPlot.y = runwayOrigin.y + (nbPlots+1) * space * math.sin(mist.utils.toRadian(angle))
+		mist.dynAddStatic(leftPlot)
 		
+		-- right plot
+		local rightPlot = mist.utils.deepCopy(template)
+		rightPlot.x = leftOrigin.x + (nbPlots+1) * space * math.cos(mist.utils.toRadian(angle))
+		rightPlot.y = leftOrigin.y + (nbPlots+1) * space * math.sin(mist.utils.toRadian(angle))
+		mist.dynAddStatic(rightPlot)
+	end
+	
+	if (tower) then
+		-- optionally add a tower at the start of the runway
+		template = {
+			["category"] = "Fortifications",
+			["categoryStatic"] = runwayOrigin.categoryStatic,
+			["coalition"] = runwayOrigin.coalition,
+			["country"] = runwayOrigin.country,
+			["countryId"] = runwayOrigin.countryId,
+			["heading"] = runwayOrigin.heading,
+			["type"] = "house2arm",
+		}
+		
+		-- tower
+		local tower = mist.utils.deepCopy(template)
+		tower.x = leftOrigin.x-20 + (nbPlots+1.2) * space * math.cos(mist.utils.toRadian(angle))
+		tower.y = leftOrigin.y-20 + (nbPlots+1.2) * space * math.sin(mist.utils.toRadian(angle))
+		mist.dynAddStatic(tower)
 	end
 end
 
