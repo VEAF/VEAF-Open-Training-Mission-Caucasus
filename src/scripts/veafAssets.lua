@@ -24,7 +24,7 @@ veafAssets = {}
 veafAssets.Id = "ASSETS - "
 
 --- Version.
-veafAssets.Version = "1.1.0"
+veafAssets.Version = "1.1.1"
 
 veafAssets.Assets = {
     -- list the assets common to all missions below
@@ -104,11 +104,25 @@ end
 function veafAssets.buildRadioMenu()
     veafAssets.rootPath = veafRadio.addSubMenu(veafAssets.RadioMenuName)
     veafRadio.addCommandToSubmenu("HELP", veafAssets.rootPath, veafAssets.help, nil, true)
+
     names = {}
+    sortedAssets = {}
     for _, asset in pairs(veafAssets.assets) do
-        table.insert(names, asset.name)
+        table.insert(sortedAssets, {name=asset.name, sort=asset.sort})
     end
-    table.sort(names)
+    function compare(a,b)
+        return a["sort"] < b["sort"]
+    end     
+    table.sort(sortedAssets, compare)
+    for i = 1, #sortedAssets do
+        table.insert(names, sortedAssets[i].name)
+    end
+
+    veaf.logTrace("veafAssets.buildRadioMenu() - dumping names")
+    for i = 1, #names do
+        veaf.logTrace("veafAssets.buildRadioMenu().names -> " .. names[i])
+    end
+
     veafAssets._buildAssetsRadioMenuPage(veafAssets.rootPath, names, 9, 1)
     veafRadio.refreshRadioMenu()
 end
