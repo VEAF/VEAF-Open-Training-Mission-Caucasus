@@ -207,7 +207,7 @@ options =
         }, -- end of ["AJS37"]
         ["A-10C"] = 
         {
-            ["CPLocalList"] = "Ricardo HD",
+            ["CPLocalList"] = "default",
         }, -- end of ["A-10C"]
         ["Su-25T"] = 
         {
