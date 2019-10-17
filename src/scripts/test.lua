@@ -101,7 +101,7 @@ local cas_Markers_RadioMenu = veafRadio.addSubMenu("Markers",casRadioMenu)
 veafRadio.addCommandToSubmenu('Request smoke on target area', cas_Markers_RadioMenu, veaf.dummyFunction)
 veafRadio.refreshRadioMenu()
 
-if veafSecurity.checkPassword_L1("Password2019VEAF") then
+if veafSecurity.checkPassword_L1("testpassword") then
   veaf.logError("password matches")
 else
   veaf.logError("password do not match")
