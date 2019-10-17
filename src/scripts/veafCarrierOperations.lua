@@ -48,7 +48,7 @@ veafCarrierOperations = {}
 veafCarrierOperations.Id = "CARRIER - "
 
 --- Version.
-veafCarrierOperations.Version = "1.3.0"
+veafCarrierOperations.Version = "1.4.0"
 
 --- All the carrier groups must comply with this name
 veafCarrierOperations.CarrierGroupNamePattern = "^CSG-.*$"
@@ -706,17 +706,17 @@ function veafCarrierOperations.rebuildRadioMenu()
             -- add the stop menu
             carrier.stopMenuName = name .. " - End air operations"
             veafCarrierOperations.logTrace("add carrier.stopMenuName="..carrier.stopMenuName)
-            veafRadio.addCommandToSubmenu(carrier.stopMenuName, veafCarrierOperations.rootPath, veafCarrierOperations.stopCarrierOperations, name)
+            veafRadio.addSecuredCommandToSubmenu(carrier.stopMenuName, veafCarrierOperations.rootPath, veafCarrierOperations.stopCarrierOperations, name)
         else
             -- add the "start for veafCarrierOperations.MAX_OPERATIONS_DURATION" menu
             carrier.startMenuName1 = name .. " - Start carrier air operations for " .. veafCarrierOperations.MAX_OPERATIONS_DURATION .. " minutes"
             veafCarrierOperations.logTrace("add carrier.startMenuName1="..carrier.startMenuName1)
-            veafRadio.addCommandToSubmenu(carrier.startMenuName1, veafCarrierOperations.rootPath, veafCarrierOperations.startCarrierOperations, { name, veafCarrierOperations.MAX_OPERATIONS_DURATION })
+            veafRadio.addSecuredCommandToSubmenu(carrier.startMenuName1, veafCarrierOperations.rootPath, veafCarrierOperations.startCarrierOperations, { name, veafCarrierOperations.MAX_OPERATIONS_DURATION })
 
             -- add the "start for veafCarrierOperations.MAX_OPERATIONS_DURATION * 2" menu
             carrier.startMenuName2 = name .. " - Start carrier air operations for " .. veafCarrierOperations.MAX_OPERATIONS_DURATION * 2 .. " minutes"
             veafCarrierOperations.logTrace("add carrier.startMenuName2="..carrier.startMenuName2)
-            veafRadio.addCommandToSubmenu(carrier.startMenuName2, veafCarrierOperations.rootPath, veafCarrierOperations.startCarrierOperations, { name, veafCarrierOperations.MAX_OPERATIONS_DURATION * 2 })
+            veafRadio.addSecuredCommandToSubmenu(carrier.startMenuName2, veafCarrierOperations.rootPath, veafCarrierOperations.startCarrierOperations, { name, veafCarrierOperations.MAX_OPERATIONS_DURATION * 2 })
         end
 
         -- add the ATC menu (by player group)

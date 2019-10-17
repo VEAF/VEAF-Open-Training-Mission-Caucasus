@@ -72,7 +72,7 @@ veafCasMission = {}
 veafCasMission.Id = "CAS MISSION - "
 
 --- Version.
-veafCasMission.Version = "1.3"
+veafCasMission.Version = "1.4.0"
 
 --- Key phrase to look for in the mark text which triggers the command.
 veafCasMission.Keyphrase = "_cas"
@@ -140,6 +140,8 @@ function veafCasMission.onEventMarkChange(eventPos, event)
         if options then
             -- Check options commands
             if options.casmission then
+                -- check security
+                if not veafSecurity.checkSecurity_L1(options.password) then return end
                 -- create the group
                 veafCasMission.generateCasMission(eventPos, options.size, options.defense, options.armor, options.spacing, options.disperseOnAttack)
             end
@@ -180,6 +182,9 @@ function veafCasMission.markTextAnalysis(text)
     -- disperse on attack ; self explanatory, if keyword is present the option will be set to true
     switch.disperseOnAttack = false
 
+    -- password
+    switch.password = nil
+
     -- Check for correct keywords.
     if text:lower():find(veafCasMission.Keyphrase) then
         switch.casmission = true
@@ -195,6 +200,12 @@ function veafCasMission.markTextAnalysis(text)
         local str = veaf.breakString(veaf.trim(keyphrase), " ")
         local key = str[1]
         local val = str[2]
+
+        if key:lower() == "password" then
+            -- Unlock the command
+            veafSpawn.logDebug(string.format("Keyword password", val))
+            switch.password = val
+        end
 
         if switch.casmission and key:lower() == "size" then
             -- Set size.
@@ -665,7 +676,7 @@ function veafCasMission.generateCasMission(spawnSpot, size, defense, armor, spac
     veafRadio.addCommandToSubmenu('Target information', veafCasMission.rootPath, veafCasMission.reportTargetInformation, nil, true)
 
     -- add radio menus for commands
-    veafRadio.addCommandToSubmenu('Skip current objective', veafCasMission.rootPath, veafCasMission.skipCasTarget)
+    veafRadio.addSecuredCommandToSubmenu('Skip current objective', veafCasMission.rootPath, veafCasMission.skipCasTarget)
     veafCasMission.targetMarkersPath = veafRadio.addSubMenu("Target markers", veafCasMission.rootPath)
     veafRadio.addCommandToSubmenu('Request smoke on target area', veafCasMission.targetMarkersPath, veafCasMission.smokeCasTargetGroup)
     veafRadio.addCommandToSubmenu('Request illumination flare over target area', veafCasMission.targetMarkersPath, veafCasMission.flareCasTargetGroup)
