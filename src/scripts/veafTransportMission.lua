@@ -163,6 +163,8 @@ function veafTransportMission.onEventMarkChange(eventPos, event)
         if options then
             -- Check options commands
             if options.transportmission then
+                -- check security
+                if not veafSecurity.checkSecurity_L1(options.password) then return end
                 -- create the mission
                 veafTransportMission.generateTransportMission(eventPos, options.size, options.defense, options.blocade, options.from)
             end
@@ -200,6 +202,9 @@ function veafTransportMission.markTextAnalysis(text)
     -- start position, named point
     switch.from = veafTransportMission.DefaultStartPosition
 
+    -- password
+    switch.password = nil
+
     -- Check for correct keywords.
     if text:lower():find(veafTransportMission.Keyphrase) then
         switch.transportmission = true
@@ -215,6 +220,12 @@ function veafTransportMission.markTextAnalysis(text)
         local str = veaf.breakString(veaf.trim(keyphrase), " ")
         local key = str[1]
         local val = str[2]
+
+        if key:lower() == "password" then
+            -- Unlock the command
+            veafSpawn.logDebug(string.format("Keyword password", val))
+            switch.password = val
+        end
 
         if switch.transportmission and key:lower() == "size" then
             -- Set size.

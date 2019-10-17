@@ -50,6 +50,7 @@ copy .\src\scripts\veafMarkers.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\veafMove.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\veafNamedPoints.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\veafRadio.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veafSecurity.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\veafSpawn.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\veafTransportMission.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\veafUnits.lua .\build\tempsrc\l10n\Default  >nul 2>&1

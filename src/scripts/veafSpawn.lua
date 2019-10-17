@@ -114,6 +114,10 @@ function veafSpawn.logTrace(message)
     veaf.logTrace(veafSpawn.Id .. message)
 end
 
+function veafSpawn.logError(message)
+    veaf.logError(veafSpawn.Id .. message)
+end
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Event handler functions.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -127,23 +131,40 @@ function veafSpawn.onEventMarkChange(eventPos, event)
         local options = veafSpawn.markTextAnalysis(event.text)
 
         if options then
+
             -- Check options commands
             if options.unit then
+                -- check security
+                if not veafSecurity.checkSecurity_L1(options.password) then return end
                 veafSpawn.spawnUnit(eventPos, options.name, options.country, options.speed, options.altitude, options.heading, options.unitName, options.role, options.laserCode)
             elseif options.group then
+                -- check security
+                if not veafSecurity.checkSecurity_L1(options.password) then return end
                 veafSpawn.spawnGroup(eventPos, options.name, options.country, options.speed, options.altitude, options.heading, options.spacing, options.isConvoy, options.patrol, options.offroad, options.destination)
             elseif options.convoy then
+                -- check security
+                if not veafSecurity.checkSecurity_L1(options.password) then return end
                 veafSpawn.spawnConvoy(eventPos, options.country, options.patrol, options.offroad, options.destination, options.defense, options.transports, options.armor)
             elseif options.cargo then
+                -- check security
+                if not veafSecurity.checkSecurity_L1(options.password) then return end
                 veafSpawn.spawnCargo(eventPos, options.cargoType, options.cargoSmoke, options.unitName, false)
             elseif options.logistic then
+                -- check security
+                if not veafSecurity.checkSecurity_L1(options.password) then return end
                 veafSpawn.spawnLogistic(eventPos)
             elseif options.destroy then
+                -- check security
+                if not veafSecurity.checkSecurity_L0(options.password) then return end
                 veafSpawn.destroy(eventPos, options.radius, options.unitName)
             elseif options.teleport then
+                -- check security
+                if not veafSecurity.checkSecurity_L1(options.password) then return end
                 veafSpawn.teleport(eventPos, options.name)
             elseif options.bomb then
-                veafSpawn.spawnBomb(eventPos, options.bombPower, options.unlock)
+                -- check security
+                if not veafSecurity.checkSecurity_L1(options.password) then return end
+                veafSpawn.spawnBomb(eventPos, options.bombPower, options.password)
             elseif options.smoke then
                 veafSpawn.spawnSmoke(eventPos, options.smokeColor)
             elseif options.flare then
@@ -235,7 +256,7 @@ function veafSpawn.markTextAnalysis(text)
     -- flare agl altitude (meters)
     switch.alt = veafSpawn.IlluminationFlareAglAltitude
 
-    switch.unlock = nil
+    switch.password = nil
 
     -- Check for correct keywords.
     if text:lower():find(veafSpawn.SpawnKeyphrase .. " unit") then
@@ -354,10 +375,10 @@ function veafSpawn.markTextAnalysis(text)
             switch.country = val:upper()
         end
         
-        if key:lower() == "unlock" then
-            -- Unlock the bomb power
-            veafSpawn.logDebug(string.format("Keyword unlock", val))
-            switch.unlock = val:upper()
+        if key:lower() == "password" then
+            -- Unlock the command
+            veafSpawn.logDebug(string.format("Keyword password", val))
+            switch.password = val
         end
 
         if key:lower() == "power" then
@@ -957,10 +978,11 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --- trigger an explosion at the marker area
-function veafSpawn.spawnBomb(spawnSpot, power, unlock)
+function veafSpawn.spawnBomb(spawnSpot, power, password)
     veafSpawn.logDebug("spawnBomb(power=" .. power ..")")
     veafSpawn.logDebug(string.format("spawnBomb: spawnSpot  x=%.1f y=%.1f, z=%.1f", spawnSpot.x, spawnSpot.y, spawnSpot.z))
-    if not(unlock) or unlock ~= "IVEGOTTHEPOWER" then
+    -- check security
+    if not veafSecurity.checkPassword_L0(password) then
         if power > 1000 then power = 1000 end
     end
 

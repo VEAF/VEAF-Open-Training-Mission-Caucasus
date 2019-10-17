@@ -3,7 +3,7 @@ options =
     ["playerName"] = "Zip",
     ["miscellaneous"] = 
     {
-        ["allow_server_screenshots"] = true,
+        ["allow_server_screenshots"] = false,
         ["headmove"] = false,
         ["TrackIR_external_views"] = false,
         ["f5_nearest_ac"] = true,
@@ -38,7 +38,7 @@ options =
         ["permitCrash"] = false,
         ["immortal"] = false,
         ["cockpitStatusBarAllowed"] = true,
-        ["wakeTurbulence"] = true,
+        ["wakeTurbulence"] = false,
         ["easyFlight"] = false,
         ["hideStick"] = false,
         ["radio"] = false,
@@ -54,7 +54,7 @@ options =
         ["RBDAI"] = false,
         ["aircraftMode"] = true,
         ["map"] = true,
-        ["labels"] = 2,
+        ["labels"] = 3,
     }, -- end of ["difficulty"]
     ["VR"] = 
     {
@@ -78,23 +78,23 @@ options =
         ["motionBlur"] = 0,
         ["outputGamma"] = 1.8,
         ["treesVisibility"] = 10000,
-        ["aspect"] = 1.3650793650794,
+        ["aspect"] = 1.6044776119403,
         ["lights"] = 2,
         ["shadows"] = 4,
-        ["MSAA"] = 2,
+        ["MSAA"] = 1,
         ["SSAA"] = 0,
-        ["height"] = 2520,
+        ["height"] = 1340,
         ["forestDistanceFactor"] = 1,
         ["cockpitGI"] = 1,
         ["terrainTextures"] = "max",
-        ["multiMonitorSetup"] = "mfcd bottom screen",
+        ["multiMonitorSetup"] = "1camera",
         ["shadowTree"] = false,
         ["chimneySmokeDensity"] = 5,
         ["fullScreen"] = false,
         ["DOF"] = 0,
         ["clouds"] = 1,
         ["flatTerrainShadows"] = 0,
-        ["width"] = 3440,
+        ["width"] = 2150,
         ["useDeferredShading"] = 1,
         ["effects"] = 3,
         ["SSAO"] = 0,
@@ -129,10 +129,10 @@ options =
             ["tacviewProfilingPeriod"] = 600,
             ["tacviewHostTelemetryPassword"] = "",
             ["tacviewRemoteControlPort"] = "42675",
-            ["tacviewDataRecordingEnabled"] = true,
+            ["tacviewDataRecordingEnabled"] = false,
             ["tacviewTerrainExport"] = 0,
             ["tacviewRecordClientsSessionsEnabled"] = false,
-            ["tacviewPlaybackDelay"] = 600,
+            ["tacviewPlaybackDelay"] = 0,
             ["tacviewRealTimeTelemetryPort"] = "42674",
             ["tacviewBookmarkShortcut"] = 0,
             ["tacviewCompressionLevel"] = 1,
@@ -185,7 +185,7 @@ options =
         ["Ka-50"] = 
         {
             ["Ka50TrimmingMethod"] = 0,
-            ["CPLocalList"] = "ricardo",
+            ["CPLocalList"] = "default",
             ["Ka50RudderTrimmer"] = false,
             ["helmetCircleDisplacement"] = 11,
         }, -- end of ["Ka-50"]
@@ -203,7 +203,7 @@ options =
         }, -- end of ["P-51D"]
         ["AJS37"] = 
         {
-            ["CPLocalList"] = "English",
+            ["CPLocalList"] = "default",
         }, -- end of ["AJS37"]
         ["A-10C"] = 
         {
