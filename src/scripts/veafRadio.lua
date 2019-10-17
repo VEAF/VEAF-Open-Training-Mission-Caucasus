@@ -45,7 +45,7 @@ veafRadio = {}
 veafRadio.Id = "RADIO - "
 
 --- Version.
-veafRadio.Version = "1.0.3"
+veafRadio.Version = "1.1.0"
 
 veafRadio.RadioMenuName = "VEAF (" .. veaf.Version .. " - radio " .. veafRadio.Version .. ")"
 
@@ -125,6 +125,16 @@ end
 -- Radio menu methods
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+function veafRadio._proxyMethod(parameters)
+  local realMethod, realParameters = unpack(parameters)
+  if veafSecurity.isRadioAuthenticated() then
+    realMethod(realParameters)
+  else
+    veafRadio.logError("Your radio has to be authenticated for '+'' commands")
+    trigger.action.outText("Your radio has to be authenticated for '+'' commands", 5) 
+  end  
+end
+
 --- Refresh the radio menu, based on stored information
 --- This is called from another method that has first changed the radio menu information by adding or removing elements
 function veafRadio.refreshRadioMenu()
@@ -164,13 +174,29 @@ function veafRadio.refreshRadioSubmenu(parentRadioMenu, radioMenu)
             parameters = { command.parameters }
             table.insert(parameters, groupId)
           end 
-          missionCommands.addCommandForGroup(groupId, command.title, radioMenu.dcsRadioMenu, command.method, parameters)
+          if command.isSecured then
+            local title = "+" .. command.title
+            if veafSecurity.isRadioAuthenticated() then
+              title = "-" .. command.title
+            end
+            missionCommands.addCommandForGroup(groupId, title, radioMenu.dcsRadioMenu, veafRadio._proxyMethod, {command.method, parameters})
+          else           
+            missionCommands.addCommandForGroup(groupId, command.title, radioMenu.dcsRadioMenu, command.method, parameters)
+          end
       end
     else
       if not command.method then
         veafRadio.logError("ERROR - missing method for command " .. command.title)
       end
-      missionCommands.addCommand(command.title, radioMenu.dcsRadioMenu, command.method, command.parameters)
+      if command.isSecured then
+        local title = "+" .. command.title
+        if veafSecurity.isRadioAuthenticated() then
+          title = "-" .. command.title
+        end
+        missionCommands.addCommand(title, radioMenu.dcsRadioMenu, veafRadio._proxyMethod, {command.method, command.parameters})
+      else           
+        missionCommands.addCommand(command.title, radioMenu.dcsRadioMenu, command.method, command.parameters)
+      end
     end
   end
   
@@ -182,14 +208,31 @@ function veafRadio.refreshRadioSubmenu(parentRadioMenu, radioMenu)
 end
 
 function veafRadio.addCommandToMainMenu(title, method)
-  return veafRadio.addCommandToSubmenu(title, nil, method)
+  return veafRadio._addCommandToMainMenu(title, method, false)
+end
+
+function veafRadio.addSecuredCommandToMainMenu(title, method)
+  return veafRadio._addCommandToMainMenu(title, method, true)
+end
+
+function veafRadio._addCommandToMainMenu(title, method, isSecured)
+  return veafRadio._addCommandToSubmenu(title, nil, method, nil, nil, isSecured)
 end
   
 function veafRadio.addCommandToSubmenu(title, radioMenu, method, parameters, isForGroup)
+  return veafRadio._addCommandToSubmenu(title, radioMenu, method, parameters, isForGroup, false)
+end
+
+function veafRadio.addSecuredCommandToSubmenu(title, radioMenu, method, parameters, isForGroup)
+  return veafRadio._addCommandToSubmenu(title, radioMenu, method, parameters, isForGroup, true)
+end
+
+function veafRadio._addCommandToSubmenu(title, radioMenu, method, parameters, isForGroup, isSecured)
     local command = {}
     command.title = title
     command.method = method
     command.parameters = parameters
+    command.isSecured = isSecured
     command.isForGroup = isForGroup
     local menu = veafRadio.radioMenu
     if radioMenu then

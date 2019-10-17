@@ -24,7 +24,7 @@ veafAssets = {}
 veafAssets.Id = "ASSETS - "
 
 --- Version.
-veafAssets.Version = "1.1.1"
+veafAssets.Version = "1.2.0"
 
 veafAssets.Assets = {
     -- list the assets common to all missions below
@@ -63,15 +63,15 @@ end
 function veafAssets._buildAssetRadioMenu(menu, asset)
     if asset.disposable or asset.information then -- in this case we need a submenu
         local radioMenu = veafRadio.addSubMenu(asset.description, menu)
-        veafRadio.addCommandToSubmenu("Respawn "..asset.description, radioMenu, veafAssets.respawn, asset.name, false)
+        veafRadio.addSecuredCommandToSubmenu("Respawn "..asset.description, radioMenu, veafAssets.respawn, asset.name, false)
         if asset.information then
             veafRadio.addCommandToSubmenu("Get info on "..asset.description, radioMenu, veafAssets.info, asset.name, true)
         end
         if asset.disposable then
-            veafRadio.addCommandToSubmenu("Dispose of "..asset.description, radioMenu, veafAssets.dispose, asset.name, false)
+            veafRadio.addSecuredCommandToSubmenu("Dispose of "..asset.description, radioMenu, veafAssets.dispose, asset.name, false)
         end
     else
-        veafRadio.addCommandToSubmenu("Respawn "..asset.description, menu, veafAssets.respawn, asset.name, false)
+        veafRadio.addSecuredCommandToSubmenu("Respawn "..asset.description, menu, veafAssets.respawn, asset.name, false)
     end
 end
 

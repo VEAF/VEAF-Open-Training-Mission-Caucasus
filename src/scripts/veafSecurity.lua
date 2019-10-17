@@ -33,7 +33,12 @@ veafSecurity = {}
 veafSecurity.Id = "SECURITY - "
 
 --- Version.
-veafSecurity.Version = "1.0.0"
+veafSecurity.Version = "1.0.1"
+
+--- Key phrase to look for in the mark text which triggers the command.
+veafSecurity.Keyphrase = "_auth"
+
+veafSecurity.authDuration = 10
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Utility methods
@@ -61,17 +66,17 @@ end
 
 veafSecurity.password_L0 = {}
 veafSecurity.password_L1 = {}
+veafSecurity.password_L9 = {}
 
 -- list the security passwords common to all missions below
-veafSecurity.password_L0["47c7808d1079fd20add322bbd5cf23b93ad1841e"] = true -- VEAFAdminPassword2019
-veafSecurity.password_L1["988d613da2a9b3a71b30d45f3cb20b9e0f3db1fa"] = true -- Password2019VEAF
+veafSecurity.password_L0["47c7808d1079fd20add322bbd5cf23b93ad1841e"] = true
+veafSecurity.password_L1["988d613da2a9b3a71b30d45f3cb20b9e0f3db1fa"] = true
 
-veafSecurity.user_L0 = {}
-veafSecurity.user_L1 = {}
+veafSecurity.radioAuthenticated = false
 
-veafSecurity.user_L0["7fa744bf9b0b9bdeff1ec51b947f55c718fda2a9"] = true -- VEAF_Zip
-veafSecurity.user_L1["5d3d3f22e721fa010e833ee434200f785c056a4a"] = true -- Mitch
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- SHA-1 pure LUA implementation
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- $Revision: 1.5 $
 -- $Date: 2014-09-10 16:54:25 $
   
@@ -402,6 +407,91 @@ function sha1.hmacBin(key, text)
 end
 ----------------------------------------------------------------------
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Event handler functions.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--- Function executed when a mark has changed. This happens when text is entered or changed.
+function veafSecurity.onEventMarkChange(eventPos, event)
+  -- Check if marker has a text and the veafSecurity.keyphrase keyphrase.
+  if event.text ~= nil and event.text:lower():find(veafSecurity.Keyphrase) then
+
+      -- Analyse the mark point text and extract the keywords.
+      local options = veafSecurity.markTextAnalysis(event.text)
+
+      if options then
+          -- Check options commands
+          if options.authenticate then
+              -- check security
+              if not veafSecurity.checkSecurity_L1(options.password) then return end
+              -- authenticate all radios for a few seconds
+              veafSecurity.authenticateRadios()
+          end
+      else
+          -- None of the keywords matched.
+          return
+      end
+
+      -- Delete old mark.
+      veafSecurity.logTrace(string.format("Removing mark # %d.", event.idx))
+      trigger.action.removeMark(event.idx)
+  end
+end
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Analyse the mark text and extract keywords.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--- Extract keywords from mark text.
+function veafSecurity.markTextAnalysis(text)
+
+  -- Option parameters extracted from the mark text.
+  local switch = {}
+  switch.authenticate = false
+
+  -- password
+  switch.password = nil
+
+  -- Check for correct keywords.
+  if text:lower():find(veafSecurity.Keyphrase) then
+      switch.authenticate = true
+  else
+      return nil
+  end
+
+  -- keywords are split by ","
+  local keywords = veaf.split(text, ",")
+
+  for _, keyphrase in pairs(keywords) do
+      -- Split keyphrase by space. First one is the key and second, ... the parameter(s) until the next comma.
+      local str = veaf.breakString(veaf.trim(keyphrase), " ")
+      local key = str[1]
+      local val = str[2]
+
+      if key:lower() == "password" then
+          -- Unlock the command
+          veafSpawn.logDebug(string.format("Keyword password", val))
+          switch.password = val
+      end
+  end
+
+  return switch
+end
+
+function veafSecurity.unAuthenticateRadios()
+  veafSecurity.radioAuthenticated = false
+  veafRadio.refreshRadioMenu()
+end
+
+--- authenticate all radios for a few seconds
+function veafSecurity.authenticateRadios()
+  if not veafSecurity.radioAuthenticated then
+    veafSecurity.logInfo("You have authenticated the radios")
+    veafSecurity.radioAuthenticated = true
+    veafRadio.refreshRadioMenu()
+    mist.scheduleFunction(veafSecurity.unAuthenticateRadios,{},timer.getTime()+veafSecurity.authDuration)
+  end
+end
 
 function veafSecurity._checkPassword(password, level)
   if password == nil then 
@@ -428,7 +518,15 @@ function veafSecurity.checkPassword_L1(password)
     veafSecurity._checkPassword(password, veafSecurity.password_L1)
     or
     veafSecurity._checkPassword(password, veafSecurity.password_L0)
+end
 
+function veafSecurity.checkPassword_L9(password)
+  return 
+    veafSecurity._checkPassword(password, veafSecurity.password_L9)
+    or
+    veafSecurity._checkPassword(password, veafSecurity.password_L1)
+    or
+    veafSecurity._checkPassword(password, veafSecurity.password_L0)
 end
 
 function veafSecurity.checkSecurity_L0(password) 
@@ -449,8 +547,21 @@ function veafSecurity.checkSecurity_L1(password)
   return true
 end
 
+function veafSecurity.checkSecurity_L9(password) 
+  if not veafSecurity.checkPassword_L9(password) then
+    veafSecurity.logError("You have to give the correct password to do this")
+    trigger.action.outText("You have to give the correct password to do this", 5) 
+    return false
+  end
+  return true
+end
+
+function veafSecurity.isRadioAuthenticated()
+  return veafSecurity.radioAuthenticated
+end
+
 function veafSecurity.initialize()
-  -- nothing to do
+  veafMarkers.registerEventHandler(veafMarkers.MarkerChange, veafSecurity.onEventMarkChange)
 end
 
 veafSecurity.logInfo(string.format("Loading version %s", veafSecurity.Version))

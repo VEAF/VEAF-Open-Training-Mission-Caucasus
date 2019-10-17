@@ -66,7 +66,7 @@ veafSpawn = {}
 veafSpawn.Id = "SPAWN - "
 
 --- Version.
-veafSpawn.Version = "1.6"
+veafSpawn.Version = "1.7.0"
 
 --- Key phrase to look for in the mark text which triggers the spawn command.
 veafSpawn.SpawnKeyphrase = "_spawn"
@@ -135,11 +135,11 @@ function veafSpawn.onEventMarkChange(eventPos, event)
             -- Check options commands
             if options.unit then
                 -- check security
-                if not veafSecurity.checkSecurity_L1(options.password) then return end
+                if not veafSecurity.checkSecurity_L9(options.password) then return end
                 veafSpawn.spawnUnit(eventPos, options.name, options.country, options.speed, options.altitude, options.heading, options.unitName, options.role, options.laserCode)
             elseif options.group then
                 -- check security
-                if not veafSecurity.checkSecurity_L1(options.password) then return end
+                if not veafSecurity.checkSecurity_L9(options.password) then return end
                 veafSpawn.spawnGroup(eventPos, options.name, options.country, options.speed, options.altitude, options.heading, options.spacing, options.isConvoy, options.patrol, options.offroad, options.destination)
             elseif options.convoy then
                 -- check security
@@ -147,15 +147,15 @@ function veafSpawn.onEventMarkChange(eventPos, event)
                 veafSpawn.spawnConvoy(eventPos, options.country, options.patrol, options.offroad, options.destination, options.defense, options.transports, options.armor)
             elseif options.cargo then
                 -- check security
-                if not veafSecurity.checkSecurity_L1(options.password) then return end
+                if not veafSecurity.checkSecurity_L9(options.password) then return end
                 veafSpawn.spawnCargo(eventPos, options.cargoType, options.cargoSmoke, options.unitName, false)
             elseif options.logistic then
                 -- check security
-                if not veafSecurity.checkSecurity_L1(options.password) then return end
+                if not veafSecurity.checkSecurity_L9(options.password) then return end
                 veafSpawn.spawnLogistic(eventPos)
             elseif options.destroy then
                 -- check security
-                if not veafSecurity.checkSecurity_L0(options.password) then return end
+                if not veafSecurity.checkSecurity_L1(options.password) then return end
                 veafSpawn.destroy(eventPos, options.radius, options.unitName)
             elseif options.teleport then
                 -- check security

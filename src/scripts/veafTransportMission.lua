@@ -49,7 +49,7 @@ veafTransportMission = {}
 veafTransportMission.Id = "TRANSPORT MISSION - "
 
 --- Version.
-veafTransportMission.Version = "1.2"
+veafTransportMission.Version = "1.3.0"
 
 --- Key phrase to look for in the mark text which triggers the command.
 veafTransportMission.Keyphrase = "_transport"
@@ -468,7 +468,7 @@ function veafTransportMission.generateTransportMission(targetSpot, size, defense
     veafRadio.addCommandToSubmenu('Drop zone information', veafTransportMission.rootPath, veafTransportMission.reportTargetInformation, nil, true)
 
     -- add radio menus for commands
-    veafRadio.addCommandToSubmenu('Skip current objective', veafTransportMission.rootPath, veafTransportMission.skip)
+    veafRadio.addSecuredCommandToSubmenu('Skip current objective', veafTransportMission.rootPath, veafTransportMission.skip)
     veafTransportMission.targetMarkersPath = veafRadio.addSubMenu("Drop zone markers", veafTransportMission.rootPath)
     veafRadio.addCommandToSubmenu('Request smoke on drop zone', veafTransportMission.targetMarkersPath, veafTransportMission.smokeTarget)
     veafRadio.addCommandToSubmenu('Request illumination flare over drop zone', veafTransportMission.targetMarkersPath, veafTransportMission.flareTarget)
