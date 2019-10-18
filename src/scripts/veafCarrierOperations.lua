@@ -48,7 +48,7 @@ veafCarrierOperations = {}
 veafCarrierOperations.Id = "CARRIER - "
 
 --- Version.
-veafCarrierOperations.Version = "1.4.0"
+veafCarrierOperations.Version = "1.4.1"
 
 --- All the carrier groups must comply with this name
 veafCarrierOperations.CarrierGroupNamePattern = "^CSG-.*$"
@@ -614,10 +614,10 @@ end
 
 --- Gets informations about current carrier operations
 function veafCarrierOperations.atcForCarrierOperations(parameters)
-    local groupName, groupId = unpack(parameters)
+    local groupName, unitName = unpack(parameters)
     veafCarrierOperations.logDebug("atcForCarrierOperations(".. groupName .. ")")
     local text = veafCarrierOperations.getAtcForCarrierOperations(groupName)
-    trigger.action.outTextForGroup(groupId, text, 15)
+    veaf.outTextForUnit(unitName, text, 15)
 end
 
 --- Ends carrier operations ; changes the radio menu item to START and send the carrier back to its starting point
@@ -735,12 +735,12 @@ function veafCarrierOperations.buildRadioMenu()
     veafCarrierOperations.rootPath = veafRadio.addSubMenu(veafCarrierOperations.RadioMenuName)
 
     -- build HELP menu for each group
-    veafRadio.addCommandToSubmenu("HELP", veafCarrierOperations.rootPath, veafCarrierOperations.help, true)
+    veafRadio.addCommandToSubmenu("HELP", veafCarrierOperations.rootPath, veafCarrierOperations.help, nil, true)
 
     veafCarrierOperations.rebuildRadioMenu()
 end
 
-function veafCarrierOperations.help()
+function veafCarrierOperations.help(unitName)
     local text =
         'Use the radio menus to start and end carrier operations\n' ..
         'START: carrier will find out the wind and set sail at optimum speed to achieve a 25kn headwind\n' ..
@@ -748,7 +748,7 @@ function veafCarrierOperations.help()
         'END  : carrier will go back to its starting point (where it was when the START command was issued)\n' ..
         'RESET: carrier will go back to where it was when the mission started'
 
-    trigger.action.outText(text, 30)
+    veaf.outTextForUnit(unitName, text, 30)
 end
 
 function veaf.findInTable(data, key)

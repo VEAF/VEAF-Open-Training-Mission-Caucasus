@@ -37,7 +37,7 @@ veafNamedPoints = {}
 veafNamedPoints.Id = "NAMED POINTS - "
 
 --- Version.
-veafNamedPoints.Version = "1.2.0"
+veafNamedPoints.Version = "1.2.1"
 
 --- Key phrase to look for in the mark text which triggers the command.
 veafNamedPoints.Keyphrase = "_name point"
@@ -156,7 +156,6 @@ end
 function veafNamedPoints._addPoint(name, point)
     veafNamedPoints.logTrace(string.format("addPoint(name = %s)",name))
     veafNamedPoints.logTrace("point=" .. veaf.vecToString(point))
-
     veafNamedPoints.namedPoints[name:upper()] = point
 end
 
@@ -180,18 +179,18 @@ function veafNamedPoints.getPoint(name)
 end
 
 function veafNamedPoints.getWeatherAtPoint(parameters)
-    local name, groupId = unpack(parameters)
+    local name, unitName = unpack(parameters)
     veafNamedPoints.logTrace(string.format("getWeatherAtPoint(name = %s)",name))
     local point = veafNamedPoints.getPoint(name)
     if point then
         local altitude = veaf.getLandHeight(point)
         local weatherReport = weathermark._WeatherReport(point, altitude, "imperial")
-        trigger.action.outTextForGroup(groupId, weatherReport, 30)
+        veaf.outTextForUnit(unitName, weatherReport, 30)
     end
 end
 
 function veafNamedPoints.getAtcAtPoint(parameters)
-    local name, groupId = unpack(parameters)
+    local name, unitName = unpack(parameters)
     veafNamedPoints.logTrace(string.format("getAtcAtPoint(name = %s)",name))
     local point = veafNamedPoints.getPoint(name)
     if point then
@@ -255,7 +254,7 @@ function veafNamedPoints.getAtcAtPoint(parameters)
         atcReport = atcReport .. "\n\n"
         local weatherReport = weathermark._WeatherReport(point, altitude, "metric")
         atcReport = atcReport ..weatherReport
-        trigger.action.outTextForGroup(groupId, atcReport, 30)
+        veaf.outTextForUnit(unitName, atcReport, 30)
     end
 end
 
@@ -266,25 +265,41 @@ function veafNamedPoints.buildPointsDatabase()
     end
 end
 
-function veafNamedPoints.listAllPoints(groupId)
-    veafNamedPoints.logDebug(string.format("listAllPoints(groupId = %s)",groupId))
+function veafNamedPoints.listAllPoints(unitName)
+    veafNamedPoints.logDebug(string.format("listAllPoints(unitName = %s)",unitName))
     local message = ""
     for name, point in pairs(veafNamedPoints.namedPoints) do
         local lat, lon = coord.LOtoLL(point)
         message = message .. name .. " => " .. mist.tostringLL(lat, lon, 2) .. "\n"
     end
 
-    -- send message only for the group
-    trigger.action.outTextForGroup(groupId, message, 30)
+    -- send message only for the unit
+    veaf.outTextForUnit(unitName, message, 30)
 end
 
--- function veafNamedPoints.getPointClosestToPlayer(groupId)
---     local minPoint = nil
---     local minDistance = 99999999
---     for name, point in pairs(veafNamedPoints.namedPoints) do
---         distanceFromCenter = ((point.x - player.x)^2 + (point.y - player.z)^2)^0.5
---     end
--- end
+function veafNamedPoints.getAtcAtClosestPoint(unitName)
+    veafNamedPoints.logDebug(string.format("veafNamedPoints.getAtcAtClosestPoint(unitName=%s)",unitName))
+    local closestPointName = nil
+    local minDistance = 99999999
+    local unit = Unit.getByName(unitName)
+    if unit then
+        for name, point in pairs(veafNamedPoints.namedPoints) do
+            if point.atc then
+                distanceFromPlayer = ((point.x - unit:getPosition().p.x)^2 + (point.z - unit:getPosition().p.z)^2)^0.5
+                veafNamedPoints.logTrace(string.format("distanceFromPlayer = %d",distanceFromPlayer))
+                if distanceFromPlayer < minDistance then
+                    minDistance = distanceFromPlayer
+                    closestPointName = name
+                    veafNamedPoints.logTrace(string.format("point %s is closest",name))
+                end
+            end
+        end
+    end
+    if closestPointName then
+        veafNamedPoints.getAtcAtPoint({closestPointName, unitName})
+    end
+end
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Radio menu and help
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -364,6 +379,7 @@ function veafNamedPoints._refreshAtcRadioMenu()
     end
     veafNamedPoints.logTrace("adding ATC submenu")
     veafNamedPoints.atcPath = veafRadio.addSubMenu("ATC", veafNamedPoints.rootPath)
+    veafRadio.addCommandToSubmenu("Get ATC on closest point" , veafNamedPoints.atcPath, veafNamedPoints.getAtcAtClosestPoint, nil, true)    
     names = {}
     for name, point in pairs(veafNamedPoints.namedPoints) do
         veafNamedPoints.logTrace("processing point name="..name)
@@ -389,11 +405,11 @@ end
 --      add ", defense [1-5]" to specify air defense cover on the way (1 = light, 5 = heavy)
 --      add ", size [1-5]" to change the number of cargo items to be transported (1 per participating helo, usually)
 --      add ", blocade [1-5]" to specify enemy blocade around the drop zone (1 = light, 5 = heavy)
-function veafNamedPoints.help(groupId)
+function veafNamedPoints.help(unitName)
     local text =
         'Create a marker and type "_name point [a name]" in the text\n' ..
         'This will store the position in the named points database for later reference\n'
-    trigger.action.outTextForGroup(groupId, text, 30)
+        veaf.outTextForUnit(unitName, text, 30)
 end
 
 
