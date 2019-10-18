@@ -72,7 +72,7 @@ veafSecurity.password_L9 = {}
 veafSecurity.password_L0["47c7808d1079fd20add322bbd5cf23b93ad1841e"] = true
 veafSecurity.password_L1["988d613da2a9b3a71b30d45f3cb20b9e0f3db1fa"] = true
 
-veafSecurity.radioAuthenticated = veaf.Development -- true if development to permit working without authenticating the radio
+veafSecurity.radioAuthenticated = veaf.SecurityDisabled
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- SHA-1 pure LUA implementation
@@ -510,11 +510,16 @@ function veafSecurity._checkPassword(password, level)
 end
 
 function veafSecurity.checkPassword_L0(password)
-  return veafSecurity._checkPassword(password, veafSecurity.password_L0)
+  return 
+    veaf.SecurityDisabled 
+    or 
+    veafSecurity._checkPassword(password, veafSecurity.password_L0)
 end
 
 function veafSecurity.checkPassword_L1(password)
   return 
+    veaf.SecurityDisabled 
+    or 
     veafSecurity._checkPassword(password, veafSecurity.password_L1)
     or
     veafSecurity._checkPassword(password, veafSecurity.password_L0)
@@ -522,6 +527,8 @@ end
 
 function veafSecurity.checkPassword_L9(password)
   return 
+    veaf.SecurityDisabled 
+    or 
     veafSecurity._checkPassword(password, veafSecurity.password_L9)
     or
     veafSecurity._checkPassword(password, veafSecurity.password_L1)

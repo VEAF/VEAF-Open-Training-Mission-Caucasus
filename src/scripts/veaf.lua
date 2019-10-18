@@ -37,6 +37,7 @@ veaf.Version = "1.2.0"
 
 --- Development version ?
 veaf.Development = true
+veaf.SecurityDisabled = true
 
 --- Enable logDebug ==> give more output to DCS log file.
 veaf.Debug = veaf.Development
