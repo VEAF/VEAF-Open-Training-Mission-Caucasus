@@ -49,7 +49,7 @@ veafTransportMission = {}
 veafTransportMission.Id = "TRANSPORT MISSION - "
 
 --- Version.
-veafTransportMission.Version = "1.3.0"
+veafTransportMission.Version = "1.3.1"
 
 --- Key phrase to look for in the mark text which triggers the command.
 veafTransportMission.Keyphrase = "_transport"
@@ -494,7 +494,7 @@ function veafTransportMission.friendlyGroupWatchdog()
     end
 end
 
-function veafTransportMission.reportTargetInformation(groupId)
+function veafTransportMission.reportTargetInformation(unitName)
     -- generate information dispatch
     local nbVehicles, nbInfantry = veafUnits.countInfantryAndVehicles(veafTransportMission.BlueGroupName)
 
@@ -537,8 +537,8 @@ function veafTransportMission.reportTargetInformation(groupId)
     end
     message = message .. 'WIND OVER DROP ZONE : ' .. windText
 
-    -- send message only for the group
-    trigger.action.outTextForGroup(groupId, message, 30)
+    -- send message only for the unit
+    veaf.outTextForUnit(unitName, message, 30)
 end
 
 --- add a smoke marker over the drop zone
@@ -668,7 +668,7 @@ function veafTransportMission.buildRadioMenu()
     -- missionCommands.addCommand('Respawn all cargoes', veafTransportMission.rootPath, veafTransportMission.resetAllCargoes)
 end
 
-function veafTransportMission.help(groupId)
+function veafTransportMission.help(unitName)
     local text =
         'Create a marker and type "_transport" in the text\n' ..
         'This will create a default friendly group awaiting cargo that you need to transport\n' ..
@@ -682,7 +682,7 @@ function veafTransportMission.help(groupId)
         '   "size [1-5]" to change the number of cargo items to be transported (1 per participating helo, usually)\n' ..
         '   "blocade [0-5]" to specify enemy blocade around the drop zone (1 = light, 5 = heavy)'
 
-    trigger.action.outTextForGroup(groupId, text, 30)
+    veaf.outTextForUnit(unitName, text, 30)
 end
 
 

@@ -70,7 +70,7 @@ veafMove = {}
 veafMove.Id = "MOVE - "
 
 --- Version.
-veafMove.Version = "1.2"
+veafMove.Version = "1.2.1"
 
 --- Key phrase to look for in the mark text which triggers the command.
 veafMove.Keyphrase = "_move"
@@ -573,7 +573,7 @@ function veafMove.buildRadioMenu()
     veafRadio.refreshRadioMenu()
 end
 
-function veafMove.help(groupId)
+function veafMove.help(unitName)
     local text = 
         'Create a marker and type "_move <group|tanker|afac>, name <groupname> " in the text\n' ..
         'This will issue a move command to the specified group in the DCS world\n' ..
@@ -587,7 +587,7 @@ function veafMove.help(groupId)
         'Type "_move afac, name [groupname]" to create a new JTAC flight plan and move the specified afac drone.\n' ..
         '     add ", speed [speed]" to make the tanker move and execute its mission at the specified speed (in knots)\n' ..
         '     add ", alt [altitude]" to specify the altitude at which the drone will circle (in feet)'
-    trigger.action.outTextForGroup(groupId, text, 30)
+    veaf.outTextForUnit(unitName, text, 30)
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------

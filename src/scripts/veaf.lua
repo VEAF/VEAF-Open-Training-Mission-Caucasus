@@ -670,9 +670,11 @@ function veaf.getGroupData(groupIdent)
 end
 
 function veaf.getTankerData(tankerGroupName)
-    local result = {}
+    veaf.logTrace("getTankerData " .. tankerGroupName)
+    local result = nil
     local tankerData = veaf.getGroupData(tankerGroupName)
     if tankerData then
+        result = {}
         -- find callsign
         local units = veaf.findInTable(tankerData, "units")
         if units and units[1] then 
@@ -731,6 +733,23 @@ function veaf.getTankerData(tankerGroupName)
     end
     return result
 end
+
+function veaf.outTextForUnit(unitName, message, duration)
+    local groupId = nil
+    local unit = Unit.getByName(unitName)
+    if unit then 
+        local group = unit:getGroup()
+        if group then 
+            groupId = group:getID()
+        end
+    end
+    if groupId then 
+        trigger.action.outTextForGroup(groupId, message, duration)
+    else
+        trigger.action.outTextF(message, duration)
+    end
+end
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialisation
 -------------------------------------------------------------------------------------------------------------------------------------------------------------

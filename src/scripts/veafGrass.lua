@@ -47,6 +47,7 @@ veafGrass.Id = "GRASS - "
 --- Version.
 veafGrass.Version = "1.1.0"
 
+veafGrass.DelayForStartup = 3
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Utility methods
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -69,11 +70,11 @@ end
 -- @param runwayOrigin a static unit object (right side)
 -- @return nil
 ------------------------------------------------------------------------------
-function veafGrass.buildGrassRunway(runwayOrigin)
+function veafGrass.buildGrassRunway(name, runwayOrigin)
 	veafGrass.logInfo("Building grass runway for unit " .. runwayOrigin.unitName)
 	local tower = true
 	local endMarkers = false
-
+	
 	-- runway length in meters
 	local length = 600;
 	-- a plot each XX meters
@@ -167,6 +168,18 @@ function veafGrass.buildGrassRunway(runwayOrigin)
 		tower.y = leftOrigin.y-20 + (nbPlots+1.2) * space * math.sin(mist.utils.toRadian(angle))
 		mist.dynAddStatic(tower)
 	end
+
+	-- add the runway to the named points
+	local point = {
+		x = runwayOrigin.x+20 + (nbPlots+1) * space * math.cos(mist.utils.toRadian(angle)) + width/2 * math.cos(mist.utils.toRadian(angle-90)),
+		y = math.floor(land.getHeight(leftOrigin) + 1),
+		z = runwayOrigin.y+20 + (nbPlots+1) * space * math.sin(mist.utils.toRadian(angle)) + width/2 * math.cos(mist.utils.toRadian(angle-90)),
+		atc = true,
+		runways = { 
+			{ hdg = angle, flare = "red"}
+		}
+	}
+	veafNamedPoints.addPoint(name, point)
 end
 
 ------------------------------------------------------------------------------
@@ -178,7 +191,7 @@ function veafGrass.buildGrassRunways()
 
 	for name, unit in pairs(mist.DBs.unitsByName) do
 		if string.find(name, 'GRASS_RUNWAY') then		
-            veafGrass.buildGrassRunway(unit)
+            veafGrass.buildGrassRunway(name, unit)
         end
 	end
 end
@@ -362,11 +375,14 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function veafGrass.initialize()
+	-- delay all these functions 30 seconds (to ensure that the other modules are loaded)
+	
 	-- auto generate FARP units
-	veafGrass.buildFarpsUnits()
-
+	mist.scheduleFunction(veafGrass.buildFarpsUnits,{},timer.getTime()+veafGrass.DelayForStartup)
+	
 	-- auto generate GRASS RUNWAY
-	veafGrass.buildGrassRunways()
+	mist.scheduleFunction(veafGrass.buildGrassRunways,{},timer.getTime()+veafGrass.DelayForStartup)
+
 end
 
 veafGrass.logInfo(string.format("Loading version %s", veafGrass.Version))
