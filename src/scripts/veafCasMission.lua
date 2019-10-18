@@ -72,7 +72,7 @@ veafCasMission = {}
 veafCasMission.Id = "CAS MISSION - "
 
 --- Version.
-veafCasMission.Version = "1.4.0"
+veafCasMission.Version = "1.4.1"
 
 --- Key phrase to look for in the mark text which triggers the command.
 veafCasMission.Keyphrase = "_cas"
@@ -693,7 +693,7 @@ end
 
 -- Ask a report
 -- @param int groupId
-function veafCasMission.reportTargetInformation(groupId)
+function veafCasMission.reportTargetInformation(unitName)
     -- generate information dispatch
     local nbVehicles, nbInfantry = veafUnits.countInfantryAndVehicles(veafCasMission.RedCasGroupName)
 
@@ -733,8 +733,8 @@ function veafCasMission.reportTargetInformation(groupId)
     end
     message = message .. 'WIND OVER TARGET : ' .. windText
 
-    -- send message only for the group
-    trigger.action.outTextForGroup(groupId, message, 30)
+    -- send message only for the unit
+    veaf.outTextForUnit(unitName, message, 30)
 end
 
 --- add a smoke marker over the target area
@@ -841,7 +841,7 @@ function veafCasMission.buildRadioMenu()
     veafRadio.addCommandToSubmenu("HELP", veafCasMission.rootPath, veafCasMission.help, nil, true)
 end
 
-function veafCasMission.help(groupId)
+function veafCasMission.help(unitName)
     local text =
         'Create a marker and type "_cas" in the text\n' ..
         'This will create a default CAS target group\n' ..
@@ -852,7 +852,7 @@ function veafCasMission.help(groupId)
         '   "armor [1-5]" specifies armor presence (1 = light, 5 = heavy)\n' ..
         '   "spacing [1-5]" changes the groups spacing (1 = dense, 3 = default, 5 = sparse)'
 
-    trigger.action.outTextForGroup(groupId, text, 30)
+    veaf.outTextForUnit(unitName, text, 30)
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -20,7 +20,7 @@ veafNamedPoints.Points = {
     -- airbases
     {name="AIRBASE Tbilisi",point={x=-315414,y=480,z=897262, atc=true, tower="138.00", runways={{name="12R", hdg=121, ils="110.30"},{name="30L", hdg=301, ils="108.90"}}}},
     {name="AIRBASE Sukhumi",point={x=-219998,y=0,z=563926, atc=true, tower="129.00", runways={{hdg=110},{hdg=290}}}},
-    {name="AIRBASE Batumi",point={x=-355808,y=0,z=617385, atc=true, tower="131.00", runways={{hdg=119, ils="110.30"},{hdg=299}, tacan="16X BTM"}}},
+    {name="AIRBASE Batumi",point={x=-355808,y=0,z=617385, atc=true, tower="131.00", runways={{hdg=119, ils="110.30"},{hdg=299}}, tacan="16X BTM"}},
     -- farps
     {name="FARP Java",point={x=-247450,y=0,z=799583}},
     {name="FARP Lentehi",point={x=-214442,y=0,z=695610}},

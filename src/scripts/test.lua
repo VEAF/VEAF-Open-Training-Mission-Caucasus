@@ -128,7 +128,7 @@ end
 dofile("veafGrass.lua")
 dofile("veafNamedPoints.lua")
 function veafNamedPoints.getAtcAtPoint(parameters)
-    local name, groupId = unpack(parameters)
+    local name, unitName = unpack(parameters)
     veafNamedPoints.logTrace(string.format("getAtcAtPoint(name = %s)",name))
     local point = veafNamedPoints.getPoint(name)
     if point then

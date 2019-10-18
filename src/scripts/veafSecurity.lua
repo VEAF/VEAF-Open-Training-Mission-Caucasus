@@ -33,7 +33,7 @@ veafSecurity = {}
 veafSecurity.Id = "SECURITY - "
 
 --- Version.
-veafSecurity.Version = "1.0.1"
+veafSecurity.Version = "1.0.2"
 
 --- Key phrase to look for in the mark text which triggers the command.
 veafSecurity.Keyphrase = "_auth"
@@ -72,7 +72,7 @@ veafSecurity.password_L9 = {}
 veafSecurity.password_L0["47c7808d1079fd20add322bbd5cf23b93ad1841e"] = true
 veafSecurity.password_L1["988d613da2a9b3a71b30d45f3cb20b9e0f3db1fa"] = true
 
-veafSecurity.radioAuthenticated = false
+veafSecurity.radioAuthenticated = veaf.Development -- true if development to permit working without authenticating the radio
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- SHA-1 pure LUA implementation

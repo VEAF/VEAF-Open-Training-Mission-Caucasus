@@ -24,7 +24,7 @@ veafAssets = {}
 veafAssets.Id = "ASSETS - "
 
 --- Version.
-veafAssets.Version = "1.2.0"
+veafAssets.Version = "1.2.1"
 
 veafAssets.Assets = {
     -- list the assets common to all missions below
@@ -128,7 +128,7 @@ function veafAssets.buildRadioMenu()
 end
 
 function veafAssets.info(parameters)
-    local name, groupId = unpack(parameters)
+    local name, unitName = unpack(parameters)
     veafAssets.logDebug("veafAssets.info "..name)
     local theAsset = nil
     for _, asset in pairs(veafAssets.assets) do
@@ -160,7 +160,7 @@ function veafAssets.info(parameters)
                 end
             end
         end 
-        trigger.action.outTextForGroup(groupId, text, 30)
+        veaf.outTextForUnit(unitName, text, 30)
     end
 end
 
@@ -205,11 +205,11 @@ function veafAssets.respawn(name)
 end
 
 
-function veafAssets.help(groupId)
+function veafAssets.help(unitName)
     local text =
         'The radio menu lists all the assets, friendly or enemy\n' ..
         'Use these menus to respawn the assets when needed\n'
-    trigger.action.outTextForGroup(groupId, text, 30)
+    veaf.outTextForUnit(unitName, text, 30)
 end
 
 

@@ -45,7 +45,7 @@ veafRadio = {}
 veafRadio.Id = "RADIO - "
 
 --- Version.
-veafRadio.Version = "1.1.0"
+veafRadio.Version = "1.1.1"
 
 veafRadio.RadioMenuName = "VEAF (" .. veaf.Version .. " - radio " .. veafRadio.Version .. ")"
 
@@ -56,8 +56,8 @@ veafRadio.SecondsBetweenRadioMenuAutomaticRebuild = 600 -- 10 minutes ; should n
 -- Do not change anything below unless you know what you are doing!
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
---- Humans Groups (associative array groupId => group)
-veafRadio.humanGroups = {}
+--- Humans Units (associative array unitName => unit)
+veafRadio.humanUnits = {}
 
 --- This structure contains all the radio menus
 veafRadio.radioMenu = {}
@@ -163,25 +163,37 @@ function veafRadio.refreshRadioSubmenu(parentRadioMenu, radioMenu)
   -- create the commands in the radio menu
   for count = 1,#radioMenu.commands do
     local command = radioMenu.commands[count]
-    if command.isForGroup then
+    if command.isForUnit then
       -- build menu for each player
-      for groupId, group in pairs(veafRadio.humanGroups) do
-          -- add radio command by player group
+      for unitName, unit in pairs(veafRadio.humanUnits) do
+          -- add radio command by player unit
           local parameters = command.parameters
           if parameters == nil then
-            parameters = groupId
+            parameters = unitName
           else
             parameters = { command.parameters }
-            table.insert(parameters, groupId)
+            table.insert(parameters, unitName)
           end 
+          local groupId = nil
+          local unit = Unit.getByName(unitName)
+          if unit then 
+              local group = unit:getGroup()
+              if group then 
+                  groupId = group:getID()
+              end
+          end
           if command.isSecured then
             local title = "+" .. command.title
             if veafSecurity.isRadioAuthenticated() then
               title = "-" .. command.title
             end
-            missionCommands.addCommandForGroup(groupId, title, radioMenu.dcsRadioMenu, veafRadio._proxyMethod, {command.method, parameters})
-          else           
-            missionCommands.addCommandForGroup(groupId, command.title, radioMenu.dcsRadioMenu, command.method, parameters)
+            if groupId then 
+              missionCommands.addCommandForGroup(groupId, title, radioMenu.dcsRadioMenu, veafRadio._proxyMethod, {command.method, parameters})
+            end
+            else           
+              if groupId then 
+                missionCommands.addCommandForGroup(groupId, command.title, radioMenu.dcsRadioMenu, command.method, parameters)
+              end
           end
       end
     else
@@ -219,21 +231,21 @@ function veafRadio._addCommandToMainMenu(title, method, isSecured)
   return veafRadio._addCommandToSubmenu(title, nil, method, nil, nil, isSecured)
 end
   
-function veafRadio.addCommandToSubmenu(title, radioMenu, method, parameters, isForGroup)
-  return veafRadio._addCommandToSubmenu(title, radioMenu, method, parameters, isForGroup, false)
+function veafRadio.addCommandToSubmenu(title, radioMenu, method, parameters, isForUnit)
+  return veafRadio._addCommandToSubmenu(title, radioMenu, method, parameters, isForUnit, false)
 end
 
-function veafRadio.addSecuredCommandToSubmenu(title, radioMenu, method, parameters, isForGroup)
-  return veafRadio._addCommandToSubmenu(title, radioMenu, method, parameters, isForGroup, true)
+function veafRadio.addSecuredCommandToSubmenu(title, radioMenu, method, parameters, isForUnit)
+  return veafRadio._addCommandToSubmenu(title, radioMenu, method, parameters, isForUnit, true)
 end
 
-function veafRadio._addCommandToSubmenu(title, radioMenu, method, parameters, isForGroup, isSecured)
+function veafRadio._addCommandToSubmenu(title, radioMenu, method, parameters, isForUnit, isSecured)
     local command = {}
     command.title = title
     command.method = method
     command.parameters = parameters
     command.isSecured = isSecured
-    command.isForGroup = isForGroup
+    command.isForUnit = isForUnit
     local menu = veafRadio.radioMenu
     if radioMenu then
        menu = radioMenu 
@@ -299,17 +311,17 @@ function veafRadio.delSubmenu(subMenu, radioMenu)
   end);
 end
 
--- prepare humans groups
-function veafRadio.buildHumanGroups() -- TODO make this player-centric, not group-centric
+-- prepare humans units
+function veafRadio.buildHumanUnits() -- TODO make this player-centric, not unit-centric
 
-    veafRadio.humanGroups = {}
+    veafRadio.humanUnits = {}
 
     -- build menu for each player
     for name, unit in pairs(mist.DBs.humansByName) do
-        -- not already in groups list ?
-        if veafRadio.humanGroups[unit.groupName] == nil then
-            veafRadio.logTrace(string.format("human player found name=%s, groupName=%s", name, unit.groupName))
-            veafRadio.humanGroups[unit.groupId] = unit.groupName
+        -- not already in units list ?
+        if veafRadio.humanUnits[unit.unitName] == nil then
+            veafRadio.logTrace(string.format("human player found name=%s, unitName=%s", name, unit.unitName))
+            veafRadio.humanUnits[unit.unitName] = unit.unitName
         end
     end
 end
@@ -330,7 +342,7 @@ end
 
 function veafRadio.initialize()
     -- Build the initial radio menu
-    veafRadio.buildHumanGroups()
+    veafRadio.buildHumanUnits()
     veafRadio.refreshRadioMenu()
     --veafRadio.radioRefreshWatchdog()
 
