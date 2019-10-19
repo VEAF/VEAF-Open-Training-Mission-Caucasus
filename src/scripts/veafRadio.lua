@@ -45,7 +45,7 @@ veafRadio = {}
 veafRadio.Id = "RADIO - "
 
 --- Version.
-veafRadio.Version = "1.1.1"
+veafRadio.Version = "1.1.2"
 
 veafRadio.RadioMenuName = "VEAF (" .. veaf.Version .. " - radio " .. veafRadio.Version .. ")"
 
@@ -204,19 +204,12 @@ function veafRadio.refreshRadioSubmenu(parentRadioMenu, radioMenu)
     if not command.usage then
       command.usage = veafRadio.USAGE_ForAll
     end
-    trace1 = (command.title == "HELP" or command.title == "Get ATC on closest point")
-    if trace1 then 
-      veafRadio.logTrace("command="..command.title)
-      veafRadio.logTrace("usage="..command.usage)     
-    end
     if command.usage ~= veafRadio.USAGE_ForAll then
       
       -- build menu for each player group
-      if trace1 then veafRadio.logTrace("build menu for each player group") end
       local alreadyDoneGroups = {}
       for unitName, unit in pairs(veafRadio.humanUnits) do
-        local trace2 = trace1 and ((unitName == "Pilot #397") or (unitName == "Pilot #396"))
-        if trace2 then veafRadio.logTrace("refreshing menu for unitname="..unitName) end
+        local unitCallsign = unit.callsign
 
         -- add radio command by player unit or group
         local parameters = command.parameters
@@ -226,19 +219,13 @@ function veafRadio.refreshRadioSubmenu(parentRadioMenu, radioMenu)
           parameters = { command.parameters }
           table.insert(parameters, unitName)
         end 
-        if trace2 then 
-          veafRadio.logTrace("searching for groupID")
-        end
         local groupId = unit.groupId
-        if trace2 and groupId then 
-          veafRadio.logTrace("got groupId="..groupId)
-        end
         if not groupId then 
           veafRadio.logError("cannot find groupId for unit ".. unitName)
         else
           local _title = command.title
           if command.usage == veafRadio.USAGE_ForUnit then
-            _title = unitName .. " - " .. command.title
+            _title = unitCallsign .. " - " .. command.title
           end
           if alreadyDoneGroups[groupId] == nil or command.usage == veafRadio.USAGE_ForUnit then
             veafRadio._addCommand(groupId, _title, radioMenu.dcsRadioMenu, command, parameters, trace)
@@ -361,7 +348,9 @@ function veafRadio.buildHumanUnits()
         -- not already in units list ?
         if veafRadio.humanUnits[unit.unitName] == nil then
             veafRadio.logTrace(string.format("human player found name=%s, unitName=%s, groupId=%s", name, unit.unitName,unit.groupId))
-            veafRadio.humanUnits[unit.unitName] = {name=unit.unitName, groupId=unit.groupId}
+            local callsign = unit.callsign
+            if type(callsign) == "table" then callsign = callsign["name"] end
+            veafRadio.humanUnits[unit.unitName] = {name=unit.unitName, groupId=unit.groupId, callsign=callsign}
         end
     end
 end

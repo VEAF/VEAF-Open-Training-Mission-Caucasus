@@ -69,6 +69,18 @@ function veaf.vecToString(vec)
     return result
 end
 
+function veaf.discoverTable(o)
+    local text = ""
+    for key,value in pairs(o) do
+        if value then
+            text = text .. " - ".. key.."="..value.."\n";
+        else
+            text = text .. " - ".. key.."\n";
+        end
+    end
+	return text
+end
+
 veafMarkers = {}
 function veafMarkers.registerEventHandler(a, b)
 end
@@ -190,3 +202,32 @@ veafNamedPoints.initialize()
 
 --veafNamedPoints.getAtcAtPoint({"AIRBASE Tbilisi", 0})
 veafNamedPoints.getAtcAtPoint({"AIRBASE Sukhumi", 0})
+
+function veaf.discover(o)
+    return veaf._discover(o, 0)
+end
+
+function veaf._discover(o, level)
+    local text = ""
+    if (type(o) == "table") then
+        text = "\n"
+        for key,value in pairs(o) do
+            for i=0, level do
+                text = text .. " "
+            end
+            text = text .. ".".. key.."="..veaf._discover(value, level+1);
+        end
+    else
+        text = text .. o .."\n";
+    end
+    return text
+end
+
+local callsign={}
+callsign["1"]=7
+callsign["2"]={}
+callsign["2"]["toto"]="toto"
+callsign["2"]["titi"]="toto"
+callsign["name"]="Chevy41"
+
+print(veaf.discover(callsign))
