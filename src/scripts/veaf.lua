@@ -33,7 +33,7 @@ veaf = {}
 veaf.Id = "VEAF - "
 
 --- Version.
-veaf.Version = "1.2.0"
+veaf.Version = "1.2.1"
 
 --- Development version ?
 veaf.Development = true
@@ -139,7 +139,7 @@ function veaf.vecToString(vec)
     return result
 end
 
-function veaf.discover(o)
+function veaf.discoverMetadata(o)
     local text = ""
     for key,value in pairs(getmetatable(o)) do
        text = text .. " - ".. key.."\n";
@@ -147,12 +147,29 @@ function veaf.discover(o)
 	return text
 end
 
-function veaf.discoverTable(o)
+function veaf.p(o)
+    if not o then return "[nil]" end
+    return veaf._discover(o, 0)
+end
+
+function veaf.discover(o)
+    return veaf._discover(o, 0)
+end
+
+function veaf._discover(o, level)
     local text = ""
-    for key,value in pairs(o) do
-       text = text .. " - ".. key.."\n";
+    if (type(o) == "table") then
+        text = "\n"
+        for key,value in pairs(o) do
+            for i=0, level do
+                text = text .. " "
+            end
+            text = text .. ".".. key.."="..veaf._discover(value, level+1);
+        end
+    else
+        text = text .. o .."\n";
     end
-	return text
+    return text
 end
 
 --- Simple round
@@ -747,7 +764,7 @@ function veaf.outTextForUnit(unitName, message, duration)
     if groupId then 
         trigger.action.outTextForGroup(groupId, message, duration)
     else
-        trigger.action.outTextF(message, duration)
+        trigger.action.outText(message, duration)
     end
 end
 

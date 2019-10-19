@@ -465,7 +465,7 @@ function veafTransportMission.generateTransportMission(targetSpot, size, defense
     end
 
     -- add radio menu for drop zone information (by player group)
-    veafRadio.addCommandToSubmenu('Drop zone information', veafTransportMission.rootPath, veafTransportMission.reportTargetInformation, nil, true)
+    veafRadio.addCommandToSubmenu('Drop zone information', veafTransportMission.rootPath, veafTransportMission.reportTargetInformation, nil, veafRadio.USAGE_ForGroup)
 
     -- add radio menus for commands
     veafRadio.addSecuredCommandToSubmenu('Skip current objective', veafTransportMission.rootPath, veafTransportMission.skip)
@@ -663,7 +663,7 @@ end
 function veafTransportMission.buildRadioMenu()
 
     veafTransportMission.rootPath = veafRadio.addSubMenu(veafTransportMission.RadioMenuName)
-    veafRadio.addCommandToSubmenu("HELP", veafTransportMission.rootPath, veafTransportMission.help, nil, true)
+    veafRadio.addCommandToSubmenu("HELP", veafTransportMission.rootPath, veafTransportMission.help, nil, veafRadio.USAGE_ForGroup)
     -- TODO add this command when the respawn will work (see veafTransportMission.resetAllCargoes)
     -- missionCommands.addCommand('Respawn all cargoes', veafTransportMission.rootPath, veafTransportMission.resetAllCargoes)
 end

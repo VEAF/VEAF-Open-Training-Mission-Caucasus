@@ -320,7 +320,7 @@ function veafNamedPoints._buildWeatherReportsRadioMenuPage(menu, names, pageSize
         local name = names[index]
         veafNamedPoints.logTrace(string.format("names[%d] = %s",index, name))
         local namedPoint = veafNamedPoints.namedPoints[name]
-        veafRadio.addCommandToSubmenu( name , menu, veafNamedPoints.getWeatherAtPoint, name, true)    
+        veafRadio.addCommandToSubmenu( name , menu, veafNamedPoints.getWeatherAtPoint, name, veafRadio.USAGE_ForGroup)    
     end
     if endIndex < namesCount then
         veafNamedPoints.logDebug("adding next page menu")
@@ -362,7 +362,7 @@ function veafNamedPoints._buildAtcRadioMenuPage(menu, names, pageSize, startInde
         local name = names[index]
         veafNamedPoints.logTrace(string.format("names[%d] = %s",index, name))
         local namedPoint = veafNamedPoints.namedPoints[name]
-        veafRadio.addCommandToSubmenu( name , menu, veafNamedPoints.getAtcAtPoint, name, true)    
+        veafRadio.addCommandToSubmenu( name , menu, veafNamedPoints.getAtcAtPoint, name, veafRadio.USAGE_ForGroup)    
     end
     if endIndex < namesCount then
         veafNamedPoints.logDebug("adding next page menu")
@@ -379,7 +379,7 @@ function veafNamedPoints._refreshAtcRadioMenu()
     end
     veafNamedPoints.logTrace("adding ATC submenu")
     veafNamedPoints.atcPath = veafRadio.addSubMenu("ATC", veafNamedPoints.rootPath)
-    veafRadio.addCommandToSubmenu("Get ATC on closest point" , veafNamedPoints.atcPath, veafNamedPoints.getAtcAtClosestPoint, nil, true)    
+    veafRadio.addCommandToSubmenu("Get ATC on closest point" , veafNamedPoints.atcPath, veafNamedPoints.getAtcAtClosestPoint, nil, veafRadio.USAGE_ForUnit)    
     names = {}
     for name, point in pairs(veafNamedPoints.namedPoints) do
         veafNamedPoints.logTrace("processing point name="..name)
@@ -396,8 +396,8 @@ end
 --- Build the initial radio menu
 function veafNamedPoints.buildRadioMenu()
     veafNamedPoints.rootPath = veafRadio.addSubMenu(veafNamedPoints.RadioMenuName)
-    veafRadio.addCommandToSubmenu("HELP", veafNamedPoints.rootPath, veafNamedPoints.help, nil, true)
-    veafRadio.addCommandToSubmenu("List all points", veafNamedPoints.rootPath, veafNamedPoints.listAllPoints, nil, true)
+    veafRadio.addCommandToSubmenu("HELP", veafNamedPoints.rootPath, veafNamedPoints.help, nil, veafRadio.USAGE_ForGroup)
+    veafRadio.addCommandToSubmenu("List all points", veafNamedPoints.rootPath, veafNamedPoints.listAllPoints, nil, veafRadio.USAGE_ForGroup)
     veafNamedPoints._refreshAtcRadioMenu()
     veafNamedPoints._refreshWeatherReportsRadioMenu()
 end
