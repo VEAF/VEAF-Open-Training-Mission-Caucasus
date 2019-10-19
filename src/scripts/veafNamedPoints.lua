@@ -37,7 +37,7 @@ veafNamedPoints = {}
 veafNamedPoints.Id = "NAMED POINTS - "
 
 --- Version.
-veafNamedPoints.Version = "1.2.1"
+veafNamedPoints.Version = "1.2.2"
 
 --- Key phrase to look for in the mark text which triggers the command.
 veafNamedPoints.Keyphrase = "_name point"
@@ -252,7 +252,7 @@ function veafNamedPoints.getAtcAtPoint(parameters)
 
         -- weather
         atcReport = atcReport .. "\n\n"
-        local weatherReport = weathermark._WeatherReport(point, altitude, "metric")
+        local weatherReport = weathermark._WeatherReport(point, altitude, "imperial")
         atcReport = atcReport ..weatherReport
         veaf.outTextForUnit(unitName, atcReport, 30)
     end
@@ -379,7 +379,7 @@ function veafNamedPoints._refreshAtcRadioMenu()
     end
     veafNamedPoints.logTrace("adding ATC submenu")
     veafNamedPoints.atcPath = veafRadio.addSubMenu("ATC", veafNamedPoints.rootPath)
-    veafRadio.addCommandToSubmenu("Get ATC on closest point" , veafNamedPoints.atcPath, veafNamedPoints.getAtcAtClosestPoint, nil, veafRadio.USAGE_ForUnit)    
+    veafRadio.addCommandToSubmenu("Closest point" , veafNamedPoints.atcPath, veafNamedPoints.getAtcAtClosestPoint, nil, veafRadio.USAGE_ForUnit)    
     names = {}
     for name, point in pairs(veafNamedPoints.namedPoints) do
         veafNamedPoints.logTrace("processing point name="..name)

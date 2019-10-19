@@ -45,7 +45,7 @@ veafGrass = {}
 veafGrass.Id = "GRASS - "
 
 --- Version.
-veafGrass.Version = "1.1.0"
+veafGrass.Version = "1.1.1"
 
 veafGrass.DelayForStartup = 3
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -85,7 +85,7 @@ function veafGrass.buildGrassRunway(name, runwayOrigin)
 	-- nb plots
 	local nbPlots = math.ceil(length / space);
 
-	local angle = mist.utils.toDegree(runwayOrigin.heading);
+	local angle = math.floor(mist.utils.toDegree(runwayOrigin.heading)+0.5);
 
 	-- create left origin from right origin
 	local leftOrigin = {
@@ -176,10 +176,10 @@ function veafGrass.buildGrassRunway(name, runwayOrigin)
 		z = runwayOrigin.y+20 + (nbPlots+1) * space * math.sin(mist.utils.toRadian(angle)) + width/2 * math.cos(mist.utils.toRadian(angle-90)),
 		atc = true,
 		runways = { 
-			{ hdg = angle, flare = "red"}
+			{ hdg = (angle + 180) % 360, flare = "red"}
 		}
 	}
-	veafNamedPoints.addPoint(name, point)
+	veafNamedPoints.addPoint(name:gsub("GRASS_RUNWAY","Grass strip"), point)
 end
 
 ------------------------------------------------------------------------------
