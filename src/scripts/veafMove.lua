@@ -569,7 +569,7 @@ end
 --- Build the initial radio menu
 function veafMove.buildRadioMenu()
     veafMove.rootPath = veafRadio.addSubMenu(veafMove.RadioMenuName)
-    veafRadio.addCommandToSubmenu("HELP", veafMove.rootPath, veafMove.help, nil, true)
+    veafRadio.addCommandToSubmenu("HELP", veafMove.rootPath, veafMove.help, nil, veafRadio.USAGE_ForGroup)
     veafRadio.refreshRadioMenu()
 end
 

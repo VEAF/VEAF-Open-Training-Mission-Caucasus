@@ -747,7 +747,7 @@ function veaf.outTextForUnit(unitName, message, duration)
     if groupId then 
         trigger.action.outTextForGroup(groupId, message, duration)
     else
-        trigger.action.outTextF(message, duration)
+        trigger.action.outText(message, duration)
     end
 end
 

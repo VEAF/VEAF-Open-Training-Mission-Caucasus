@@ -63,15 +63,15 @@ end
 function veafAssets._buildAssetRadioMenu(menu, asset)
     if asset.disposable or asset.information then -- in this case we need a submenu
         local radioMenu = veafRadio.addSubMenu(asset.description, menu)
-        veafRadio.addSecuredCommandToSubmenu("Respawn "..asset.description, radioMenu, veafAssets.respawn, asset.name, false)
+        veafRadio.addSecuredCommandToSubmenu("Respawn "..asset.description, radioMenu, veafAssets.respawn, asset.name, veafRadio.USAGE_ForAll)
         if asset.information then
-            veafRadio.addCommandToSubmenu("Get info on "..asset.description, radioMenu, veafAssets.info, asset.name, true)
+            veafRadio.addCommandToSubmenu("Get info on "..asset.description, radioMenu, veafAssets.info, asset.name, veafRadio.USAGE_ForGroup)
         end
         if asset.disposable then
-            veafRadio.addSecuredCommandToSubmenu("Dispose of "..asset.description, radioMenu, veafAssets.dispose, asset.name, false)
+            veafRadio.addSecuredCommandToSubmenu("Dispose of "..asset.description, radioMenu, veafAssets.dispose, asset.name, veafRadio.USAGE_ForAll)
         end
     else
-        veafRadio.addSecuredCommandToSubmenu("Respawn "..asset.description, menu, veafAssets.respawn, asset.name, false)
+        veafRadio.addSecuredCommandToSubmenu("Respawn "..asset.description, menu, veafAssets.respawn, asset.name, veafRadio.USAGE_ForAll)
     end
 end
 
@@ -103,7 +103,7 @@ end
 --- Build the initial radio menu
 function veafAssets.buildRadioMenu()
     veafAssets.rootPath = veafRadio.addSubMenu(veafAssets.RadioMenuName)
-    veafRadio.addCommandToSubmenu("HELP", veafAssets.rootPath, veafAssets.help, nil, true)
+    veafRadio.addCommandToSubmenu("HELP", veafAssets.rootPath, veafAssets.help, nil, veafRadio.USAGE_ForGroup)
 
     names = {}
     sortedAssets = {}

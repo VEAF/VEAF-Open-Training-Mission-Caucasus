@@ -722,7 +722,7 @@ function veafCarrierOperations.rebuildRadioMenu()
         -- add the ATC menu (by player group)
         carrier.getInfoMenuName = name .. " - ATC - Request informations"
         veafCarrierOperations.logTrace("add carrier.getInfoMenuName="..carrier.getInfoMenuName)
-        veafRadio.addCommandToSubmenu(carrier.getInfoMenuName, veafCarrierOperations.rootPath, veafCarrierOperations.atcForCarrierOperations, name, true)
+        veafRadio.addCommandToSubmenu(carrier.getInfoMenuName, veafCarrierOperations.rootPath, veafCarrierOperations.atcForCarrierOperations, name, veafRadio.USAGE_ForGroup)
 
         veafRadio.refreshRadioMenu()
     end
@@ -735,7 +735,7 @@ function veafCarrierOperations.buildRadioMenu()
     veafCarrierOperations.rootPath = veafRadio.addSubMenu(veafCarrierOperations.RadioMenuName)
 
     -- build HELP menu for each group
-    veafRadio.addCommandToSubmenu("HELP", veafCarrierOperations.rootPath, veafCarrierOperations.help, nil, true)
+    veafRadio.addCommandToSubmenu("HELP", veafCarrierOperations.rootPath, veafCarrierOperations.help, nil, veafRadio.USAGE_ForGroup)
 
     veafCarrierOperations.rebuildRadioMenu()
 end
