@@ -57,6 +57,7 @@ veafNamedPoints.namedPoints = {}
 veafNamedPoints.rootPath = nil
 veafNamedPoints.weatherPath = nil
 veafNamedPoints.atcPath = nil
+veafNamedPoints.atcClosestPath = nil
 
 --- Initial Marker id.
 veafNamedPoints.markid=1270000
@@ -268,7 +269,13 @@ end
 function veafNamedPoints.listAllPoints(unitName)
     veafNamedPoints.logDebug(string.format("listAllPoints(unitName = %s)",unitName))
     local message = ""
+    names = {}
     for name, point in pairs(veafNamedPoints.namedPoints) do
+        table.insert(names, name)
+    end
+    table.sort(names)
+    for _, name in pairs(names) do
+        local point = veafNamedPoints.namedPoints[name]
         local lat, lon = coord.LOtoLL(point)
         message = message .. name .. " => " .. mist.tostringLL(lat, lon, 2) .. "\n"
     end
@@ -367,29 +374,35 @@ function veafNamedPoints._buildAtcRadioMenuPage(menu, names, pageSize, startInde
     if endIndex < namesCount then
         veafNamedPoints.logDebug("adding next page menu")
         local nextPageMenu = veafRadio.addSubMenu("Next page", menu)
-        veafNamedPoints._buildAtcReportsRadioMenuPage(nextPageMenu, names, 10, endIndex+1)
+        veafNamedPoints._buildAtcRadioMenuPage(nextPageMenu, names, 10, endIndex+1)
     end
 end
 
 --- refresh the ATC radio menu
 function veafNamedPoints._refreshAtcRadioMenu()
+    veafNamedPoints.logTrace("adding ATC On Closest Point submenu")
+    if veafNamedPoints.atcClosestPath then
+        veafNamedPoints.logTrace("deleting ATC On Closest Point submenu")
+        veafRadio.delSubmenu(veafNamedPoints.atcClosestPath, veafNamedPoints.rootPath)
+    end
+    veafNamedPoints.atcClosestPath = veafRadio.addSubMenu("ATC on closest point", veafNamedPoints.rootPath)
+    veafRadio.addCommandToSubmenu("ATC on closest point" , veafNamedPoints.atcClosestPath, veafNamedPoints.getAtcAtClosestPoint, nil, veafRadio.USAGE_ForUnit)    
+
     if veafNamedPoints.atcPath then
         veafNamedPoints.logTrace("deleting ATC submenu")
         veafRadio.delSubmenu(veafNamedPoints.atcPath, veafNamedPoints.rootPath)
     end
     veafNamedPoints.logTrace("adding ATC submenu")
     veafNamedPoints.atcPath = veafRadio.addSubMenu("ATC", veafNamedPoints.rootPath)
-    veafRadio.addCommandToSubmenu("Closest point" , veafNamedPoints.atcPath, veafNamedPoints.getAtcAtClosestPoint, nil, veafRadio.USAGE_ForUnit)    
     names = {}
     for name, point in pairs(veafNamedPoints.namedPoints) do
-        veafNamedPoints.logTrace("processing point name="..name)
         if point.atc then
-            veafNamedPoints.logTrace("ATC is set on point name="..name)
             table.insert(names, name)
         end
     end
     table.sort(names)
     veafNamedPoints._buildAtcRadioMenuPage(veafNamedPoints.atcPath, names, 10, 1)
+    
     veafRadio.refreshRadioMenu()
 end
 
