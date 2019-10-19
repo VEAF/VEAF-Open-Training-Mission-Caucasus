@@ -61,6 +61,7 @@ copy .\src\scripts\mission-specific\%VERSION%\*.lua .\build\tempsrc\l10n\Default
 
 rem -- set the debug flag to off
 powershell -Command "(gc .\build\tempsrc\l10n\Default\veaf.lua) -replace 'veaf.Development = %DEBUG_FLAG%', 'veaf.Development = false' | sc .\build\tempsrc\l10n\Default\veaf.lua" >nul 2>&1
+powershell -Command "(gc .\build\tempsrc\l10n\Default\veaf.lua) -replace 'veaf.SecurityDisabled = %SECURITY_FLAG%', 'veaf.SecurityDisabled = false' | sc .\build\tempsrc\l10n\Default\veaf.lua" >nul 2>&1
 
 rem -- compile the mission
 "%SEVENZIP%" a -r -tzip %MISSION_FILE%.miz .\build\tempsrc\* -mem=AES256 >nul 2>&1
