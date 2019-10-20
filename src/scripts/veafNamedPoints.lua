@@ -231,7 +231,6 @@ function veafNamedPoints.getAtcAtPoint(parameters)
                 -- pop flare if needed
                 local flare = ""
                 if runway.flare then
-                    -- TODO
                     flare = " marked with ".. runway.flare .. " signal flare"
                     local flareColor = trigger.flareColor.Green
                     if runway.flare:upper() == "RED" then

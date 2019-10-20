@@ -147,30 +147,38 @@ function veaf.discoverMetadata(o)
 	return text
 end
 
-function veaf.p(o)
-    if not o then return "[nil]" end
-    return veaf._discover(o, 0)
-end
-
 function veaf.discover(o)
     return veaf._discover(o, 0)
 end
 
-function veaf._discover(o, level)
-    local text = ""
-    if (type(o) == "table") then
-        text = "\n"
-        for key,value in pairs(o) do
-            for i=0, level do
-                text = text .. " "
-            end
-            text = text .. ".".. key.."="..veaf._discover(value, level+1);
-        end
-    else
-        text = text .. o .."\n";
-    end
-    return text
-end
+function veaf.p(o, level)
+    if level == nil then level = 0 end
+      local text = ""
+      if (type(o) == "table") then
+          text = "\n"
+          for key,value in pairs(o) do
+              for i=0, level do
+                  text = text .. " "
+              end
+              text = text .. ".".. key.."="..veaf.p(value, level+1);
+          end
+      elseif (type(o) == "function") then
+          text = text .. "[function]".."\n";
+      elseif (type(o) == "boolean") then
+          if o == true then 
+              text = text .. "[true]".."\n";
+          else
+              text = text .. "[false]".."\n";
+          end
+      else
+          if o == nil then
+              text = text .. "[nil]" .."\n";    
+          else
+              text = text .. o .."\n";
+          end
+      end
+      return text
+  end
 
 --- Simple round
 function veaf.round(num, numDecimalPlaces)

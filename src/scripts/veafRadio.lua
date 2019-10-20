@@ -130,7 +130,10 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function veafRadio._proxyMethod(parameters)
+  veafRadio.logTrace("parameters="..veaf.p(parameters))  
   local realMethod, realParameters = unpack(parameters)
+  veafRadio.logTrace("realMethod="..veaf.p(realMethod))  
+  veafRadio.logTrace("realParameters="..veaf.p(realParameters))  
   if veafSecurity.isRadioAuthenticated() then
     realMethod(realParameters)
   else
@@ -167,13 +170,20 @@ function veafRadio._addCommand(groupId, title, menu, command, parameters, trace)
     if trace then veafRadio.logTrace("adding secured command") end
     
     _method = veafRadio._proxyMethod
-    _parameters = {method, parameters}
+    _parameters = {command.method, command.parameters}
 
     if veafSecurity.isRadioAuthenticated() then
       _title = "-" .. title
     else
       _title = "+" .. title
     end
+  end
+
+  -- TODO remove this (ZIP)
+  if command.title == "CSG-01 Tarawa - Start carrier air operations for 45 minutes" then
+    veafRadio.logTrace("tracing _addCommand for Tarawa - command="..veaf.p(command))
+    veafRadio.logTrace("tracing _addCommand for Tarawa - _method="..veaf.p(_method))
+    veafRadio.logTrace("tracing _addCommand for Tarawa - _parameters="..veaf.p(_parameters))
   end
 
   if groupId then
@@ -231,11 +241,14 @@ function veafRadio.refreshRadioSubmenu(parentRadioMenu, radioMenu)
             veafRadio._addCommand(groupId, _title, radioMenu.dcsRadioMenu, command, parameters, trace)
           end
           alreadyDoneGroups[groupId] = true
-        end
-        
+        end       
       end
     else
-      veafRadio._addCommand(nil, command.title, radioMenu.dcsRadioMenu, command, parameters, trace)
+      -- TODO remove this (ZIP)
+      if command.title == "CSG-01 Tarawa - Start carrier air operations for 45 minutes" then
+        veafRadio.logTrace("tracing refreshRadioSubmenu for Tarawa - "..veaf.p(command))
+      end
+      veafRadio._addCommand(nil    , command.title, radioMenu.dcsRadioMenu, command, command.parameters, trace)
     end
   end
   
@@ -273,6 +286,12 @@ function veafRadio._addCommandToSubmenu(title, radioMenu, method, parameters, us
     command.parameters = parameters
     command.isSecured = isSecured
     command.usage = usage
+    if command.usage == nil then command.usage = veafRadio.USAGE_ForAll end
+    
+    -- TODO remove this (ZIP)
+    if title == "CSG-01 Tarawa - Start carrier air operations for 45 minutes" then
+      veafRadio.logTrace("tracing _addCommandToSubmenu for Tarawa - "..veaf.p(command))
+    end
     local menu = veafRadio.radioMenu
     if radioMenu then
        menu = radioMenu 
