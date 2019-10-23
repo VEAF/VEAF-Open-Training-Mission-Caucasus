@@ -38,7 +38,7 @@ veafSecurity.Version = "1.0.2"
 --- Key phrase to look for in the mark text which triggers the command.
 veafSecurity.Keyphrase = "_auth"
 
-veafSecurity.authDuration = 10
+veafSecurity.authDuration = 30
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Utility methods
