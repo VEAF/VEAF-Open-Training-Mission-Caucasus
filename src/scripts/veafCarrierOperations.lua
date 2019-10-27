@@ -65,7 +65,7 @@ veafCarrierOperations.AllCarriers =
 veafCarrierOperations.ALT_FOR_MEASURING_WIND = 30 -- wind is measured at 30 meters, 10 meters above deck
 veafCarrierOperations.ALIGNMENT_MANOEUVER_SPEED = 8 -- carrier speed when not yet aligned to the wind (in m/s)
 veafCarrierOperations.MAX_OPERATIONS_DURATION = 45 -- operations are stopped after
-veafCarrierOperations.SCHEDULER_INTERVAL = 2 -- scheduler runs every 2 minutes -- TODO reset
+veafCarrierOperations.SCHEDULER_INTERVAL = 2 -- scheduler runs every 2 minutes
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Do not change anything below unless you know what you are doing!
