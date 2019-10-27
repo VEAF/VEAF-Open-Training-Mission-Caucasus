@@ -239,8 +239,7 @@ function veafRadio.refreshRadioSubmenu(parentRadioMenu, radioMenu)
     else
       veafRadio._addCommand(nil    , command.title, radioMenu.dcsRadioMenu, command, command.parameters, trace)
     end
-  end
-  
+  end  
   -- recurse to create the submenus in the radio menu
   for count = 1,#radioMenu.subMenus do
     local subMenu = radioMenu.subMenus[count]
@@ -353,6 +352,7 @@ function veafRadio.buildHumanUnits()
             veafRadio.logTrace(string.format("human player found name=%s, unitName=%s, groupId=%s", name, unit.unitName,unit.groupId))
             local callsign = unit.callsign
             if type(callsign) == "table" then callsign = callsign["name"] end
+            if type(callsign) == "number" then callsign = "" .. callsign end
             veafRadio.humanUnits[unit.unitName] = {name=unit.unitName, groupId=unit.groupId, callsign=callsign}
         end
     end

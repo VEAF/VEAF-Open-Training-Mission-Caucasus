@@ -39,11 +39,11 @@ veafNamedPoints.Points = {
 	    , runways={ {name="22", hdg=220}, {name="04", hdg=40}}}},
     {name="AIRBASE Gelendzhik", point={x=-50996,y=0,z=297849, atc=true, tower="126.00"
         , runways={ {hdg=40}, {hdg=220}}}},
-    {name="AIRBASE Maykop - Khanskaya", point={x=-27626,y=0,z=457048, atc=true, tower="125.00"
+    {name="AIRBASE Maykop", point={x=-27626,y=0,z=457048, atc=true, tower="125.00"
         , runways={ {name="04", hdg=40}, {name="22", hdg=220}}}},
-    {name="AIRBASE Krasnodar - Pashkovsky", point={x=-8707,y=0,z=388986, atc=true, tower="128.00"
+    {name="AIRBASE Krasnodar-Pashkovsky", point={x=-8707,y=0,z=388986, atc=true, tower="128.00"
         , runways={ {name="23", hdg=227}, {name="05", hdg=47}}}},
-    {name="AIRBASE Krasnodar - Center", point={x=-11653,y=0,z=366766, atc=true, tower="122.00"
+    {name="AIRBASE Krasnodar-Center", point={x=-11653,y=0,z=366766, atc=true, tower="122.00"
         , runways={ {name="09", hdg=86}, {name="27", hdg=266}}}},
     {name="AIRBASE Novorossiysk", point={x=-40299,y=0,z=279854, atc=true, tower="123.00"
         , runways={ {name="04", hdg=40}, {name="22", hdg=220}}}},
@@ -55,7 +55,7 @@ veafNamedPoints.Points = {
         , runways={ {name="06", hdg=55}, {name="24", hdg=235, ils="110.50"}}}},
     {name="AIRBASE Beslan", point={x=-148472,y=0,z=842252, atc=true, tower="141.00"
         , runways={ {name="10", hdg=93, ils="110.50"}, {name="28", hdg=273}}}},
-    {name="AIRBASE Sochi - Adler", point={x=-165163,y=0,z=460902, atc=true, tower="127.00"
+    {name="AIRBASE Sochi", point={x=-165163,y=0,z=460902, atc=true, tower="127.00"
         , runways={ {name="06", hdg=62, ils="111.10"}, {name="24", hdg=242}}}},
     {name="AIRBASE Mozdok", point={x=-83330,y=0,z=835635, atc=true, tower="137.00"
         , runways={ {name="08", hdg=82}, {name="26", hdg=262}}}},
