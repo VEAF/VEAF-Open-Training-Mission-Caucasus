@@ -59,13 +59,7 @@ veafNamedPoints.Points = {
         , runways={ {name="06", hdg=62, ils="111.10"}, {name="24", hdg=242}}}},
     {name="AIRBASE Mozdok", point={x=-83330,y=0,z=835635, atc=true, tower="137.00"
         , runways={ {name="08", hdg=82}, {name="26", hdg=262}}}},
-    -- -- farps
-    -- {name="FARP Java",point={x=-247450,y=0,z=799583}},
-    -- {name="FARP Lentehi",point={x=-214442,y=0,z=695610}},
-    -- {name="FARP Aibgha",point={x=-146615,y=0,z=486334}},
-    -- {name="FARP Rista",point={x=-151631,y=0,z=518384}},
-    -- {name="FARP Kaspi",point={x=-290955,y=0,z=847525}}, 
-    -- {name="FARP Beslan",point={x=-131270,y=0,z=846128}}, 
+
     -- points of interest
     {name="RANGE Kobuleti",point={x=-328289,y=0,z=631228}},
     {name="WAR BlueBase",point={x=-131270,y=0,z=846128}}, 
