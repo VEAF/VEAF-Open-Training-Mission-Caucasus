@@ -368,6 +368,15 @@ function veafGrass.buildFarpUnits(farp)
 
 	mist.dynAdd(farpEscortGroup)
 	
+	-- add the FARP to the named points
+	local point = {
+		x = farp.x,
+		y = math.floor(land.getHeight(farp) + 1),
+		z = farp.y,
+		atc = true,
+		runways = {}
+	}
+	veafNamedPoints.addPoint(farp.unitName, point)
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
