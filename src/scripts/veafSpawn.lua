@@ -1107,42 +1107,52 @@ function veafSpawn._markClosestConvoyWithSmoke(unitName, markRoute)
             trigger.action.smoke(averageGroupPosition, trigger.smokeColor.White)
             veaf.outTextForUnit(unitName, closestConvoyName .. " marked with white smoke", 10)
         end
+    else
+        veaf.outTextForUnit(unitName, "No convoy found", 10)
     end
 end
 
 function veafSpawn.infoOnAllConvoys(unitName)
     veafSpawn.logDebug(string.format("veafSpawn.infoOnAllConvoys(unitName=%s)",unitName))
-    local text = ""
-
-    for name, _ in pairs(veafSpawn.spawnedConvoys) do
-        local nbVehicles, nbInfantry = veafUnits.countInfantryAndVehicles(name)
-        if nbVehicles > 0 then
-            local averageGroupPosition = veaf.getAveragePosition(name)
-            local lat, lon = coord.LOtoLL(averageGroupPosition)
-            local llString = mist.tostringLL(lat, lon, 0, true)
-            text = text .. " - " .. name .. ", " .. nbVehicles .. " vehicles : " .. llString
-        else
-            text = text .. " - " .. name .. "has been destroyed"
-            -- convoy has been dispatched, remove it from the convoys list
-            veafSpawn.spawnedConvoys[name] = nil
+    
+    if #veafSpawn.spawnedConvoys == 0 then
+        veaf.outTextForUnit(unitName, "No convoy found", 10)
+    else
+        local text = ""
+        for name, _ in pairs(veafSpawn.spawnedConvoys) do
+            local nbVehicles, nbInfantry = veafUnits.countInfantryAndVehicles(name)
+            if nbVehicles > 0 then
+                local averageGroupPosition = veaf.getAveragePosition(name)
+                local lat, lon = coord.LOtoLL(averageGroupPosition)
+                local llString = mist.tostringLL(lat, lon, 0, true)
+                text = text .. " - " .. name .. ", " .. nbVehicles .. " vehicles : " .. llString
+            else
+                text = text .. " - " .. name .. "has been destroyed"
+                -- convoy has been dispatched, remove it from the convoys list
+                veafSpawn.spawnedConvoys[name] = nil
+            end
         end
+        veaf.outTextForUnit(unitName, text, 30)
     end
-
-    veaf.outTextForUnit(unitName, text, 30)
 end
 
 function veafSpawn.cleanupAllConvoys()
     veafSpawn.logDebug("veafSpawn.cleanupAllConvoys()")
-    for name, _ in pairs(veafSpawn.spawnedConvoys) do
-        local nbVehicles, nbInfantry = veafUnits.countInfantryAndVehicles(name)
-        if nbVehicles > 0 then
-            local group = Group.getByName(name)
-            if group then
-                Group.destroy(group)
+    if #veafSpawn.spawnedConvoys == 0 then
+        veaf.outTextForUnit(unitName, "No convoy found", 10)
+    else
+        for name, _ in pairs(veafSpawn.spawnedConvoys) do
+            local nbVehicles, nbInfantry = veafUnits.countInfantryAndVehicles(name)
+            if nbVehicles > 0 then
+                local group = Group.getByName(name)
+                if group then
+                    Group.destroy(group)
+                end
             end
+            -- convoy has been dispatched, remove it from the convoys list
+            veafSpawn.spawnedConvoys[name] = nil
         end
-        -- convoy has been dispatched, remove it from the convoys list
-        veafSpawn.spawnedConvoys[name] = nil
+        veaf.outTextForUnit(unitName, "All convoys cleaned up", 10)
     end
 end    
 -------------------------------------------------------------------------------------------------------------------------------------------------------------

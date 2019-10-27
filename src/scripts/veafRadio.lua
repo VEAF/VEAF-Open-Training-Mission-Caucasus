@@ -62,6 +62,7 @@ veafRadio.USAGE_ForUnit  = 2
 
 --- Humans Units (associative array unitName => unit)
 veafRadio.humanUnits = {}
+veafRadio.humanGroups = {}
 
 --- This structure contains all the radio menus
 veafRadio.radioMenu = {}
@@ -211,35 +212,34 @@ function veafRadio.refreshRadioSubmenu(parentRadioMenu, radioMenu)
       
       -- build menu for each player group
       local alreadyDoneGroups = {}
-      for unitName, unit in pairs(veafRadio.humanUnits) do
-        local unitCallsign = unit.callsign
+      for groupId, groupData in pairs(veafRadio.humanGroups) do
+        for _, callsign in pairs(groupData.callsigns) do
+          local unitData = groupData.units[callsign]
+          local unitName = unitData.name
 
-        -- add radio command by player unit or group
-        local parameters = command.parameters
-        if parameters == nil then
-          parameters = unitName
-        else
-          parameters = { command.parameters }
-          table.insert(parameters, unitName)
-        end 
-        local groupId = unit.groupId
-        if not groupId then 
-          veafRadio.logError("cannot find groupId for unit ".. unitName)
-        else
+          -- add radio command by player unit or group
+          local parameters = command.parameters
+          if parameters == nil then
+            parameters = unitName
+          else
+            parameters = { command.parameters }
+            table.insert(parameters, unitName)
+          end 
           local _title = command.title
           if command.usage == veafRadio.USAGE_ForUnit then
-            _title = unitCallsign .. " - " .. command.title
+            _title = callsign .. " - " .. command.title
           end
           if alreadyDoneGroups[groupId] == nil or command.usage == veafRadio.USAGE_ForUnit then
             veafRadio._addCommand(groupId, _title, radioMenu.dcsRadioMenu, command, parameters, trace)
           end
           alreadyDoneGroups[groupId] = true
-        end       
+        end
       end
     else
-      veafRadio._addCommand(nil    , command.title, radioMenu.dcsRadioMenu, command, command.parameters, trace)
+      veafRadio._addCommand(nil, command.title, radioMenu.dcsRadioMenu, command, command.parameters, trace)
     end
   end  
+  
   -- recurse to create the submenus in the radio menu
   for count = 1,#radioMenu.subMenus do
     local subMenu = radioMenu.subMenus[count]
@@ -353,8 +353,21 @@ function veafRadio.buildHumanUnits()
             local callsign = unit.callsign
             if type(callsign) == "table" then callsign = callsign["name"] end
             if type(callsign) == "number" then callsign = "" .. callsign end
-            veafRadio.humanUnits[unit.unitName] = {name=unit.unitName, groupId=unit.groupId, callsign=callsign}
+            local unitObject = {name=unit.unitName, groupId=unit.groupId, callsign=callsign}
+            veafRadio.humanUnits[unit.unitName] = unitObject
+            if not veafRadio.humanGroups[unit.groupId] then 
+              veafRadio.humanGroups[unit.groupId] = {}
+              veafRadio.humanGroups[unit.groupId].callsigns = {}
+              veafRadio.humanGroups[unit.groupId].units = {}
+            end
+            table.insert(veafRadio.humanGroups[unit.groupId].callsigns,callsign)
+            veafRadio.humanGroups[unit.groupId].units[callsign] = unitObject
         end
+    end
+
+    -- sort callsigns for each group
+    for _, groupData in pairs(veafRadio.humanGroups) do
+      table.sort(groupData.callsigns)
     end
 end
 
