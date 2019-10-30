@@ -1114,45 +1114,46 @@ end
 
 function veafSpawn.infoOnAllConvoys(unitName)
     veafSpawn.logDebug(string.format("veafSpawn.infoOnAllConvoys(unitName=%s)",unitName))
-    
-    if #veafSpawn.spawnedConvoys == 0 then
+    local text = ""
+    for name, _ in pairs(veafSpawn.spawnedConvoys) do
+        local nbVehicles, nbInfantry = veafUnits.countInfantryAndVehicles(name)
+        if nbVehicles > 0 then
+            local averageGroupPosition = veaf.getAveragePosition(name)
+            local lat, lon = coord.LOtoLL(averageGroupPosition)
+            local llString = mist.tostringLL(lat, lon, 0, true)
+            text = text .. " - " .. name .. ", " .. nbVehicles .. " vehicles : " .. llString
+        else
+            text = text .. " - " .. name .. "has been destroyed"
+            -- convoy has been dispatched, remove it from the convoys list
+            veafSpawn.spawnedConvoys[name] = nil
+        end
+    end
+    if text == "" then
         veaf.outTextForUnit(unitName, "No convoy found", 10)
     else
-        local text = ""
-        for name, _ in pairs(veafSpawn.spawnedConvoys) do
-            local nbVehicles, nbInfantry = veafUnits.countInfantryAndVehicles(name)
-            if nbVehicles > 0 then
-                local averageGroupPosition = veaf.getAveragePosition(name)
-                local lat, lon = coord.LOtoLL(averageGroupPosition)
-                local llString = mist.tostringLL(lat, lon, 0, true)
-                text = text .. " - " .. name .. ", " .. nbVehicles .. " vehicles : " .. llString
-            else
-                text = text .. " - " .. name .. "has been destroyed"
-                -- convoy has been dispatched, remove it from the convoys list
-                veafSpawn.spawnedConvoys[name] = nil
-            end
-        end
         veaf.outTextForUnit(unitName, text, 30)
     end
 end
 
 function veafSpawn.cleanupAllConvoys()
     veafSpawn.logDebug("veafSpawn.cleanupAllConvoys()")
-    if #veafSpawn.spawnedConvoys == 0 then
-        veaf.outTextForUnit(unitName, "No convoy found", 10)
-    else
-        for name, _ in pairs(veafSpawn.spawnedConvoys) do
-            local nbVehicles, nbInfantry = veafUnits.countInfantryAndVehicles(name)
-            if nbVehicles > 0 then
-                local group = Group.getByName(name)
-                if group then
-                    Group.destroy(group)
-                end
+    local foundOne = false
+    for name, _ in pairs(veafSpawn.spawnedConvoys) do
+        foundOne = true
+        local nbVehicles, nbInfantry = veafUnits.countInfantryAndVehicles(name)
+        if nbVehicles > 0 then
+            local group = Group.getByName(name)
+            if group then
+                Group.destroy(group)
             end
-            -- convoy has been dispatched, remove it from the convoys list
-            veafSpawn.spawnedConvoys[name] = nil
         end
-        veaf.outTextForUnit(unitName, "All convoys cleaned up", 10)
+        -- convoy has been dispatched, remove it from the convoys list
+        veafSpawn.spawnedConvoys[name] = nil
+    end
+    if foundOne then
+        trigger.action.outText("All convoys cleaned up", 10)
+    else
+        trigger.action.outText("No convoy found", 10)
     end
 end    
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
