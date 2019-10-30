@@ -481,8 +481,9 @@ function veafSpawn.doSpawnGroup(spawnSpot, groupDefinition, country, speed, alt,
     veafSpawn.spawnedUnitsCounter = veafSpawn.spawnedUnitsCounter + 1
 
     if type(groupDefinition) == "string" then
+        local name = groupDefinition
         -- find the desired group in the groups database
-        groupDefinition = veafUnits.findGroup(groupDefinition)
+        groupDefinition = veafUnits.findGroup(name)
         if not(groupDefinition) then
             veafSpawn.logInfo("cannot find group "..name)
             if not(silent) then
@@ -682,6 +683,8 @@ function veafSpawn.spawnConvoy(spawnSpot, country, patrol, offroad, destination,
         
         -- mist.ground.patrol(groupName, 'doubleBack')
     end
+
+    trigger.action.outText("Spawned convoy "..groupName, 5)
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
