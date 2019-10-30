@@ -135,7 +135,7 @@ function veafRadio._proxyMethod(parameters)
   local realMethod, realParameters = unpack(parameters)
   veafRadio.logTrace("realMethod="..veaf.p(realMethod))  
   veafRadio.logTrace("realParameters="..veaf.p(realParameters))  
-  if veafSecurity.isRadioAuthenticated() then
+  if veafSecurity.isAuthenticated() then
     realMethod(realParameters)
   else
     veafRadio.logError("Your radio has to be authenticated for '+'' commands")
@@ -173,7 +173,7 @@ function veafRadio._addCommand(groupId, title, menu, command, parameters, trace)
     _method = veafRadio._proxyMethod
     _parameters = {command.method, command.parameters}
 
-    if veafSecurity.isRadioAuthenticated() then
+    if veafSecurity.isAuthenticated() then
       _title = "-" .. title
     else
       _title = "+" .. title

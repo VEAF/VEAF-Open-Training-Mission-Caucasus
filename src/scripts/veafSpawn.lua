@@ -147,7 +147,7 @@ function veafSpawn.onEventMarkChange(eventPos, event)
                 veafSpawn.spawnGroup(eventPos, options.name, options.country, options.speed, options.altitude, options.heading, options.spacing, options.isConvoy, options.patrol, options.offroad, options.destination)
             elseif options.convoy then
                 -- check security
-                if not veafSecurity.checkSecurity_L1(options.password) then return end
+                if not veafSecurity.checkSecurity_L9(options.password) then return end
                 veafSpawn.spawnConvoy(eventPos, options.country, options.patrol, options.offroad, options.destination, options.defense, options.transports, options.armor)
             elseif options.cargo then
                 -- check security

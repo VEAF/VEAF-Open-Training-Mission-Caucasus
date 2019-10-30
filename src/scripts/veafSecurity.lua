@@ -33,12 +33,12 @@ veafSecurity = {}
 veafSecurity.Id = "SECURITY - "
 
 --- Version.
-veafSecurity.Version = "1.0.2"
+veafSecurity.Version = "1.1.0"
 
 --- Key phrase to look for in the mark text which triggers the command.
 veafSecurity.Keyphrase = "_auth"
 
-veafSecurity.authDuration = 30
+veafSecurity.authDuration = 10
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Utility methods
@@ -72,7 +72,7 @@ veafSecurity.password_L9 = {}
 veafSecurity.password_L0["47c7808d1079fd20add322bbd5cf23b93ad1841e"] = true
 veafSecurity.password_L1["988d613da2a9b3a71b30d45f3cb20b9e0f3db1fa"] = true
 
-veafSecurity.radioAuthenticated = veaf.SecurityDisabled
+veafSecurity.authenticated = veaf.SecurityDisabled
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- SHA-1 pure LUA implementation
@@ -421,11 +421,15 @@ function veafSecurity.onEventMarkChange(eventPos, event)
 
       if options then
           -- Check options commands
-          if options.authenticate then
-              -- check security
-              if not veafSecurity.checkSecurity_L1(options.password) then return end
-              -- authenticate all radios for a few seconds
-              veafSecurity.authenticateRadios()
+          if options.login then
+              -- check password
+              if not veafSecurity.checkPassword_L1(options.password) then 
+                trigger.action.outText("password was not correct", 5)
+                return 
+              end
+              veafSecurity.authenticate()
+          elseif options.logout then
+              veafSecurity.logout()
           end
       else
           -- None of the keywords matched.
@@ -447,49 +451,52 @@ function veafSecurity.markTextAnalysis(text)
 
   -- Option parameters extracted from the mark text.
   local switch = {}
-  switch.authenticate = false
+  
+  switch.login = false
+
+  switch.logout = false
 
   -- password
   switch.password = nil
 
   -- Check for correct keywords.
-  if text:lower():find(veafSecurity.Keyphrase) then
-      switch.authenticate = true
-  else
+  local pos = text:lower():find(veafSecurity.Keyphrase)
+  if not pos then
       return nil
   end
 
-  -- keywords are split by ","
-  local keywords = veaf.split(text, ",")
+  -- the logout command or the password should follow a space
+  local text = text:sub(pos+string.len(veafSecurity.Keyphrase)+1)
 
-  for _, keyphrase in pairs(keywords) do
-      -- Split keyphrase by space. First one is the key and second, ... the parameter(s) until the next comma.
-      local str = veaf.breakString(veaf.trim(keyphrase), " ")
-      local key = str[1]
-      local val = str[2]
-
-      if key:lower() == "password" then
-          -- Unlock the command
-          veafSpawn.logDebug(string.format("Keyword password", val))
-          switch.password = val
-      end
+  if text and text:lower() == "logout" then
+      switch.logout = true
+  else
+      switch.password = text
+      switch.login = true
+      --veafSecurity.logTrace(string.format("switch.password=[%s]",switch.password))
   end
 
   return switch
+
 end
 
-function veafSecurity.unAuthenticateRadios()
-  veafSecurity.radioAuthenticated = false
+function veafSecurity.logout(nocheck)
+  if not veafSecurity.authenticated and not nocheck then 
+    trigger.action.outText("The system was already locked down", 5)
+    return
+  end
+  veafSecurity.authenticated = false
+  trigger.action.outText("The system has been locked down", 10)
   veafRadio.refreshRadioMenu()
 end
 
 --- authenticate all radios for a few seconds
-function veafSecurity.authenticateRadios()
-  if not veafSecurity.radioAuthenticated then
-    veafSecurity.logInfo("You have authenticated the radios")
-    veafSecurity.radioAuthenticated = true
+function veafSecurity.authenticate()
+  if not veafSecurity.authenticated then
+    trigger.action.outText("The system is authenticated for "..veafSecurity.authDuration.." minutes", 10)
+    veafSecurity.authenticated = true
     veafRadio.refreshRadioMenu()
-    mist.scheduleFunction(veafSecurity.unAuthenticateRadios,{},timer.getTime()+veafSecurity.authDuration)
+    mist.scheduleFunction(veafSecurity.logout,{true},timer.getTime()+veafSecurity.authDuration*60)
   end
 end
 
@@ -538,33 +545,37 @@ end
 
 function veafSecurity.checkSecurity_L0(password) 
   if not veafSecurity.checkPassword_L0(password) then
-    veafSecurity.logError("You have to be an admin to do this")
-    trigger.action.outText("You have to be an admin to do this", 5) 
+    veafSecurity.logError("You have to give the correct L0 password to do this")
+    trigger.action.outText("Please use the ', password <L0 password>' option", 5) 
     return false
   end
   return true
 end
 
 function veafSecurity.checkSecurity_L1(password) 
+  -- don't check the password if already logged in
+  if veafSecurity.isAuthenticated() then return true end
   if not veafSecurity.checkPassword_L1(password) then
-    veafSecurity.logError("You have to give the correct password to do this")
-    trigger.action.outText("You have to give the correct password to do this", 5) 
+    veafSecurity.logError("You have to give the correct L1 password to do this")
+    trigger.action.outText("Please use the ', password <L1 password>' option", 5) 
     return false
   end
   return true
 end
 
 function veafSecurity.checkSecurity_L9(password) 
+  -- don't check the password if already logged in
+  if veafSecurity.isAuthenticated() then return true end
   if not veafSecurity.checkPassword_L9(password) then
-    veafSecurity.logError("You have to give the correct password to do this")
-    trigger.action.outText("You have to give the correct password to do this", 5) 
+    veafSecurity.logError("You have to give the correct L9 password to do this")
+    trigger.action.outText("Please use the ', password <L9 password>' option", 5) 
     return false
   end
   return true
 end
 
-function veafSecurity.isRadioAuthenticated()
-  return veafSecurity.radioAuthenticated
+function veafSecurity.isAuthenticated()
+  return veafSecurity.authenticated
 end
 
 function veafSecurity.initialize()
