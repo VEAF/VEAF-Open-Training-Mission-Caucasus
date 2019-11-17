@@ -124,22 +124,6 @@ options =
             ["assistance"] = 0,
             ["autoRudder"] = false,
         }, -- end of ["Yak52"]
-        ["Tacview"] = 
-        {
-            ["tacviewProfilingPeriod"] = 600,
-            ["tacviewHostTelemetryPassword"] = "",
-            ["tacviewRemoteControlPort"] = "42675",
-            ["tacviewDataRecordingEnabled"] = false,
-            ["tacviewTerrainExport"] = 0,
-            ["tacviewRecordClientsSessionsEnabled"] = false,
-            ["tacviewPlaybackDelay"] = 0,
-            ["tacviewRealTimeTelemetryPort"] = "42674",
-            ["tacviewBookmarkShortcut"] = 0,
-            ["tacviewCompressionLevel"] = 1,
-            ["tacviewDebugModeEnabled"] = false,
-            ["tacviewClientTelemetryPassword"] = "",
-            ["tacviewRemoteControlPassword"] = "",
-        }, -- end of ["Tacview"]
         ["AV8BNA"] = 
         {
             ["CPLocalList"] = "default",
@@ -176,12 +160,10 @@ options =
             ["weapTooltips"] = false,
             ["UHTrimmingMethod"] = 0,
         }, -- end of ["UH-1H"]
-        ["F-16C"] = 
+        ["A-10C"] = 
         {
-            ["abDetent"] = 0,
             ["CPLocalList"] = "default",
-            ["hmdEye"] = 1,
-        }, -- end of ["F-16C"]
+        }, -- end of ["A-10C"]
         ["Ka-50"] = 
         {
             ["Ka50TrimmingMethod"] = 0,
@@ -189,11 +171,18 @@ options =
             ["Ka50RudderTrimmer"] = false,
             ["helmetCircleDisplacement"] = 11,
         }, -- end of ["Ka-50"]
-        ["CaptoGlove"] = 
+        ["FC3"] = 
         {
-            ["enable"] = false,
-            ["armBending"] = 60,
-        }, -- end of ["CaptoGlove"]
+            ["CPLocalList_Su-25"] = "default",
+            ["CPLocalList_Su-27"] = "default",
+            ["CPLocalList_A-10A"] = "default",
+            ["CPLocalList_Su-33"] = "default",
+            ["CPLocalList_MiG-29S"] = "default",
+            ["CPLocalList_MiG-29A"] = "default",
+            ["CPLocalList_J-11A"] = "default",
+            ["CPLocalList_MiG-29G"] = "default",
+            ["CPLocalList_F-15C"] = "default",
+        }, -- end of ["FC3"]
         ["P-51D"] = 
         {
             ["assistance"] = 100,
@@ -205,14 +194,16 @@ options =
         {
             ["CPLocalList"] = "default",
         }, -- end of ["AJS37"]
-        ["A-10C"] = 
-        {
-            ["CPLocalList"] = "default",
-        }, -- end of ["A-10C"]
         ["Su-25T"] = 
         {
             ["CPLocalList"] = "english",
         }, -- end of ["Su-25T"]
+        ["F-16C"] = 
+        {
+            ["abDetent"] = 0,
+            ["CPLocalList"] = "default",
+            ["hmdEye"] = 1,
+        }, -- end of ["F-16C"]
         ["F-5E-3"] = 
         {
             ["JoystickMode"] = 0,
@@ -220,6 +211,49 @@ options =
             ["CPLocalList"] = "default",
             ["aiHelper"] = true,
         }, -- end of ["F-5E-3"]
+        ["CaptoGlove"] = 
+        {
+            ["enable"] = false,
+            ["armBending"] = 60,
+        }, -- end of ["CaptoGlove"]
+        ["F-14B"] = 
+        {
+            ["JESTER_HeadMenu"] = true,
+            ["RadioMenuPttOptions"] = 1,
+            ["JESTER_LandingCallouts"] = true,
+            ["JESTER_SwitchToPSTT"] = true,
+            ["JESTER_Camera"] = true,
+            ["CPLocalList"] = "default",
+            ["WEAP_OFF_GUN"] = false,
+            ["TID_A2G"] = false,
+        }, -- end of ["F-14B"]
+        ["Mi-8MTV2"] = 
+        {
+            ["Mi8TrimmingMethod"] = 0,
+            ["Mi8RudderTrimmer"] = false,
+            ["Mi8AutopilotAdjustment"] = false,
+            ["gunCamera"] = 2,
+            ["Mi8CockpitShake"] = 40,
+            ["controlHelperMi8"] = false,
+            ["CPLocalList"] = "English Cockpit by Devrim",
+            ["Mi8FOV"] = 120,
+        }, -- end of ["Mi-8MTV2"]
+        ["SA342"] = 
+        {
+            ["StickRollCurve"] = 0,
+            ["VibrationRate"] = 30,
+            ["PreloadWaypoints"] = true,
+            ["CPLocalList"] = "default",
+            ["EngineBreak"] = true,
+            ["EasierControls"] = false,
+            ["RudderTrim"] = false,
+            ["MiniStick"] = false,
+            ["StickPitchCurve"] = 0,
+            ["CPLocalListMG"] = "default",
+            ["CPLocalListL"] = "default",
+            ["ControlsDisplayLocation"] = 1,
+            ["CPLocalListM"] = "default",
+        }, -- end of ["SA342"]
         ["NS430"] = 
         {
             ["bf109k4_enabled"] = true,
@@ -265,62 +299,17 @@ options =
             ["l39c_common_enabled"] = true,
             ["yak52_enabled"] = true,
         }, -- end of ["NS430"]
-        ["F-14B"] = 
-        {
-            ["JESTER_HeadMenu"] = true,
-            ["JESTER_LandingCallouts"] = true,
-            ["JESTER_SwitchToPSTT"] = true,
-            ["CPLocalList"] = "default",
-            ["JESTER_Camera"] = true,
-            ["RadioMenuPttOptions"] = 1,
-        }, -- end of ["F-14B"]
-        ["Mi-8MTV2"] = 
-        {
-            ["Mi8TrimmingMethod"] = 0,
-            ["Mi8RudderTrimmer"] = false,
-            ["Mi8AutopilotAdjustment"] = false,
-            ["gunCamera"] = 2,
-            ["Mi8CockpitShake"] = 40,
-            ["controlHelperMi8"] = false,
-            ["CPLocalList"] = "English Cockpit by Devrim",
-            ["Mi8FOV"] = 120,
-        }, -- end of ["Mi-8MTV2"]
-        ["SA342"] = 
-        {
-            ["StickRollCurve"] = 0,
-            ["VibrationRate"] = 30,
-            ["PreloadWaypoints"] = true,
-            ["CPLocalList"] = "default",
-            ["EngineBreak"] = true,
-            ["EasierControls"] = false,
-            ["RudderTrim"] = false,
-            ["MiniStick"] = false,
-            ["StickPitchCurve"] = 0,
-            ["CPLocalListMG"] = "default",
-            ["CPLocalListL"] = "default",
-            ["ControlsDisplayLocation"] = 1,
-            ["CPLocalListM"] = "default",
-        }, -- end of ["SA342"]
-        ["FC3"] = 
-        {
-            ["CPLocalList_Su-25"] = "default",
-            ["CPLocalList_Su-27"] = "default",
-            ["CPLocalList_A-10A"] = "default",
-            ["CPLocalList_Su-33"] = "default",
-            ["CPLocalList_MiG-29S"] = "default",
-            ["CPLocalList_MiG-29A"] = "default",
-            ["CPLocalList_J-11A"] = "default",
-            ["CPLocalList_MiG-29G"] = "default",
-            ["CPLocalList_F-15C"] = "default",
-        }, -- end of ["FC3"]
     }, -- end of ["plugins"]
     ["format"] = 1,
     ["sound"] = 
     {
         ["hear_in_helmet"] = true,
+        ["main_output"] = "",
         ["headphones"] = 100,
-        ["cockpit"] = 100,
         ["world"] = 9,
+        ["switches"] = 100,
+        ["cockpit"] = 100,
+        ["hp_output"] = "",
         ["radioSpeech"] = true,
         ["GBreathEffect"] = true,
         ["volume"] = 49,
