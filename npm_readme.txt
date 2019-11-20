@@ -12,7 +12,6 @@
    - commit everything
    - push your changes
 5. publish the newly changed package to GitHub Packages :
-  $ cd src\scripts\veaf
-  $ npm publish
+  $ publish.cmd
   
  
