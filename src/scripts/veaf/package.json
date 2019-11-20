@@ -1,0 +1,22 @@
+{
+  "name": "@veaf/veaf-open-training-mission",
+  "version": "1.0.0",
+  "description": "A set of scripts that help set up a dynamic mission",
+  "main": "veaf.lua",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VEAF/VEAF-Open-Training-Mission.git"
+  },
+  "author": "David 'Zip' Pierron, Mitch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VEAF/VEAF-Open-Training-Mission/issues"
+  },
+  "homepage": "https://github.com/VEAF/VEAF-Open-Training-Mission#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

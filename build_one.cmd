@@ -39,21 +39,21 @@ copy .\src\scripts\community\CTLD.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\src\scripts\community\autogft-1_12.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 
 rem -- copy all the common scripts
-copy .\src\scripts\dcsUnits.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veaf.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veaf_library.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veafAssets.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veafCarrierOperations.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veafCasMission.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veafGrass.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veafMarkers.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veafMove.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veafNamedPoints.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veafRadio.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veafSecurity.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veafSpawn.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veafTransportMission.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\src\scripts\veafUnits.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\dcsUnits.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veaf.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veaf_library.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veafAssets.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veafCarrierOperations.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veafCasMission.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veafGrass.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veafMarkers.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veafMove.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veafNamedPoints.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veafRadio.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veafSecurity.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veafSpawn.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veafTransportMission.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\src\scripts\veaf\veafUnits.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 
 rem -- copy all the mission-specific scripts
 copy .\src\scripts\mission-specific\%VERSION%\*.lua .\build\tempsrc\l10n\Default  >nul 2>&1
