@@ -35,3 +35,5 @@ veafAssets.Assets = {
     {sort=15, name="Meet Mig-29*4", description="Mig-29x4 (dogfight zone, RED)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
     {sort=16, name="Meet F-5E-3 *2", description="F-5E-3x2 (dogfight zone, RED)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
 }
+
+veafAssets.logInfo("Loading configuration")

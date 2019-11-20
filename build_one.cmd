@@ -66,5 +66,8 @@ powershell -Command "(gc .\build\tempsrc\l10n\Default\veaf.lua) -replace 'veaf.S
 rem -- compile the mission
 "%SEVENZIP%" a -r -tzip %MISSION_FILE%.miz .\build\tempsrc\* -mem=AES256 >nul 2>&1
 
+rem -- cleanup
+rd /s /q .\build\tempsrc  
+
 rem -- done !
 echo Built %MISSION_FILE%.miz

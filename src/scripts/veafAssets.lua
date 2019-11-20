@@ -24,7 +24,7 @@ veafAssets = {}
 veafAssets.Id = "ASSETS - "
 
 --- Version.
-veafAssets.Version = "1.2.1"
+veafAssets.Version = "1.2.2"
 
 veafAssets.Assets = {
     -- list the assets common to all missions below

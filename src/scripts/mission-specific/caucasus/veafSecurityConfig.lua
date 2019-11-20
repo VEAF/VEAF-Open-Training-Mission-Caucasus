@@ -16,3 +16,5 @@
 -- load it in a trigger after loading veafSecurity
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 veafSecurity.password_L9["6ade6629f9219d87a011e7b8fbf8ef9584f2786d"] = true
+
+veafSecurity.logInfo("Loading configuration")

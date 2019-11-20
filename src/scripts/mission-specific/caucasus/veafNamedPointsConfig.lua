@@ -66,3 +66,5 @@ veafNamedPoints.Points = {
     {name="WAR RedBase",point={x=-104957,y=0,z=846181}},
     {name="WAR Objective1",point={x=-117764,y=0,z=847293}},
 }
+
+veafNamedPoints.logInfo("Loading configuration")
