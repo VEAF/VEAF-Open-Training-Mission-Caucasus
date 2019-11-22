@@ -1,12 +1,6 @@
-build/*
-build/
-mission/*
-mission/
-*.miz
-setup_zip\.cmd
+/build
+/*.miz
+/node_modules/
+/7za.exe
+/setup_*.cmd
 
-build_zip\.cmd
-
-\.vscode/tasks\.json
-
-setup_zip_production\.cmd

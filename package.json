@@ -1,0 +1,15 @@
+{
+  "name": "veaf-open-training-mission",
+  "version": "1.0.0",
+  "description": "OpenTraining mission",
+  "main": "",
+  "author": "Mitch, Zip",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VEAF-Open-Training-Mission.git"
+  },
+  "dependencies": {
+    "veaf-mission-creation-tools": "latest"
+  }
+}
