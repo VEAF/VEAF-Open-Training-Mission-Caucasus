@@ -3,7 +3,7 @@ options =
     ["playerName"] = "Zip",
     ["miscellaneous"] = 
     {
-        ["allow_server_screenshots"] = false,
+        ["allow_server_screenshots"] = true,
         ["headmove"] = false,
         ["TrackIR_external_views"] = false,
         ["f5_nearest_ac"] = true,
@@ -54,7 +54,7 @@ options =
         ["RBDAI"] = false,
         ["aircraftMode"] = true,
         ["map"] = true,
-        ["labels"] = 3,
+        ["labels"] = 2,
     }, -- end of ["difficulty"]
     ["VR"] = 
     {
@@ -72,29 +72,29 @@ options =
         ["messagesFontScale"] = 1,
         ["rainDroplets"] = true,
         ["LensEffects"] = 0,
-        ["heatBlr"] = 2,
+        ["heatBlr"] = 0,
         ["anisotropy"] = 4,
         ["water"] = 2,
         ["motionBlur"] = 0,
         ["outputGamma"] = 1.8,
         ["treesVisibility"] = 10000,
-        ["aspect"] = 1.6044776119403,
+        ["aspect"] = 1.3650793650794,
         ["lights"] = 2,
         ["shadows"] = 4,
         ["MSAA"] = 1,
         ["SSAA"] = 0,
-        ["height"] = 1340,
+        ["height"] = 2520,
         ["forestDistanceFactor"] = 1,
         ["cockpitGI"] = 1,
         ["terrainTextures"] = "max",
-        ["multiMonitorSetup"] = "1camera",
+        ["multiMonitorSetup"] = "mfcd bottom screen",
         ["shadowTree"] = false,
         ["chimneySmokeDensity"] = 5,
         ["fullScreen"] = false,
         ["DOF"] = 0,
         ["clouds"] = 1,
         ["flatTerrainShadows"] = 0,
-        ["width"] = 2150,
+        ["width"] = 3440,
         ["useDeferredShading"] = 1,
         ["effects"] = 3,
         ["SSAO"] = 0,
@@ -162,12 +162,12 @@ options =
         }, -- end of ["UH-1H"]
         ["A-10C"] = 
         {
-            ["CPLocalList"] = "default",
+            ["CPLocalList"] = "Cockpits - A-10C - Bummer WARTHOG pit V1.5.3",
         }, -- end of ["A-10C"]
         ["Ka-50"] = 
         {
-            ["Ka50TrimmingMethod"] = 0,
-            ["CPLocalList"] = "default",
+            ["Ka50TrimmingMethod"] = 1,
+            ["CPLocalList"] = "english",
             ["Ka50RudderTrimmer"] = false,
             ["helmetCircleDisplacement"] = 11,
         }, -- end of ["Ka-50"]
@@ -192,7 +192,7 @@ options =
         }, -- end of ["P-51D"]
         ["AJS37"] = 
         {
-            ["CPLocalList"] = "default",
+            ["CPLocalList"] = "English",
         }, -- end of ["AJS37"]
         ["Su-25T"] = 
         {
@@ -215,17 +215,18 @@ options =
         {
             ["enable"] = false,
             ["armBending"] = 60,
+            ["mouseClickSrc"] = 0,
         }, -- end of ["CaptoGlove"]
         ["F-14B"] = 
         {
             ["JESTER_HeadMenu"] = true,
-            ["RadioMenuPttOptions"] = 1,
+            ["RadioMenuPttOptions"] = 0,
             ["JESTER_LandingCallouts"] = true,
             ["JESTER_SwitchToPSTT"] = true,
             ["JESTER_Camera"] = true,
             ["CPLocalList"] = "default",
             ["WEAP_OFF_GUN"] = false,
-            ["TID_A2G"] = false,
+            ["TID_A2G"] = true,
         }, -- end of ["F-14B"]
         ["Mi-8MTV2"] = 
         {
@@ -303,26 +304,30 @@ options =
     ["format"] = 1,
     ["sound"] = 
     {
-        ["hear_in_helmet"] = true,
         ["main_output"] = "",
-        ["headphones"] = 100,
-        ["world"] = 9,
-        ["switches"] = 100,
-        ["cockpit"] = 100,
-        ["hp_output"] = "",
-        ["radioSpeech"] = true,
-        ["GBreathEffect"] = true,
-        ["volume"] = 49,
+        ["volume"] = 50,
         ["headphones_on_external_views"] = true,
-        ["music"] = 0,
         ["subtitles"] = true,
+        ["world"] = 50,
+        ["hear_in_helmet"] = true,
+        ["hp_output"] = "",
+        ["switches"] = 100,
+        ["voice_chat_output"] = "",
+        ["cockpit"] = 100,
+        ["voice_chat"] = false,
+        ["GBreathEffect"] = true,
+        ["microphone_use"] = 2,
+        ["radioSpeech"] = true,
+        ["headphones"] = 100,
+        ["music"] = 0,
+        ["voice_chat_input"] = "",
         ["gui"] = 100,
     }, -- end of ["sound"]
     ["views"] = 
     {
         ["cockpit"] = 
         {
-            ["mirrors"] = false,
+            ["mirrors"] = true,
             ["reflections"] = false,
             ["avionics"] = 3,
         }, -- end of ["cockpit"]
