@@ -37,33 +37,20 @@ set SEVENZIP=7za
 echo SEVENZIP = %SEVENZIP%
 
 echo building the mission
-rem -- copy all the source mission files and mission-specific scripts
-xcopy /y /e src\%VERSION% .\build\tempsrc\ >nul 2>&1
+rem -- copy all the source mission files
+xcopy /y /e src\%VERSION%\mission .\build\tempsrc\ >nul 2>&1
+
+rem -- copy all the mission-specific scripts
+copy src\%VERSION%\scripts\*.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 
 rem -- copy the documentation images to the kneeboard
 xcopy /y /e doc\*.png .\build\tempsrc\KNEEBOARD\IMAGES >nul 2>&1
 
 rem -- copy all the community scripts
-copy .\node_modules\veaf-mission-creation-tools\scripts\community\mist_4_3_74.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\community\WeatherMark.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\community\CTLD.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\community\autogft-1_12.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\node_modules\veaf-mission-creation-tools\scripts\community\*.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 
 rem -- copy all the common scripts
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\dcsUnits.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veaf.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veafAssets.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veafCarrierOperations.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veafCasMission.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veafGrass.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veafMarkers.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veafMove.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veafNamedPoints.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veafRadio.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veafSecurity.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veafSpawn.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veafTransportMission.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\veafUnits.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\*.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 
 rem -- set the flags in the scripts according to the options
 
