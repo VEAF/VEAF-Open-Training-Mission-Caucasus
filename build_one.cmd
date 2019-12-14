@@ -24,7 +24,7 @@ echo SECURITY_DISABLED_FLAG = %SECURITY_DISABLED_FLAG%
 IF [%MISSION_FILE_SUFFIX%] == [] GOTO DefineDefaultMISSION_FILE_SUFFIX
 goto DontDefineDefaultMISSION_FILE_SUFFIX
 :DefineDefaultMISSION_FILE_SUFFIX
-set MISSION_FILE_SUFFIX=%date:~-4,4%%date:~-7,2%%date:~-10,2%
+set MISSION_FILE_SUFFIX=%date:~-4,4%%date:~-7,2%%date:~-10,2%-%time:~0,2%%time:~3,2%%time:~6,2%%time:~9,2%
 :DontDefineDefaultMISSION_FILE_SUFFIX
 set MISSION_FILE=.\build\%MISSION_NAME%_%MISSION_FILE_SUFFIX%
 echo MISSION_FILE = %MISSION_FILE%.miz
