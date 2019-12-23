@@ -27,7 +27,7 @@ veafAssets.Assets = {
     {sort=7, name="CVN-74 Stennis S3B-Tanker", description="Texaco-7 (S3-B)", information="Tacan 75Y\nVHF 133.750 Mhz\nZone PA"},  
     {sort=8, name="D1-Reaper", description="Colt-1 FAC (MQ-9)", information="VHF 253 Mhz", jtac=1688},  
     {sort=9, name="D2-Reaper", description="Dodge-1 FAC (MQ-9)", information="VHF 254 Mhz", jtac=1687},  
-    {sort=10, name="A1-Overlord", description="Overlord (E-2D)", information="Datalink 315.3 Mhz\nUHF 251 Mhz"},  
+    {sort=10, name="A1-Overlord", description="Overlord (E-2D)", information="Datalink 315.3 Mhz\nUHF 282 Mhz"},  
     {sort=11, name="A2-Overlordsky", description="Overlordsky (A-50, RED)", information="UHF 266 Mhz"},  
     {sort=12, name="Meet Mig-21", description="Mig-21 (dogfight zone, RED)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
     {sort=13, name="Meet Mig-29", description="Mig-29 (dogfight zone, RED)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\"" },
