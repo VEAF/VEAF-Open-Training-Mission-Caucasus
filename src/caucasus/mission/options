@@ -119,8 +119,8 @@ options =
         }, -- end of ["CA"]
         ["DCS-SRS"] = 
         {
-            ["srsAutoLaunchEnabled"] = false,
-            ["srsOverlayEnabled"] = false,
+            ["srsAutoLaunchEnabled"] = true,
+            ["srsOverlayEnabled"] = true,
         }, -- end of ["DCS-SRS"]
         ["Yak52"] = 
         {
