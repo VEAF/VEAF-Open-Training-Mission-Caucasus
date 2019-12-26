@@ -26,9 +26,9 @@ options =
         ["miniHUD"] = false,
         ["optionsView"] = "optview_onlyallies",
         ["setGlobal"] = false,
-        ["avionicsLanguage"] = "native",
+        ["avionicsLanguage"] = "english",
         ["cockpitVisualRM"] = true,
-        ["reports"] = true,
+        ["map"] = true,
         ["spectatorExternalViews"] = true,
         ["userSnapView"] = true,
         ["iconsTheme"] = "nato",
@@ -39,21 +39,22 @@ options =
         ["immortal"] = false,
         ["cockpitStatusBarAllowed"] = true,
         ["wakeTurbulence"] = false,
+        ["geffect"] = "realistic",
         ["easyFlight"] = false,
         ["hideStick"] = false,
         ["radio"] = false,
-        ["geffect"] = "realistic",
-        ["userMarks"] = true,
+        ["reports"] = true,
         ["tips"] = true,
-        ["easyCommunication"] = false,
-        ["units"] = "imperial",
+        ["unrestrictedSATNAV"] = true,
         ["easyRadar"] = false,
+        ["units"] = "imperial",
+        ["externalViews"] = true,
         ["autoTrimmer"] = false,
         ["controlsIndicator"] = true,
-        ["externalViews"] = true,
         ["RBDAI"] = false,
+        ["userMarks"] = true,
         ["aircraftMode"] = true,
-        ["map"] = true,
+        ["easyCommunication"] = false,
         ["labels"] = 2,
     }, -- end of ["difficulty"]
     ["VR"] = 
@@ -78,23 +79,23 @@ options =
         ["motionBlur"] = 0,
         ["outputGamma"] = 1.8,
         ["treesVisibility"] = 10000,
-        ["aspect"] = 1.3650793650794,
+        ["aspect"] = 1.6044776119403,
         ["lights"] = 2,
         ["shadows"] = 4,
         ["MSAA"] = 1,
         ["SSAA"] = 0,
-        ["height"] = 2520,
+        ["height"] = 1340,
         ["forestDistanceFactor"] = 1,
         ["cockpitGI"] = 1,
         ["terrainTextures"] = "max",
-        ["multiMonitorSetup"] = "mfcd bottom screen",
+        ["multiMonitorSetup"] = "1camera",
         ["shadowTree"] = false,
         ["chimneySmokeDensity"] = 5,
         ["fullScreen"] = false,
         ["DOF"] = 0,
         ["clouds"] = 1,
         ["flatTerrainShadows"] = 0,
-        ["width"] = 3440,
+        ["width"] = 2150,
         ["useDeferredShading"] = 1,
         ["effects"] = 3,
         ["SSAO"] = 0,
@@ -116,6 +117,11 @@ options =
             ["ground_platform_shake"] = true,
             ["ground_automatic"] = true,
         }, -- end of ["CA"]
+        ["DCS-SRS"] = 
+        {
+            ["srsAutoLaunchEnabled"] = true,
+            ["srsOverlayEnabled"] = true,
+        }, -- end of ["DCS-SRS"]
         ["Yak52"] = 
         {
             ["aileronTrim"] = 0,
@@ -160,14 +166,16 @@ options =
             ["weapTooltips"] = false,
             ["UHTrimmingMethod"] = 0,
         }, -- end of ["UH-1H"]
-        ["A-10C"] = 
+        ["CaptoGlove"] = 
         {
-            ["CPLocalList"] = "Cockpits - A-10C - Bummer WARTHOG pit V1.5.3",
-        }, -- end of ["A-10C"]
+            ["enable"] = false,
+            ["armBending"] = 60,
+            ["mouseClickSrc"] = 0,
+        }, -- end of ["CaptoGlove"]
         ["Ka-50"] = 
         {
             ["Ka50TrimmingMethod"] = 1,
-            ["CPLocalList"] = "english",
+            ["CPLocalList"] = "ricardo",
             ["Ka50RudderTrimmer"] = false,
             ["helmetCircleDisplacement"] = 11,
         }, -- end of ["Ka-50"]
@@ -194,16 +202,16 @@ options =
         {
             ["CPLocalList"] = "English",
         }, -- end of ["AJS37"]
-        ["Su-25T"] = 
-        {
-            ["CPLocalList"] = "english",
-        }, -- end of ["Su-25T"]
         ["F-16C"] = 
         {
             ["abDetent"] = 0,
             ["CPLocalList"] = "default",
             ["hmdEye"] = 1,
         }, -- end of ["F-16C"]
+        ["Su-25T"] = 
+        {
+            ["CPLocalList"] = "english",
+        }, -- end of ["Su-25T"]
         ["F-5E-3"] = 
         {
             ["JoystickMode"] = 0,
@@ -211,12 +219,10 @@ options =
             ["CPLocalList"] = "default",
             ["aiHelper"] = true,
         }, -- end of ["F-5E-3"]
-        ["CaptoGlove"] = 
+        ["A-10C"] = 
         {
-            ["enable"] = false,
-            ["armBending"] = 60,
-            ["mouseClickSrc"] = 0,
-        }, -- end of ["CaptoGlove"]
+            ["CPLocalList"] = "Cockpits - A-10C - Bummer WARTHOG pit V1.5.3",
+        }, -- end of ["A-10C"]
         ["F-14B"] = 
         {
             ["JESTER_HeadMenu"] = true,
