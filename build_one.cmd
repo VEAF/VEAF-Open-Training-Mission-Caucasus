@@ -40,8 +40,6 @@ echo SEVENZIP = %SEVENZIP%
 echo building the mission
 rem -- copy all the source mission files
 xcopy /y /e src\%VERSION%\mission .\build\tempsrc\ >nul 2>&1
-rem -- remove the dreaded "options" file
-del .\build\tempsrc\options >nul 2>&1
 
 rem -- copy all the mission-specific scripts
 copy src\%VERSION%\scripts\*.lua .\build\tempsrc\l10n\Default  >nul 2>&1
