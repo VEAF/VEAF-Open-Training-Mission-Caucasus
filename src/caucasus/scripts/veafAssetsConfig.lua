@@ -24,6 +24,7 @@ veafAssets.Assets = {
     {sort=5, name="T3-Texaco", description="Texaco (KC-135 MPRS)", information="Tacan 13Y\nVHF 130.2 Mhz\nZone OUEST"},  
     {sort=4, name="T2-Shell", description="Shell (KC-135 MPRS)", information="Tacan 12Y\nVHF 130.3 Mhz\nZone EST"},  
     {sort=6, name="T4-Shell-B", description="Shell-B (KC-135)", information="Tacan 14Y\nVHF 130.1 Mhz\nZone EST"},  
+    {sort=6, name="T5-Petrolsky", description="900 (IL-78M, RED)", information="VHF 267 Mhz"},  
     {sort=7, name="CVN-74 Stennis S3B-Tanker", description="Texaco-7 (S3-B)", information="Tacan 75Y\nVHF 133.750 Mhz\nZone PA"},  
     {sort=8, name="D1-Reaper", description="Colt-1 FAC (MQ-9)", information="VHF 253 Mhz", jtac=1688},  
     {sort=9, name="D2-Reaper", description="Dodge-1 FAC (MQ-9)", information="VHF 254 Mhz", jtac=1687},  
