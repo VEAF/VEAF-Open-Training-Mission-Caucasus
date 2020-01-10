@@ -35105,363 +35105,7 @@ mission =
                                 y = 903787.5
                             },
                             {
-                                communication = true,
-                                frequency = 124,
-                                groupId = 865,
-                                hidden = false,
-                                modulation = 0,
-                                name = "DictKey_GroupName_4816",
-                                radioSet = false,
-                                route = {
-                                    points = {
-                                        {
-                                            action = "Turning Point",
-                                            alt = 7924.8000000000002,
-                                            alt_type = "BARO",
-                                            ETA = 0,
-                                            ETA_locked = true,
-                                            formation_template = "",
-                                            name = "DictKey_WptName_4819",
-                                            properties = {
-                                                addopt = {}
-                                            },
-                                            speed = 220.97222222222001,
-                                            speed_locked = true,
-                                            task = {
-                                                id = "ComboTask",
-                                                params = {
-                                                    tasks = {
-                                                        {
-                                                            auto = true,
-                                                            enabled = true,
-                                                            id = "WrappedAction",
-                                                            number = 1,
-                                                            params = {
-                                                                action = {
-                                                                    id = "EPLRS",
-                                                                    params = {
-                                                                        groupId = 33,
-                                                                        value = true
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        {
-                                                            auto = false,
-                                                            enabled = true,
-                                                            id = "Escort",
-                                                            number = 2,
-                                                            params = {
-                                                                engagementDistMax = 37000,
-                                                                groupId = 377,
-                                                                lastWptIndex = 3,
-                                                                lastWptIndexFlag = false,
-                                                                lastWptIndexFlagChangedManually = false,
-                                                                noTargetTypes = {
-                                                                    "Bombers",
-                                                                    "Helicopters"
-                                                                },
-                                                                pos = {
-                                                                    x = -609.60000000000002,
-                                                                    y = 914.39999999999998,
-                                                                    z = 1524
-                                                                },
-                                                                targetTypes = {
-                                                                    "Fighters"
-                                                                },
-                                                                value = "Fighters;"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            type = "Turning Point",
-                                            x = -213061.18595099999,
-                                            y = 774662.92821118003
-                                        }
-                                    }
-                                },
-                                start_time = 0,
-                                task = "Escort",
-                                tasks = {},
-                                taskSelected = true,
-                                uncontrolled = false,
-                                units = {
-                                    {
-                                        alt = 7924.8000000000002,
-                                        alt_type = "BARO",
-                                        callsign = {
-                                            1,
-                                            5,
-                                            1,
-                                            name = "Enfield51"
-                                        },
-                                        hardpoint_racks = true,
-                                        heading = 0,
-                                        livery_id = "106th SQN (8th Airbase)",
-                                        name = "DictKey_UnitName_4817",
-                                        onboard_num = "1039",
-                                        payload = {
-                                            chaff = 120,
-                                            flare = 60,
-                                            fuel = "6103",
-                                            gun = 100,
-                                            pylons = {
-                                                {
-                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
-                                                },
-                                                {
-                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
-                                                },
-                                                {
-                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
-                                                },
-                                                {
-                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
-                                                },
-                                                {
-                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
-                                                },
-                                                {
-                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
-                                                },
-                                                {
-                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
-                                                },
-                                                {
-                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
-                                                },
-                                                {
-                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
-                                                },
-                                                {
-                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
-                                                },
-                                                {
-                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
-                                                }
-                                            }
-                                        },
-                                        psi = 0,
-                                        skill = "Excellent",
-                                        speed = 220.97222222222001,
-                                        type = "F-15C",
-                                        unitId = 2070,
-                                        x = -213061.18595099999,
-                                        y = 774662.92821118003
-                                    },
-                                    {
-                                        alt = 7924.8000000000002,
-                                        alt_type = "BARO",
-                                        callsign = {
-                                            1,
-                                            5,
-                                            2,
-                                            name = "Enfield52"
-                                        },
-                                        heading = 0,
-                                        livery_id = "106th SQN (8th Airbase)",
-                                        name = "DictKey_UnitName_4818",
-                                        onboard_num = "1040",
-                                        payload = {
-                                            chaff = 120,
-                                            flare = 60,
-                                            fuel = "6103",
-                                            gun = 100,
-                                            pylons = {}
-                                        },
-                                        psi = 0,
-                                        skill = "Excellent",
-                                        speed = 220.97222222222001,
-                                        type = "F-15C",
-                                        unitId = 2071,
-                                        x = -213101.18595099999,
-                                        y = 774702.92821118003
-                                    }
-                                },
-                                x = -213061.18595099999,
-                                y = 774662.92821118003
-                            },
-                            {
-                                communication = true,
-                                frequency = 124,
-                                groupId = 866,
-                                hidden = false,
-                                modulation = 0,
-                                name = "DictKey_GroupName_4820",
-                                radioSet = false,
-                                route = {
-                                    points = {
-                                        {
-                                            action = "Turning Point",
-                                            alt = 7924.8000000000002,
-                                            alt_type = "BARO",
-                                            ETA = 0,
-                                            ETA_locked = true,
-                                            formation_template = "",
-                                            name = "DictKey_WptName_4823",
-                                            properties = {
-                                                addopt = {}
-                                            },
-                                            speed = 220.97222222222001,
-                                            speed_locked = true,
-                                            task = {
-                                                id = "ComboTask",
-                                                params = {
-                                                    tasks = {
-                                                        {
-                                                            auto = true,
-                                                            enabled = true,
-                                                            id = "WrappedAction",
-                                                            number = 1,
-                                                            params = {
-                                                                action = {
-                                                                    id = "EPLRS",
-                                                                    params = {
-                                                                        groupId = 34,
-                                                                        value = true
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        {
-                                                            auto = false,
-                                                            enabled = true,
-                                                            id = "Escort",
-                                                            number = 2,
-                                                            params = {
-                                                                engagementDistMax = 37000,
-                                                                groupId = 815,
-                                                                lastWptIndex = 3,
-                                                                lastWptIndexFlag = false,
-                                                                lastWptIndexFlagChangedManually = false,
-                                                                noTargetTypes = {
-                                                                    "Bombers",
-                                                                    "Helicopters"
-                                                                },
-                                                                pos = {
-                                                                    x = -609.60000000000002,
-                                                                    y = 914.39999999999998,
-                                                                    z = 1524
-                                                                },
-                                                                targetTypes = {
-                                                                    "Fighters"
-                                                                },
-                                                                value = "Fighters;"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            type = "Turning Point",
-                                            x = -190908.95076049,
-                                            y = 829606.10587207996
-                                        }
-                                    }
-                                },
-                                start_time = 0,
-                                task = "Escort",
-                                tasks = {},
-                                taskSelected = true,
-                                uncontrolled = false,
-                                units = {
-                                    {
-                                        alt = 7924.8000000000002,
-                                        alt_type = "BARO",
-                                        callsign = {
-                                            1,
-                                            5,
-                                            1,
-                                            name = "Enfield51"
-                                        },
-                                        hardpoint_racks = true,
-                                        heading = 0,
-                                        livery_id = "106th SQN (8th Airbase)",
-                                        name = "DictKey_UnitName_4821",
-                                        onboard_num = "1039",
-                                        payload = {
-                                            chaff = 120,
-                                            flare = 60,
-                                            fuel = "6103",
-                                            gun = 100,
-                                            pylons = {
-                                                {
-                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
-                                                },
-                                                {
-                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
-                                                },
-                                                {
-                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
-                                                },
-                                                {
-                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
-                                                },
-                                                {
-                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
-                                                },
-                                                {
-                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
-                                                },
-                                                {
-                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
-                                                },
-                                                {
-                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
-                                                },
-                                                {
-                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
-                                                },
-                                                {
-                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
-                                                },
-                                                {
-                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
-                                                }
-                                            }
-                                        },
-                                        psi = 0,
-                                        skill = "Excellent",
-                                        speed = 220.97222222222001,
-                                        type = "F-15C",
-                                        unitId = 2072,
-                                        x = -190908.95076049,
-                                        y = 829606.10587207996
-                                    },
-                                    {
-                                        alt = 7924.8000000000002,
-                                        alt_type = "BARO",
-                                        callsign = {
-                                            1,
-                                            5,
-                                            2,
-                                            name = "Enfield52"
-                                        },
-                                        heading = 0,
-                                        livery_id = "106th SQN (8th Airbase)",
-                                        name = "DictKey_UnitName_4822",
-                                        onboard_num = "1040",
-                                        payload = {
-                                            chaff = 120,
-                                            flare = 60,
-                                            fuel = "6103",
-                                            gun = 100,
-                                            pylons = {}
-                                        },
-                                        psi = 0,
-                                        skill = "Excellent",
-                                        speed = 220.97222222222001,
-                                        type = "F-15C",
-                                        unitId = 2073,
-                                        x = -190948.95076049,
-                                        y = 829646.10587207996
-                                    }
-                                },
-                                x = -190908.95076049,
-                                y = 829606.10587207996
-                            },
-                            {
-                                communication = true,
+                                communication = false,
                                 frequency = 124,
                                 groupId = 867,
                                 hidden = false,
@@ -35472,7 +35116,7 @@ mission =
                                     points = {
                                         {
                                             action = "Turning Point",
-                                            alt = 7924.8000000000002,
+                                            alt = 6096,
                                             alt_type = "BARO",
                                             ETA = 0,
                                             ETA_locked = true,
@@ -35481,7 +35125,7 @@ mission =
                                             properties = {
                                                 addopt = {}
                                             },
-                                            speed = 220.97222222222001,
+                                            speed = 138.75,
                                             speed_locked = true,
                                             task = {
                                                 id = "ComboTask",
@@ -35501,12 +35145,36 @@ mission =
                                                                     }
                                                                 }
                                                             }
-                                                        },
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -241911.59334297001,
+                                            y = 602644.92632547999
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 6096,
+                                            alt_type = "BARO",
+                                            ETA = 57.867648695522,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4859",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 138.75,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {
                                                         {
                                                             auto = false,
                                                             enabled = true,
                                                             id = "Escort",
-                                                            number = 2,
+                                                            number = 1,
                                                             params = {
                                                                 engagementDistMax = 37000,
                                                                 groupId = 606,
@@ -35514,28 +35182,47 @@ mission =
                                                                 lastWptIndexFlag = false,
                                                                 lastWptIndexFlagChangedManually = false,
                                                                 noTargetTypes = {
-                                                                    "Bombers",
                                                                     "Helicopters"
                                                                 },
                                                                 pos = {
-                                                                    x = -609.60000000000002,
-                                                                    y = 914.39999999999998,
-                                                                    z = 1524
+                                                                    x = -500,
+                                                                    y = 0,
+                                                                    z = 200
                                                                 },
                                                                 targetTypes = {
-                                                                    "Fighters"
-                                                                },
-                                                                value = "Fighters;",
-                                                                x = -247851.7876295,
-                                                                y = 602578.74657358998
+                                                                    "Planes"
+                                                                }
                                                             }
                                                         }
                                                     }
                                                 }
                                             },
                                             type = "Turning Point",
-                                            x = -249121.83189326999,
-                                            y = 601816.72001533001
+                                            x = -249689.60231260001,
+                                            y = 600652.53944187996
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 6096,
+                                            alt_type = "BARO",
+                                            ETA = 210.52117355484,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4860",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 138.75,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {}
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -270145.56737134,
+                                            y = 595026.14433730999
                                         }
                                     }
                                 },
@@ -35546,7 +35233,7 @@ mission =
                                 uncontrolled = false,
                                 units = {
                                     {
-                                        alt = 7924.8000000000002,
+                                        alt = 6096,
                                         alt_type = "BARO",
                                         callsign = {
                                             1,
@@ -35555,7 +35242,7 @@ mission =
                                             name = "Enfield51"
                                         },
                                         hardpoint_racks = true,
-                                        heading = 0,
+                                        heading = -2.8908281645375,
                                         livery_id = "106th SQN (8th Airbase)",
                                         name = "DictKey_UnitName_4825",
                                         onboard_num = "1039",
@@ -35600,16 +35287,16 @@ mission =
                                                 }
                                             }
                                         },
-                                        psi = 0,
+                                        psi = 2.8908281645375,
                                         skill = "Excellent",
-                                        speed = 220.97222222222001,
+                                        speed = 138.75,
                                         type = "F-15C",
                                         unitId = 2074,
-                                        x = -249121.83189326999,
-                                        y = 601816.72001533001
+                                        x = -241911.59334297001,
+                                        y = 602644.92632547999
                                     },
                                     {
-                                        alt = 7924.8000000000002,
+                                        alt = 6096,
                                         alt_type = "BARO",
                                         callsign = {
                                             1,
@@ -35617,47 +35304,81 @@ mission =
                                             2,
                                             name = "Enfield52"
                                         },
-                                        heading = 0,
+                                        heading = -2.8908281645375,
                                         livery_id = "106th SQN (8th Airbase)",
-                                        name = "DictKey_UnitName_4826",
-                                        onboard_num = "1040",
+                                        name = "DictKey_UnitName_4861",
+                                        onboard_num = "1041",
                                         payload = {
                                             chaff = 120,
                                             flare = 60,
                                             fuel = "6103",
                                             gun = 100,
-                                            pylons = {}
+                                            pylons = {
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                }
+                                            }
                                         },
-                                        psi = 0,
+                                        psi = 2.8908281645375,
                                         skill = "Excellent",
-                                        speed = 220.97222222222001,
+                                        speed = 138.75,
                                         type = "F-15C",
-                                        unitId = 2075,
-                                        x = -249161.83189326999,
-                                        y = 601856.72001533001
+                                        unitId = 2089,
+                                        x = -241951.59334297001,
+                                        y = 602684.92632547999
                                     }
                                 },
-                                x = -249121.83189326999,
-                                y = 601816.72001533001
+                                x = -241911.59334297001,
+                                y = 602644.92632547999
                             },
                             {
-                                communication = true,
+                                communication = false,
                                 frequency = 124,
-                                groupId = 868,
+                                groupId = 876,
                                 hidden = false,
                                 modulation = 0,
-                                name = "DictKey_GroupName_4828",
+                                name = "DictKey_GroupName_4862",
                                 radioSet = false,
                                 route = {
                                     points = {
                                         {
                                             action = "Turning Point",
-                                            alt = 7924.8000000000002,
+                                            alt = 6400.8000000000002,
                                             alt_type = "BARO",
                                             ETA = 0,
                                             ETA_locked = true,
                                             formation_template = "",
-                                            name = "DictKey_WptName_4831",
+                                            name = "DictKey_WptName_4865",
                                             properties = {
                                                 addopt = {}
                                             },
@@ -35681,12 +35402,36 @@ mission =
                                                                     }
                                                                 }
                                                             }
-                                                        },
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -242420.85581119999,
+                                            y = 583277.94165172998
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 6400.8000000000002,
+                                            alt_type = "BARO",
+                                            ETA = 38.074707003118,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4866",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 220.97222222222001,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {
                                                         {
                                                             auto = false,
                                                             enabled = true,
                                                             id = "Escort",
-                                                            number = 2,
+                                                            number = 1,
                                                             params = {
                                                                 engagementDistMax = 37000,
                                                                 groupId = 381,
@@ -35694,28 +35439,47 @@ mission =
                                                                 lastWptIndexFlag = false,
                                                                 lastWptIndexFlagChangedManually = false,
                                                                 noTargetTypes = {
-                                                                    "Bombers",
                                                                     "Helicopters"
                                                                 },
                                                                 pos = {
-                                                                    x = -609.60000000000002,
-                                                                    y = 914.39999999999998,
-                                                                    z = 1524
+                                                                    x = -500,
+                                                                    y = 0,
+                                                                    z = 200
                                                                 },
                                                                 targetTypes = {
-                                                                    "Fighters"
-                                                                },
-                                                                value = "Fighters;",
-                                                                x = -237945.44237213,
-                                                                y = 580733.98523681005
+                                                                    "Planes"
+                                                                }
                                                             }
                                                         }
                                                     }
                                                 }
                                             },
                                             type = "Turning Point",
-                                            x = -237691.43351937001,
-                                            y = 579971.95867854997
+                                            x = -239400.81636103001,
+                                            y = 575652.58677398995
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 6400.8000000000002,
+                                            alt_type = "BARO",
+                                            ETA = 143.20168357470999,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4867",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 220.97222222222001,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {}
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -229195.84631637001,
+                                            y = 554783.99634557997
                                         }
                                     }
                                 },
@@ -35726,7 +35490,7 @@ mission =
                                 uncontrolled = false,
                                 units = {
                                     {
-                                        alt = 7924.8000000000002,
+                                        alt = 6400.8000000000002,
                                         alt_type = "BARO",
                                         callsign = {
                                             1,
@@ -35735,9 +35499,9 @@ mission =
                                             name = "Enfield51"
                                         },
                                         hardpoint_racks = true,
-                                        heading = 0,
+                                        heading = -1.1936977523848,
                                         livery_id = "106th SQN (8th Airbase)",
-                                        name = "DictKey_UnitName_4829",
+                                        name = "DictKey_UnitName_4863",
                                         onboard_num = "1039",
                                         payload = {
                                             chaff = 120,
@@ -35780,16 +35544,16 @@ mission =
                                                 }
                                             }
                                         },
-                                        psi = 0,
+                                        psi = 1.1936977523848,
                                         skill = "Excellent",
                                         speed = 220.97222222222001,
                                         type = "F-15C",
-                                        unitId = 2076,
-                                        x = -237691.43351937001,
-                                        y = 579971.95867854997
+                                        unitId = 2090,
+                                        x = -242420.85581119999,
+                                        y = 583277.94165172998
                                     },
                                     {
-                                        alt = 7924.8000000000002,
+                                        alt = 6400.8000000000002,
                                         alt_type = "BARO",
                                         callsign = {
                                             1,
@@ -35797,51 +35561,85 @@ mission =
                                             2,
                                             name = "Enfield52"
                                         },
-                                        heading = 0,
+                                        heading = -1.1936977523848,
                                         livery_id = "106th SQN (8th Airbase)",
-                                        name = "DictKey_UnitName_4830",
-                                        onboard_num = "1040",
+                                        name = "DictKey_UnitName_4864",
+                                        onboard_num = "1041",
                                         payload = {
                                             chaff = 120,
                                             flare = 60,
                                             fuel = "6103",
                                             gun = 100,
-                                            pylons = {}
+                                            pylons = {
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                }
+                                            }
                                         },
-                                        psi = 0,
+                                        psi = 1.1936977523848,
                                         skill = "Excellent",
                                         speed = 220.97222222222001,
                                         type = "F-15C",
-                                        unitId = 2077,
-                                        x = -237731.43351937001,
-                                        y = 580011.95867854997
+                                        unitId = 2091,
+                                        x = -242460.85581119999,
+                                        y = 583317.94165172998
                                     }
                                 },
-                                x = -237691.43351937001,
-                                y = 579971.95867854997
+                                x = -242420.85581119999,
+                                y = 583277.94165172998
                             },
                             {
-                                communication = true,
+                                communication = false,
                                 frequency = 124,
-                                groupId = 869,
+                                groupId = 877,
                                 hidden = false,
                                 modulation = 0,
-                                name = "DictKey_GroupName_4832",
+                                name = "DictKey_GroupName_4868",
                                 radioSet = false,
                                 route = {
                                     points = {
                                         {
                                             action = "Turning Point",
-                                            alt = 7924.8000000000002,
+                                            alt = 3657.5999999999999,
                                             alt_type = "BARO",
                                             ETA = 0,
                                             ETA_locked = true,
                                             formation_template = "",
-                                            name = "DictKey_WptName_4835",
+                                            name = "DictKey_WptName_4871",
                                             properties = {
                                                 addopt = {}
                                             },
-                                            speed = 220.97222222222001,
+                                            speed = 133.61111111111001,
                                             speed_locked = true,
                                             task = {
                                                 id = "ComboTask",
@@ -35861,12 +35659,36 @@ mission =
                                                                     }
                                                                 }
                                                             }
-                                                        },
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -206492.65453160999,
+                                            y = 489999.63594966999
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 3657.5999999999999,
+                                            alt_type = "BARO",
+                                            ETA = 89.069153396089007,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4872",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 133.61111111111001,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {
                                                         {
                                                             auto = false,
                                                             enabled = true,
                                                             id = "Escort",
-                                                            number = 2,
+                                                            number = 1,
                                                             params = {
                                                                 engagementDistMax = 37000,
                                                                 groupId = 378,
@@ -35874,28 +35696,47 @@ mission =
                                                                 lastWptIndexFlag = false,
                                                                 lastWptIndexFlagChangedManually = false,
                                                                 noTargetTypes = {
-                                                                    "Bombers",
                                                                     "Helicopters"
                                                                 },
                                                                 pos = {
-                                                                    x = -609.60000000000002,
-                                                                    y = 914.39999999999998,
-                                                                    z = 1524
+                                                                    x = -500,
+                                                                    y = 0,
+                                                                    z = 200
                                                                 },
                                                                 targetTypes = {
-                                                                    "Fighters"
-                                                                },
-                                                                value = "Fighters;",
-                                                                x = -237945.44237213,
-                                                                y = 580733.98523681005
+                                                                    "Planes"
+                                                                }
                                                             }
                                                         }
                                                     }
                                                 }
                                             },
                                             type = "Turning Point",
-                                            x = -204924.29151420001,
-                                            y = 496657.05497547
+                                            x = -211537.80826155,
+                                            y = 500777.91891819
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 3657.5999999999999,
+                                            alt_type = "BARO",
+                                            ETA = 343.80020844963002,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4873",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 133.61111111111001,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {}
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -228163.88305342,
+                                            y = 530475.52837402001
                                         }
                                     }
                                 },
@@ -35906,7 +35747,7 @@ mission =
                                 uncontrolled = false,
                                 units = {
                                     {
-                                        alt = 7924.8000000000002,
+                                        alt = 3657.5999999999999,
                                         alt_type = "BARO",
                                         callsign = {
                                             1,
@@ -35915,9 +35756,9 @@ mission =
                                             name = "Enfield51"
                                         },
                                         hardpoint_racks = true,
-                                        heading = 0,
+                                        heading = 2.0085876304360002,
                                         livery_id = "106th SQN (8th Airbase)",
-                                        name = "DictKey_UnitName_4833",
+                                        name = "DictKey_UnitName_4869",
                                         onboard_num = "1039",
                                         payload = {
                                             chaff = 120,
@@ -35960,16 +35801,16 @@ mission =
                                                 }
                                             }
                                         },
-                                        psi = 0,
+                                        psi = -2.0085876304360002,
                                         skill = "Excellent",
-                                        speed = 220.97222222222001,
+                                        speed = 133.61111111111001,
                                         type = "F-15C",
-                                        unitId = 2078,
-                                        x = -204924.29151420001,
-                                        y = 496657.05497547
+                                        unitId = 2092,
+                                        x = -206492.65453160999,
+                                        y = 489999.63594966999
                                     },
                                     {
-                                        alt = 7924.8000000000002,
+                                        alt = 3657.5999999999999,
                                         alt_type = "BARO",
                                         callsign = {
                                             1,
@@ -35977,28 +35818,576 @@ mission =
                                             2,
                                             name = "Enfield52"
                                         },
-                                        heading = 0,
+                                        heading = 2.0085876304360002,
                                         livery_id = "106th SQN (8th Airbase)",
-                                        name = "DictKey_UnitName_4834",
-                                        onboard_num = "1040",
+                                        name = "DictKey_UnitName_4870",
+                                        onboard_num = "1041",
                                         payload = {
                                             chaff = 120,
                                             flare = 60,
                                             fuel = "6103",
                                             gun = 100,
-                                            pylons = {}
+                                            pylons = {
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                }
+                                            }
                                         },
-                                        psi = 0,
+                                        psi = -2.0085876304360002,
+                                        skill = "Excellent",
+                                        speed = 133.61111111111001,
+                                        type = "F-15C",
+                                        unitId = 2093,
+                                        x = -206532.65453160999,
+                                        y = 490039.63594966999
+                                    }
+                                },
+                                x = -206492.65453160999,
+                                y = 489999.63594966999
+                            },
+                            {
+                                communication = false,
+                                frequency = 124,
+                                groupId = 880,
+                                hidden = false,
+                                modulation = 0,
+                                name = "DictKey_GroupName_4887",
+                                radioSet = false,
+                                route = {
+                                    points = {
+                                        {
+                                            action = "Turning Point",
+                                            alt = 4572,
+                                            alt_type = "BARO",
+                                            ETA = 0,
+                                            ETA_locked = true,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4890",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 133.61111111111001,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {
+                                                        {
+                                                            auto = true,
+                                                            enabled = true,
+                                                            id = "WrappedAction",
+                                                            number = 1,
+                                                            params = {
+                                                                action = {
+                                                                    id = "EPLRS",
+                                                                    params = {
+                                                                        groupId = 33,
+                                                                        value = true
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -213245.48622314,
+                                            y = 767736.64635742002
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 4572.3047999999999,
+                                            alt_type = "BARO",
+                                            ETA = 65.285545107839994,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4891",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 133.61111111111001,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {
+                                                        {
+                                                            auto = false,
+                                                            enabled = true,
+                                                            id = "Escort",
+                                                            number = 1,
+                                                            params = {
+                                                                engagementDistMax = 37000,
+                                                                groupId = 377,
+                                                                lastWptIndex = 3,
+                                                                lastWptIndexFlag = false,
+                                                                lastWptIndexFlagChangedManually = false,
+                                                                noTargetTypes = {
+                                                                    "Helicopters"
+                                                                },
+                                                                pos = {
+                                                                    x = -500,
+                                                                    y = 0,
+                                                                    z = 200
+                                                                },
+                                                                targetTypes = {
+                                                                    "Planes"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -215484.20465104,
+                                            y = 776167.34469635005
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 4572.3047999999999,
+                                            alt_type = "BARO",
+                                            ETA = 286.07992218398999,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4892",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 133.61111111111001,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {}
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -224355.34691744999,
+                                            y = 804302.50376954
+                                        }
+                                    }
+                                },
+                                start_time = 0,
+                                task = "Escort",
+                                tasks = {},
+                                taskSelected = true,
+                                uncontrolled = false,
+                                units = {
+                                    {
+                                        alt = 4572,
+                                        alt_type = "BARO",
+                                        callsign = {
+                                            1,
+                                            5,
+                                            1,
+                                            name = "Enfield51"
+                                        },
+                                        hardpoint_racks = true,
+                                        heading = 1.8303499682608999,
+                                        livery_id = "106th SQN (8th Airbase)",
+                                        name = "DictKey_UnitName_4888",
+                                        onboard_num = "1039",
+                                        payload = {
+                                            chaff = 120,
+                                            flare = 60,
+                                            fuel = "6103",
+                                            gun = 100,
+                                            pylons = {
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                }
+                                            }
+                                        },
+                                        psi = -1.8303499682608999,
+                                        skill = "Excellent",
+                                        speed = 133.61111111111001,
+                                        type = "F-15C",
+                                        unitId = 2099,
+                                        x = -213245.48622314,
+                                        y = 767736.64635742002
+                                    },
+                                    {
+                                        alt = 4572,
+                                        alt_type = "BARO",
+                                        callsign = {
+                                            1,
+                                            5,
+                                            2,
+                                            name = "Enfield52"
+                                        },
+                                        heading = 1.8303499682608999,
+                                        livery_id = "106th SQN (8th Airbase)",
+                                        name = "DictKey_UnitName_4889",
+                                        onboard_num = "1041",
+                                        payload = {
+                                            chaff = 120,
+                                            flare = 60,
+                                            fuel = "6103",
+                                            gun = 100,
+                                            pylons = {
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                }
+                                            }
+                                        },
+                                        psi = -1.8303499682608999,
+                                        skill = "Excellent",
+                                        speed = 133.61111111111001,
+                                        type = "F-15C",
+                                        unitId = 2100,
+                                        x = -213285.48622314,
+                                        y = 767776.64635742002
+                                    }
+                                },
+                                x = -213245.48622314,
+                                y = 767736.64635742002
+                            },
+                            {
+                                communication = false,
+                                frequency = 124,
+                                groupId = 881,
+                                hidden = false,
+                                modulation = 0,
+                                name = "DictKey_GroupName_4893",
+                                radioSet = false,
+                                route = {
+                                    points = {
+                                        {
+                                            action = "Turning Point",
+                                            alt = 7010.3999999999996,
+                                            alt_type = "BARO",
+                                            ETA = 0,
+                                            ETA_locked = true,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4896",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 220.97222222222001,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {
+                                                        {
+                                                            auto = true,
+                                                            enabled = true,
+                                                            id = "WrappedAction",
+                                                            number = 1,
+                                                            params = {
+                                                                action = {
+                                                                    id = "EPLRS",
+                                                                    params = {
+                                                                        groupId = 34,
+                                                                        value = true
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -189078.93354145001,
+                                            y = 832809.95254035003
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 7010.7048000000004,
+                                            alt_type = "BARO",
+                                            ETA = 31.193082640945001,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4897",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 220.97222222222001,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {
+                                                        {
+                                                            auto = false,
+                                                            enabled = true,
+                                                            id = "Escort",
+                                                            number = 1,
+                                                            params = {
+                                                                engagementDistMax = 37000,
+                                                                groupId = 815,
+                                                                lastWptIndex = 3,
+                                                                lastWptIndexFlag = false,
+                                                                lastWptIndexFlagChangedManually = false,
+                                                                noTargetTypes = {
+                                                                    "Helicopters"
+                                                                },
+                                                                pos = {
+                                                                    x = -500,
+                                                                    y = 0,
+                                                                    z = 200
+                                                                },
+                                                                targetTypes = {
+                                                                    "Planes"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -189241.59605026001,
+                                            y = 825919.06734545005
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 7010.7048000000004,
+                                            alt_type = "BARO",
+                                            ETA = 149.67754952964,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4898",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 220.97222222222001,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {}
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -190303.04967951999,
+                                            y = 799758.81681256997
+                                        }
+                                    }
+                                },
+                                start_time = 0,
+                                task = "Escort",
+                                tasks = {},
+                                taskSelected = true,
+                                uncontrolled = false,
+                                units = {
+                                    {
+                                        alt = 7010.3999999999996,
+                                        alt_type = "BARO",
+                                        callsign = {
+                                            1,
+                                            5,
+                                            1,
+                                            name = "Enfield51"
+                                        },
+                                        hardpoint_racks = true,
+                                        heading = -1.5943974029262999,
+                                        livery_id = "106th SQN (8th Airbase)",
+                                        name = "DictKey_UnitName_4894",
+                                        onboard_num = "1039",
+                                        payload = {
+                                            chaff = 120,
+                                            flare = 60,
+                                            fuel = "6103",
+                                            gun = 100,
+                                            pylons = {
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                }
+                                            }
+                                        },
+                                        psi = 1.5943974029262999,
                                         skill = "Excellent",
                                         speed = 220.97222222222001,
                                         type = "F-15C",
-                                        unitId = 2079,
-                                        x = -204964.29151420001,
-                                        y = 496697.05497547
+                                        unitId = 2101,
+                                        x = -189078.93354145001,
+                                        y = 832809.95254035003
+                                    },
+                                    {
+                                        alt = 7010.3999999999996,
+                                        alt_type = "BARO",
+                                        callsign = {
+                                            1,
+                                            5,
+                                            2,
+                                            name = "Enfield52"
+                                        },
+                                        heading = -1.5943974029262999,
+                                        livery_id = "106th SQN (8th Airbase)",
+                                        name = "DictKey_UnitName_4895",
+                                        onboard_num = "1041",
+                                        payload = {
+                                            chaff = 120,
+                                            flare = 60,
+                                            fuel = "6103",
+                                            gun = 100,
+                                            pylons = {
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+                                                },
+                                                {
+                                                    CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+                                                },
+                                                {
+                                                    CLSID = "{E1F29B21-F291-4589-9FD8-3272EEC69506}"
+                                                },
+                                                {
+                                                    CLSID = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+                                                }
+                                            }
+                                        },
+                                        psi = 1.5943974029262999,
+                                        skill = "Excellent",
+                                        speed = 220.97222222222001,
+                                        type = "F-15C",
+                                        unitId = 2102,
+                                        x = -189118.93354145001,
+                                        y = 832849.95254035003
                                     }
                                 },
-                                x = -204924.29151420001,
-                                y = 496657.05497547
+                                x = -189078.93354145001,
+                                y = 832809.95254035003
                             }
                         }
                     },
@@ -55551,8 +55940,8 @@ mission =
                                                 }
                                             },
                                             type = "Turning Point",
-                                            x = -95449.088885682999,
-                                            y = 606959.80510732997
+                                            x = -95114.265127307997,
+                                            y = 607167.75709077006
                                         },
                                         {
                                             action = "Turning Point",
@@ -55624,7 +56013,7 @@ mission =
                                         alt = 7010.3999999999996,
                                         alt_type = "BARO",
                                         callsign = 900,
-                                        heading = 2.0074234866095999,
+                                        heading = 2.1452712522374999,
                                         livery_id = "RF Air Force",
                                         name = "DictKey_UnitName_4802",
                                         onboard_num = "1038",
@@ -55635,40 +56024,63 @@ mission =
                                             gun = 100,
                                             pylons = {}
                                         },
-                                        psi = -2.0074234866095999,
+                                        psi = -2.1452712522374999,
                                         skill = "High",
                                         speed = 188.05282662061001,
                                         type = "IL-78M",
                                         unitId = 2063,
-                                        x = -95449.088885682999,
-                                        y = 606959.80510732997
+                                        x = -95114.265127307997,
+                                        y = 607167.75709077006
                                     }
                                 },
-                                x = -95449.088885682999,
-                                y = 606959.80510732997
+                                x = -95114.265127307997,
+                                y = 607167.75709077006
                             },
                             {
-                                communication = true,
+                                communication = false,
                                 frequency = 127.5,
-                                groupId = 863,
+                                groupId = 878,
                                 hidden = false,
                                 modulation = 0,
-                                name = "DictKey_GroupName_4806",
+                                name = "DictKey_GroupName_4874",
                                 radioSet = false,
                                 route = {
                                     points = {
                                         {
                                             action = "Turning Point",
-                                            alt = 7924.8000000000002,
+                                            alt = 7010.3999999999996,
                                             alt_type = "BARO",
                                             ETA = 0,
                                             ETA_locked = true,
                                             formation_template = "",
-                                            name = "DictKey_WptName_4808",
+                                            name = "DictKey_WptName_4877",
                                             properties = {
                                                 addopt = {}
                                             },
-                                            speed = 250.73710216081,
+                                            speed = 188.08333333332999,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {}
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -94602.920239914005,
+                                            y = 603758.79117481003
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 7010.7048000000004,
+                                            alt_type = "BARO",
+                                            ETA = 13.83312530187,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4878",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 188.08333333332999,
                                             speed_locked = true,
                                             task = {
                                                 id = "ComboTask",
@@ -55686,26 +56098,47 @@ mission =
                                                                 lastWptIndexFlag = false,
                                                                 lastWptIndexFlagChangedManually = false,
                                                                 noTargetTypes = {
-                                                                    "Bombers",
                                                                     "Helicopters"
                                                                 },
                                                                 pos = {
-                                                                    x = -609.60000000000002,
-                                                                    y = 914.39999999999998,
-                                                                    z = 1524
+                                                                    x = -500,
+                                                                    y = 0,
+                                                                    z = 200
                                                                 },
                                                                 targetTypes = {
-                                                                    "Fighters"
-                                                                },
-                                                                value = "Fighters;"
+                                                                    "Planes"
+                                                                }
                                                             }
                                                         }
                                                     }
                                                 }
                                             },
                                             type = "Turning Point",
-                                            x = -95370.392296677994,
-                                            y = 606832.16450100997
+                                            x = -96591.483690891997,
+                                            y = 606770.04440057999
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 7010.7048000000004,
+                                            alt_type = "BARO",
+                                            ETA = 125.37741523317,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4879",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 188.08333333332999,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {}
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = -107159.27803038,
+                                            y = 624894.37985378003
                                         }
                                     }
                                 },
@@ -55716,18 +56149,18 @@ mission =
                                 uncontrolled = false,
                                 units = {
                                     {
-                                        alt = 7924.8000000000002,
+                                        alt = 7010.3999999999996,
                                         alt_type = "BARO",
-                                        callsign = 162,
+                                        callsign = 165,
                                         hardpoint_racks = true,
-                                        heading = 0,
+                                        heading = 2.1544321458716,
                                         livery_id = "Air Force Standard",
-                                        name = "DictKey_UnitName_4807",
+                                        name = "DictKey_UnitName_4875",
                                         onboard_num = "1039",
                                         payload = {
                                             chaff = 96,
                                             flare = 96,
-                                            fuel = 9400,
+                                            fuel = 5590.1800000000003,
                                             gun = 100,
                                             pylons = {
                                                 {
@@ -55762,26 +56195,26 @@ mission =
                                                 }
                                             }
                                         },
-                                        psi = 0,
+                                        psi = -2.1544321458716,
                                         skill = "Excellent",
-                                        speed = 250.73710216081,
+                                        speed = 188.08333333332999,
                                         type = "Su-27",
-                                        unitId = 2064,
-                                        x = -95370.392296677994,
-                                        y = 606832.16450100997
+                                        unitId = 2094,
+                                        x = -94602.920239914005,
+                                        y = 603758.79117481003
                                     },
                                     {
-                                        alt = 7924.8000000000002,
+                                        alt = 7010.3999999999996,
                                         alt_type = "BARO",
-                                        callsign = 163,
-                                        heading = 0,
+                                        callsign = 118,
+                                        heading = 2.1544321458716,
                                         livery_id = "Air Force Standard",
-                                        name = "DictKey_UnitName_4809",
-                                        onboard_num = "1040",
+                                        name = "DictKey_UnitName_4880",
+                                        onboard_num = "1041",
                                         payload = {
                                             chaff = 96,
                                             flare = 96,
-                                            fuel = 9400,
+                                            fuel = 5590.1800000000003,
                                             gun = 100,
                                             pylons = {
                                                 {
@@ -55816,25 +56249,25 @@ mission =
                                                 }
                                             }
                                         },
-                                        psi = 0,
+                                        psi = -2.1544321458716,
                                         skill = "Excellent",
-                                        speed = 250.73710216081,
+                                        speed = 188.08333333332999,
                                         type = "Su-27",
-                                        unitId = 2065,
-                                        x = -95410.392296677994,
-                                        y = 606872.16450100997
+                                        unitId = 2096,
+                                        x = -94642.920239914005,
+                                        y = 603798.79117481003
                                     }
                                 },
-                                x = -95370.392296677994,
-                                y = 606832.16450100997
+                                x = -94602.920239914005,
+                                y = 603758.79117481003
                             },
                             {
-                                communication = true,
+                                communication = false,
                                 frequency = 127.5,
-                                groupId = 864,
+                                groupId = 879,
                                 hidden = false,
                                 modulation = 0,
-                                name = "DictKey_GroupName_4812",
+                                name = "DictKey_GroupName_4881",
                                 radioSet = false,
                                 route = {
                                     points = {
@@ -55845,11 +56278,34 @@ mission =
                                             ETA = 0,
                                             ETA_locked = true,
                                             formation_template = "",
-                                            name = "DictKey_WptName_4815",
+                                            name = "DictKey_WptName_4884",
                                             properties = {
                                                 addopt = {}
                                             },
-                                            speed = 250.73710216081,
+                                            speed = 188.08333333332999,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {}
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = 28863.080726331002,
+                                            y = 639848.8748928
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 7925.4096,
+                                            alt_type = "BARO",
+                                            ETA = 24.867530712573,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4885",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 188.08333333332999,
                                             speed_locked = true,
                                             task = {
                                                 id = "ComboTask",
@@ -55861,32 +56317,53 @@ mission =
                                                             id = "Escort",
                                                             number = 1,
                                                             params = {
-                                                                engagementDistMax = 74000,
+                                                                engagementDistMax = 37000,
                                                                 groupId = 861,
                                                                 lastWptIndex = 3,
                                                                 lastWptIndexFlag = false,
                                                                 lastWptIndexFlagChangedManually = false,
                                                                 noTargetTypes = {
-                                                                    "Bombers",
                                                                     "Helicopters"
                                                                 },
                                                                 pos = {
-                                                                    x = -609.60000000000002,
-                                                                    y = 914.39999999999998,
-                                                                    z = 1524
+                                                                    x = -500,
+                                                                    y = 0,
+                                                                    z = 200
                                                                 },
                                                                 targetTypes = {
-                                                                    "Fighters"
-                                                                },
-                                                                value = "Fighters;"
+                                                                    "Planes"
+                                                                }
                                                             }
                                                         }
                                                     }
                                                 }
                                             },
                                             type = "Turning Point",
-                                            x = 30375.681628068,
-                                            y = 644136.34699055005
+                                            x = 28882.899057179999,
+                                            y = 644526.00097318995
+                                        },
+                                        {
+                                            action = "Turning Point",
+                                            alt = 7925.4096,
+                                            alt_type = "BARO",
+                                            ETA = 155.79077820469999,
+                                            ETA_locked = false,
+                                            formation_template = "",
+                                            name = "DictKey_WptName_4886",
+                                            properties = {
+                                                addopt = {}
+                                            },
+                                            speed = 188.08333333332999,
+                                            speed_locked = true,
+                                            task = {
+                                                id = "ComboTask",
+                                                params = {
+                                                    tasks = {}
+                                                }
+                                            },
+                                            type = "Turning Point",
+                                            x = 26552.667643273999,
+                                            y = 669039.97813286004
                                         }
                                     }
                                 },
@@ -55899,16 +56376,16 @@ mission =
                                     {
                                         alt = 7924.8000000000002,
                                         alt_type = "BARO",
-                                        callsign = 162,
+                                        callsign = 165,
                                         hardpoint_racks = true,
-                                        heading = 0,
+                                        heading = 1.5665590640186999,
                                         livery_id = "Air Force Standard",
-                                        name = "DictKey_UnitName_4813",
+                                        name = "DictKey_UnitName_4882",
                                         onboard_num = "1039",
                                         payload = {
                                             chaff = 96,
                                             flare = 96,
-                                            fuel = 9400,
+                                            fuel = 5590.1800000000003,
                                             gun = 100,
                                             pylons = {
                                                 {
@@ -55943,26 +56420,26 @@ mission =
                                                 }
                                             }
                                         },
-                                        psi = 0,
+                                        psi = -1.5665590640186999,
                                         skill = "Excellent",
-                                        speed = 250.73710216081,
+                                        speed = 188.08333333332999,
                                         type = "Su-27",
-                                        unitId = 2068,
-                                        x = 30375.681628068,
-                                        y = 644136.34699055005
+                                        unitId = 2097,
+                                        x = 28863.080726331002,
+                                        y = 639848.8748928
                                     },
                                     {
                                         alt = 7924.8000000000002,
                                         alt_type = "BARO",
-                                        callsign = 163,
-                                        heading = 0,
+                                        callsign = 118,
+                                        heading = 1.5665590640186999,
                                         livery_id = "Air Force Standard",
-                                        name = "DictKey_UnitName_4814",
-                                        onboard_num = "1040",
+                                        name = "DictKey_UnitName_4883",
+                                        onboard_num = "1041",
                                         payload = {
                                             chaff = 96,
                                             flare = 96,
-                                            fuel = 9400,
+                                            fuel = 5590.1800000000003,
                                             gun = 100,
                                             pylons = {
                                                 {
@@ -55997,17 +56474,17 @@ mission =
                                                 }
                                             }
                                         },
-                                        psi = 0,
+                                        psi = -1.5665590640186999,
                                         skill = "Excellent",
-                                        speed = 250.73710216081,
+                                        speed = 188.08333333332999,
                                         type = "Su-27",
-                                        unitId = 2069,
-                                        x = 30335.681628068,
-                                        y = 644176.34699055005
+                                        unitId = 2098,
+                                        x = 28823.080726331002,
+                                        y = 639888.8748928
                                     }
                                 },
-                                x = 30375.681628068,
-                                y = 644136.34699055005
+                                x = 28863.080726331002,
+                                y = 639848.8748928
                             }
                         }
                     },
@@ -60801,7 +61278,7 @@ mission =
             47
         }
     },
-    currentKey = 1630527,
+    currentKey = 1644316,
     date = {
         Day = 26,
         Month = 4,
@@ -67085,11 +67562,11 @@ mission =
         }
     },
     map = {
-        centerX = -110000,
-        centerY = 320401.25885129999,
-        zoom = 2698662.4704956999
+        centerX = -30973.475156201999,
+        centerY = 630089.09131726995,
+        zoom = 1334015.7509768
     },
-    maxDictId = 4858,
+    maxDictId = 4898,
     pictureFileNameB = {
         "ResKey_ImageBriefing_2136"
     },
