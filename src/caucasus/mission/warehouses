@@ -84,7 +84,7 @@ warehouses =
         },
         [15] = {
             aircrafts = {},
-            coalition = "BLUE",
+            coalition = "NEUTRAL",
             diesel = {
                 InitFuel = 100
             },
