@@ -20508,7 +20508,7 @@ mission =
                             },
                             {
                                 communication = true,
-                                frequency = 130.09999999999999,
+                                frequency = 130.5,
                                 groupId = 377,
                                 hidden = false,
                                 modulation = 0,
@@ -20573,7 +20573,7 @@ mission =
                                             action = "Turning Point",
                                             alt = 3657.5999999999999,
                                             alt_type = "BARO",
-                                            ETA = 89.831433354660007,
+                                            ETA = 31.365424902842999,
                                             ETA_locked = false,
                                             formation_template = "",
                                             name = "DictKey_WptName_2023",
@@ -20610,7 +20610,7 @@ mission =
                                             action = "Turning Point",
                                             alt = 3657.5999999999999,
                                             alt_type = "BARO",
-                                            ETA = 309.71627992330002,
+                                            ETA = 303.00807490618001,
                                             ETA_locked = false,
                                             formation_template = "",
                                             name = "DictKey_WptName_2024",
@@ -20781,7 +20781,7 @@ mission =
                                         Radio = {
                                             {
                                                 channels = {
-                                                    243,
+                                                    305,
                                                     291,
                                                     292,
                                                     293,
@@ -20801,6 +20801,28 @@ mission =
                                                     271.60000000000002,
                                                     271.64999999999998,
                                                     271.69999999999999
+                                                },
+                                                modulations = {
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0
                                                 }
                                             },
                                             {
@@ -20825,6 +20847,28 @@ mission =
                                                     130.19999999999999,
                                                     130.30000000000001,
                                                     130.40000000000001
+                                                },
+                                                modulations = {
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0
                                                 }
                                             }
                                         },
@@ -21189,7 +21233,7 @@ mission =
                                             },
                                             {
                                                 channels = {
-                                                    121.5,
+                                                    124,
                                                     133,
                                                     132,
                                                     138,
@@ -25780,6 +25824,100 @@ mission =
                                             pylons = {}
                                         },
                                         psi = -1.2650798809435,
+                                        Radio = {
+                                            {
+                                                channels = {
+                                                    305,
+                                                    264,
+                                                    265,
+                                                    256,
+                                                    254,
+                                                    250,
+                                                    270,
+                                                    257,
+                                                    255,
+                                                    262,
+                                                    259,
+                                                    268,
+                                                    269,
+                                                    260,
+                                                    263,
+                                                    261,
+                                                    267,
+                                                    251,
+                                                    253,
+                                                    266
+                                                },
+                                                modulations = {
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0
+                                                }
+                                            },
+                                            {
+                                                channels = {
+                                                    305,
+                                                    264,
+                                                    265,
+                                                    256,
+                                                    254,
+                                                    250,
+                                                    270,
+                                                    257,
+                                                    255,
+                                                    262,
+                                                    259,
+                                                    268,
+                                                    269,
+                                                    260,
+                                                    263,
+                                                    261,
+                                                    267,
+                                                    251,
+                                                    253,
+                                                    266
+                                                },
+                                                modulations = {
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0
+                                                }
+                                            }
+                                        },
                                         skill = "Client",
                                         speed = 138.88888888888999,
                                         type = "FA-18C_hornet",
@@ -34257,7 +34395,7 @@ mission =
                                             action = "Turning Point",
                                             alt = 4572.3047999999999,
                                             alt_type = "BARO",
-                                            ETA = 65.285545107839994,
+                                            ETA = 65.285545107801994,
                                             ETA_locked = false,
                                             formation_template = "",
                                             name = "DictKey_WptName_4891",
@@ -59512,7 +59650,7 @@ mission =
             47
         }
     },
-    currentKey = 1649906,
+    currentKey = 1652609,
     date = {
         Day = 26,
         Month = 4,
@@ -65796,9 +65934,9 @@ mission =
         }
     },
     map = {
-        centerX = -138189.95861589001,
-        centerY = 844454.72707469005,
-        zoom = 68264.105339593996
+        centerX = -259414.76654387001,
+        centerY = 814414.53864172997,
+        zoom = 455306.41929644003
     },
     maxDictId = 4901,
     pictureFileNameB = {
