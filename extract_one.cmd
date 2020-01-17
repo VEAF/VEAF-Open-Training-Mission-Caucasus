@@ -59,6 +59,13 @@ pushd node_modules\veaf-mission-creation-tools\scripts\veaf
 "%LUA%" veafMissionNormalizer.lua %MISSION_PATH% %LUA_SCRIPTS_DEBUG_PARAMETER%
 popd
 
+rem -- set the radio presets according to the settings file
+echo set the radio presets according to the settings file
+pushd node_modules\veaf-mission-creation-tools\scripts\veaf
+"%LUA%" veafMissionRadioPresetsEditor.lua %MISSION_PATH% %MISSION_PATH%\..\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
+pause 
+popd
+
 rem -- cleanup
 del *%MISSION_NAME%*.miz
 
