@@ -79,6 +79,7 @@ rem echo on
 echo building the mission
 rem -- copy all the source mission files and mission-specific scripts
 xcopy /y /e src\%VERSION%\mission .\build\tempsrc\ >nul 2>&1
+xcopy /y src\%VERSION%\options .\build\tempsrc\ >nul 2>&1
 xcopy /y /e src\%VERSION%\scripts\*.lua .\build\tempsrc\l10n\Default\  >nul 2>&1
 
 rem -- set the radio presets according to the settings file
@@ -91,6 +92,7 @@ rem -- copy the documentation images to the kneeboard
 xcopy /y /e doc\*.png .\build\tempsrc\KNEEBOARD\IMAGES >nul 2>&1
 
 rem -- copy all the community scripts
+copy .\src\scripts\community\*.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 copy .\node_modules\veaf-mission-creation-tools\scripts\community\*.lua .\build\tempsrc\l10n\Default  >nul 2>&1
 
 rem -- copy all the common scripts
@@ -111,3 +113,5 @@ echo ----------------------------------------
 rem -- done !
 echo Built %MISSION_FILE%.miz
 echo ----------------------------------------
+
+pause

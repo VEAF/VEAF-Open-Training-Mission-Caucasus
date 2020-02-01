@@ -52,6 +52,7 @@ set MISSION_PATH=%cd%\src\%VERSION%\mission
 rem removing unwanted scripts
 echo removing unwanted scripts
 del /f /q %MISSION_PATH%\l10n\Default\*.lua
+del /f /q %MISSION_PATH%\options
 
 rem setting the radio presets according to the settings file
 echo setting the radio presets according to the settings file
@@ -73,3 +74,5 @@ echo ----------------------------------------
 rem -- done !
 echo Extracted %MISSION_NAME%
 echo ----------------------------------------
+
+pause
