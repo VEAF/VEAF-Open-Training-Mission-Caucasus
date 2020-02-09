@@ -310,7 +310,7 @@ autogft_Setup:new()\
 }\
 ",
     ["DictKey_ActionText_4748"] = "",
-    ["DictKey_ActionText_4749"] = "veaf.endMissionAt(20, 0, 300, \"mission will restart at 20:00 (mission time)\", 300, \"mission will restart in 10 minutes\", 180, \"mission will restart in 5 minutes\", 120, \"mission will restart in 2 minutes\")",
+    ["DictKey_ActionText_4749"] = "veaf.endMissionAt(20, 0, 900, \"mission will restart at 20:00 (mission time)\", 300, \"mission will restart in 10 minutes\", 180, \"mission will restart in 5 minutes\", 120, \"mission will restart in 2 minutes\")",
     ["DictKey_ActionText_950"] = "MA_buildMenu()",
     ["DictKey_descriptionBlueTask_3"] = "",
     ["DictKey_descriptionRedTask_2"] = "",

@@ -38,3 +38,10 @@ veafAssets.Assets = {
 }
 
 veafAssets.logInfo("Loading configuration")
+
+veafAssets.logInfo("Setting move tanker radio menus")
+table.insert(veafMove.Tankers, "T1-Arco")
+table.insert(veafMove.Tankers, "T2-Shell")
+table.insert(veafMove.Tankers, "T3-Texaco")
+table.insert(veafMove.Tankers, "T4-Shell-B")
+table.insert(veafMove.Tankers, "T5-Petrolsky")
