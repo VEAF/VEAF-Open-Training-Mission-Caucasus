@@ -848,7 +848,7 @@ Here are the ATIS frequencies (only available on the RELEASE-CAUCASUS server)\
     ["DictKey_GroupName_3212"] = "F-14B Ship",
     ["DictKey_GroupName_322"] = "Fw 190 Vaziani",
     ["DictKey_GroupName_3221"] = "F-14B  Tbilissi",
-    ["DictKey_GroupName_3229"] = "F-14B Air",
+    ["DictKey_GroupName_3229"] = "F-14B on runway",
     ["DictKey_GroupName_3240"] = "F-14B MineralVody",
     ["DictKey_GroupName_3252"] = "A1-Overlord",
     ["DictKey_GroupName_3257"] = "F-14B Air Dogfight Zone",
