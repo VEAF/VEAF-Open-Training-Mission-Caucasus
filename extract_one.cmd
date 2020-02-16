@@ -21,7 +21,7 @@ echo current value is "%LUA_SCRIPTS_DEBUG_PARAMETER%"
 echo ----------------------------------------
 echo SEVENZIP (a string) points to the 7za executable
 echo defaults "7za", so it needs to be in the path
-IF [%SEVENZIP%] == [] GOTO DefineDefaultSEVENZIP
+IF ["%SEVENZIP%"] == [] GOTO DefineDefaultSEVENZIP
 goto DontDefineDefaultSEVENZIP
 :DefineDefaultSEVENZIP
 set SEVENZIP=7za
@@ -51,19 +51,19 @@ set MISSION_PATH=%cd%\src\%VERSION%\mission
 
 rem removing unwanted scripts
 echo removing unwanted scripts
-del /f /q %MISSION_PATH%\l10n\Default\*.lua
-del /f /q %MISSION_PATH%\options
+del /f /q "%MISSION_PATH%\l10n\Default\*.lua"
+del /f /q "%MISSION_PATH%\options"
 
 rem setting the radio presets according to the settings file
 echo setting the radio presets according to the settings file
 pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-"%LUA%" veafMissionRadioPresetsEditor.lua %MISSION_PATH% %MISSION_PATH%\..\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
+"%LUA%" veafMissionRadioPresetsEditor.lua "%MISSION_PATH%" "%MISSION_PATH%\..\radioSettings.lua" %LUA_SCRIPTS_DEBUG_PARAMETER%
 popd
 
 rem normalizing the mission files
 echo normalizing the mission files
 pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-"%LUA%" veafMissionNormalizer.lua %MISSION_PATH% %LUA_SCRIPTS_DEBUG_PARAMETER%
+"%LUA%" veafMissionNormalizer.lua "%MISSION_PATH%" %LUA_SCRIPTS_DEBUG_PARAMETER%
 popd
 
 rem -- cleanup
