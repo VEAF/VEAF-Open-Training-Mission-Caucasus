@@ -91,7 +91,7 @@ xcopy /y /e src\scripts\*.lua .\build\tempsrc\l10n\Default\  >nul 2>&1
 rem -- set the radio presets according to the settings file
 echo set the radio presets according to the settings file
 pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-%LUA% veafMissionRadioPresetsEditor.lua  ..\..\..\..\build\tempsrc ..\..\..\..\src\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
+"%LUA%" veafMissionRadioPresetsEditor.lua  ..\..\..\..\build\tempsrc ..\..\..\..\src\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
 popd
 
 rem -- copy the documentation images to the kneeboard
