@@ -53,7 +53,7 @@ echo current value is "%MISSION_FILE_SUFFIX%"
 echo ----------------------------------------
 echo SEVENZIP (a string) points to the 7za executable
 echo defaults "7za", so it needs to be in the path
-IF [%SEVENZIP%] == [] GOTO DefineDefaultSEVENZIP
+IF ["%SEVENZIP%"] == [""] GOTO DefineDefaultSEVENZIP
 goto DontDefineDefaultSEVENZIP
 :DefineDefaultSEVENZIP
 set SEVENZIP=7za
@@ -63,7 +63,7 @@ echo current value is "%SEVENZIP%"
 echo ----------------------------------------
 echo LUA (a string) points to the lua executable
 echo defaults "lua", so it needs to be in the path
-IF [%LUA%] == [] GOTO DefineDefaultLUA
+IF ["%LUA%"] == [""] GOTO DefineDefaultLUA
 goto DontDefineDefaultLUA
 :DefineDefaultLUA
 set LUA=lua
@@ -95,7 +95,7 @@ pushd node_modules\veaf-mission-creation-tools\scripts\veaf
 popd
 
 rem -- copy the documentation images to the kneeboard
-xcopy /y /e doc\*.png .\build\tempsrc\KNEEBOARD\IMAGES\ >nul 2>&1
+xcopy /y /e doc\*.jpg .\build\tempsrc\KNEEBOARD\IMAGES\ >nul 2>&1
 
 rem -- copy all the community scripts
 copy .\src\scripts\community\*.lua .\build\tempsrc\l10n\Default  >nul 2>&1
