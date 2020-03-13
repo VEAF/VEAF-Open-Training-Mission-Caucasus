@@ -5,7 +5,7 @@ weatherAndTime = {
         ["Year"] = 2011,
     }, -- end of ["date"]
 
-    ["start_time"] = 22000,
+    ["start_time"] = 21600,
 
     ["weather"] = {
         ["atmosphere_type"] = 0,

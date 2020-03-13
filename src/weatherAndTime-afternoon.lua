@@ -10,8 +10,8 @@ weatherAndTime = {
     ["weather"] = {
         ["atmosphere_type"] = 0,
         ["clouds"] = {
-            ["base"] = 3200,
-            ["density"] = 8,
+            ["base"] = 10000,
+            ["density"] = 9,
             ["iprecptns"] = 1,
             ["thickness"] = 830,
         }, -- end of ["clouds"]

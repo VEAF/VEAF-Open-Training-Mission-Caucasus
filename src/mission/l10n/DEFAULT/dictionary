@@ -191,6 +191,7 @@ veafTransportMission.initialize()\
 veafNamedPoints.initialize()\
 veafSecurity.initialize()\
 veafCombatZone.initialize()\
+veafShortcuts.initialize()\
 veafInterpreter.initialize()",
     ["DictKey_ActionText_3296"] = "veafAssets.Assets = {\
     -- list the assets common to all missions below\
@@ -314,17 +315,12 @@ autogft_Setup:new()\
     ["DictKey_ActionText_950"] = "MA_buildMenu()",
     ["DictKey_descriptionBlueTask_3"] = "",
     ["DictKey_descriptionRedTask_2"] = "",
-    ["DictKey_descriptionText_1"] = "Dynamic Training Mission\
-Use the VEAF script modules with the map markers and the F10 radio menu.\
+    ["DictKey_descriptionText_1"] = "Documentation de la mission https://tinyurl.com/veaf-ot\
 \
-Join Us on http://veaf.org\
-\
-Here are the ATIS frequencies (only available on the RELEASE-CAUCASUS server)\
-- Sukhumi-Babushara 122.500\
-- Tbilisi-Lochini 132.800\
-- Beslan 118.500\
-- Krymsk 128.600\
-- Senaki-Kolkhi 122.525\
+Nous contacter:\
+- Forum: http://www.veaf.org\
+- Discord: https://discord.gg/TvhFVj\
+- TeamSpeak: ts.veaf.org\
 ",
     ["DictKey_GroupName_1002"] = "Windsock #012",
     ["DictKey_GroupName_1005"] = "New Static Object #002",

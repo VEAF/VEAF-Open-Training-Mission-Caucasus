@@ -23,5 +23,5 @@ mapResource = {
     ["ResKey_Action_4574"] = "veafInterpreter.lua",
     ["ResKey_Action_4576"] = "veafCombatZoneConfig.lua",
     ["ResKey_Action_4585"] = "veafCombatZone.lua",
-    ["ResKey_ImageBriefing_2136"] = "Brief.jpg",
+    ["ResKey_Action_4942"] = "veafShortcuts.lua",
 } -- end of mapResource
