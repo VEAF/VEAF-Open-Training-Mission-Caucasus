@@ -91,7 +91,7 @@ xcopy /y /e src\scripts\*.lua .\build\tempsrc\l10n\Default\  >nul 2>&1
 rem -- set the radio presets according to the settings file
 echo set the radio presets according to the settings file
 pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-"%LUA%" veafMissionRadioPresetsEditor.lua  ..\..\..\..\build\tempsrc ..\..\..\..\src\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
+"%LUA%" veafMissionRadioPresetsEditor.lua  ..\..\..\..\build\tempsrc ..\..\..\..\src\radio\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
 popd
 
 rem -- copy the documentation images to the kneeboard
@@ -108,59 +108,8 @@ rem -- set the flags in the scripts according to the options
 powershell -Command "(gc .\build\tempsrc\l10n\Default\veaf.lua) -replace 'veaf.Development = false', 'veaf.Development = %VERBOSE_LOG_FLAG%' | sc .\build\tempsrc\l10n\Default\veaf.lua" >nul 2>&1
 powershell -Command "(gc .\build\tempsrc\l10n\Default\veaf.lua) -replace 'veaf.SecurityDisabled = false', 'veaf.SecurityDisabled = %SECURITY_DISABLED_FLAG%' | sc .\build\tempsrc\l10n\Default\veaf.lua" >nul 2>&1
 
-rem -- normalize and prepare the version for night
-echo normalize and prepare the version for night
-pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-"%LUA%" veafMissionNormalizer.lua ..\..\..\..\build\tempsrc ..\..\..\..\src\weatherAndTime-night.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
-popd
-
-rem -- compile the mission
-"%SEVENZIP%" a -r -tzip %MISSION_FILE%-night.miz .\build\tempsrc\* -mem=AES256 >nul 2>&1
-
-rem -- normalize and prepare the version for dawn
-echo normalize and prepare the version for dawn
-pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-"%LUA%" veafMissionNormalizer.lua ..\..\..\..\build\tempsrc ..\..\..\..\src\weatherAndTime-dawn.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
-popd
-
-rem -- compile the mission
-"%SEVENZIP%" a -r -tzip %MISSION_FILE%-dawn.miz .\build\tempsrc\* -mem=AES256 >nul 2>&1
-
-rem -- normalize and prepare the version for noon
-echo normalize and prepare the version for noon
-pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-"%LUA%" veafMissionNormalizer.lua ..\..\..\..\build\tempsrc ..\..\..\..\src\weatherAndTime-noon.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
-popd
-
-rem -- compile the mission
-"%SEVENZIP%" a -r -tzip %MISSION_FILE%-noon.miz .\build\tempsrc\* -mem=AES256 >nul 2>&1
-
-rem -- normalize and prepare the version for afternoon
-echo normalize and prepare the version for afternoon
-pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-"%LUA%" veafMissionNormalizer.lua ..\..\..\..\build\tempsrc ..\..\..\..\src\weatherAndTime-afternoon.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
-popd
-
-rem -- compile the mission
-"%SEVENZIP%" a -r -tzip %MISSION_FILE%-afternoon.miz .\build\tempsrc\* -mem=AES256 >nul 2>&1
-
-rem -- normalize and prepare the version for dusk
-echo normalize and prepare the version for dusk
-pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-"%LUA%" veafMissionNormalizer.lua ..\..\..\..\build\tempsrc ..\..\..\..\src\weatherAndTime-dusk.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
-popd
-
-rem -- compile the mission
-"%SEVENZIP%" a -r -tzip %MISSION_FILE%-dusk.miz .\build\tempsrc\* -mem=AES256 >nul 2>&1
-
-rem -- normalize and prepare the version for morning-storm
-echo normalize and prepare the version for morning-storm
-pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-"%LUA%" veafMissionNormalizer.lua ..\..\..\..\build\tempsrc ..\..\..\..\src\weatherAndTime-morning-storm.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
-popd
-
-rem -- compile the mission
-"%SEVENZIP%" a -r -tzip %MISSION_FILE%-morning-storm.miz .\build\tempsrc\* -mem=AES256 >nul 2>&1
+rem -- normalize and prepare the weather and time version 
+FOR %%f IN (.\src\weatherAndTime\*.lua) DO call normalize.cmd %%~nf
 
 rem -- cleanup
 rd /s /q .\build\tempsrc
