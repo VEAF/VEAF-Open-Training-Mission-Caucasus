@@ -30,11 +30,6 @@ veafAssets.Assets = {
     {sort=9, name="D2-Reaper", description="Dodge-1 FAC (MQ-9)", information="118.90 Mhz", jtac=1687},  
     {sort=10, name="A1-Magic", description="Magic (E-2D)", information="Datalink 315.3 Mhz\n282.20 Mhz", linked="A1-Magic escort"},  
     {sort=11, name="A2-Overlordsky", description="Overlordsky (A-50, RED)", information="112.12 Mhz"},  
-    {sort=12, name="Meet Mig-21", description="Mig-21 (dogfight zone, RED)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
-    {sort=13, name="Meet Mig-29", description="Mig-29 (dogfight zone, RED)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\"" },
-    {sort=14, name="Meet Mig-29*2", description="Mig-29x2 (dogfight zone, RED)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
-    {sort=15, name="Meet Mig-29*4", description="Mig-29x4 (dogfight zone, RED)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
-    {sort=16, name="Meet F-5E-3 *2", description="F-5E-3x2 (dogfight zone, RED)", disposable=true, information="They spawn near N41° 09' 31\" E043° 05' 08\""},
 }
 
 veafAssets.logInfo("Loading configuration")
