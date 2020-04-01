@@ -24,6 +24,7 @@ mapResource = {
     ["ResKey_Action_4576"] = "veafCombatZoneConfig.lua",
     ["ResKey_Action_4585"] = "veafCombatZone.lua",
     ["ResKey_Action_4942"] = "veafShortcuts.lua",
-    ["ResKey_Action_5052"] = "Moose.lua",
-    ["ResKey_Action_5053"] = "veafAirAirTraining.lua",
+    ["ResKey_Action_5053"] = "veafCombatMission.lua",
+    ["ResKey_Action_5169"] = "Moose.lua",
+    ["ResKey_Action_5170"] = "veafCombatMissionConfig.lua",
 } -- end of mapResource
