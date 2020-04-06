@@ -337,6 +337,85 @@ autogft_Setup:new()\
     {name=\"Meet Mig-29*4\", description=\"RED Mig-29x4 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
 }\
 ",
+    ["DictKey_ActionText_5172"] = "VEAF_DYNAMIC_PATH = 'D:/DEV/VEAF-Mission-Creation-Tools'\
+VEAF_DYNAMIC_MISSIONPATH = 'D:/DEV/VEAF-Open-Training-Mission'",
+    ["DictKey_ActionText_5173"] = "env.info(\"DYNAMIC LOADING\")\
+",
+    ["DictKey_ActionText_5174"] = "return VEAF_DYNAMIC_PATH~=nil\
+",
+    ["DictKey_ActionText_5175"] = "local script = VEAF_DYNAMIC_MISSIONPATH .. \"/src/scripts/missionConfig.lua\"\
+assert(loadfile(script))()\
+",
+    ["DictKey_ActionText_5176"] = "return VEAF_DYNAMIC_PATH==nil\
+",
+    ["DictKey_ActionText_5177"] = "env.info(\"STATIC LOADING\")\
+",
+    ["DictKey_ActionText_5178"] = "local script = VEAF_DYNAMIC_PATH .. \"/src/scripts/missionConfig.lua\"\
+assert(loadfile(script))()\
+",
+    ["DictKey_ActionText_5280"] = "veafAssets.Assets = {\
+    -- list the assets common to all missions below\
+    {name=\"T1-Arco\", description=\"Arco (KC-135)\", information=\"Tacan 6Y\\nVHF 138.2 Mhz\"}, \
+    {name=\"T2-Shell\", description=\"Shell (KC-135 MPRS)\", information=\"Tacan 14Y\\nVHF 134.7 Mhz\"},  \
+    {name=\"T3-Texaco\", description=\"Texaco (KC-135 MPRS)\", information=\"Tacan 12Y\\nVHF 132.5 Mhz\"},  \
+    {name=\"A1-Overlord\", description=\"Overlord (E-2D)\", information=\"UHF 251 Mhz\"},  \
+    {name=\"Meet Mig-21\", description=\"RED Mig-21 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+    {name=\"Meet Mig-29\", description=\"RED Mig-29 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\" },\
+    {name=\"Meet Mig-29*2\", description=\"RED Mig-29x2 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+    {name=\"Meet Mig-29*4\", description=\"RED Mig-29x4 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+}\
+",
+    ["DictKey_ActionText_5282"] = "veafAssets.Assets = {\
+    -- list the assets common to all missions below\
+    {name=\"T1-Arco\", description=\"Arco (KC-135)\", information=\"Tacan 6Y\\nVHF 138.2 Mhz\"}, \
+    {name=\"T2-Shell\", description=\"Shell (KC-135 MPRS)\", information=\"Tacan 14Y\\nVHF 134.7 Mhz\"},  \
+    {name=\"T3-Texaco\", description=\"Texaco (KC-135 MPRS)\", information=\"Tacan 12Y\\nVHF 132.5 Mhz\"},  \
+    {name=\"A1-Overlord\", description=\"Overlord (E-2D)\", information=\"UHF 251 Mhz\"},  \
+    {name=\"Meet Mig-21\", description=\"RED Mig-21 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+    {name=\"Meet Mig-29\", description=\"RED Mig-29 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\" },\
+    {name=\"Meet Mig-29*2\", description=\"RED Mig-29x2 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+    {name=\"Meet Mig-29*4\", description=\"RED Mig-29x4 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+}\
+",
+    ["DictKey_ActionText_5284"] = "veafAssets.Assets = {\
+    -- list the assets common to all missions below\
+    {name=\"T1-Arco\", description=\"Arco (KC-135)\", information=\"Tacan 6Y\\nVHF 138.2 Mhz\"}, \
+    {name=\"T2-Shell\", description=\"Shell (KC-135 MPRS)\", information=\"Tacan 14Y\\nVHF 134.7 Mhz\"},  \
+    {name=\"T3-Texaco\", description=\"Texaco (KC-135 MPRS)\", information=\"Tacan 12Y\\nVHF 132.5 Mhz\"},  \
+    {name=\"A1-Overlord\", description=\"Overlord (E-2D)\", information=\"UHF 251 Mhz\"},  \
+    {name=\"Meet Mig-21\", description=\"RED Mig-21 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+    {name=\"Meet Mig-29\", description=\"RED Mig-29 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\" },\
+    {name=\"Meet Mig-29*2\", description=\"RED Mig-29x2 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+    {name=\"Meet Mig-29*4\", description=\"RED Mig-29x4 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+}\
+",
+    ["DictKey_ActionText_5286"] = "veafAssets.Assets = {\
+    -- list the assets common to all missions below\
+    {name=\"T1-Arco\", description=\"Arco (KC-135)\", information=\"Tacan 6Y\\nVHF 138.2 Mhz\"}, \
+    {name=\"T2-Shell\", description=\"Shell (KC-135 MPRS)\", information=\"Tacan 14Y\\nVHF 134.7 Mhz\"},  \
+    {name=\"T3-Texaco\", description=\"Texaco (KC-135 MPRS)\", information=\"Tacan 12Y\\nVHF 132.5 Mhz\"},  \
+    {name=\"A1-Overlord\", description=\"Overlord (E-2D)\", information=\"UHF 251 Mhz\"},  \
+    {name=\"Meet Mig-21\", description=\"RED Mig-21 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+    {name=\"Meet Mig-29\", description=\"RED Mig-29 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\" },\
+    {name=\"Meet Mig-29*2\", description=\"RED Mig-29x2 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+    {name=\"Meet Mig-29*4\", description=\"RED Mig-29x4 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+}\
+",
+    ["DictKey_ActionText_5287"] = "",
+    ["DictKey_ActionText_5288"] = "return VEAF_DYNAMIC_PATH==nil\
+",
+    ["DictKey_ActionText_5289"] = "return VEAF_DYNAMIC_PATH~=nil\
+",
+    ["DictKey_ActionText_5304"] = "",
+    ["DictKey_ActionText_5306"] = "",
+    ["DictKey_ActionText_5308"] = "",
+    ["DictKey_ActionText_5310"] = "",
+    ["DictKey_ActionText_5311"] = "env.info(\"DYNAMIC LOADING\")",
+    ["DictKey_ActionText_5312"] = "env.info(\"STATIC LOADING\")",
+    ["DictKey_ActionText_5313"] = "local script = VEAF_DYNAMIC_PATH .. \"/scripts/VeafDynamicLoader.lua\"\
+assert(loadfile(script))()\
+",
+    ["DictKey_ActionText_5315"] = "return false",
     ["DictKey_ActionText_950"] = "MA_buildMenu()",
     ["DictKey_descriptionBlueTask_3"] = "",
     ["DictKey_descriptionRedTask_2"] = "",
@@ -1234,8 +1313,32 @@ Nous contacter:\
     ["DictKey_GroupName_5151"] = "Red Attack On Gudauta - Wave 1-3",
     ["DictKey_GroupName_5160"] = "Red Attack On Gudauta - Wave 1-4",
     ["DictKey_GroupName_517"] = "FARP",
+    ["DictKey_GroupName_5185"] = "CVN-74 Stennis E-2D",
+    ["DictKey_GroupName_5188"] = "Stennis Radio Repeater LSO",
+    ["DictKey_GroupName_5191"] = "Stennis Radio Repeater MARSHALL",
+    ["DictKey_GroupName_5194"] = "",
+    ["DictKey_GroupName_5197"] = "New Airplane Group",
     ["DictKey_GroupName_520"] = "FARP #001",
+    ["DictKey_GroupName_5200"] = "New Airplane Group #001",
+    ["DictKey_GroupName_5206"] = "New Static Object #006",
+    ["DictKey_GroupName_5209"] = "New Static Object #001",
+    ["DictKey_GroupName_5212"] = "New Static Object #002",
+    ["DictKey_GroupName_5215"] = "New Static Object #003",
+    ["DictKey_GroupName_5218"] = "New Static Object #004",
+    ["DictKey_GroupName_5221"] = "New Static Object #005",
+    ["DictKey_GroupName_5224"] = "New Static Object #007",
+    ["DictKey_GroupName_5227"] = "New Static Object #008",
     ["DictKey_GroupName_523"] = "UH-1H Player #001",
+    ["DictKey_GroupName_5230"] = "New Static Object #009",
+    ["DictKey_GroupName_5233"] = "New Static Object #010",
+    ["DictKey_GroupName_5236"] = "New Static Object #011",
+    ["DictKey_GroupName_5239"] = "New Static Object #012",
+    ["DictKey_GroupName_5242"] = "New Static Object #011",
+    ["DictKey_GroupName_5245"] = "New Static Object #013",
+    ["DictKey_GroupName_5248"] = "New Static Object #014",
+    ["DictKey_GroupName_5251"] = "New Static Object #015",
+    ["DictKey_GroupName_5254"] = "TESTER - Ship - HOT",
+    ["DictKey_GroupName_5257"] = "TESTER - Air  - HOT",
     ["DictKey_GroupName_529"] = "UH-1H Player #003",
     ["DictKey_GroupName_535"] = "FARP #002",
     ["DictKey_GroupName_538"] = "FARP #003",
@@ -3329,10 +3432,35 @@ Nous contacter:\
     ["DictKey_UnitName_5161"] = "Pilot #163",
     ["DictKey_UnitName_5162"] = "Pilot #176",
     ["DictKey_UnitName_518"] = "FARP",
+    ["DictKey_UnitName_5180"] = "Lake Erie",
+    ["DictKey_UnitName_5186"] = "CVN-74 Stennis E-2D",
+    ["DictKey_UnitName_5189"] = "Stennis Radio Repeater LSO",
+    ["DictKey_UnitName_5192"] = "Stennis Radio Repeater MARSHALL",
+    ["DictKey_UnitName_5195"] = "",
+    ["DictKey_UnitName_5198"] = "Pilot #224",
     ["DictKey_UnitName_52"] = "",
+    ["DictKey_UnitName_5201"] = "Pilot #275",
+    ["DictKey_UnitName_5207"] = "",
     ["DictKey_UnitName_521"] = "",
+    ["DictKey_UnitName_5210"] = "New Static Object #006",
+    ["DictKey_UnitName_5213"] = "New Static Object #001",
+    ["DictKey_UnitName_5216"] = "New Static Object #002",
+    ["DictKey_UnitName_5219"] = "New Static Object #002",
+    ["DictKey_UnitName_5222"] = "",
+    ["DictKey_UnitName_5225"] = "New Static Object #005",
+    ["DictKey_UnitName_5228"] = "",
+    ["DictKey_UnitName_5231"] = "New Static Object #008",
+    ["DictKey_UnitName_5234"] = "New Static Object #008",
+    ["DictKey_UnitName_5237"] = "",
     ["DictKey_UnitName_524"] = "Pilot #074",
+    ["DictKey_UnitName_5240"] = "New Static Object #011",
+    ["DictKey_UnitName_5243"] = "New Static Object #011",
+    ["DictKey_UnitName_5246"] = "New Static Object #009",
+    ["DictKey_UnitName_5249"] = "New Static Object #009",
     ["DictKey_UnitName_525"] = "Pilot #075",
+    ["DictKey_UnitName_5252"] = "New Static Object #009",
+    ["DictKey_UnitName_5255"] = "Pilot #224",
+    ["DictKey_UnitName_5258"] = "Pilot #275",
     ["DictKey_UnitName_526"] = "Pilot #076",
     ["DictKey_UnitName_527"] = "Pilot #077",
     ["DictKey_UnitName_53"] = "",
@@ -5094,8 +5222,41 @@ Nous contacter:\
     ["DictKey_WptName_5166"] = "",
     ["DictKey_WptName_5167"] = "OUT",
     ["DictKey_WptName_5168"] = "FENCE OUT",
+    ["DictKey_WptName_5181"] = "",
+    ["DictKey_WptName_5182"] = "",
+    ["DictKey_WptName_5183"] = "",
+    ["DictKey_WptName_5184"] = "",
+    ["DictKey_WptName_5187"] = "",
     ["DictKey_WptName_519"] = "",
+    ["DictKey_WptName_5190"] = "",
+    ["DictKey_WptName_5193"] = "",
+    ["DictKey_WptName_5196"] = "",
+    ["DictKey_WptName_5199"] = "",
+    ["DictKey_WptName_5202"] = "",
+    ["DictKey_WptName_5203"] = "",
+    ["DictKey_WptName_5204"] = "",
+    ["DictKey_WptName_5205"] = "",
+    ["DictKey_WptName_5208"] = "",
+    ["DictKey_WptName_5211"] = "",
+    ["DictKey_WptName_5214"] = "",
+    ["DictKey_WptName_5217"] = "",
     ["DictKey_WptName_522"] = "",
+    ["DictKey_WptName_5220"] = "",
+    ["DictKey_WptName_5223"] = "",
+    ["DictKey_WptName_5226"] = "",
+    ["DictKey_WptName_5229"] = "",
+    ["DictKey_WptName_5232"] = "",
+    ["DictKey_WptName_5235"] = "",
+    ["DictKey_WptName_5238"] = "",
+    ["DictKey_WptName_5241"] = "",
+    ["DictKey_WptName_5244"] = "",
+    ["DictKey_WptName_5247"] = "",
+    ["DictKey_WptName_5250"] = "",
+    ["DictKey_WptName_5253"] = "",
+    ["DictKey_WptName_5256"] = "",
+    ["DictKey_WptName_5259"] = "",
+    ["DictKey_WptName_5260"] = "",
+    ["DictKey_WptName_5261"] = "",
     ["DictKey_WptName_528"] = "",
     ["DictKey_WptName_534"] = "",
     ["DictKey_WptName_537"] = "",

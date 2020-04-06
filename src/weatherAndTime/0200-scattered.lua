@@ -27,10 +27,10 @@ weatherAndTime = {
         }, -- end of ["cyclones"]
         ["dust_density"] = 0,
         ["enable_dust"] = false,
-        ["enable_fog"] = true,
+        ["enable_fog"] = false,
         ["fog"] = {
-            ["thickness"] = 200,
-            ["visibility"] = 2800,
+            ["thickness"] = 0,
+            ["visibility"] = 9999,
         }, -- end of ["fog"]
         ["groundTurbulence"] = 7.62,
         ["name"] = "Spring, Thunderstorm",
@@ -49,16 +49,16 @@ weatherAndTime = {
         }, -- end of ["visibility"]
         ["wind"] = {
             ["at2000"] = {
-                ["dir"] = 214,
-                ["speed"] = 7.731,
+                ["dir"] = 114,
+                ["speed"] = 4,
             }, -- end of ["at2000"]
             ["at8000"] = {
                 ["dir"] = 105,
-                ["speed"] = 12.885,
+                ["speed"] = 5,
             }, -- end of ["at8000"]
             ["atGround"] = {
                 ["dir"] = 143,
-                ["speed"] = 6.1848,
+                ["speed"] = 3,
             }, -- end of ["atGround"]
         }, -- end of ["wind"]
     }, -- end of ["weather"]

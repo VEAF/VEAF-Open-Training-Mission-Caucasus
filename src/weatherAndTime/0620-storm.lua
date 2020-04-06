@@ -43,10 +43,10 @@ weatherAndTime = {
         }, -- end of ["cyclones"]
         ["dust_density"] = 0,
         ["enable_dust"] = false,
-        ["enable_fog"] = false,
+        ["enable_fog"] = true,
         ["fog"] = {
-            ["thickness"] = 0,
-            ["visibility"] = 0,
+            ["thickness"] = 50,
+            ["visibility"] = 5000,
         }, -- end of ["fog"]
         ["groundTurbulence"] = 1.524,
         ["name"] = "VEAF - realistic 3 cyclones and fog in Winter",
@@ -55,7 +55,7 @@ weatherAndTime = {
         ["name_es"] = "Primavera. Despejado",
         ["name_fr"] = "Printemps, ciel dégagé",
         ["name_ru"] = "Весна. Штиль",
-        ["qnh"] = 760,
+        ["qnh"] = 700,
         ["season"] = {
             ["temperature"] = 15,
         }, -- end of ["season"]
@@ -66,15 +66,15 @@ weatherAndTime = {
         ["wind"] = {
             ["at2000"] = {
                 ["dir"] = 53,
-                ["speed"] = 15.462,
+                ["speed"] = 12,
             }, -- end of ["at2000"]
             ["at8000"] = {
                 ["dir"] = 23,
-                ["speed"] = 15,
+                ["speed"] = 14,
             }, -- end of ["at8000"]
             ["atGround"] = {
-                ["dir"] = 342.99996474122,
-                ["speed"] = 5.154,
+                ["dir"] = 65,
+                ["speed"] = 9,
             }, -- end of ["atGround"]
         }, -- end of ["wind"]
     }, -- end of ["weather"]

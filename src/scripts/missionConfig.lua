@@ -1,19 +1,279 @@
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
--- VEAF CTLD configuration script
--- By zip (2019)
---
--- Features:
--- ---------
--- Contains all the Caucasus mission-specific configuration for CTLD
--- 
--- Prerequisite:
--- ------------
--- * This script requires DCS 2.5.1 or higher and MIST 4.3.74 or higher.
--- * It also requires CTLD.lua
--- 
--- Load the script:
--- ----------------
--- load it in a trigger before calling ctld.initialize
+-- initialize all the scripts
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+veafRadio.initialize()
+veafMove.initialize()
+veafAssets.initialize()
+veafCasMission.initialize()
+veafGrass.initialize()
+veafSpawn.initialize()
+veafTransportMission.initialize()
+veafNamedPoints.initialize()
+veafSecurity.initialize()
+veafCombatZone.initialize()
+veafInterpreter.initialize()
+veafShortcuts.initialize()
+ctld.initialize()
+veafCombatMission.initialize()
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- configure ASSETS
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+veafAssets.Assets = {
+    -- list the assets common to all missions below
+    {sort=1, name="CSG-01 Tarawa", description="Tarawa (LHA)", information="Tacan 1X\nDatalink 310 Mhz\n304 Mhz"},  
+    {sort=2, name="CSG-74 Stennis", description="Stennis (CVN)", information="Tacan 74X\nDatalink 321 Mhz\nICLS 1\n305 Mhz"},  
+    {sort=3, name="T1-Arco", description="Arco (KC-135)", information="Tacan 11Y\n290.70 Mhz\nZone OUEST", linked="T1-Arco escort"}, 
+    {sort=5, name="T3-Texaco", description="Texaco (KC-135 MPRS)", information="Tacan 13Y\n290.30 Mhz\nZone OUEST", linked="T3-Texaco escort"},  
+    {sort=4, name="T2-Shell", description="Shell (KC-135 MPRS)", information="Tacan 12Y\n290.10 Mhz\nZone EST", linked="T2-Shell escort"},  
+    {sort=6, name="T4-Shell-B", description="Shell-B (KC-135)", information="Tacan 14Y\n290.50 Mhz\nZone EST", linked="T4-Shell-B escort"},  
+    {sort=6, name="T5-Petrolsky", description="900 (IL-78M, RED)", information="267 Mhz", linked="T5-Petrolsky escort"},  
+    {sort=7, name="CVN-74 Stennis S3B-Tanker", description="Texaco-7 (S3-B)", information="Tacan 75Y\n290.90 Mhz\nZone PA"},  
+    {sort=8, name="D1-Reaper", description="Colt-1 FAC (MQ-9)", information="118.80 Mhz", jtac=1688},  
+    {sort=9, name="D2-Reaper", description="Dodge-1 FAC (MQ-9)", information="118.90 Mhz", jtac=1687},  
+    {sort=10, name="A1-Magic", description="Magic (E-2D)", information="Datalink 315.3 Mhz\n282.20 Mhz", linked="A1-Magic escort"},  
+    {sort=11, name="A2-Overlordsky", description="Overlordsky (A-50, RED)", information="112.12 Mhz"},  
+}
+
+veafAssets.logInfo("Loading configuration")
+
+veafAssets.logInfo("Setting move tanker radio menus")
+table.insert(veafMove.Tankers, "T1-Arco")
+table.insert(veafMove.Tankers, "T2-Shell")
+table.insert(veafMove.Tankers, "T3-Texaco")
+table.insert(veafMove.Tankers, "T4-Shell-B")
+table.insert(veafMove.Tankers, "T5-Petrolsky")
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- configure COMBAT MISSION
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+if veafCombatMission then 
+	veafCombatMission.logInfo("Loading configuration")
+	
+	veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setSecured(true)
+		:setName("Red attack On Gudauta")
+		:setFriendlyName("Red attack On Gudauta")
+		:setBriefing([[
+Alert ! This is not a drill !
+Tactical and strategic bombers have been detected at the russian border, to the north of Gudauta.
+Their course will lead them to the Gudauta airbase, which is probably their mission.
+Destroy all the bombers before they hit the base !
+]]
+)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("SEAD")
+			:setGroups({
+				"Red Attack On Gudauta - Wave 1-1", 
+				"Red Attack On Gudauta - Wave 1-2", 
+				"Red Attack On Gudauta - Wave 1-3", 
+				"Red Attack On Gudauta - Wave 1-4" })
+			:setSkill("Random")
+			:setSpawnRadius(50000)
+		)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("Bombers")
+			:setGroups({
+				"Red Attack On Gudauta - Wave 2-1",
+			 	"Red Attack On Gudauta - Wave 2-2", 
+			 	"Red Attack On Gudauta - Wave 2-3" })
+			:setSkill("Random")
+			:setSpawnRadius(50000)
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("HVT Gudauta")
+			:setDescription("the mission will be failed if any of the HVT on Gudauta are destroyed")
+			:setMessage("HVT target(s) destroyed : %s !")
+			:configureAsPreventDestructionOfSceneryObjectsInZone(
+				{
+					"Gudauta - Tower", 
+					"Gudauta - Kerosen", 
+					"Gudauta - Mess"},
+				{
+					[156696667] = "Gudauta Tower", 
+					[156735615] = "Gudauta Kerosen tankers", 
+					[156729386] = "Gudauta mess"
+				}
+			)
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the bombers")
+			:setDescription("you must kill all of the bombers")
+			:setMessage("%d bombers destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+--[[ 		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill everyone")
+			:setDescription("you must kill all the bombers")
+			:configureAsKillEnemiesObjective()
+		)
+ ]]		:initialize()
+	)
+
+	veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setName("Training - Bomber Scenario 1 - slow Tu-160")
+		:setFriendlyName("Training - Bomber Scenario 1 - slow Tu-160")
+		:setBriefing([[
+You're head-on at 25nm with 9 Tu-160, FL200, Mach 0.8.
+Destroy them as quickly as possible !]])
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("SEAD")
+			:setGroups({
+				"Red Tu-160 Bomber Wave1-1",
+				"Red Tu-160 Bomber Wave1-2",
+				"Red Tu-160 Bomber Wave1-3",
+				"Red Tu-160 Bomber Wave1-4",
+				"Red Tu-160 Bomber Wave1-5",
+				"Red Tu-160 Bomber Wave1-6",
+				"Red Tu-160 Bomber Wave1-7",
+				"Red Tu-160 Bomber Wave1-8",
+				"Red Tu-160 Bomber Wave1-9" })
+			:setSkill("Good")
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("< 15 minutes")
+			:setDescription("the mission will be over after 15 minutes")
+			:setMessage("the 15 minutes have passed !")
+			:configureAsTimedObjective(900)
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill 5 bombers")
+			:setDescription("you must kill 5 bombers")
+			:setMessage("%d bombers destroyed !")
+			:configureAsKillEnemiesObjective(5)
+		)
+		:initialize()
+	)
+
+end
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- configure COMBAT ZONE
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+if veafCombatZone then 
+	veafCombatZone.logInfo("Loading configuration")
+
+	veafCombatZone.AddZone(
+		VeafCombatZone.new()
+			:setMissionEditorZoneName("combatZone_Psebay_Factory")
+			:setFriendlyName("Psebay chemical weapons factory")
+			:setBriefing("This factory manufactures chemical weapons for a terrorits group\n" ..
+						 "You must destroy both factory buildings, and the bunker where the scientists work\n" ..
+						 "The other enemy units are secondary targets\n")
+	)
+
+	veafCombatZone.AddZone(
+		VeafCombatZone.new()
+			:setMissionEditorZoneName("combatZone_BattleOfBeslan")
+			:setFriendlyName("Battle of Beslan")
+			:setBriefing("This zone is the place of a huge battle between red and blue armies.\n" ..
+						 "You must do what you can to help your side win\n" ..
+						 "Warning : there are air defenses lurking about, you should be cautious !")
+	)
+
+	veafCombatZone.AddZone(
+		VeafCombatZone.new()
+			:setMissionEditorZoneName("combatZone_EasyPickingsTerek")
+			:setFriendlyName("Terek logistics parking")
+			:setBriefing("The enemy has parked a lot of logistics at Terek\n" ..
+						 "You must destroy all the trucks to impend the advance of their army on Beslan\n" ..
+						 "The other enemy units are secondary targets\n"..
+						 "This is a more easy zone, with few air defenses. But beware that there is a chance of manpad in the area !")
+	)
+
+end
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- configure NAMEDPOINTS
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+veafNamedPoints.Points = {
+    -- airbases in Georgia
+    {name="AIRBASE Kobuleti",point={x=-318000,y=0,z=636620, atc=true, tower="133.00", tacan="67X KBL"
+        , runways={ {name="07", hdg=69, ils="111.50"}}}},
+    {name="AIRBASE Gudauta", point={x=-196850,y=0,z=516496, atc=true, tower="130.00" 
+        , runways={ {name="15", hdg=150}, {name="33", hdg=330}}}},
+    {name="AIRBASE Vaziani", point={x=-319000,y=0,z=903271, atc=true, tower="140.00", tacan="22X VAS"
+        , runways={ {name="13", hdg=135, ils="108.75"}, {name="31", hdg=315, ils="108.75"}}}},
+    {name="AIRBASE Kutaisi", point={x=-284860,y=0,z=683839, atc=true, tower="134.00", tacan="44X KTS"
+        , runways={ {name="08", hdg=74, ils="109.75"}, {name="26", hdg=254}}}},
+    {name="AIRBASE Senaki",  point={x=-281903,y=0,z=648379, atc=true, tower="132.00", tacan="31X TSK"
+        , runways={ {name="09", hdg=94, ils="108.90"}, {name="27", hdg=274}}}},
+    {name="AIRBASE Batumi",  point={x=-356437,y=0,z=618211, atc=true, tower="131.00", tacan="16X BTM"
+        , runways={{name="13", hdg=125, ils="110.30"}, {name="31", hdg=305}}}},
+    {name="AIRBASE Sukhumi", point={x=-221382,y=0,z=565909, atc=true, tower="129.00"
+        , runways={{name="12", hdg=116}, {name="30", hdg=296}}}},
+    {name="AIRBASE Tbilisi", point={x=-314926,y=480,z=895724, atc=true, tower="138.00", tacan="25X GTB"
+        , runways={{name="13", hdg=127, ils="110.30"},{name="31", hdg=307, ils="108.90"}}}},
+    -- airbases in Russia
+    {name="AIRBASE Anapa - Vityazevo", point={x=-4448,y=0,z=244022, atc=true, tower="121.00"
+	    , runways={ {name="22", hdg=220}, {name="04", hdg=40}}}},
+    {name="AIRBASE Gelendzhik", point={x=-50996,y=0,z=297849, atc=true, tower="126.00"
+        , runways={ {hdg=40}, {hdg=220}}}},
+    {name="AIRBASE Maykop", point={x=-27626,y=0,z=457048, atc=true, tower="125.00"
+        , runways={ {name="04", hdg=40}, {name="22", hdg=220}}}},
+    {name="AIRBASE Krasnodar-Pashkovsky", point={x=-8707,y=0,z=388986, atc=true, tower="128.00"
+        , runways={ {name="23", hdg=227}, {name="05", hdg=47}}}},
+    {name="AIRBASE Krasnodar-Center", point={x=-11653,y=0,z=366766, atc=true, tower="122.00"
+        , runways={ {name="09", hdg=86}, {name="27", hdg=266}}}},
+    {name="AIRBASE Novorossiysk", point={x=-40299,y=0,z=279854, atc=true, tower="123.00"
+        , runways={ {name="04", hdg=40}, {name="22", hdg=220}}}},
+    {name="AIRBASE Krymsk", point={x=-7349,y=0,z=293712, atc=true, tower="124.00"
+        , runways={ {name="04", hdg=39}, {name="22", hdg=219}}}},
+    {name="AIRBASE Mineralnye Vody", point={x=-52090,y=0,z=707418, atc=true, tower="135.00"
+        , runways={ {name="12", hdg=115, ils="111.70"}, {name="30", hdg=295, ils="109.30"}}}},
+    {name="AIRBASE Nalchik", point={x=-125500,y=0,z=759543, atc=true, tower="136.00"
+        , runways={ {name="06", hdg=55}, {name="24", hdg=235, ils="110.50"}}}},
+    {name="AIRBASE Beslan", point={x=-148472,y=0,z=842252, atc=true, tower="141.00"
+        , runways={ {name="10", hdg=93, ils="110.50"}, {name="28", hdg=273}}}},
+    {name="AIRBASE Sochi", point={x=-165163,y=0,z=460902, atc=true, tower="127.00"
+        , runways={ {name="06", hdg=62, ils="111.10"}, {name="24", hdg=242}}}},
+    {name="AIRBASE Mozdok", point={x=-83330,y=0,z=835635, atc=true, tower="137.00"
+        , runways={ {name="08", hdg=82}, {name="26", hdg=262}}}},
+
+    -- points of interest
+    {name="RANGE Kobuleti",point={x=-328289,y=0,z=631228}},
+    {name="WAR BlueBase",point={x=-131270,y=0,z=846128}}, 
+    {name="WAR RedBase",point={x=-104957,y=0,z=846181}},
+    {name="WAR Objective1",point={x=-117764,y=0,z=847293}},
+}
+
+veafNamedPoints.logInfo("Loading configuration")
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- configure SECURITY
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+veafSecurity.password_L9["6ade6629f9219d87a011e7b8fbf8ef9584f2786d"] = true
+veafSecurity.logInfo("Loading configuration")
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- configure CARRIER OPERATIONS 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- No MOOSE settings menu. Comment out this line if required.
+_SETTINGS:SetPlayerMenuOff()
+
+veafCarrierOperations.setCarrierInfo("CVN-74 Stennis", 119.700, 305)
+veafCarrierOperations.setTankerInfo("CVN-74 Stennis S3B-Tanker", 290.90, 75, "S3B", 511)
+veafCarrierOperations.setPedroInfo("CVN-74 Stennis Pedro", "Lake Erie", 42)
+veafCarrierOperations.setRepeaterInfo("Stennis Radio Repeater LSO", "Stennis Radio Repeater MARSHAL")
+
+veafCarrierOperations.initialize()
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- configure CTLD 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ctld.staticBugWorkaround = false --  DCS had a bug where destroying statics would cause a crash. If this happens again, set this to TRUE
