@@ -50,7 +50,7 @@ weatherAndTime = {
         ["wind"] = {
             ["at2000"] = {
                 ["dir"] = 310,
-                ["speed"] = 2,
+                ["speed"] = 4,
             }, -- end of ["at2000"]
             ["at8000"] = {
                 ["dir"] = 325,
@@ -58,7 +58,7 @@ weatherAndTime = {
             }, -- end of ["at8000"]
             ["atGround"] = {
                 ["dir"] = 300,
-                ["speed"] = 11.2,
+                ["speed"] = 2,
             }, -- end of ["atGround"]
         }, -- end of ["wind"]
     }, -- end of ["weather"]
