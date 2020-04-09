@@ -415,7 +415,7 @@ assert(loadfile(script))()\
     ["DictKey_ActionText_5313"] = "local script = VEAF_DYNAMIC_PATH .. \"/scripts/VeafDynamicLoader.lua\"\
 assert(loadfile(script))()\
 ",
-    ["DictKey_ActionText_5315"] = "return true",
+    ["DictKey_ActionText_5315"] = "return false --dynamic=false, static=true",
     ["DictKey_ActionText_950"] = "MA_buildMenu()",
     ["DictKey_descriptionBlueTask_3"] = "",
     ["DictKey_descriptionRedTask_2"] = "",
