@@ -31,6 +31,7 @@ Scoring:SetMessagesToCoalition()
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- ATIS configuration
 --based on 476 vFG Flight Info Pubs by WarLord
+--[[
 atisBatumi=ATIS:New(AIRBASE.Caucasus.Batumi, 122.550)
 :SetRadioRelayUnitName("Radio Relay Batumi")
 :SetTowerFrequencies({260, 131, 40.4})
@@ -156,6 +157,7 @@ atisBeslan=ATIS:New(AIRBASE.Caucasus.Beslan, 128.225)
 :Start()
 
 trigger.action.outText("ATIS Loaded....", 10)
+--]]
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure ASSETS
