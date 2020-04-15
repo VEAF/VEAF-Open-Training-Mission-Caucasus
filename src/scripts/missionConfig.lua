@@ -2,19 +2,13 @@
 -- initialize all the scripts
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 veafRadio.initialize()
-veafMove.initialize()
-veafAssets.initialize()
-veafCasMission.initialize()
-veafGrass.initialize()
 veafSpawn.initialize()
-veafTransportMission.initialize()
-veafNamedPoints.initialize()
-veafSecurity.initialize()
-veafCombatZone.initialize()
-veafInterpreter.initialize()
+veafMove.initialize()
+veafGrass.initialize()
 veafShortcuts.initialize()
-ctld.initialize()
-veafCombatMission.initialize()
+veafCasMission.initialize()
+veafTransportMission.initialize()
+veafInterpreter.initialize()
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- PSEUDOATC
@@ -29,137 +23,6 @@ Scoring:SetScaleDestroyPenalty( 40 )
 Scoring:SetMessagesToCoalition()
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
--- ATIS configuration
---based on 476 vFG Flight Info Pubs by WarLord
---[[
-atisBatumi=ATIS:New(AIRBASE.Caucasus.Batumi, 122.550)
-:SetRadioRelayUnitName("Radio Relay Batumi")
-:SetTowerFrequencies({260, 131, 40.4})
-:SetTACAN(16)
-:AddILS(110.300, "13")
-:Start()
-
-atisKobuleti=ATIS:New(AIRBASE.Caucasus.Kobuleti, 122.300)
-:SetRadioRelayUnitName("Radio Relay Kobuleti")
-:SetTowerFrequencies({262, 133, 40.8})
-:SetTACAN(67)
-:AddILS(111.500, "7")
-:SetSubtitleDuration(30)
-:Start()
-
-atisVaziani=ATIS:New(AIRBASE.Caucasus.Vaziani, 122.600)
-:SetRadioRelayUnitName("Radio Relay Vaziani")
-:SetTowerFrequencies({269, 140, 42.2})
-:SetTACAN(22)
-:AddILS(108.750, "13")
-:Start()
-
-atisGelendzhik=ATIS:New(AIRBASE.Caucasus.Gelendzhik, 134.875)
-:SetRadioRelayUnitName("Radio Relay Gelendzhik")
-:SetTowerFrequencies({255, 126, 39.4})
-:Start()
-
-atisKrasnodarP=ATIS:New(AIRBASE.Caucasus.Krasnodar_Pashkovsky, 122.450)
-:SetRadioRelayUnitName("Radio Relay Krasnodar Pashkovsky")
-:SetTowerFrequencies({257, 128, 39.8})
-:Start()
-
-atisSukhumi=ATIS:New(AIRBASE.Caucasus.Sukhumi_Babushara, 122.500)
-:SetRadioRelayUnitName("Radio Relay Sukhumi")
-:SetTowerFrequencies({258, 129, 40})
-:Start()
-
-atisGudauta=ATIS:New(AIRBASE.Caucasus.Gudauta, 122.225)
-:SetRadioRelayUnitName("Radio Relay Gudauta")
-:SetTowerFrequencies({259, 130})
-:Start()
-
-atisSenaki=ATIS:New(AIRBASE.Caucasus.Senaki_Kolkhi, 122.525)
-:SetRadioRelayUnitName("Radio Relay Senaki")
-:SetTowerFrequencies({261, 132, 40.6})
-:SetTACAN(31)
-:AddILS(108.900, "9")
-:Start()
-
-atisKutaisi=ATIS:New(AIRBASE.Caucasus.Kutaisi, 122.100)
-:SetRadioRelayUnitName("Radio Relay Kutaisi")
-:SetTowerFrequencies({263, 134, 41})
-:SetTACAN(44)
-:AddILS(109.750, "8")
-:Start()
-
-atisTbilisi=ATIS:New(AIRBASE.Caucasus.Tbilisi_Lochini, 132.800)
-:SetRadioRelayUnitName("Radio Relay Tbilisi")
-:SetTowerFrequencies({267, 138, 41.8})
-:SetTACAN(25)
-:AddILS(110.350, "13R")
-:AddILS(108.900, "31L")
-:Start()
-
-atisSoganlug=ATIS:New(AIRBASE.Caucasus.Soganlug, 122.600)
-:SetRadioRelayUnitName("Radio Relay Soganlug")
-:SetTowerFrequencies({268, 139, 42})
-:Start()
-
-atisAnapa=ATIS:New(AIRBASE.Caucasus.Anapa_Vityazevo, 125.400)
-:SetRadioRelayUnitName("Radio Relay Anapa")
-:SetTowerFrequencies({250, 121, 38.4})
-:Start()
-
-atisKrasnodarC=ATIS:New(AIRBASE.Caucasus.Krasnodar_Center, 128.300)
-:SetRadioRelayUnitName("Radio Relay Krasnodar Center")
-:SetTowerFrequencies({251, 122, 38.6})
-:Start()
-
-atisNovorossiysk=ATIS:New(AIRBASE.Caucasus.Novorossiysk, 128.200)
-:SetRadioRelayUnitName("Radio Relay Novorossiysk")
-:SetTowerFrequencies({252, 123, 38.8})
-:Start()
-
-atisKrymsk=ATIS:New(AIRBASE.Caucasus.Krymsk, 128.600)
-:SetRadioRelayUnitName("Radio Relay Krymsk")
-:SetTowerFrequencies({253, 124, 39})
-:Start()
-
-atisMaykop_Khanskaya=ATIS:New(AIRBASE.Caucasus.Maykop_Khanskaya, 128.700)
-:SetRadioRelayUnitName("Radio Relay Maykop")
-:SetTowerFrequencies({254, 125, 39.2})
-:Start()
-
-atisSochi=ATIS:New(AIRBASE.Caucasus.Sochi_Adler, 126.200)
-:SetRadioRelayUnitName("Radio Relay Sochi")
-:SetTowerFrequencies({256, 127, 39.6})
-:AddILS(111.100, "6")
-:Start()
-
-atisMineralnye=ATIS:New(AIRBASE.Caucasus.Mineralnye_Vody, 125.250)
-:SetRadioRelayUnitName("Radio Relay Mineralnye")
-:SetTowerFrequencies({264, 135, 41.2})
-:AddILS(111.700, "13")
-:AddILS(109.300, "30")
-:Start()
-
-atisNalchik=ATIS:New(AIRBASE.Caucasus.Nalchik, 128.525)
-:SetRadioRelayUnitName("Radio Relay Nalchik")
-:SetTowerFrequencies({265, 136, 41.4})
-:AddILS(110.500, "24")
-:Start()
-
-atisMozdok=ATIS:New(AIRBASE.Caucasus.Mozdok, 128.550)
-:SetRadioRelayUnitName("Radio Relay Mozdok")
-:SetTowerFrequencies({265, 136, 41.4})
-:Start()
-
-atisBeslan=ATIS:New(AIRBASE.Caucasus.Beslan, 128.225)
-:SetRadioRelayUnitName("Radio Relay Beslan")
-:SetTowerFrequencies({270, 141, 42.4})
-:AddILS(110.500, "10")
-:Start()
-
-trigger.action.outText("ATIS Loaded....", 10)
---]]
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure ASSETS
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -168,8 +31,8 @@ veafAssets.Assets = {
     {sort=1, name="CSG-01 Tarawa", description="Tarawa (LHA)", information="Tacan 1X\nDatalink 310 Mhz\n304 Mhz"},  
     {sort=2, name="CSG-74 Stennis", description="Stennis (CVN)", information="Tacan 74X\nDatalink 321 Mhz\nICLS 1\n305 Mhz"},  
     {sort=3, name="T1-Arco", description="Arco (KC-135)", information="Tacan 11Y\n290.70 Mhz\nZone OUEST", linked="T1-Arco escort"}, 
-    {sort=5, name="T3-Texaco", description="Texaco (KC-135 MPRS)", information="Tacan 13Y\n290.30 Mhz\nZone OUEST", linked="T3-Texaco escort"},  
     {sort=4, name="T2-Shell", description="Shell (KC-135 MPRS)", information="Tacan 12Y\n290.10 Mhz\nZone EST", linked="T2-Shell escort"},  
+    {sort=5, name="T3-Texaco", description="Texaco (KC-135 MPRS)", information="Tacan 13Y\n290.30 Mhz\nZone OUEST", linked="T3-Texaco escort"},  
     {sort=6, name="T4-Shell-B", description="Shell-B (KC-135)", information="Tacan 14Y\n290.50 Mhz\nZone EST", linked="T4-Shell-B escort"},  
     {sort=6, name="T5-Petrolsky", description="900 (IL-78M, RED)", information="267 Mhz", linked="T5-Petrolsky escort"},  
     {sort=7, name="CVN-74 Stennis S3B-Tanker", description="Texaco-7 (S3-B)", information="Tacan 75Y\n290.90 Mhz\nZone PA"},  
@@ -188,6 +51,7 @@ table.insert(veafMove.Tankers, "T3-Texaco")
 table.insert(veafMove.Tankers, "T4-Shell-B")
 table.insert(veafMove.Tankers, "T5-Petrolsky")
 
+veafAssets.initialize()
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure COMBAT MISSION
@@ -280,7 +144,10 @@ Destroy them as quickly as possible !]])
 				"Red Tu-160 Bomber Wave1-6",
 				"Red Tu-160 Bomber Wave1-7",
 				"Red Tu-160 Bomber Wave1-8",
-				"Red Tu-160 Bomber Wave1-9" })
+                "Red Tu-160 Bomber Wave1-9",
+                "Red Tu-160 Bomber Wave1-10",
+                "Red Tu-160 Bomber Wave1-11",
+             })
 			:setSkill("Good")
 		)
 		:addObjective(
@@ -300,6 +167,7 @@ Destroy them as quickly as possible !]])
 		:initialize()
 	)
 
+	veafCombatMission.initialize()
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -335,6 +203,8 @@ if veafCombatZone then
 						 "The other enemy units are secondary targets\n"..
 						 "This is a more easy zone, with few air defenses. But beware that there is a chance of manpad in the area !")
 	)
+
+    veafCombatZone.initialize()
 
 end
 
@@ -395,11 +265,14 @@ veafNamedPoints.Points = {
 
 veafNamedPoints.logInfo("Loading configuration")
 
+veafNamedPoints.initialize()
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure SECURITY
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 veafSecurity.password_L9["6ade6629f9219d87a011e7b8fbf8ef9584f2786d"] = true
 veafSecurity.logInfo("Loading configuration")
+veafSecurity.initialize()
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure CARRIER OPERATIONS 
@@ -884,3 +757,5 @@ ctld.spawnableCrates = {
 ctld.jtacUnitTypes = {
     "SKP", "Hummer" -- there are some wierd encoding issues so if you write SKP-11 it wont match as the - sign is encoded differently...
 }
+
+ctld.initialize()

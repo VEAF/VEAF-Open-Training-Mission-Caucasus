@@ -72,15 +72,31 @@ echo current value is "%LUA%"
 echo ----------------------------------------
 
 echo.
-echo fetching the veaf-mission-creation-tools package
+echo prepare the folders
+echo ----------------------------------------
+rd /s /q .\build
+mkdir .\build
+
+echo.
+echo fetch the veaf-mission-creation-tools package
+echo ----------------------------------------
 call npm update
 rem echo on
 
-rem -- prepare the folders
-echo preparing the folders
-rd /s /q .\build
-mkdir .\build
-mkdir .\build\tempsrc
+echo.
+echo prepare the veaf-mission-creation-tools scripts
+echo ----------------------------------------
+rem -- copy the scripts folder
+xcopy /s /y /e .\node_modules\veaf-mission-creation-tools\scripts\* .\build\tempscripts\ >nul 2>&1
+
+rem -- set the flags in the scripts according to the options
+echo set the flags in the scripts according to the options
+powershell -Command "(gc .\build\tempscripts\veaf\veaf.lua) -replace 'veaf.Development = false', 'veaf.Development = %VERBOSE_LOG_FLAG%' | sc .\build\tempscripts\veaf\veaf.lua" >nul 2>&1
+powershell -Command "(gc .\build\tempscripts\veaf\veaf.lua) -replace 'veaf.SecurityDisabled = false', 'veaf.SecurityDisabled = %SECURITY_DISABLED_FLAG%' | sc .\build\tempscripts\veaf\veaf.lua" >nul 2>&1
+
+rem -- comment all the trace and debug code
+echo comment all the trace and debug code
+FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -Command "(gc %%f) -replace '(^\s*)(veaf.+\.[^%s\(]*(Trace|Debug))', '$1--$2' | sc %%f" >nul 2>&1
 
 echo building the mission
 rem -- copy all the source mission files and mission-specific scripts
@@ -91,7 +107,7 @@ xcopy /y /e src\scripts\*.lua .\build\tempsrc\l10n\Default\  >nul 2>&1
 rem -- set the radio presets according to the settings file
 echo set the radio presets according to the settings file
 pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-"%LUA%" veafMissionRadioPresetsEditor.lua  ..\..\..\..\build\tempsrc ..\..\..\..\src\radio\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
+"%LUA%" veafMissionRadioPresetsEditor.lua  ..\..\..\..\build\tempsrc ..\..\..\..\src\radio\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER% >nul 2>&1
 popd
 
 rem -- copy the documentation images to the kneeboard
@@ -99,20 +115,23 @@ xcopy /y /e doc\*.jpg .\build\tempsrc\KNEEBOARD\IMAGES\ >nul 2>&1
 
 rem -- copy all the community scripts
 copy .\src\scripts\community\*.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-copy .\node_modules\veaf-mission-creation-tools\scripts\community\*.lua .\build\tempsrc\l10n\Default  >nul 2>&1
+copy .\build\tempscripts\community\*.lua .\build\tempsrc\l10n\Default >nul 2>&1
 
 rem -- copy all the common scripts
-copy .\node_modules\veaf-mission-creation-tools\scripts\veaf\*.lua .\build\tempsrc\l10n\Default  >nul 2>&1
-
-rem -- set the flags in the scripts according to the options
-powershell -Command "(gc .\build\tempsrc\l10n\Default\veaf.lua) -replace 'veaf.Development = false', 'veaf.Development = %VERBOSE_LOG_FLAG%' | sc .\build\tempsrc\l10n\Default\veaf.lua" >nul 2>&1
-powershell -Command "(gc .\build\tempsrc\l10n\Default\veaf.lua) -replace 'veaf.SecurityDisabled = false', 'veaf.SecurityDisabled = %SECURITY_DISABLED_FLAG%' | sc .\build\tempsrc\l10n\Default\veaf.lua" >nul 2>&1
+copy .\build\tempscripts\veaf\*.lua .\build\tempsrc\l10n\Default >nul 2>&1
 
 rem -- normalize and prepare the weather and time version 
+echo normalize and prepare the weather and time version 
 FOR %%f IN (.\src\weatherAndTime\*.lua) DO call normalize.cmd %%~nf
 
-rem -- cleanup
+rem -- cleanup the mission files
+echo cleanup the mission files
 rd /s /q .\build\tempsrc
+
+rem -- cleanup the veaf-mission-creation-tools scripts
+echo cleanup the veaf-mission-creation-tools scripts
+echo ----------------------------------------
+rd /s /q .\build\tempscripts
 
 echo.
 echo ----------------------------------------

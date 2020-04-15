@@ -50,6 +50,10 @@ echo extracting MIZ files
 set MISSION_PATH=%cd%\src\mission
 "%SEVENZIP%" x -y *%MISSION_NAME%*.miz -o"%MISSION_PATH%\"
 
+rem -- set the loading to static in the mission file
+echo set the loading to static in the mission file
+powershell -Command "(gc %MISSION_PATH%\l10n\Default\dictionary) -replace 'return(\s*[^\s]+\s*)--true=dynamic, false=static', 'return false --true=dynamic, false=static' | sc %MISSION_PATH%\l10n\Default\dictionary"
+
 rem removing unwanted scripts
 echo removing unwanted scripts
 del /f /q "%MISSION_PATH%\l10n\Default\*.lua"
