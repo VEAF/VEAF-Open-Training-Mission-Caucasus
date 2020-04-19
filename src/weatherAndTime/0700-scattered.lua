@@ -27,10 +27,10 @@ weatherAndTime = {
         }, -- end of ["cyclones"]
         ["dust_density"] = 0,
         ["enable_dust"] = false,
-        ["enable_fog"] = true,
+        ["enable_fog"] = false,
         ["fog"] = {
-            ["thickness"] = 200,
-            ["visibility"] = 2800,
+            ["thickness"] = 0,
+            ["visibility"] = 9999,
         }, -- end of ["fog"]
         ["groundTurbulence"] = 7.62,
         ["name"] = "Spring, Thunderstorm",

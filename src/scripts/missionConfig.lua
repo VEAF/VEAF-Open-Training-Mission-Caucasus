@@ -10,6 +10,11 @@ veafCasMission.initialize()
 veafTransportMission.initialize()
 veafInterpreter.initialize()
 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- No MOOSE settings menu. Comment out this line if required.
+_SETTINGS:SetPlayerMenuOff()
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- PSEUDOATC
 pseudoATC=PSEUDOATC:New()
@@ -277,16 +282,19 @@ veafSecurity.initialize()
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure CARRIER OPERATIONS 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+local useMooseAirboss = true
 
--- No MOOSE settings menu. Comment out this line if required.
-_SETTINGS:SetPlayerMenuOff()
-
-veafCarrierOperations.setCarrierInfo("CVN-74 Stennis", 119.700, 305)
-veafCarrierOperations.setTankerInfo("CVN-74 Stennis S3B-Tanker", 290.90, 75, "S3B", 511)
-veafCarrierOperations.setPedroInfo("CVN-74 Stennis Pedro", "Lake Erie", 42)
-veafCarrierOperations.setRepeaterInfo("Stennis Radio Repeater LSO", "Stennis Radio Repeater MARSHAL")
-
-veafCarrierOperations.initialize()
+if useMooseAirboss then
+    veafCarrierOperations2.setCarrierInfo("CVN-74 Stennis", 119.700, 305)
+    veafCarrierOperations2.setTankerInfo("CVN-74 Stennis S3B-Tanker", 290.90, 75, "S3B", 511)
+    veafCarrierOperations2.setPedroInfo("CVN-74 Stennis Pedro", "Lake Erie", 42)
+    veafCarrierOperations2.setRepeaterInfo("Stennis Radio Repeater LSO", "Stennis Radio Repeater MARSHAL")
+    --veafCarrierOperations2.setTraining()
+    --veafCarrierOperations2.addRecoveryWindows()
+    veafCarrierOperations2.initialize(true)
+else
+    veafCarrierOperations.initialize(true)
+end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure CTLD 
