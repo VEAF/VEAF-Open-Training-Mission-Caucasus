@@ -290,8 +290,8 @@ if useMooseAirboss then
     veafCarrierOperations2.setPedroInfo("CVN-74 Stennis Pedro", "Lake Erie", 42)
     veafCarrierOperations2.setRepeaterInfo("Stennis Radio Repeater LSO", "Stennis Radio Repeater MARSHAL")
     --veafCarrierOperations2.setTraining()
+    veafCarrierOperations2.initialize()
     --veafCarrierOperations2.addRecoveryWindows()
-    veafCarrierOperations2.initialize(true)
 else
     veafCarrierOperations.initialize(true)
 end
