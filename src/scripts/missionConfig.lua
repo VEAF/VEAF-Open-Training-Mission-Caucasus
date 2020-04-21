@@ -3,11 +3,10 @@
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 veafRadio.initialize()
 veafSpawn.initialize()
-veafMove.initialize()
 veafGrass.initialize()
 veafShortcuts.initialize()
 veafCasMission.initialize()
-veafTransportMission.initialize()
+--veafTransportMission.initialize()
 veafInterpreter.initialize()
 
 
@@ -17,20 +16,21 @@ _SETTINGS:SetPlayerMenuOff()
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- PSEUDOATC
-pseudoATC=PSEUDOATC:New()
-pseudoATC:Start()
+--pseudoATC=PSEUDOATC:New()
+--pseudoATC:Start()
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- SCORING
-local Scoring = SCORING:New( "Scoring File" )
-Scoring:SetScaleDestroyScore( 10 )
-Scoring:SetScaleDestroyPenalty( 40 )
-Scoring:SetMessagesToCoalition()
+-- local Scoring = SCORING:New( "Scoring File" )
+-- Scoring:SetScaleDestroyScore( 10 )
+-- Scoring:SetScaleDestroyPenalty( 40 )
+-- Scoring:SetMessagesToCoalition()
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure ASSETS
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+veafAssets.logInfo("Loading configuration")
 veafAssets.Assets = {
     -- list the assets common to all missions below
     {sort=1, name="CSG-01 Tarawa", description="Tarawa (LHA)", information="Tacan 1X\nDatalink 310 Mhz\n304 Mhz"},  
@@ -47,16 +47,21 @@ veafAssets.Assets = {
     {sort=11, name="A2-Overlordsky", description="Overlordsky (A-50, RED)", information="112.12 Mhz"},  
 }
 
-veafAssets.logInfo("Loading configuration")
 
-veafAssets.logInfo("Setting move tanker radio menus")
+veafAssets.initialize()
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- configure MOVE
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+veafMove.logInfo("Setting move tanker radio menus")
 table.insert(veafMove.Tankers, "T1-Arco")
 table.insert(veafMove.Tankers, "T2-Shell")
 table.insert(veafMove.Tankers, "T3-Texaco")
 table.insert(veafMove.Tankers, "T4-Shell-B")
 table.insert(veafMove.Tankers, "T5-Petrolsky")
 
-veafAssets.initialize()
+veafMove.initialize()
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure COMBAT MISSION
@@ -64,7 +69,157 @@ veafAssets.initialize()
 if veafCombatMission then 
 	veafCombatMission.logInfo("Loading configuration")
 	
-	veafCombatMission.AddMission(
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setSecured(true)
+		:setName("CAP-Minvody-2")
+		:setFriendlyName("CAP on Mineralnye Vody / 2-ship")
+		:setBriefing([[
+A Russian CAP patrol has been spotted over Mineralnye Vody.
+It is composed of 2 fighters.
+]]
+)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-1")
+			:setGroups({"OnDemand-CAP-Minvody-1"})
+            :setSkill("Excellent")
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the fighters")
+			:setDescription("you must kill all of the fighters")
+			:setMessage("%d fighters destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+		:initialize()
+	)
+
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setSecured(true)
+		:setName("CAP-Minvody-4")
+		:setFriendlyName("CAP on Mineralnye Vody / 4-ship")
+		:setBriefing([[
+A Russian CAP patrol has been spotted over Mineralnye Vody.
+It is composed of 4 fighters.
+]]
+)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-1")
+			:setGroups({"OnDemand-CAP-Minvody-1"})
+            :setSkill("Excellent")
+		)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-2")
+			:setGroups({"OnDemand-CAP-Minvody-2"})
+            :setSkill("Excellent")
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the fighters")
+			:setDescription("you must kill all of the fighters")
+			:setMessage("%d fighters destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+		:initialize()
+	)
+
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setSecured(true)
+		:setName("CAP-Minvody-8")
+		:setFriendlyName("CAP on Mineralnye Vody / 8-ship")
+		:setBriefing([[
+A Russian CAP patrol has been spotted over Mineralnye Vody.
+It is composed of 8 fighters.
+]]
+)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-1")
+			:setGroups({"OnDemand-CAP-Minvody-1"})
+            :setSkill("Excellent")
+		)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-2")
+			:setGroups({"OnDemand-CAP-Minvody-2"})
+            :setSkill("Excellent")
+		)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-3")
+			:setGroups({"OnDemand-CAP-Minvody-3"})
+            :setSkill("Excellent")
+		)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-4")
+			:setGroups({"OnDemand-CAP-Minvody-4"})
+            :setSkill("Excellent")
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the fighters")
+			:setDescription("you must kill all of the fighters")
+			:setMessage("%d fighters destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+		:initialize()
+	)
+
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setSecured(true)
+		:setName("CAP-Minvody")
+		:setFriendlyName("CAP on Mineralnye Vody / random")
+		:setBriefing([[
+A Russian CAP patrol has been spotted over Mineralnye Vody.
+It is composed of 2 to 8 fighters.
+]]
+)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-1")
+			:setGroups({"OnDemand-CAP-Minvody-1"})
+            :setSkill("Excellent")
+            :setSpawnChance(100)
+		)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-2")
+			:setGroups({"OnDemand-CAP-Minvody-2"})
+            :setSkill("Excellent")
+            :setSpawnChance(40)
+		)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-3")
+			:setGroups({"OnDemand-CAP-Minvody-3"})
+            :setSkill("Excellent")
+            :setSpawnChance(40)
+		)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-4")
+			:setGroups({"OnDemand-CAP-Minvody-4"})
+            :setSkill("Excellent")
+            :setSpawnChance(40)
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the fighters")
+			:setDescription("you must kill all of the fighters")
+			:setMessage("%d fighters destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+		:initialize()
+	)
+
+    veafCombatMission.AddMission(
 		VeafCombatMission.new()
 		:setSecured(true)
 		:setName("Red attack On Gudauta")
@@ -85,7 +240,6 @@ Destroy all the bombers before they hit the base !
 				"Red Attack On Gudauta - Wave 1-3", 
 				"Red Attack On Gudauta - Wave 1-4" })
 			:setSkill("Random")
-			:setSpawnRadius(50000)
 		)
 		:addElement(
 			VeafCombatMissionElement.new()
@@ -95,7 +249,6 @@ Destroy all the bombers before they hit the base !
 			 	"Red Attack On Gudauta - Wave 2-2", 
 			 	"Red Attack On Gudauta - Wave 2-3" })
 			:setSkill("Random")
-			:setSpawnRadius(50000)
 		)
 		:addObjective(
 			VeafCombatMissionObjective.new()
@@ -135,8 +288,8 @@ Destroy all the bombers before they hit the base !
 		:setName("Training - Bomber Scenario 1 - slow Tu-160")
 		:setFriendlyName("Training - Bomber Scenario 1 - slow Tu-160")
 		:setBriefing([[
-You're head-on at 25nm with 9 Tu-160, FL200, Mach 0.8.
-Destroy them as quickly as possible !]])
+You're head-on at 25nm with 11 Tu-160, FL200, Mach 0.8.
+Destroy them all in less than 10 minutes !]])
 		:addElement(
 			VeafCombatMissionElement.new()
 			:setName("SEAD")
@@ -157,17 +310,17 @@ Destroy them as quickly as possible !]])
 		)
 		:addObjective(
 			VeafCombatMissionObjective.new()
-			:setName("< 15 minutes")
-			:setDescription("the mission will be over after 15 minutes")
-			:setMessage("the 15 minutes have passed !")
-			:configureAsTimedObjective(900)
+			:setName("< 10 minutes")
+			:setDescription("the mission will be over after 10 minutes")
+			:setMessage("the 10 minutes have passed !")
+			:configureAsTimedObjective(600)
 		)
 		:addObjective(
 			VeafCombatMissionObjective.new()
-			:setName("Kill 5 bombers")
-			:setDescription("you must kill 5 bombers")
+			:setName("Kill all the bombers")
+			:setDescription("you must kill all bombers")
 			:setMessage("%d bombers destroyed !")
-			:configureAsKillEnemiesObjective(5)
+			:configureAsKillEnemiesObjective(-1)
 		)
 		:initialize()
 	)
