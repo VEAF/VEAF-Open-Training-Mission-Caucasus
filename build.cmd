@@ -1,5 +1,6 @@
 @echo off
 set MISSION_NAME=VEAF_OpenTraining_Caucasus
+set THEATER_NAME=Caucasus
 echo.
 echo ----------------------------------------
 echo building %MISSION_NAME%
@@ -96,7 +97,7 @@ powershell -Command "(gc .\build\tempscripts\veaf\veaf.lua) -replace 'veaf.Secur
 
 rem -- comment all the trace and debug code
 echo comment all the trace and debug code
-FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -Command "(gc %%f) -replace '(^\s*)(veaf.+\.[^%s\(]*(Trace|Debug))', '$1--$2' | sc %%f" >nul 2>&1
+FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -Command "(gc %%f) -replace '(^\s*)(veaf.+\..*(Trace|Debug))', '$1--$2' | sc %%f" >nul 2>&1
 
 echo building the mission
 rem -- copy all the source mission files and mission-specific scripts
@@ -122,7 +123,21 @@ copy .\build\tempscripts\veaf\*.lua .\build\tempsrc\l10n\Default >nul 2>&1
 
 rem -- normalize and prepare the weather and time version 
 echo normalize and prepare the weather and time version 
-FOR %%f IN (.\src\weatherAndTime\*.lua) DO call normalize.cmd %%~nf
+FOR %%f IN (.\src\weatherAndTime\*-real.lua) DO (
+	pushd node_modules\veaf-mission-creation-tools\getrealweather
+	python DCSWeatherExporter.py %THEATER_NAME% "%%~ff"
+	popd
+)
+FOR %%f IN (.\src\weatherAndTime\*.lua) DO (
+	rem -- normalize and prepare the version
+	echo normalize and prepare the version for %%~nf
+	pushd node_modules\veaf-mission-creation-tools\scripts\veaf
+	"%LUA%" veafMissionNormalizer.lua ..\..\..\..\build\tempsrc ..\..\..\..\src\weatherAndTime\%%~nf.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
+	popd
+
+	rem -- compile the mission
+	"%SEVENZIP%" a -r -tzip %MISSION_FILE%-%%~nf.miz .\build\tempsrc\* -mem=AES256 >nul 2>&1
+)
 
 rem -- cleanup the mission files
 echo cleanup the mission files

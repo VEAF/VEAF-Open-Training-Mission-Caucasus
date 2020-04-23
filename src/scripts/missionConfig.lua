@@ -274,13 +274,7 @@ Destroy all the bombers before they hit the base !
 			:setMessage("%d bombers destroyed !")
 			:configureAsKillEnemiesObjective()
 		)
---[[ 		:addObjective(
-			VeafCombatMissionObjective.new()
-			:setName("Kill everyone")
-			:setDescription("you must kill all the bombers")
-			:configureAsKillEnemiesObjective()
-		)
- ]]		:initialize()
+		:initialize()
 	)
 
 	veafCombatMission.AddMission(
