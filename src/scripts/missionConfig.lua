@@ -1,13 +1,12 @@
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize all the scripts
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
-veafRadio.initialize()
+veafRadio.initialize(true)
 veafSpawn.initialize()
 veafGrass.initialize()
 veafShortcuts.initialize()
 veafCasMission.initialize()
 --veafTransportMission.initialize()
-veafInterpreter.initialize()
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -59,7 +58,7 @@ table.insert(veafMove.Tankers, "T1-Arco")
 table.insert(veafMove.Tankers, "T2-Shell")
 table.insert(veafMove.Tankers, "T3-Texaco")
 table.insert(veafMove.Tankers, "T4-Shell-B")
-table.insert(veafMove.Tankers, "T5-Petrolsky")
+--table.insert(veafMove.Tankers, "T5-Petrolsky")
 
 veafMove.initialize()
 
@@ -69,31 +68,31 @@ veafMove.initialize()
 if veafCombatMission then 
 	veafCombatMission.logInfo("Loading configuration")
 	
-    veafCombatMission.AddMission(
-		VeafCombatMission.new()
-		:setSecured(true)
-		:setName("CAP-Minvody-2")
-		:setFriendlyName("CAP on Mineralnye Vody / 2-ship")
-		:setBriefing([[
-A Russian CAP patrol has been spotted over Mineralnye Vody.
-It is composed of 2 fighters.
-]]
-)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-1")
-			:setGroups({"OnDemand-CAP-Minvody-1"})
-            :setSkill("Excellent")
-		)
-		:addObjective(
-			VeafCombatMissionObjective.new()
-			:setName("Kill all the fighters")
-			:setDescription("you must kill all of the fighters")
-			:setMessage("%d fighters destroyed !")
-			:configureAsKillEnemiesObjective()
-		)
-		:initialize()
-	)
+--     veafCombatMission.AddMission(
+-- 		VeafCombatMission.new()
+-- 		:setSecured(true)
+-- 		:setName("CAP-Minvody-2")
+-- 		:setFriendlyName("CAP on Mineralnye Vody / 2-ship")
+-- 		:setBriefing([[
+-- A Russian CAP patrol has been spotted over Mineralnye Vody.
+-- It is composed of 2 fighters.
+-- ]]
+-- )
+-- 		:addElement(
+-- 			VeafCombatMissionElement.new()
+-- 			:setName("OnDemand-CAP-Minvody-1")
+-- 			:setGroups({"OnDemand-CAP-Minvody-1"})
+--             :setSkill("Excellent")
+-- 		)
+-- 		:addObjective(
+-- 			VeafCombatMissionObjective.new()
+-- 			:setName("Kill all the fighters")
+-- 			:setDescription("you must kill all of the fighters")
+-- 			:setMessage("%d fighters destroyed !")
+-- 			:configureAsKillEnemiesObjective()
+-- 		)
+-- 		:initialize()
+-- 	)
 
     veafCombatMission.AddMission(
 		VeafCombatMission.new()
@@ -127,49 +126,49 @@ It is composed of 4 fighters.
 		:initialize()
 	)
 
-    veafCombatMission.AddMission(
-		VeafCombatMission.new()
-		:setSecured(true)
-		:setName("CAP-Minvody-8")
-		:setFriendlyName("CAP on Mineralnye Vody / 8-ship")
-		:setBriefing([[
-A Russian CAP patrol has been spotted over Mineralnye Vody.
-It is composed of 8 fighters.
-]]
-)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-1")
-			:setGroups({"OnDemand-CAP-Minvody-1"})
-            :setSkill("Excellent")
-		)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-2")
-			:setGroups({"OnDemand-CAP-Minvody-2"})
-            :setSkill("Excellent")
-		)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-3")
-			:setGroups({"OnDemand-CAP-Minvody-3"})
-            :setSkill("Excellent")
-		)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-4")
-			:setGroups({"OnDemand-CAP-Minvody-4"})
-            :setSkill("Excellent")
-		)
-		:addObjective(
-			VeafCombatMissionObjective.new()
-			:setName("Kill all the fighters")
-			:setDescription("you must kill all of the fighters")
-			:setMessage("%d fighters destroyed !")
-			:configureAsKillEnemiesObjective()
-		)
-		:initialize()
-	)
+--     veafCombatMission.AddMission(
+-- 		VeafCombatMission.new()
+-- 		:setSecured(true)
+-- 		:setName("CAP-Minvody-8")
+-- 		:setFriendlyName("CAP on Mineralnye Vody / 8-ship")
+-- 		:setBriefing([[
+-- A Russian CAP patrol has been spotted over Mineralnye Vody.
+-- It is composed of 8 fighters.
+-- ]]
+-- )
+-- 		:addElement(
+-- 			VeafCombatMissionElement.new()
+-- 			:setName("OnDemand-CAP-Minvody-1")
+-- 			:setGroups({"OnDemand-CAP-Minvody-1"})
+--             :setSkill("Excellent")
+-- 		)
+-- 		:addElement(
+-- 			VeafCombatMissionElement.new()
+-- 			:setName("OnDemand-CAP-Minvody-2")
+-- 			:setGroups({"OnDemand-CAP-Minvody-2"})
+--             :setSkill("Excellent")
+-- 		)
+-- 		:addElement(
+-- 			VeafCombatMissionElement.new()
+-- 			:setName("OnDemand-CAP-Minvody-3")
+-- 			:setGroups({"OnDemand-CAP-Minvody-3"})
+--             :setSkill("Excellent")
+-- 		)
+-- 		:addElement(
+-- 			VeafCombatMissionElement.new()
+-- 			:setName("OnDemand-CAP-Minvody-4")
+-- 			:setGroups({"OnDemand-CAP-Minvody-4"})
+--             :setSkill("Excellent")
+-- 		)
+-- 		:addObjective(
+-- 			VeafCombatMissionObjective.new()
+-- 			:setName("Kill all the fighters")
+-- 			:setDescription("you must kill all of the fighters")
+-- 			:setMessage("%d fighters destroyed !")
+-- 			:configureAsKillEnemiesObjective()
+-- 		)
+-- 		:initialize()
+-- 	)
 
     veafCombatMission.AddMission(
 		VeafCombatMission.new()
@@ -286,7 +285,7 @@ You're head-on at 25nm with 11 Tu-160, FL200, Mach 0.8.
 Destroy them all in less than 10 minutes !]])
 		:addElement(
 			VeafCombatMissionElement.new()
-			:setName("SEAD")
+			:setName("Bombers")
 			:setGroups({
 				"Red Tu-160 Bomber Wave1-1",
 				"Red Tu-160 Bomber Wave1-2",
@@ -304,17 +303,17 @@ Destroy them all in less than 10 minutes !]])
 		)
 		:addObjective(
 			VeafCombatMissionObjective.new()
-			:setName("< 10 minutes")
-			:setDescription("the mission will be over after 10 minutes")
-			:setMessage("the 10 minutes have passed !")
-			:configureAsTimedObjective(600)
+			:setName("< 15 minutes")
+			:setDescription("the mission will be over after 15 minutes")
+			:setMessage("the 15 minutes have passed !")
+			:configureAsTimedObjective(900)
 		)
 		:addObjective(
 			VeafCombatMissionObjective.new()
 			:setName("Kill all the bombers")
-			:setDescription("you must kill all bombers")
-			:setMessage("%d bombers destroyed !")
-			:configureAsKillEnemiesObjective(-1)
+			:setDescription("you must kill or route all bombers")
+			:setMessage("%d bombers destroyed or routed !")
+			:configureAsKillEnemiesObjective(-1, 50)
 		)
 		:initialize()
 	)
@@ -341,8 +340,9 @@ if veafCombatZone then
 		VeafCombatZone.new()
 			:setMissionEditorZoneName("combatZone_BattleOfBeslan")
 			:setFriendlyName("Battle of Beslan")
-			:setBriefing("This zone is the place of a huge battle between red and blue armies.\n" ..
-						 "You must do what you can to help your side win\n" ..
+			:setBriefing("This zone is the place of a battle between red and blue armies.\n" ..
+                         "You must do what you can to help your side win\n" ..
+                         "Please note that there is an enemy convoy coming from the west and going to Sheripova, that can be ambushed by the blue forces at Malgobek in 15-30 minutes. Be wary of the SAM that can hide anywhere in the cities or the forests !" ..
 						 "Warning : there are air defenses lurking about, you should be cautious !")
 	)
 
@@ -429,7 +429,7 @@ veafSecurity.initialize()
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure CARRIER OPERATIONS 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
-local useMooseAirboss = true
+local useMooseAirboss = false
 
 if useMooseAirboss then
     veafCarrierOperations2.setCarrierInfo("CVN-74 Stennis", 119.700, 305)
@@ -914,3 +914,5 @@ ctld.jtacUnitTypes = {
 }
 
 ctld.initialize()
+
+veafInterpreter.initialize()
