@@ -6,6 +6,7 @@ echo ----------------------------------------
 echo building %MISSION_NAME%
 echo ----------------------------------------
 echo.
+set VERBOSE_LOG_FLAG=true
 
 rem -- default options values
 echo This script can use these environment variables to customize its behavior :
@@ -97,7 +98,7 @@ powershell -Command "(gc .\build\tempscripts\veaf\veaf.lua) -replace 'veaf.Secur
 
 rem -- comment all the trace and debug code
 echo comment all the trace and debug code
-FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -Command "(gc %%f) -replace '(^\s*)(veaf.+\.[^\(^\s]*log(Trace|Debug))', '$1--$2' | sc %%f" >nul 2>&1
+FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -Command "(gc %%f) -replace '(^\s*)(veaf.*\.[^\(^\s]*log(Trace|Debug))', '$1--$2' | sc %%f" >nul 2>&1
 
 echo building the mission
 rem -- copy all the source mission files and mission-specific scripts
