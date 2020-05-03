@@ -1,13 +1,60 @@
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize all the scripts
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+veaf.logInfo("init - veafRadio")
 veafRadio.initialize(true)
+veaf.logInfo("init - veafSpawn")
 veafSpawn.initialize()
+veaf.logInfo("init - veafGrass")
 veafGrass.initialize()
+veaf.logInfo("init - veafShortcuts")
 veafShortcuts.initialize()
+veaf.logInfo("init - veafCasMission")
 veafCasMission.initialize()
 --veafTransportMission.initialize()
-
+if slmod then
+    veaf.logInfo("Setting SLMOD configuration")
+    veaf.monitorWithSlMod("-veaf test", [[trigger.action.outText("VEAF - test command received from SLMOD, flag=66600", 10)]], 66600, "all", false)
+    veaf.monitorWithSlMod("-veaf login", [[veafSecurity.authenticate()]], 66601, "all", true)
+    veaf.monitorWithSlMod("-veaf start-mission-1", [[veafCombatMission.ActivateMissionNumber(1, true)]], 66001, "all", true)
+    veaf.monitorWithSlMod("-veaf start-mission-2", [[veafCombatMission.ActivateMissionNumber(2, true)]], 66002, "all", true)
+    veaf.monitorWithSlMod("-veaf start-mission-3", [[veafCombatMission.ActivateMissionNumber(3, true)]], 66003, "all", true)
+    veaf.monitorWithSlMod("-veaf start-mission-4", [[veafCombatMission.ActivateMissionNumber(4, true)]], 66004, "all", true)
+    veaf.monitorWithSlMod("-veaf start-mission-5", [[veafCombatMission.ActivateMissionNumber(5, true)]], 66005, "all", true)
+    veaf.monitorWithSlMod("-veaf start-mission-6", [[veafCombatMission.ActivateMissionNumber(6, true)]], 66006, "all", true)
+    veaf.monitorWithSlMod("-veaf start-mission-7", [[veafCombatMission.ActivateMissionNumber(7, true)]], 66007, "all", true)
+    veaf.monitorWithSlMod("-veaf start-mission-8", [[veafCombatMission.ActivateMissionNumber(8, true)]], 66008, "all", true)
+    veaf.monitorWithSlMod("-veaf start-mission-9", [[veafCombatMission.ActivateMissionNumber(9, true)]], 66009, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-mission-1" , [[veafCombatMission.DesactivateMissionNumber(1, true)]],66051, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-mission-2" , [[veafCombatMission.DesactivateMissionNumber(2, true)]],66052, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-mission-3" , [[veafCombatMission.DesactivateMissionNumber(3, true)]],66053, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-mission-4" , [[veafCombatMission.DesactivateMissionNumber(4, true)]],66054, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-mission-5" , [[veafCombatMission.DesactivateMissionNumber(5, true)]],66055, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-mission-6" , [[veafCombatMission.DesactivateMissionNumber(6, true)]],66056, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-mission-7" , [[veafCombatMission.DesactivateMissionNumber(7, true)]],66057, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-mission-8" , [[veafCombatMission.DesactivateMissionNumber(8, true)]],66058, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-mission-9" , [[veafCombatMission.DesactivateMissionNumber(9, true)]],66059, "all", true)
+    veaf.monitorWithSlMod("-veaf start-zone-1"   , [[veafCombatZone.ActivatezoneNumber(1, true)]], 66101, "all", true)
+    veaf.monitorWithSlMod("-veaf start-zone-2"   , [[veafCombatZone.ActivatezoneNumber(2, true)]], 66102, "all", true)
+    veaf.monitorWithSlMod("-veaf start-zone-3"   , [[veafCombatZone.ActivatezoneNumber(3, true)]], 66103, "all", true)
+    veaf.monitorWithSlMod("-veaf start-zone-4"   , [[veafCombatZone.ActivatezoneNumber(4, true)]], 66104, "all", true)
+    veaf.monitorWithSlMod("-veaf start-zone-5"   , [[veafCombatZone.ActivatezoneNumber(5, true)]], 66105, "all", true)
+    veaf.monitorWithSlMod("-veaf start-zone-6"   , [[veafCombatZone.ActivatezoneNumber(6, true)]], 66106, "all", true)
+    veaf.monitorWithSlMod("-veaf start-zone-7"   , [[veafCombatZone.ActivatezoneNumber(7, true)]], 66107, "all", true)
+    veaf.monitorWithSlMod("-veaf start-zone-8"   , [[veafCombatZone.ActivatezoneNumber(8, true)]], 66108, "all", true)
+    veaf.monitorWithSlMod("-veaf start-zone-9"   , [[veafCombatZone.ActivatezoneNumber(9, true)]], 66109, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-zone-1"    , [[veafCombatZone.DesactivatezoneNumber(1, true)]], 66151, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-zone-2"    , [[veafCombatZone.DesactivatezoneNumber(2, true)]], 66152, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-zone-3"    , [[veafCombatZone.DesactivatezoneNumber(3, true)]], 66153, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-zone-4"    , [[veafCombatZone.DesactivatezoneNumber(4, true)]], 66154, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-zone-5"    , [[veafCombatZone.DesactivatezoneNumber(5, true)]], 66155, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-zone-6"    , [[veafCombatZone.DesactivatezoneNumber(6, true)]], 66156, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-zone-7"    , [[veafCombatZone.DesactivatezoneNumber(7, true)]], 66157, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-zone-8"    , [[veafCombatZone.DesactivatezoneNumber(8, true)]], 66158, "all", true)
+    veaf.monitorWithSlMod("-veaf stop-zone-9"    , [[veafCombatZone.DesactivatezoneNumber(9, true)]], 66159, "all", true)
+else
+    veaf.logInfo("SLMOD not found")
+end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- No MOOSE settings menu. Comment out this line if required.
@@ -47,6 +94,7 @@ veafAssets.Assets = {
 }
 
 
+veaf.logInfo("init - veafAssets")
 veafAssets.initialize()
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -60,6 +108,7 @@ table.insert(veafMove.Tankers, "T3-Texaco")
 table.insert(veafMove.Tankers, "T4-Shell-B")
 --table.insert(veafMove.Tankers, "T5-Petrolsky")
 
+veaf.logInfo("init - veafMove")
 veafMove.initialize()
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -318,7 +367,8 @@ Destroy them all in less than 10 minutes !]])
 		:initialize()
 	)
 
-	veafCombatMission.initialize()
+	veaf.logInfo("init - veafCombatMission")
+    veafCombatMission.initialize()
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -356,6 +406,7 @@ if veafCombatZone then
 						 "This is a more easy zone, with few air defenses. But beware that there is a chance of manpad in the area !")
 	)
 
+    veaf.logInfo("init - veafCombatZone")
     veafCombatZone.initialize()
 
 end
@@ -417,13 +468,16 @@ veafNamedPoints.Points = {
 
 veafNamedPoints.logInfo("Loading configuration")
 
+veaf.logInfo("init - veafNamedPoints")
 veafNamedPoints.initialize()
+veafNamedPoints.addAllCaucasusCities()
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure SECURITY
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 veafSecurity.password_L9["6ade6629f9219d87a011e7b8fbf8ef9584f2786d"] = true
 veafSecurity.logInfo("Loading configuration")
+veaf.logInfo("init - veafSecurity")
 veafSecurity.initialize()
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -437,9 +491,11 @@ if useMooseAirboss then
     veafCarrierOperations2.setPedroInfo("CVN-74 Stennis Pedro", "Lake Erie", 42)
     veafCarrierOperations2.setRepeaterInfo("Stennis Radio Repeater LSO", "Stennis Radio Repeater MARSHAL")
     --veafCarrierOperations2.setTraining()
+    veaf.logInfo("init - veafCarrierOperations2")
     veafCarrierOperations2.initialize()
     --veafCarrierOperations2.addRecoveryWindows()
 else
+    veaf.logInfo("init - veafCarrierOperations")
     veafCarrierOperations.initialize(true)
 end
 
@@ -913,6 +969,8 @@ ctld.jtacUnitTypes = {
     "SKP", "Hummer" -- there are some wierd encoding issues so if you write SKP-11 it wont match as the - sign is encoded differently...
 }
 
+veaf.logInfo("init - ctld")
 ctld.initialize()
 
+veaf.logInfo("init - veafInterpreter")
 veafInterpreter.initialize()
