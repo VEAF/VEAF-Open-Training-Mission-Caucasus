@@ -21,7 +21,7 @@ weatherAndTime={
 			["thickness"] = 0,
 			["visibility"] = 0
 		},
-		["groundTurbulence"] = 4.056590965744683,
+		["groundTurbulence"] = 4.818149125746637,
 		["name"] = "Spring, Thunderstorm",
 		["name_cn"] = "春季 暴风雨",
 		["name_de"] = "Frühling, Gewitter",
@@ -39,11 +39,11 @@ weatherAndTime={
 		["wind"] = 	{
 			["at2000"] = 		{
 				["dir"] = 5,
-				["speed"] = 4.863611088728778
+				["speed"] = 4.281939584419621
 			},
 			["at8000"] = 		{
-				["dir"] = 5,
-				["speed"] = 7.254244288869748
+				["dir"] = 8,
+				["speed"] = 9.327363619647784
 			},
 			["atGround"] = 		{
 				["dir"] = 0,
