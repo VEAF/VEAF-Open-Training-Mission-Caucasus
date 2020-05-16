@@ -75,21 +75,18 @@ echo ----------------------------------------
 
 echo.
 echo prepare the folders
-echo ----------------------------------------
 rd /s /q .\build
 mkdir .\build
 
 echo.
 echo fetch the veaf-mission-creation-tools package
-echo ----------------------------------------
 call npm update
 rem echo on
 
 echo.
 echo prepare the veaf-mission-creation-tools scripts
-echo ----------------------------------------
 rem -- copy the scripts folder
-xcopy /s /y /e .\node_modules\veaf-mission-creation-tools\scripts\* .\build\tempscripts\ >nul 2>&1
+xcopy /s /y /e .\node_modules\veaf-mission-creation-tools\src\scripts\* .\build\tempscripts\ >nul 2>&1
 
 rem -- set the flags in the scripts according to the options
 echo set the flags in the scripts according to the options
@@ -108,8 +105,8 @@ xcopy /y /e src\scripts\*.lua .\build\tempsrc\l10n\Default\  >nul 2>&1
 
 rem -- set the radio presets according to the settings file
 echo set the radio presets according to the settings file
-pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-"%LUA%" veafMissionRadioPresetsEditor.lua  ..\..\..\..\build\tempsrc ..\..\..\..\src\radio\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER% >nul 2>&1
+pushd node_modules\veaf-mission-creation-tools\src\scripts\veaf
+"%LUA%" veafMissionRadioPresetsEditor.lua  ..\..\..\..\..\build\tempsrc ..\..\..\..\..\src\radio\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER% >nul 2>&1
 popd
 
 rem -- copy the documentation images to the kneeboard
@@ -122,32 +119,25 @@ copy .\build\tempscripts\community\*.lua .\build\tempsrc\l10n\Default >nul 2>&1
 rem -- copy all the common scripts
 copy .\build\tempscripts\veaf\*.lua .\build\tempsrc\l10n\Default >nul 2>&1
 
-rem -- normalize and prepare the weather and time version 
-echo normalize and prepare the weather and time version 
-FOR %%f IN (.\src\weatherAndTime\*-real.lua) DO (
-	pushd node_modules\veaf-mission-creation-tools\getrealweather
-	python DCSWeatherExporter.py %THEATER_NAME% "%%~ff"
-	popd
-)
-FOR %%f IN (.\src\weatherAndTime\*.lua) DO (
-	rem -- normalize and prepare the version
-	echo normalize and prepare the version for %%~nf
-	pushd node_modules\veaf-mission-creation-tools\scripts\veaf
-	"%LUA%" veafMissionNormalizer.lua ..\..\..\..\build\tempsrc ..\..\..\..\src\weatherAndTime\%%~nf.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
-	popd
+rem -- normalize the mission files
+pushd node_modules\veaf-mission-creation-tools\src\scripts\veaf
+"%LUA%" veafMissionNormalizer.lua ..\..\..\..\..\build\tempsrc %LUA_SCRIPTS_DEBUG_PARAMETER%
+popd
 
-	rem -- compile the mission
-	"%SEVENZIP%" a -r -tzip %MISSION_FILE%-%%~nf.miz .\build\tempsrc\* -mem=AES256 >nul 2>&1
-)
+rem -- compile the mission
+"%SEVENZIP%" a -r -tzip %MISSION_FILE%.miz .\build\tempsrc\* -mem=AES256 >nul 2>&1
 
 rem -- cleanup the mission files
-echo cleanup the mission files
 rd /s /q .\build\tempsrc
 
 rem -- cleanup the veaf-mission-creation-tools scripts
-echo cleanup the veaf-mission-creation-tools scripts
-echo ----------------------------------------
 rd /s /q .\build\tempscripts
+
+rem -- generate the time and weather versions
+echo generate the time and weather versions
+echo ----------------------------------------
+node node_modules\veaf-mission-creation-tools\src\nodejs\app.js injectall --quiet "%MISSION_FILE%.miz" "%MISSION_FILE%-${version}.miz" src\weatherAndTime\versions.json
+
 
 echo.
 echo ----------------------------------------

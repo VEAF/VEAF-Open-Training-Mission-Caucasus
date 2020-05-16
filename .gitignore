@@ -5,3 +5,7 @@
 /setup_*.cmd
 package-lock.json
 TODO.txt
+
+cache/
+
+configuration.json

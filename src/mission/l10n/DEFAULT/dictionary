@@ -438,6 +438,8 @@ Nous contacter:\
 - Forum: http://www.veaf.org\
 - Discord: https://discord.gg/TvhFVj\
 - TeamSpeak: ts.veaf.org\
+\
+METAR : ${METAR}\
 ",
     ["DictKey_GroupName_1002"] = "Windsock #012",
     ["DictKey_GroupName_1005"] = "New Static Object #002",

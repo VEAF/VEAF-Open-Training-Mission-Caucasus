@@ -61,13 +61,13 @@ del /f /q "%MISSION_PATH%\options"
 
 rem setting the radio presets according to the settings file
 echo setting the radio presets according to the settings file
-pushd node_modules\veaf-mission-creation-tools\scripts\veaf
+pushd node_modules\veaf-mission-creation-tools\src\scripts\veaf
 "%LUA%" veafMissionRadioPresetsEditor.lua "%MISSION_PATH%" "%MISSION_PATH%\..\radio\radioSettings.lua" %LUA_SCRIPTS_DEBUG_PARAMETER%
 popd
 
 rem normalizing the mission files
 echo normalizing the mission files
-pushd node_modules\veaf-mission-creation-tools\scripts\veaf
+pushd node_modules\veaf-mission-creation-tools\src\scripts\veaf
 "%LUA%" veafMissionNormalizer.lua "%MISSION_PATH%" %LUA_SCRIPTS_DEBUG_PARAMETER%
 popd
 
