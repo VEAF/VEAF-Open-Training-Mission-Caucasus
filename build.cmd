@@ -6,7 +6,6 @@ echo ----------------------------------------
 echo building %MISSION_NAME%
 echo ----------------------------------------
 echo.
-set VERBOSE_LOG_FLAG=true
 
 rem -- default options values
 echo This script can use these environment variables to customize its behavior :
