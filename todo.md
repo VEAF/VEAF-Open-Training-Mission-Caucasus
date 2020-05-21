@@ -6,13 +6,12 @@
 
 ### RFC - needs to be done
 
-- ajouter une manche à air à Gudauta pour les F16
-- ajouter des points (même un clone du point 1) aux F16 (bug qui empêche d'en créer dans l'avion) ; voir pour le faire en script
 - ajouter une commande pour lister les missions et zone (commande chat)
 
 ### Bug - needs to be corrected
 
-- la batterie de SAM de Mozdok est sur la piste
 - les presets des Huey ne sont pas correctement injectés
+- les véhicules de MinVody sont immobiles (vitesse?) ; on peut leur mettre un wp offroad à la fin pour boucler la boucle
+- vérifier le "weather report"
 
 ## Notes

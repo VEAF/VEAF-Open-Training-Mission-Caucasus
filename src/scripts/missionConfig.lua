@@ -130,14 +130,16 @@ _SETTINGS:SetPlayerMenuOff()
 veafAssets.logInfo("Loading configuration")
 veafAssets.Assets = {
     -- list the assets common to all missions below
-    {sort=1, name="CSG-01 Tarawa", description="Tarawa (LHA)", information="Tacan 11X TAA\nDatalink 310 Mhz\nTower 226 Mhz"},  
-    {sort=2, name="CSG-74 Stennis", description="Stennis (CVN)", information="Tacan 10X STS\nDatalink 321 Mhz\nICLS 1\n225 Mhz"},  
+    {sort=1, name="CSG-01 Tarawa", description="Tarawa (LHA)", information="Tacan 11X TAA\nTower 226 Mhz"},  
+    {sort=2, name="CSG-74 Stennis", description="Stennis (CVN)", information="Tacan 10X STS\nICLS 10\n225 Mhz"},  
+    {sort=2, name="CSG-71 Roosevelt", description="Roosevelt (CVN)", information="Tacan 12X RHR\nICLS 11\n227 Mhz"},  
     {sort=3, name="T1-Arco-1", description="Arco-1 (KC-135)", information="Tacan 64X\n290.50 Mhz\nZone OUEST", linked="T1-Arco-1 escort"}, 
     {sort=4, name="T2-Shell-1", description="Shell-1 (KC-135 MPRS)", information="Tacan 62X\n290.30 Mhz\nZone EST", linked="T2-Shell-1 escort"},  
     {sort=5, name="T3-Texaco-1", description="Texaco-1 (KC-135 MPRS)", information="Tacan 60X\n290.10 Mhz\nZone OUEST", linked="T3-Texaco-1 escort"},  
     {sort=6, name="T4-Shell-2", description="Shell-2 (KC-135)", information="Tacan 63X\n290.40 Mhz\nZone EST", linked="T4-Shell-2 escort"},  
     {sort=6, name="T5-Petrolsky", description="900 (IL-78M, RED)", information="267 Mhz", linked="T5-Petrolsky escort"},  
-    {sort=7, name="CVN-74 Stennis S3B-Tanker", description="Texaco-7 (S3-B)", information="Tacan 75Y\n290.90 Mhz\nZone PA"},  
+    {sort=7, name="CVN-74 Stennis S3B-Tanker", description="Texaco-7 (S3-B)", information="Tacan 75X\n290.90 Mhz\nZone PA"},  
+    {sort=7, name="CVN-71 Roosevelt S3B-Tanker", description="Texaco-8 (S3-B)", information="Tacan 76X\n290.80 Mhz\nZone PA"},  
     {sort=8, name="D1-Bizmuth", description="Colt-1 AFAC Bizmuth (MQ-9)", information="118.80 Mhz", jtac=1688},  
     {sort=9, name="D2-Agate", description="Dodge-1 AFAC Agate (MQ-9)", information="118.90 Mhz", jtac=1687},  
     {sort=10, name="A1-Magic", description="Magic (E-2D)", information="Datalink 315.3 Mhz\n282.20 Mhz", linked="A1-Magic escort"},  
@@ -153,10 +155,10 @@ veafAssets.initialize()
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 veafMove.logInfo("Setting move tanker radio menus")
-table.insert(veafMove.Tankers, "T1-Arco")
-table.insert(veafMove.Tankers, "T2-Shell")
-table.insert(veafMove.Tankers, "T3-Texaco")
-table.insert(veafMove.Tankers, "T4-Shell-B")
+table.insert(veafMove.Tankers, "T1-Arco-1")
+table.insert(veafMove.Tankers, "T2-Shell-1")
+table.insert(veafMove.Tankers, "T3-Texaco-1")
+table.insert(veafMove.Tankers, "T4-Shell-2")
 --table.insert(veafMove.Tankers, "T5-Petrolsky")
 
 veaf.logInfo("init - veafMove")
