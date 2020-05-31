@@ -1215,7 +1215,7 @@ METAR : ${METAR}\
     ["DictKey_UnitName_5915"] = "Unit #160",
     ["DictKey_UnitName_5916"] = "Unit #161",
     ["DictKey_UnitName_5917"] = "Unit #162",
-    ["DictKey_UnitName_5920"] = "#command=\"-convoy, size 10, armor 2, defense 1, dest Sheripova\" #001",
+    ["DictKey_UnitName_5920"] = "#command=\"-convoy, size 10, armor 2, defense 1, dest SETTSHERIPOVA\"",
     ["DictKey_UnitName_5931"] = "#command=\"_spawn samgroup, size 1, defense 4\",#spawnGroup=\"RU-staticairdefense\",spawnCount=1,spawnChance=50",
     ["DictKey_UnitName_5935"] = "#command=\"_spawn samgroup, size 1, defense 4\",#spawnGroup=\"RU-staticairdefense\",spawnCount=1,spawnChance=50 #001",
     ["DictKey_UnitName_5938"] = "#command=\"_spawn samgroup, size 1, defense 5\",#spawnGroup=\"RU-staticairdefense\",spawnCount=1,spawnChance=50 #002",
