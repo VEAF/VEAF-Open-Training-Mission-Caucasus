@@ -2,11 +2,11 @@
 
 ## Documentation
 
-Please refer to the OpenTraining documentation to get additional details (in french) or to the VEAF-Mission-Creation-Tools documentation (in english).
+Please refer to the [OpenTraining documentation](https://tinyurl.com/veaf-ot) (in french) or to the [VEAF-Mission-Creation-Tools documentation](https://veaf.github.io/VEAF-Mission-Creation-Tools/) (in english) to get additional details.
 
 Basically, you need to add a marker to the map and use a quick command.
 
-![CAS_from_TKIBULI_to_HOTEVI_-_map](f10-map-usermark-01.png?raw=true "f10-map-usermark-01")
+![f10-map-usermark-01](f10-map-usermark-01.png?raw=true "f10-map-usermark-01")
 
 ![f10-map-usermark-02](f10-map-usermark-02.png?raw=true "f10-map-usermark-02")
 
@@ -63,7 +63,7 @@ They can be combined; e.g. `-armor, size 20, armor 5, defense 0, dest TBILISI, o
 
 #### Map
 
-![CAS_from_TKIBULI_to_HOTEVI_-_map](CAS_from_TKIBULI_to_HOTEVI_-_map.png?raw=true "CAS_from_TKIBULI_to_HOTEVI_-_map")
+![CAS_from_TKIBULI_to_HOTEVI-map](CAS_from_TKIBULI_to_HOTEVI-map.png?raw=true "CAS_from_TKIBULI_to_HOTEVI-map")
 
 #### Commands
 
