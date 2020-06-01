@@ -2,9 +2,13 @@
 
 All scripts, libraries and documentation needed to build the VEAF Open Training Mission
 
-## How to work on this mission ?
+## Playing in this mission
 
-requirements: 
+See [Playing in the OpenTraining mission](docs/opentraining.md)
+
+## Working on this mission
+
+requirements:
 
 * DCS World 2.5+
 * 7za.exe in your path [get 7zip Extra here](https://www.7-zip.org/download.html)
