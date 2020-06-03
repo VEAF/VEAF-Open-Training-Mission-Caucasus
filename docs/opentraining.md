@@ -69,9 +69,9 @@ They can be combined; e.g. `-armor, size 20, armor 5, defense 0, dest TBILISI, o
 
 Simply enter the following commands into the markers shown on the map:
 
-1. `_name point BLUE1`
-2. `_spawn combatgroup, spacing 2, defense1`
-3. `_spawn armorgroup`
+1. `-point BLUE1`
+2. `-combat, spacing 2, defense 1`
+3. `-armor`
 4. `-convoy, dest BLUE1, side blue`
 
 #### Explanations

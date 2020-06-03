@@ -64,45 +64,77 @@ veafShortcuts.initialize()
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if slmod then
     veaf.logInfo("Setting SLMOD configuration")
-    veaf.monitorWithSlMod("-veaf test", [[trigger.action.outText("VEAF - test command received from SLMOD, flag=66600", 10)]], 66600, "all", false)
-    veaf.monitorWithSlMod("-veaf login", [[veafSecurity.authenticate()]], 66601, "all", true)
-    veaf.monitorWithSlMod("-veaf logout", [[veafSecurity.logout()]], 66603, "all", true)
-    veaf.monitorWithSlMod("-veaf start-mission-1", [[veafCombatMission.ActivateMissionNumber(1, true)]], 66001, "all", true)
-    veaf.monitorWithSlMod("-veaf start-mission-2", [[veafCombatMission.ActivateMissionNumber(2, true)]], 66002, "all", true)
-    veaf.monitorWithSlMod("-veaf start-mission-3", [[veafCombatMission.ActivateMissionNumber(3, true)]], 66003, "all", true)
-    veaf.monitorWithSlMod("-veaf start-mission-4", [[veafCombatMission.ActivateMissionNumber(4, true)]], 66004, "all", true)
-    veaf.monitorWithSlMod("-veaf start-mission-5", [[veafCombatMission.ActivateMissionNumber(5, true)]], 66005, "all", true)
-    veaf.monitorWithSlMod("-veaf start-mission-6", [[veafCombatMission.ActivateMissionNumber(6, true)]], 66006, "all", true)
-    veaf.monitorWithSlMod("-veaf start-mission-7", [[veafCombatMission.ActivateMissionNumber(7, true)]], 66007, "all", true)
-    veaf.monitorWithSlMod("-veaf start-mission-8", [[veafCombatMission.ActivateMissionNumber(8, true)]], 66008, "all", true)
-    veaf.monitorWithSlMod("-veaf start-mission-9", [[veafCombatMission.ActivateMissionNumber(9, true)]], 66009, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-mission-1" , [[veafCombatMission.DesactivateMissionNumber(1, true)]],66051, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-mission-2" , [[veafCombatMission.DesactivateMissionNumber(2, true)]],66052, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-mission-3" , [[veafCombatMission.DesactivateMissionNumber(3, true)]],66053, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-mission-4" , [[veafCombatMission.DesactivateMissionNumber(4, true)]],66054, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-mission-5" , [[veafCombatMission.DesactivateMissionNumber(5, true)]],66055, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-mission-6" , [[veafCombatMission.DesactivateMissionNumber(6, true)]],66056, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-mission-7" , [[veafCombatMission.DesactivateMissionNumber(7, true)]],66057, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-mission-8" , [[veafCombatMission.DesactivateMissionNumber(8, true)]],66058, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-mission-9" , [[veafCombatMission.DesactivateMissionNumber(9, true)]],66059, "all", true)
-    veaf.monitorWithSlMod("-veaf start-zone-1"   , [[veafCombatZone.ActivateZoneNumber(1, true)]], 66101, "all", true)
-    veaf.monitorWithSlMod("-veaf start-zone-2"   , [[veafCombatZone.ActivateZoneNumber(2, true)]], 66102, "all", true)
-    veaf.monitorWithSlMod("-veaf start-zone-3"   , [[veafCombatZone.ActivateZoneNumber(3, true)]], 66103, "all", true)
-    veaf.monitorWithSlMod("-veaf start-zone-4"   , [[veafCombatZone.ActivateZoneNumber(4, true)]], 66104, "all", true)
-    veaf.monitorWithSlMod("-veaf start-zone-5"   , [[veafCombatZone.ActivateZoneNumber(5, true)]], 66105, "all", true)
-    veaf.monitorWithSlMod("-veaf start-zone-6"   , [[veafCombatZone.ActivateZoneNumber(6, true)]], 66106, "all", true)
-    veaf.monitorWithSlMod("-veaf start-zone-7"   , [[veafCombatZone.ActivateZoneNumber(7, true)]], 66107, "all", true)
-    veaf.monitorWithSlMod("-veaf start-zone-8"   , [[veafCombatZone.ActivateZoneNumber(8, true)]], 66108, "all", true)
-    veaf.monitorWithSlMod("-veaf start-zone-9"   , [[veafCombatZone.ActivateZoneNumber(9, true)]], 66109, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-zone-1"    , [[veafCombatZone.DesactivateZoneNumber(1, true)]], 66151, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-zone-2"    , [[veafCombatZone.DesactivateZoneNumber(2, true)]], 66152, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-zone-3"    , [[veafCombatZone.DesactivateZoneNumber(3, true)]], 66153, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-zone-4"    , [[veafCombatZone.DesactivateZoneNumber(4, true)]], 66154, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-zone-5"    , [[veafCombatZone.DesactivateZoneNumber(5, true)]], 66155, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-zone-6"    , [[veafCombatZone.DesactivateZoneNumber(6, true)]], 66156, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-zone-7"    , [[veafCombatZone.DesactivateZoneNumber(7, true)]], 66157, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-zone-8"    , [[veafCombatZone.DesactivateZoneNumber(8, true)]], 66158, "all", true)
-    veaf.monitorWithSlMod("-veaf stop-zone-9"    , [[veafCombatZone.DesactivateZoneNumber(9, true)]], 66159, "all", true)
+    
+    -- specific commands
+    veaf.monitorWithSlMod("-veaf test", [[trigger.action.outText("VEAF - test command received from SLMOD, flag=66600", 10)]], false, 66600)
+    veaf.monitorWithSlMod("-veaf login", [[veafSecurity.authenticate(1)]])
+    veaf.monitorWithSlMod("-veaf logout", [[veafSecurity.logout(true)]])
+    
+    -- combat missions
+    veaf.monitorWithSlMod("-veaf start-silent-CAP-Krasnodar-1", [[ veafCombatMission.ActivateMission("CAP-Krasnodar-1", true) ]])
+    veaf.monitorWithSlMod("-veaf start-silent-CAP-Maykop-1", [[ veafCombatMission.ActivateMission("CAP-Maykop-1", true) ]])
+    veaf.monitorWithSlMod("-veaf start-silent-CAP-GL-1", [[ veafCombatMission.ActivateMission("CAP-GL-1", true) ]])
+    veaf.monitorWithSlMod("-veaf start-silent-CAP-Mozdok-1", [[ veafCombatMission.ActivateMission("CAP-Mozdok-1", true) ]])
+    veaf.monitorWithSlMod("-veaf start-silent-CAP-Crimea-1", [[ veafCombatMission.ActivateMission("CAP-Crimea-1", true) ]])
+    veaf.monitorWithSlMod("-veaf start-silent-CAP-Minvody-2", [[ veafCombatMission.ActivateMission("CAP-Minvody-2", true) ]])
+    veaf.monitorWithSlMod("-veaf start-silent-CAP-Minvody-4", [[ veafCombatMission.ActivateMission("CAP-Minvody-4", true) ]])
+    veaf.monitorWithSlMod("-veaf start-silent-CAP-Minvody-8", [[ veafCombatMission.ActivateMission("CAP-Minvody-8", true) ]])
+    veaf.monitorWithSlMod("-veaf start-silent-CAP-Minvody", [[ veafCombatMission.ActivateMission("CAP-Minvody", true) ]])
+    veaf.monitorWithSlMod("-veaf start-silent-Red-attack-Gudauta", [[ veafCombatMission.ActivateMission("Red-attack-Gudauta", true) ]])
+    veaf.monitorWithSlMod("-veaf start-silent-Training-Bomber-1-slow", [[ veafCombatMission.ActivateMission("Training-Bomber-1-slow", true) ]])
+    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Krasnodar-1", [[ veafCombatMission.DesactivateMission("CAP-Krasnodar-1", true) ]])
+    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Maykop-1", [[ veafCombatMission.DesactivateMission("CAP-Maykop-1", true) ]])
+    veaf.monitorWithSlMod("-veaf stop-silent-CAP-GL-1", [[ veafCombatMission.DesactivateMission("CAP-GL-1", true) ]])
+    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Mozdok-1", [[ veafCombatMission.DesactivateMission("CAP-Mozdok-1", true) ]])
+    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Crimea-1", [[ veafCombatMission.DesactivateMission("CAP-Crimea-1", true) ]])
+    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Minvody-2", [[ veafCombatMission.DesactivateMission("CAP-Minvody-2", true) ]])
+    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Minvody-4", [[ veafCombatMission.DesactivateMission("CAP-Minvody-4", true) ]])
+    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Minvody-8", [[ veafCombatMission.DesactivateMission("CAP-Minvody-8", true) ]])
+    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Minvody", [[ veafCombatMission.DesactivateMission("CAP-Minvody", true) ]])
+    veaf.monitorWithSlMod("-veaf stop-silent-Red-attack-Gudauta", [[ veafCombatMission.DesactivateMission("Red-attack-Gudauta", true) ]])
+    veaf.monitorWithSlMod("-veaf stop-silent-Training-Bomber-1-slow", [[ veafCombatMission.DesactivateMission("Training-Bomber-1-slow", true) ]])
+    veaf.monitorWithSlMod("-veaf start-CAP-Krasnodar-1", [[ veafCombatMission.ActivateMission("CAP-Krasnodar-1", false) ]])
+    veaf.monitorWithSlMod("-veaf start-CAP-Maykop-1", [[ veafCombatMission.ActivateMission("CAP-Maykop-1", false) ]])
+    veaf.monitorWithSlMod("-veaf start-CAP-GL-1", [[ veafCombatMission.ActivateMission("CAP-GL-1", false) ]])
+    veaf.monitorWithSlMod("-veaf start-CAP-Mozdok-1", [[ veafCombatMission.ActivateMission("CAP-Mozdok-1", false) ]])
+    veaf.monitorWithSlMod("-veaf start-CAP-Crimea-1", [[ veafCombatMission.ActivateMission("CAP-Crimea-1", false) ]], false)
+    veaf.monitorWithSlMod("-veaf start-CAP-Minvody-2", [[ veafCombatMission.ActivateMission("CAP-Minvody-2", false) ]])
+    veaf.monitorWithSlMod("-veaf start-CAP-Minvody-4", [[ veafCombatMission.ActivateMission("CAP-Minvody-4", false) ]])
+    veaf.monitorWithSlMod("-veaf start-CAP-Minvody-8", [[ veafCombatMission.ActivateMission("CAP-Minvody-8", false) ]])
+    veaf.monitorWithSlMod("-veaf start-CAP-Minvody", [[ veafCombatMission.ActivateMission("CAP-Minvody", false) ]])
+    veaf.monitorWithSlMod("-veaf start-Red-attack-Gudauta", [[ veafCombatMission.ActivateMission("Red-attack-Gudauta", false) ]])
+    veaf.monitorWithSlMod("-veaf start-Training-Bomber-1-slow", [[ veafCombatMission.ActivateMission("Training-Bomber-1-slow", false) ]])
+    veaf.monitorWithSlMod("-veaf stop-CAP-Krasnodar-1", [[ veafCombatMission.DesactivateMission("CAP-Krasnodar-1", false) ]])
+    veaf.monitorWithSlMod("-veaf stop-CAP-Maykop-1", [[ veafCombatMission.DesactivateMission("CAP-Maykop-1", false) ]])
+    veaf.monitorWithSlMod("-veaf stop-CAP-GL-1", [[ veafCombatMission.DesactivateMission("CAP-GL-1", false) ]])
+    veaf.monitorWithSlMod("-veaf stop-CAP-Mozdok-1", [[ veafCombatMission.DesactivateMission("CAP-Mozdok-1", false) ]])
+    veaf.monitorWithSlMod("-veaf stop-CAP-Crimea-1", [[ veafCombatMission.DesactivateMission("CAP-Crimea-1", false) ]], false)
+    veaf.monitorWithSlMod("-veaf stop-CAP-Minvody-2", [[ veafCombatMission.DesactivateMission("CAP-Minvody-2", false) ]])
+    veaf.monitorWithSlMod("-veaf stop-CAP-Minvody-4", [[ veafCombatMission.DesactivateMission("CAP-Minvody-4", false) ]])
+    veaf.monitorWithSlMod("-veaf stop-CAP-Minvody-8", [[ veafCombatMission.DesactivateMission("CAP-Minvody-8", false) ]])
+    veaf.monitorWithSlMod("-veaf stop-CAP-Minvody", [[ veafCombatMission.DesactivateMission("CAP-Minvody", false) ]])
+    veaf.monitorWithSlMod("-veaf stop-Red-attack-Gudauta", [[ veafCombatMission.DesactivateMission("Red-attack-Gudauta", false) ]])
+    veaf.monitorWithSlMod("-veaf stop-Training-Bomber-1-slow", [[ veafCombatMission.DesactivateMission("Training-Bomber-1-slow", false) ]])   
+
+    -- combat zones
+    veaf.monitorWithSlMod("-veaf start-zone-1"   , [[ veafCombatZone.ActivateZoneNumber(1, true) ]])
+    veaf.monitorWithSlMod("-veaf start-zone-2"   , [[ veafCombatZone.ActivateZoneNumber(2, true) ]])
+    veaf.monitorWithSlMod("-veaf start-zone-3"   , [[ veafCombatZone.ActivateZoneNumber(3, true) ]])
+    veaf.monitorWithSlMod("-veaf start-zone-4"   , [[ veafCombatZone.ActivateZoneNumber(4, true) ]])
+    veaf.monitorWithSlMod("-veaf start-zone-5"   , [[ veafCombatZone.ActivateZoneNumber(5, true) ]])
+    veaf.monitorWithSlMod("-veaf start-zone-6"   , [[ veafCombatZone.ActivateZoneNumber(6, true) ]])
+    veaf.monitorWithSlMod("-veaf start-zone-7"   , [[ veafCombatZone.ActivateZoneNumber(7, true) ]])
+    veaf.monitorWithSlMod("-veaf start-zone-8"   , [[ veafCombatZone.ActivateZoneNumber(8, true) ]])
+    veaf.monitorWithSlMod("-veaf start-zone-9"   , [[ veafCombatZone.ActivateZoneNumber(9, true) ]])
+    veaf.monitorWithSlMod("-veaf stop-zone-1"    , [[ veafCombatZone.DesactivateZoneNumber(1, true) ]])
+    veaf.monitorWithSlMod("-veaf stop-zone-2"    , [[ veafCombatZone.DesactivateZoneNumber(2, true) ]])
+    veaf.monitorWithSlMod("-veaf stop-zone-3"    , [[ veafCombatZone.DesactivateZoneNumber(3, true) ]])
+    veaf.monitorWithSlMod("-veaf stop-zone-4"    , [[ veafCombatZone.DesactivateZoneNumber(4, true) ]])
+    veaf.monitorWithSlMod("-veaf stop-zone-5"    , [[ veafCombatZone.DesactivateZoneNumber(5, true) ]])
+    veaf.monitorWithSlMod("-veaf stop-zone-6"    , [[ veafCombatZone.DesactivateZoneNumber(6, true) ]])
+    veaf.monitorWithSlMod("-veaf stop-zone-7"    , [[ veafCombatZone.DesactivateZoneNumber(7, true) ]])
+    veaf.monitorWithSlMod("-veaf stop-zone-8"    , [[ veafCombatZone.DesactivateZoneNumber(8, true) ]])
+    veaf.monitorWithSlMod("-veaf stop-zone-9"    , [[ veafCombatZone.DesactivateZoneNumber(9, true) ]])
 else
     veaf.logInfo("SLMOD not found")
 end
@@ -146,7 +178,6 @@ veafAssets.Assets = {
     {sort=11, name="A2-Overlordsky", description="Overlordsky (A-50, RED)", information="V112.12"},  
 }
 
-
 veaf.logInfo("init - veafAssets")
 veafAssets.initialize()
 
@@ -169,36 +200,175 @@ veafMove.initialize()
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafCombatMission then 
 	veafCombatMission.logInfo("Loading configuration")
-	
---     veafCombatMission.AddMission(
--- 		VeafCombatMission.new()
--- 		:setSecured(true)
--- 		:setName("CAP-Minvody-2")
--- 		:setFriendlyName("CAP on Mineralnye Vody / 2-ship")
--- 		:setBriefing([[
--- A Russian CAP patrol has been spotted over Mineralnye Vody.
--- It is composed of 2 fighters.
--- ]]
--- )
--- 		:addElement(
--- 			VeafCombatMissionElement.new()
--- 			:setName("OnDemand-CAP-Minvody-1")
--- 			:setGroups({"OnDemand-CAP-Minvody-1"})
---             :setSkill("Excellent")
--- 		)
--- 		:addObjective(
--- 			VeafCombatMissionObjective.new()
--- 			:setName("Kill all the fighters")
--- 			:setDescription("you must kill all of the fighters")
--- 			:setMessage("%d fighters destroyed !")
--- 			:configureAsKillEnemiesObjective()
--- 		)
--- 		:initialize()
--- 	)
+    
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setSecured(true)
+		:setRadioMenuEnabled(false)
+		:setName("CAP-Krasnodar-1")
+		:setFriendlyName("CAP on Krasnodar / 2-ship")
+		:setBriefing([[
+A Russian CAP patrol has been spotted over Krasnodar.
+It is composed of 2 fighters.
+]]
+)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("CAP-Krasnodar-1")
+			:setGroups({"OnDemand-CAP-Krasnodar-1"})
+            :setSkill("Excellent")
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the fighters")
+			:setDescription("you must kill all of the fighters")
+			:setMessage("%d fighters destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+		:initialize()
+    )
+    
 
     veafCombatMission.AddMission(
 		VeafCombatMission.new()
 		:setSecured(true)
+		:setRadioMenuEnabled(false)
+		:setName("CAP-Maykop-1")
+		:setFriendlyName("CAP on Maykop / 2-ship")
+		:setBriefing([[
+A Russian CAP patrol has been spotted over Maykop.
+It is composed of 2 fighters.
+]]
+)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Maykop-1")
+			:setGroups({"OnDemand-CAP-Maykop-1"})
+            :setSkill("Excellent")
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the fighters")
+			:setDescription("you must kill all of the fighters")
+			:setMessage("%d fighters destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+		:initialize()
+    )
+    
+
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setSecured(true)
+		:setRadioMenuEnabled(false)
+		:setName("CAP-GL-1")
+		:setFriendlyName("CAP on grid GL / 2-ship")
+		:setBriefing([[
+A Russian CAP patrol has been spotted over grid GL.
+It is composed of 2 fighters.
+]]
+)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-GL-1")
+			:setGroups({"OnDemand-CAP-GL-1"})
+            :setSkill("Excellent")
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the fighters")
+			:setDescription("you must kill all of the fighters")
+			:setMessage("%d fighters destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+		:initialize()
+    )
+    
+
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setSecured(true)
+		:setRadioMenuEnabled(false)
+		:setName("CAP-Mozdok-1")
+		:setFriendlyName("CAP on Mozdok / 2-ship")
+		:setBriefing([[
+A Russian CAP patrol has been spotted over Mozdok.
+It is composed of 2 fighters.
+]]
+)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Mozdok-1")
+			:setGroups({"OnDemand-CAP-Mozdok-1"})
+            :setSkill("Excellent")
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the fighters")
+			:setDescription("you must kill all of the fighters")
+			:setMessage("%d fighters destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+		:initialize()
+    )
+    
+
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setName("CAP-Crimea-1")
+		:setFriendlyName("CAP on Crimea / 2-ship")
+		:setBriefing([[
+A Russian CAP patrol has been spotted west of the Crimea peninsula.
+It is composed of 2 fighters.
+]]
+)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Crimea-1")
+			:setGroups({"OnDemand-CAP-Crimea-1"})
+            :setSkill("Excellent")
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the fighters")
+			:setDescription("you must kill all of the fighters")
+			:setMessage("%d fighters destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+		:initialize()
+	)
+
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setSecured(true)
+		:setRadioMenuEnabled(false)
+		:setName("CAP-Minvody-2")
+		:setFriendlyName("CAP on Mineralnye Vody / 2-ship")
+		:setBriefing([[
+A Russian CAP patrol has been spotted over Mineralnye Vody.
+It is composed of 2 fighters.
+]]
+)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("CAP-Minvody-1")
+			:setGroups({"OnDemand-CAP-Minvody-1"})
+            :setSkill("Excellent")
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the fighters")
+			:setDescription("you must kill all of the fighters")
+			:setMessage("%d fighters destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+		:initialize()
+	)
+
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setSecured(true)
+		:setRadioMenuEnabled(false)
 		:setName("CAP-Minvody-4")
 		:setFriendlyName("CAP on Mineralnye Vody / 4-ship")
 		:setBriefing([[
@@ -228,49 +398,50 @@ It is composed of 4 fighters.
 		:initialize()
 	)
 
---     veafCombatMission.AddMission(
--- 		VeafCombatMission.new()
--- 		:setSecured(true)
--- 		:setName("CAP-Minvody-8")
--- 		:setFriendlyName("CAP on Mineralnye Vody / 8-ship")
--- 		:setBriefing([[
--- A Russian CAP patrol has been spotted over Mineralnye Vody.
--- It is composed of 8 fighters.
--- ]]
--- )
--- 		:addElement(
--- 			VeafCombatMissionElement.new()
--- 			:setName("OnDemand-CAP-Minvody-1")
--- 			:setGroups({"OnDemand-CAP-Minvody-1"})
---             :setSkill("Excellent")
--- 		)
--- 		:addElement(
--- 			VeafCombatMissionElement.new()
--- 			:setName("OnDemand-CAP-Minvody-2")
--- 			:setGroups({"OnDemand-CAP-Minvody-2"})
---             :setSkill("Excellent")
--- 		)
--- 		:addElement(
--- 			VeafCombatMissionElement.new()
--- 			:setName("OnDemand-CAP-Minvody-3")
--- 			:setGroups({"OnDemand-CAP-Minvody-3"})
---             :setSkill("Excellent")
--- 		)
--- 		:addElement(
--- 			VeafCombatMissionElement.new()
--- 			:setName("OnDemand-CAP-Minvody-4")
--- 			:setGroups({"OnDemand-CAP-Minvody-4"})
---             :setSkill("Excellent")
--- 		)
--- 		:addObjective(
--- 			VeafCombatMissionObjective.new()
--- 			:setName("Kill all the fighters")
--- 			:setDescription("you must kill all of the fighters")
--- 			:setMessage("%d fighters destroyed !")
--- 			:configureAsKillEnemiesObjective()
--- 		)
--- 		:initialize()
--- 	)
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setSecured(true)
+		:setRadioMenuEnabled(false)
+		:setName("CAP-Minvody-8")
+		:setFriendlyName("CAP on Mineralnye Vody / 8-ship")
+		:setBriefing([[
+A Russian CAP patrol has been spotted over Mineralnye Vody.
+It is composed of 8 fighters.
+]]
+)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-1")
+			:setGroups({"OnDemand-CAP-Minvody-1"})
+            :setSkill("Excellent")
+		)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-2")
+			:setGroups({"OnDemand-CAP-Minvody-2"})
+            :setSkill("Excellent")
+		)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-3")
+			:setGroups({"OnDemand-CAP-Minvody-3"})
+            :setSkill("Excellent")
+		)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-CAP-Minvody-4")
+			:setGroups({"OnDemand-CAP-Minvody-4"})
+            :setSkill("Excellent")
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the fighters")
+			:setDescription("you must kill all of the fighters")
+			:setMessage("%d fighters destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+		:initialize()
+	)
 
     veafCombatMission.AddMission(
 		VeafCombatMission.new()
@@ -323,7 +494,7 @@ It is composed of 2 to 8 fighters.
     veafCombatMission.AddMission(
 		VeafCombatMission.new()
 		:setSecured(true)
-		:setName("Red attack On Gudauta")
+		:setName("Red-attack-Gudauta")
 		:setFriendlyName("Red attack On Gudauta")
 		:setBriefing([[
 Alert ! This is not a drill !
@@ -347,8 +518,8 @@ Destroy all the bombers before they hit the base !
 			:setName("Bombers")
 			:setGroups({
 				"Red Attack On Gudauta - Wave 2-1",
-			 	"Red Attack On Gudauta - Wave 2-2", 
-			 	"Red Attack On Gudauta - Wave 2-3" })
+                "Red Attack On Gudauta - Wave 2-2", 
+                "Red Attack On Gudauta - Wave 2-3" })
 			:setSkill("Random")
 		)
 		:addObjective(
@@ -380,7 +551,7 @@ Destroy all the bombers before they hit the base !
 
 	veafCombatMission.AddMission(
 		VeafCombatMission.new()
-		:setName("Training - Bomber Scenario 1 - slow Tu-160")
+		:setName("Training-Bomber-1-slow")
 		:setFriendlyName("Training - Bomber Scenario 1 - slow Tu-160")
 		:setBriefing([[
 You're head-on at 25nm with 11 Tu-160, FL200, Mach 0.8.
@@ -400,7 +571,7 @@ Destroy them all in less than 10 minutes !]])
                 "Red Tu-160 Bomber Wave1-9",
                 "Red Tu-160 Bomber Wave1-10",
                 "Red Tu-160 Bomber Wave1-11",
-             })
+            })
 			:setSkill("Good")
 		)
 		:addObjective(
@@ -435,8 +606,8 @@ if veafCombatZone then
 			:setMissionEditorZoneName("combatZone_Psebay_Factory")
 			:setFriendlyName("Psebay chemical weapons factory")
 			:setBriefing("This factory manufactures chemical weapons for a terrorits group\n" ..
-						 "You must destroy both factory buildings, and the bunker where the scientists work\n" ..
-						 "The other enemy units are secondary targets\n")
+                        "You must destroy both factory buildings, and the bunker where the scientists work\n" ..
+                        "The other enemy units are secondary targets\n")
 	)
 
 	veafCombatZone.AddZone(
@@ -444,9 +615,9 @@ if veafCombatZone then
 			:setMissionEditorZoneName("combatZone_BattleOfBeslan")
 			:setFriendlyName("Battle of Beslan")
 			:setBriefing("This zone is the place of a battle between red and blue armies.\n" ..
-                         "You must do what you can to help your side win\n" ..
-                         "Please note that there is an enemy convoy coming from the west and going to Sheripova, that can be ambushed by the blue forces at Malgobek in 15-30 minutes. Be wary of the SAM that can hide anywhere in the cities or the forests !" ..
-						 "Warning : there are air defenses lurking about, you should be cautious !")
+                        "You must do what you can to help your side win\n" ..
+                        "Please note that there is an enemy convoy coming from the west and going to Sheripova, that can be ambushed by the blue forces at Malgobek in 15-30 minutes. Be wary of the SAM that can hide anywhere in the cities or the forests !\n" ..
+                        "Warning : there are air defenses lurking about, you should be cautious !")
 	)
 
 	veafCombatZone.AddZone(
@@ -454,9 +625,9 @@ if veafCombatZone then
 			:setMissionEditorZoneName("combatZone_EasyPickingsTerek")
 			:setFriendlyName("Terek logistics parking")
 			:setBriefing("The enemy has parked a lot of logistics at Terek\n" ..
-						 "You must destroy all the trucks to impend the advance of their army on Beslan\n" ..
-						 "The other enemy units are secondary targets\n"..
-						 "This is a more easy zone, with few air defenses. But beware that there is a chance of manpad in the area !")
+                        "You must destroy all the trucks to impend the advance of their army on Beslan\n" ..
+                        "The other enemy units are secondary targets\n"..
+                        "This is a more easy zone, with few air defenses. But beware that there is a chance of manpad in the area !")
 	)
 
     veaf.logInfo("init - veafCombatZone")
