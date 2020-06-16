@@ -138,8 +138,6 @@ echo ----------------------------------------
 rem we'll do it on the server
 rem node node_modules\veaf-mission-creation-tools\src\nodejs\app.js injectall --quiet "%MISSION_FILE%.miz" "%MISSION_FILE%-${version}.miz" src\weatherAndTime\versions.json
 
-
-
 echo.
 echo ----------------------------------------
 rem -- done !
