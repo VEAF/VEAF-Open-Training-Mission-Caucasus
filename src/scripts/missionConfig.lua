@@ -630,6 +630,13 @@ if veafCombatZone then
                         "This is a more easy zone, with few air defenses. But beware that there is a chance of manpad in the area !")
 	)
 
+	veafCombatZone.AddZone(
+		VeafCombatZone.new()
+			:setMissionEditorZoneName("combatZone_rangeKobuletiEasy")
+			:setFriendlyName("Training at Kobuleti RANGE")
+			:setBriefing("The Kobuleti RANGE (located 6 nm south-west of Kobuleti airbase) is set-up for training")
+	)
+
     veaf.logInfo("init - veafCombatZone")
     veafCombatZone.initialize()
 
