@@ -70,51 +70,6 @@ if slmod then
     veaf.monitorWithSlMod("-veaf login", [[veafSecurity.authenticate(1)]])
     veaf.monitorWithSlMod("-veaf logout", [[veafSecurity.logout(true)]])
     
-    -- combat missions
-    veaf.monitorWithSlMod("-veaf start-silent-CAP-Krasnodar-1", [[ veafCombatMission.ActivateMission("CAP-Krasnodar-1", true) ]])
-    veaf.monitorWithSlMod("-veaf start-silent-CAP-Maykop-1", [[ veafCombatMission.ActivateMission("CAP-Maykop-1", true) ]])
-    veaf.monitorWithSlMod("-veaf start-silent-CAP-GL-1", [[ veafCombatMission.ActivateMission("CAP-GL-1", true) ]])
-    veaf.monitorWithSlMod("-veaf start-silent-CAP-Mozdok-1", [[ veafCombatMission.ActivateMission("CAP-Mozdok-1", true) ]])
-    veaf.monitorWithSlMod("-veaf start-silent-CAP-Crimea-1", [[ veafCombatMission.ActivateMission("CAP-Crimea-1", true) ]])
-    veaf.monitorWithSlMod("-veaf start-silent-CAP-Minvody-2", [[ veafCombatMission.ActivateMission("CAP-Minvody-2", true) ]])
-    veaf.monitorWithSlMod("-veaf start-silent-CAP-Minvody-4", [[ veafCombatMission.ActivateMission("CAP-Minvody-4", true) ]])
-    veaf.monitorWithSlMod("-veaf start-silent-CAP-Minvody-8", [[ veafCombatMission.ActivateMission("CAP-Minvody-8", true) ]])
-    veaf.monitorWithSlMod("-veaf start-silent-CAP-Minvody", [[ veafCombatMission.ActivateMission("CAP-Minvody", true) ]])
-    veaf.monitorWithSlMod("-veaf start-silent-Red-attack-Gudauta", [[ veafCombatMission.ActivateMission("Red-attack-Gudauta", true) ]])
-    veaf.monitorWithSlMod("-veaf start-silent-Training-Bomber-1-slow", [[ veafCombatMission.ActivateMission("Training-Bomber-1-slow", true) ]])
-    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Krasnodar-1", [[ veafCombatMission.DesactivateMission("CAP-Krasnodar-1", true) ]])
-    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Maykop-1", [[ veafCombatMission.DesactivateMission("CAP-Maykop-1", true) ]])
-    veaf.monitorWithSlMod("-veaf stop-silent-CAP-GL-1", [[ veafCombatMission.DesactivateMission("CAP-GL-1", true) ]])
-    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Mozdok-1", [[ veafCombatMission.DesactivateMission("CAP-Mozdok-1", true) ]])
-    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Crimea-1", [[ veafCombatMission.DesactivateMission("CAP-Crimea-1", true) ]])
-    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Minvody-2", [[ veafCombatMission.DesactivateMission("CAP-Minvody-2", true) ]])
-    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Minvody-4", [[ veafCombatMission.DesactivateMission("CAP-Minvody-4", true) ]])
-    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Minvody-8", [[ veafCombatMission.DesactivateMission("CAP-Minvody-8", true) ]])
-    veaf.monitorWithSlMod("-veaf stop-silent-CAP-Minvody", [[ veafCombatMission.DesactivateMission("CAP-Minvody", true) ]])
-    veaf.monitorWithSlMod("-veaf stop-silent-Red-attack-Gudauta", [[ veafCombatMission.DesactivateMission("Red-attack-Gudauta", true) ]])
-    veaf.monitorWithSlMod("-veaf stop-silent-Training-Bomber-1-slow", [[ veafCombatMission.DesactivateMission("Training-Bomber-1-slow", true) ]])
-    veaf.monitorWithSlMod("-veaf start-CAP-Krasnodar-1", [[ veafCombatMission.ActivateMission("CAP-Krasnodar-1", false) ]])
-    veaf.monitorWithSlMod("-veaf start-CAP-Maykop-1", [[ veafCombatMission.ActivateMission("CAP-Maykop-1", false) ]])
-    veaf.monitorWithSlMod("-veaf start-CAP-GL-1", [[ veafCombatMission.ActivateMission("CAP-GL-1", false) ]])
-    veaf.monitorWithSlMod("-veaf start-CAP-Mozdok-1", [[ veafCombatMission.ActivateMission("CAP-Mozdok-1", false) ]])
-    veaf.monitorWithSlMod("-veaf start-CAP-Crimea-1", [[ veafCombatMission.ActivateMission("CAP-Crimea-1", false) ]], false)
-    veaf.monitorWithSlMod("-veaf start-CAP-Minvody-2", [[ veafCombatMission.ActivateMission("CAP-Minvody-2", false) ]])
-    veaf.monitorWithSlMod("-veaf start-CAP-Minvody-4", [[ veafCombatMission.ActivateMission("CAP-Minvody-4", false) ]])
-    veaf.monitorWithSlMod("-veaf start-CAP-Minvody-8", [[ veafCombatMission.ActivateMission("CAP-Minvody-8", false) ]])
-    veaf.monitorWithSlMod("-veaf start-CAP-Minvody", [[ veafCombatMission.ActivateMission("CAP-Minvody", false) ]])
-    veaf.monitorWithSlMod("-veaf start-Red-attack-Gudauta", [[ veafCombatMission.ActivateMission("Red-attack-Gudauta", false) ]])
-    veaf.monitorWithSlMod("-veaf start-Training-Bomber-1-slow", [[ veafCombatMission.ActivateMission("Training-Bomber-1-slow", false) ]])
-    veaf.monitorWithSlMod("-veaf stop-CAP-Krasnodar-1", [[ veafCombatMission.DesactivateMission("CAP-Krasnodar-1", false) ]])
-    veaf.monitorWithSlMod("-veaf stop-CAP-Maykop-1", [[ veafCombatMission.DesactivateMission("CAP-Maykop-1", false) ]])
-    veaf.monitorWithSlMod("-veaf stop-CAP-GL-1", [[ veafCombatMission.DesactivateMission("CAP-GL-1", false) ]])
-    veaf.monitorWithSlMod("-veaf stop-CAP-Mozdok-1", [[ veafCombatMission.DesactivateMission("CAP-Mozdok-1", false) ]])
-    veaf.monitorWithSlMod("-veaf stop-CAP-Crimea-1", [[ veafCombatMission.DesactivateMission("CAP-Crimea-1", false) ]], false)
-    veaf.monitorWithSlMod("-veaf stop-CAP-Minvody-2", [[ veafCombatMission.DesactivateMission("CAP-Minvody-2", false) ]])
-    veaf.monitorWithSlMod("-veaf stop-CAP-Minvody-4", [[ veafCombatMission.DesactivateMission("CAP-Minvody-4", false) ]])
-    veaf.monitorWithSlMod("-veaf stop-CAP-Minvody-8", [[ veafCombatMission.DesactivateMission("CAP-Minvody-8", false) ]])
-    veaf.monitorWithSlMod("-veaf stop-CAP-Minvody", [[ veafCombatMission.DesactivateMission("CAP-Minvody", false) ]])
-    veaf.monitorWithSlMod("-veaf stop-Red-attack-Gudauta", [[ veafCombatMission.DesactivateMission("Red-attack-Gudauta", false) ]])
-    veaf.monitorWithSlMod("-veaf stop-Training-Bomber-1-slow", [[ veafCombatMission.DesactivateMission("Training-Bomber-1-slow", false) ]])   
 
     -- combat zones
     veaf.monitorWithSlMod("-veaf start-zone-1"   , [[ veafCombatZone.ActivateZoneNumber(1, true) ]])
@@ -198,295 +153,79 @@ veafMove.initialize()
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure COMBAT MISSION
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+local function _addCapMission(missionName, missionDescription, missionBriefing, secured, radioMenu)
+    local groupName = groupName or "OnDemand-"..missionName
+    local secured = secured
+    if secured == nil then secured = true end
+    local radioMenu = radioMenu
+    if radioMenu == nil then radioMenu = false end
+
+    veafCombatMission.AddMissionsWithSkillAndScale(
+		VeafCombatMission.new()
+		:setSecured(secured)
+		:setRadioMenuEnabled(radioMenu)
+		:setName(missionName)
+		:setFriendlyName(missionDescription)
+		:setBriefing(missionBriefing)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName(groupName)
+            :setGroups({groupName})
+            :setSkill("Random")
+            :setScalable(true)
+		)
+		:addObjective(
+			VeafCombatMissionObjective.new()
+			:setName("Kill all the fighters")
+			:setDescription("you must kill all of the fighters")
+			:setMessage("%d fighters destroyed !")
+			:configureAsKillEnemiesObjective()
+		)
+		:initialize()
+    )
+end
+
 if veafCombatMission then 
 	veafCombatMission.logInfo("Loading configuration")
     
-    veafCombatMission.AddMission(
-		VeafCombatMission.new()
-		:setSecured(true)
-		:setRadioMenuEnabled(false)
-		:setName("CAP-Krasnodar-1")
-		:setFriendlyName("CAP on Krasnodar / 2-ship")
-		:setBriefing([[
-A Russian CAP patrol has been spotted over Krasnodar.
-It is composed of 2 fighters.
-]]
-)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("CAP-Krasnodar-1")
-			:setGroups({"OnDemand-CAP-Krasnodar-1"})
-            :setSkill("Excellent")
-		)
-		:addObjective(
-			VeafCombatMissionObjective.new()
-			:setName("Kill all the fighters")
-			:setDescription("you must kill all of the fighters")
-			:setMessage("%d fighters destroyed !")
-			:configureAsKillEnemiesObjective()
-		)
-		:initialize()
-    )
+    _addCapMission("CAP-Krasnodar-1", "CAP on Krasnodar", "A Russian CAP patrol has been spotted over Krasnodar.")
+    _addCapMission("CAP-Maykop-1", "CAP on Maykop", "A Russian CAP patrol has been spotted over Maykop.")
+    _addCapMission("CAP-GL-1", "CAP on grid GL", "A Russian CAP patrol has been spotted over grid GL.")
+    _addCapMission("CAP-Minvody-1", "CAP on Minvody", "A Russian CAP patrol has been spotted over Minvody.")
+    _addCapMission("CAP-Mozdok-1", "CAP on Mozdok", "A Russian CAP patrol has been spotted over Mozdok.")
+    _addCapMission("CAP-Crimea-1", "CAP over Crimea", "A Russian CAP patrol has been spotted west of the Crimea peninsula.", false, true)
+    _addCapMission("CAP-RaidBeslan-1", "Raid on Beslan", "A Russian CAP patrol is going to Beslan.")
+    _addCapMission("CAP-RaidSochi-1", "Raid on Sochi", "A Russian CAP patrol is going to Sochi.")
     
-
-    veafCombatMission.AddMission(
+    veafCombatMission.AddMissionsWithSkillAndScale(
 		VeafCombatMission.new()
-		:setSecured(true)
-		:setRadioMenuEnabled(false)
-		:setName("CAP-Maykop-1")
-		:setFriendlyName("CAP on Maykop / 2-ship")
+		:setSecured(false)
+		:setRadioMenuEnabled(true)
+		:setName("Intercept-Kraznodar-1")
+		:setFriendlyName("Intercept a transport / KRAZNODAR - MINVODY")
 		:setBriefing([[
-A Russian CAP patrol has been spotted over Maykop.
-It is composed of 2 fighters.
+A Russian transport plane is taking off from Kraznodar and will transport a VIP to Mineralnye Vody.
+It is escorted by a fighter patrol.
 ]]
 )
 		:addElement(
 			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Maykop-1")
-			:setGroups({"OnDemand-CAP-Maykop-1"})
-            :setSkill("Excellent")
+			:setName("OnDemand-Intercept-Transport-Krasnodar-Mineral-Transport")
+            :setGroups({"OnDemand-Intercept-Transport-Krasnodar-Mineral-Transport"})
+            :setScalable(false)
+		)
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("OnDemand-Intercept-Transport-Krasnodar-Mineral-Escort")
+            :setGroups({"OnDemand-Intercept-Transport-Krasnodar-Mineral-Escort"})
+            :setSkill("Random")
 		)
 		:addObjective(
 			VeafCombatMissionObjective.new()
-			:setName("Kill all the fighters")
-			:setDescription("you must kill all of the fighters")
-			:setMessage("%d fighters destroyed !")
-			:configureAsKillEnemiesObjective()
-		)
-		:initialize()
-    )
-    
-
-    veafCombatMission.AddMission(
-		VeafCombatMission.new()
-		:setSecured(true)
-		:setRadioMenuEnabled(false)
-		:setName("CAP-GL-1")
-		:setFriendlyName("CAP on grid GL / 2-ship")
-		:setBriefing([[
-A Russian CAP patrol has been spotted over grid GL.
-It is composed of 2 fighters.
-]]
-)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-GL-1")
-			:setGroups({"OnDemand-CAP-GL-1"})
-            :setSkill("Excellent")
-		)
-		:addObjective(
-			VeafCombatMissionObjective.new()
-			:setName("Kill all the fighters")
-			:setDescription("you must kill all of the fighters")
-			:setMessage("%d fighters destroyed !")
-			:configureAsKillEnemiesObjective()
-		)
-		:initialize()
-    )
-    
-
-    veafCombatMission.AddMission(
-		VeafCombatMission.new()
-		:setSecured(true)
-		:setRadioMenuEnabled(false)
-		:setName("CAP-Mozdok-1")
-		:setFriendlyName("CAP on Mozdok / 2-ship")
-		:setBriefing([[
-A Russian CAP patrol has been spotted over Mozdok.
-It is composed of 2 fighters.
-]]
-)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Mozdok-1")
-			:setGroups({"OnDemand-CAP-Mozdok-1"})
-            :setSkill("Excellent")
-		)
-		:addObjective(
-			VeafCombatMissionObjective.new()
-			:setName("Kill all the fighters")
-			:setDescription("you must kill all of the fighters")
-			:setMessage("%d fighters destroyed !")
-			:configureAsKillEnemiesObjective()
-		)
-		:initialize()
-    )
-    
-
-    veafCombatMission.AddMission(
-		VeafCombatMission.new()
-		:setName("CAP-Crimea-1")
-		:setFriendlyName("CAP on Crimea / 2-ship")
-		:setBriefing([[
-A Russian CAP patrol has been spotted west of the Crimea peninsula.
-It is composed of 2 fighters.
-]]
-)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Crimea-1")
-			:setGroups({"OnDemand-CAP-Crimea-1"})
-            :setSkill("Excellent")
-		)
-		:addObjective(
-			VeafCombatMissionObjective.new()
-			:setName("Kill all the fighters")
-			:setDescription("you must kill all of the fighters")
-			:setMessage("%d fighters destroyed !")
-			:configureAsKillEnemiesObjective()
-		)
-		:initialize()
-	)
-
-    veafCombatMission.AddMission(
-		VeafCombatMission.new()
-		:setSecured(true)
-		:setRadioMenuEnabled(false)
-		:setName("CAP-Minvody-2")
-		:setFriendlyName("CAP on Mineralnye Vody / 2-ship")
-		:setBriefing([[
-A Russian CAP patrol has been spotted over Mineralnye Vody.
-It is composed of 2 fighters.
-]]
-)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("CAP-Minvody-1")
-			:setGroups({"OnDemand-CAP-Minvody-1"})
-            :setSkill("Excellent")
-		)
-		:addObjective(
-			VeafCombatMissionObjective.new()
-			:setName("Kill all the fighters")
-			:setDescription("you must kill all of the fighters")
-			:setMessage("%d fighters destroyed !")
-			:configureAsKillEnemiesObjective()
-		)
-		:initialize()
-	)
-
-    veafCombatMission.AddMission(
-		VeafCombatMission.new()
-		:setSecured(true)
-		:setRadioMenuEnabled(false)
-		:setName("CAP-Minvody-4")
-		:setFriendlyName("CAP on Mineralnye Vody / 4-ship")
-		:setBriefing([[
-A Russian CAP patrol has been spotted over Mineralnye Vody.
-It is composed of 4 fighters.
-]]
-)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-1")
-			:setGroups({"OnDemand-CAP-Minvody-1"})
-            :setSkill("Excellent")
-		)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-2")
-			:setGroups({"OnDemand-CAP-Minvody-2"})
-            :setSkill("Excellent")
-		)
-		:addObjective(
-			VeafCombatMissionObjective.new()
-			:setName("Kill all the fighters")
-			:setDescription("you must kill all of the fighters")
-			:setMessage("%d fighters destroyed !")
-			:configureAsKillEnemiesObjective()
-		)
-		:initialize()
-	)
-
-    veafCombatMission.AddMission(
-		VeafCombatMission.new()
-		:setSecured(true)
-		:setRadioMenuEnabled(false)
-		:setName("CAP-Minvody-8")
-		:setFriendlyName("CAP on Mineralnye Vody / 8-ship")
-		:setBriefing([[
-A Russian CAP patrol has been spotted over Mineralnye Vody.
-It is composed of 8 fighters.
-]]
-)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-1")
-			:setGroups({"OnDemand-CAP-Minvody-1"})
-            :setSkill("Excellent")
-		)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-2")
-			:setGroups({"OnDemand-CAP-Minvody-2"})
-            :setSkill("Excellent")
-		)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-3")
-			:setGroups({"OnDemand-CAP-Minvody-3"})
-            :setSkill("Excellent")
-		)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-4")
-			:setGroups({"OnDemand-CAP-Minvody-4"})
-            :setSkill("Excellent")
-		)
-		:addObjective(
-			VeafCombatMissionObjective.new()
-			:setName("Kill all the fighters")
-			:setDescription("you must kill all of the fighters")
-			:setMessage("%d fighters destroyed !")
-			:configureAsKillEnemiesObjective()
-		)
-		:initialize()
-	)
-
-    veafCombatMission.AddMission(
-		VeafCombatMission.new()
-		:setSecured(true)
-		:setName("CAP-Minvody")
-		:setFriendlyName("CAP on Mineralnye Vody / random")
-		:setBriefing([[
-A Russian CAP patrol has been spotted over Mineralnye Vody.
-It is composed of 2 to 8 fighters.
-]]
-)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-1")
-			:setGroups({"OnDemand-CAP-Minvody-1"})
-            :setSkill("Excellent")
-            :setSpawnChance(100)
-		)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-2")
-			:setGroups({"OnDemand-CAP-Minvody-2"})
-            :setSkill("Excellent")
-            :setSpawnChance(40)
-		)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-3")
-			:setGroups({"OnDemand-CAP-Minvody-3"})
-            :setSkill("Excellent")
-            :setSpawnChance(40)
-		)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName("OnDemand-CAP-Minvody-4")
-			:setGroups({"OnDemand-CAP-Minvody-4"})
-            :setSkill("Excellent")
-            :setSpawnChance(40)
-		)
-		:addObjective(
-			VeafCombatMissionObjective.new()
-			:setName("Kill all the fighters")
-			:setDescription("you must kill all of the fighters")
-			:setMessage("%d fighters destroyed !")
-			:configureAsKillEnemiesObjective()
+			:setName("Destroy the transport")
+			:setDescription("you must destroy the transport and kill the VIP")
+			:setMessage("%d transport planes destroyed !")
+			:configureAsKillEnemiesObjective() -- TODO
 		)
 		:initialize()
 	)
@@ -593,6 +332,17 @@ Destroy them all in less than 10 minutes !]])
 
 	veaf.logInfo("init - veafCombatMission")
     veafCombatMission.initialize()
+    
+    if slmod then
+        for _, mission in pairs(veafCombatMission.missionsDict) do
+            local missionName = mission:getName()
+            veaf.logInfo(string.format("Adding %s to SLMOD", missionName))
+            veaf.monitorWithSlMod("-veaf start-silent-" .. missionName, [[ veafCombatMission.ActivateMission(" ]] .. missionName .. [[", true) ]])
+            veaf.monitorWithSlMod("-veaf stop-silent-" .. missionName, [[ veafCombatMission.DesactivateMission(" ]] .. missionName .. [[", true) ]])
+            veaf.monitorWithSlMod("-veaf start-" .. missionName, [[ veafCombatMission.ActivateMission(" ]] .. missionName .. [[", false) ]])
+            veaf.monitorWithSlMod("-veaf stop-" .. missionName, [[ veafCombatMission.DesactivateMission(" ]] .. missionName .. [[", false) ]])
+        end
+    end
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
