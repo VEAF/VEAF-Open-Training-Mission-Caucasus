@@ -337,10 +337,10 @@ Destroy them all in less than 10 minutes !]])
         for _, mission in pairs(veafCombatMission.missionsDict) do
             local missionName = mission:getName()
             veaf.logInfo(string.format("Adding %s to SLMOD", missionName))
-            veaf.monitorWithSlMod("-veaf start-silent-" .. missionName, [[ veafCombatMission.ActivateMission(" ]] .. missionName .. [[", true) ]])
-            veaf.monitorWithSlMod("-veaf stop-silent-" .. missionName, [[ veafCombatMission.DesactivateMission(" ]] .. missionName .. [[", true) ]])
-            veaf.monitorWithSlMod("-veaf start-" .. missionName, [[ veafCombatMission.ActivateMission(" ]] .. missionName .. [[", false) ]])
-            veaf.monitorWithSlMod("-veaf stop-" .. missionName, [[ veafCombatMission.DesactivateMission(" ]] .. missionName .. [[", false) ]])
+            veaf.monitorWithSlMod("-veaf start-silent-" .. missionName, [[ veafCombatMission.ActivateMission("]] .. missionName .. [[", true) ]])
+            veaf.monitorWithSlMod("-veaf stop-silent-" .. missionName, [[ veafCombatMission.DesactivateMission("]] .. missionName .. [[", true) ]])
+            veaf.monitorWithSlMod("-veaf start-" .. missionName, [[ veafCombatMission.ActivateMission("]] .. missionName .. [[", false) ]])
+            veaf.monitorWithSlMod("-veaf stop-" .. missionName, [[ veafCombatMission.DesactivateMission("]] .. missionName .. [[", false) ]])
         end
     end
 end
