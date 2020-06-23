@@ -60,41 +60,6 @@ veafShortcuts.initialize()
 -- )
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
--- initialize the SLMOD connector
--------------------------------------------------------------------------------------------------------------------------------------------------------------
-if slmod then
-    veaf.logInfo("Setting SLMOD configuration")
-    
-    -- specific commands
-    veaf.monitorWithSlMod("-veaf test", [[trigger.action.outText("VEAF - test command received from SLMOD, flag=66600", 10)]], false, 66600)
-    veaf.monitorWithSlMod("-veaf login", [[veafSecurity.authenticate(1)]])
-    veaf.monitorWithSlMod("-veaf logout", [[veafSecurity.logout(true)]])
-    
-
-    -- combat zones
-    veaf.monitorWithSlMod("-veaf start-zone-1"   , [[ veafCombatZone.ActivateZoneNumber(1, true) ]])
-    veaf.monitorWithSlMod("-veaf start-zone-2"   , [[ veafCombatZone.ActivateZoneNumber(2, true) ]])
-    veaf.monitorWithSlMod("-veaf start-zone-3"   , [[ veafCombatZone.ActivateZoneNumber(3, true) ]])
-    veaf.monitorWithSlMod("-veaf start-zone-4"   , [[ veafCombatZone.ActivateZoneNumber(4, true) ]])
-    veaf.monitorWithSlMod("-veaf start-zone-5"   , [[ veafCombatZone.ActivateZoneNumber(5, true) ]])
-    veaf.monitorWithSlMod("-veaf start-zone-6"   , [[ veafCombatZone.ActivateZoneNumber(6, true) ]])
-    veaf.monitorWithSlMod("-veaf start-zone-7"   , [[ veafCombatZone.ActivateZoneNumber(7, true) ]])
-    veaf.monitorWithSlMod("-veaf start-zone-8"   , [[ veafCombatZone.ActivateZoneNumber(8, true) ]])
-    veaf.monitorWithSlMod("-veaf start-zone-9"   , [[ veafCombatZone.ActivateZoneNumber(9, true) ]])
-    veaf.monitorWithSlMod("-veaf stop-zone-1"    , [[ veafCombatZone.DesactivateZoneNumber(1, true) ]])
-    veaf.monitorWithSlMod("-veaf stop-zone-2"    , [[ veafCombatZone.DesactivateZoneNumber(2, true) ]])
-    veaf.monitorWithSlMod("-veaf stop-zone-3"    , [[ veafCombatZone.DesactivateZoneNumber(3, true) ]])
-    veaf.monitorWithSlMod("-veaf stop-zone-4"    , [[ veafCombatZone.DesactivateZoneNumber(4, true) ]])
-    veaf.monitorWithSlMod("-veaf stop-zone-5"    , [[ veafCombatZone.DesactivateZoneNumber(5, true) ]])
-    veaf.monitorWithSlMod("-veaf stop-zone-6"    , [[ veafCombatZone.DesactivateZoneNumber(6, true) ]])
-    veaf.monitorWithSlMod("-veaf stop-zone-7"    , [[ veafCombatZone.DesactivateZoneNumber(7, true) ]])
-    veaf.monitorWithSlMod("-veaf stop-zone-8"    , [[ veafCombatZone.DesactivateZoneNumber(8, true) ]])
-    veaf.monitorWithSlMod("-veaf stop-zone-9"    , [[ veafCombatZone.DesactivateZoneNumber(9, true) ]])
-else
-    veaf.logInfo("SLMOD not found")
-end
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- No MOOSE settings menu. Comment out this line if required.
 _SETTINGS:SetPlayerMenuOff()
 
@@ -333,16 +298,6 @@ Destroy them all in less than 10 minutes !]])
 	veaf.logInfo("init - veafCombatMission")
     veafCombatMission.initialize()
     
-    if slmod then
-        for _, mission in pairs(veafCombatMission.missionsDict) do
-            local missionName = mission:getName()
-            veaf.logInfo(string.format("Adding %s to SLMOD", missionName))
-            veaf.monitorWithSlMod("-veaf start-silent-" .. missionName, [[ veafCombatMission.ActivateMission("]] .. missionName .. [[", true) ]])
-            veaf.monitorWithSlMod("-veaf stop-silent-" .. missionName, [[ veafCombatMission.DesactivateMission("]] .. missionName .. [[", true) ]])
-            veaf.monitorWithSlMod("-veaf start-" .. missionName, [[ veafCombatMission.ActivateMission("]] .. missionName .. [[", false) ]])
-            veaf.monitorWithSlMod("-veaf stop-" .. missionName, [[ veafCombatMission.DesactivateMission("]] .. missionName .. [[", false) ]])
-        end
-    end
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -943,3 +898,29 @@ ctld.initialize()
 
 veaf.logInfo("init - veafInterpreter")
 veafInterpreter.initialize()
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- initialize the remote interface
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+veaf.logInfo("init - veafRemote")
+veafRemote.initialize()
+
+-- combat zones
+veafRemote.monitorWithSlMod("-veaf start-zone-1"   , [[ veafCombatZone.ActivateZoneNumber(1, true) ]])
+veafRemote.monitorWithSlMod("-veaf start-zone-2"   , [[ veafCombatZone.ActivateZoneNumber(2, true) ]])
+veafRemote.monitorWithSlMod("-veaf start-zone-3"   , [[ veafCombatZone.ActivateZoneNumber(3, true) ]])
+veafRemote.monitorWithSlMod("-veaf start-zone-4"   , [[ veafCombatZone.ActivateZoneNumber(4, true) ]])
+veafRemote.monitorWithSlMod("-veaf start-zone-5"   , [[ veafCombatZone.ActivateZoneNumber(5, true) ]])
+veafRemote.monitorWithSlMod("-veaf start-zone-6"   , [[ veafCombatZone.ActivateZoneNumber(6, true) ]])
+veafRemote.monitorWithSlMod("-veaf start-zone-7"   , [[ veafCombatZone.ActivateZoneNumber(7, true) ]])
+veafRemote.monitorWithSlMod("-veaf start-zone-8"   , [[ veafCombatZone.ActivateZoneNumber(8, true) ]])
+veafRemote.monitorWithSlMod("-veaf start-zone-9"   , [[ veafCombatZone.ActivateZoneNumber(9, true) ]])
+veafRemote.monitorWithSlMod("-veaf stop-zone-1"    , [[ veafCombatZone.DesactivateZoneNumber(1, true) ]])
+veafRemote.monitorWithSlMod("-veaf stop-zone-2"    , [[ veafCombatZone.DesactivateZoneNumber(2, true) ]])
+veafRemote.monitorWithSlMod("-veaf stop-zone-3"    , [[ veafCombatZone.DesactivateZoneNumber(3, true) ]])
+veafRemote.monitorWithSlMod("-veaf stop-zone-4"    , [[ veafCombatZone.DesactivateZoneNumber(4, true) ]])
+veafRemote.monitorWithSlMod("-veaf stop-zone-5"    , [[ veafCombatZone.DesactivateZoneNumber(5, true) ]])
+veafRemote.monitorWithSlMod("-veaf stop-zone-6"    , [[ veafCombatZone.DesactivateZoneNumber(6, true) ]])
+veafRemote.monitorWithSlMod("-veaf stop-zone-7"    , [[ veafCombatZone.DesactivateZoneNumber(7, true) ]])
+veafRemote.monitorWithSlMod("-veaf stop-zone-8"    , [[ veafCombatZone.DesactivateZoneNumber(8, true) ]])
+veafRemote.monitorWithSlMod("-veaf stop-zone-9"    , [[ veafCombatZone.DesactivateZoneNumber(9, true) ]])

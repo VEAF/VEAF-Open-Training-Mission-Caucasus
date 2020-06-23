@@ -23,4 +23,5 @@ mapResource = {
     ["ResKey_Action_5608"] = "veaf.lua",
     ["ResKey_Action_5709"] = "veafCarrierOperations.lua",
     ["ResKey_Action_5710"] = "veafCarrierOperations2.lua",
+    ["ResKey_Action_7031"] = "veafRemote.lua",
 } -- end of mapResource

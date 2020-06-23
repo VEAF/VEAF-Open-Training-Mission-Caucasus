@@ -12,6 +12,16 @@
       "time": 18000
     },
     {
+      "version": "0500-broken",
+      "weather": "KQND 150856Z AUTO VRB04G11KT 9999 SCT050 BKN100 39/05 A2989 RMK AO2 SLP103 WND DATA ESTMD T03900045 50007",
+      "time": 18000
+    },
+    {
+      "version": "0530-scattered",
+      "weather": "UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG",
+      "time": 19800
+    },
+    {
       "version": "0600-overcast-low",
       "weatherfile": "overcast-low.lua",
       "time": 21600

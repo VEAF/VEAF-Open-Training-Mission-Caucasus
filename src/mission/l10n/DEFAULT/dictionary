@@ -97,6 +97,18 @@ assert(loadfile(script))()",
     ["DictKey_ActionText_6024"] = "local script = VEAF_DYNAMIC_PATH .. \"/src/scripts/VeafDynamicLoader.lua\"\
 assert(loadfile(script))()\
 ",
+    ["DictKey_ActionText_7032"] = "veafAssets.Assets = {\
+    -- list the assets common to all missions below\
+    {name=\"T1-Arco\", description=\"Arco (KC-135)\", information=\"Tacan 6Y\\nVHF 138.2 Mhz\"}, \
+    {name=\"T2-Shell\", description=\"Shell (KC-135 MPRS)\", information=\"Tacan 14Y\\nVHF 134.7 Mhz\"},  \
+    {name=\"T3-Texaco\", description=\"Texaco (KC-135 MPRS)\", information=\"Tacan 12Y\\nVHF 132.5 Mhz\"},  \
+    {name=\"A1-Overlord\", description=\"Overlord (E-2D)\", information=\"UHF 251 Mhz\"},  \
+    {name=\"Meet Mig-21\", description=\"RED Mig-21 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+    {name=\"Meet Mig-29\", description=\"RED Mig-29 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\" },\
+    {name=\"Meet Mig-29*2\", description=\"RED Mig-29x2 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+    {name=\"Meet Mig-29*4\", description=\"RED Mig-29x4 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
+}\
+",
     ["DictKey_descriptionBlueTask_3"] = "",
     ["DictKey_descriptionRedTask_2"] = "",
     ["DictKey_descriptionText_1"] = "Documentation de la mission https://tinyurl.com/veaf-ot\
@@ -106,7 +118,7 @@ Nous contacter:\
 - Discord: https://discord.gg/TvhFVj\
 - TeamSpeak: ts.veaf.org\
 \
-METAR : ${METAR}\
+METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
 ",
     ["DictKey_GroupName_1002"] = "Windsock #012",
     ["DictKey_GroupName_1026"] = "Windsock #014",
@@ -562,6 +574,7 @@ METAR : ${METAR}\
     ["DictKey_GroupName_6970"] = "OnDemand-Intercept-Transport-Krasnodar-Mineral-Escort",
     ["DictKey_GroupName_6975"] = "OnDemand-CAP-RaidSochi-1",
     ["DictKey_GroupName_6989"] = "OnDemand-CAP-RaidBeslan-1",
+    ["DictKey_GroupName_7018"] = "F-14B - RIO training",
     ["DictKey_GroupName_704"] = "Ka-50 Tbilisi",
     ["DictKey_GroupName_716"] = "SA342L Tbilisi",
     ["DictKey_GroupName_725"] = "SA342M Tbilisi",
@@ -1249,6 +1262,9 @@ METAR : ${METAR}\
     ["DictKey_UnitName_6977"] = "Pilot #048",
     ["DictKey_UnitName_6990"] = "Pilot #064",
     ["DictKey_UnitName_6991"] = "Pilot #073",
+    ["DictKey_UnitName_7019"] = "Pilot #050",
+    ["DictKey_UnitName_7025"] = "Pilot #059",
+    ["DictKey_UnitName_7030"] = "Pilot #060",
     ["DictKey_UnitName_705"] = "Pilot #141",
     ["DictKey_UnitName_717"] = "Pilot #145",
     ["DictKey_UnitName_726"] = "Pilot #149",
@@ -2013,6 +2029,11 @@ METAR : ${METAR}\
     ["DictKey_WptName_6993"] = "",
     ["DictKey_WptName_6994"] = "",
     ["DictKey_WptName_7017"] = "",
+    ["DictKey_WptName_7020"] = "",
+    ["DictKey_WptName_7023"] = "CAP-SOUTH",
+    ["DictKey_WptName_7024"] = "CAP-NORTH",
+    ["DictKey_WptName_7026"] = "TBILISSI",
+    ["DictKey_WptName_7028"] = "BESLAN - DIVERT",
     ["DictKey_WptName_709"] = "",
     ["DictKey_WptName_721"] = "",
     ["DictKey_WptName_730"] = "",
