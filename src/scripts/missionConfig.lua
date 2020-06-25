@@ -342,6 +342,14 @@ if veafCombatZone then
 			:setBriefing("The Kobuleti RANGE (located 6 nm south-west of Kobuleti airbase) is set-up for training")
 	)
 
+	veafCombatZone.AddZone(
+		VeafCombatZone.new()
+			:setMissionEditorZoneName("combatZone_SaveTheHostages")
+			:setFriendlyName("Hostages at Prohladniy")
+			:setBriefing("Hostages are being held in a fortified hotel in the city of Prohladniy.\n" ..
+                        "Warning : there are air defenses lurking about, you should be cautious !")
+	)
+
     veaf.logInfo("init - veafCombatZone")
     veafCombatZone.initialize()
 
