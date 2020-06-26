@@ -70,6 +70,27 @@ goto DontDefineDefaultLUA
 set LUA=lua
 :DontDefineDefaultLUA
 echo current value is "%LUA%"
+
+echo ----------------------------------------
+echo DYNAMIC_MISSION_PATH (a string) points to folder where this mission is located
+echo defaults this folder
+IF ["%DYNAMIC_MISSION_PATH%"] == [""] GOTO DefineDefaultDYNAMIC_MISSION_PATH
+goto DontDefineDefaultDYNAMIC_MISSION_PATH
+:DefineDefaultDYNAMIC_MISSION_PATH
+set DYNAMIC_MISSION_PATH=%~dp0
+:DontDefineDefaultDYNAMIC_MISSION_PATH
+echo current value is "%DYNAMIC_MISSION_PATH%"
+
+echo ----------------------------------------
+echo DYNAMIC_SCRIPTS_PATH (a string) points to folder where the VEAF-mission-creation-tools are located
+echo defaults this folder
+IF ["%DYNAMIC_SCRIPTS_PATH%"] == [""] GOTO DefineDefaultDYNAMIC_SCRIPTS_PATH
+goto DontDefineDefaultDYNAMIC_SCRIPTS_PATH
+:DefineDefaultDYNAMIC_SCRIPTS_PATH
+set DYNAMIC_SCRIPTS_PATH=%~dp0node_modules\veaf-mission-creation-tools\
+:DontDefineDefaultDYNAMIC_SCRIPTS_PATH
+echo current value is "%DYNAMIC_SCRIPTS_PATH%"
+
 echo ----------------------------------------
 
 echo.
@@ -108,6 +129,11 @@ pushd node_modules\veaf-mission-creation-tools\src\scripts\veaf
 "%LUA%" veafMissionRadioPresetsEditor.lua  ..\..\..\..\..\build\tempsrc ..\..\..\..\..\src\radio\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER% >nul 2>&1
 popd
 
+rem -- set the dynamic load variables in the dictionary
+echo set the dynamic load variables in the dictionary
+powershell -Command "$temp='VEAF_DYNAMIC_PATH = [[' + [regex]::escape('%DYNAMIC_SCRIPTS_PATH%') + ']]'; (gc .\build\tempsrc\l10n\DEFAULT\dictionary) -replace 'VEAF_DYNAMIC_PATH(\s*)=(\s*)\[\[.*\]\]', $temp | sc .\build\tempsrc\l10n\DEFAULT\dictionary" >nul 2>&1
+powershell -Command "$temp='VEAF_DYNAMIC_MISSIONPATH = [[' + [regex]::escape('%DYNAMIC_MISSION_PATH%') + ']]'; (gc .\build\tempsrc\l10n\DEFAULT\dictionary) -replace 'VEAF_DYNAMIC_MISSIONPATH(\s*)=(\s*)\[\[.*\]\]', $temp | sc .\build\tempsrc\l10n\DEFAULT\dictionary" >nul 2>&1
+
 rem -- copy the documentation images to the kneeboard
 xcopy /y /e doc\*.jpg .\build\tempsrc\KNEEBOARD\IMAGES\ >nul 2>&1
 
@@ -133,8 +159,8 @@ rem -- cleanup the veaf-mission-creation-tools scripts
 rd /s /q .\build\tempscripts
 
 rem -- generate the time and weather versions
-echo generate the time and weather versions
-echo ----------------------------------------
+rem echo generate the time and weather versions
+rem echo ----------------------------------------
 rem we'll do it on the server
 rem node node_modules\veaf-mission-creation-tools\src\nodejs\app.js injectall --quiet "%MISSION_FILE%.miz" "%MISSION_FILE%-${version}.miz" src\weatherAndTime\versions.json
 
