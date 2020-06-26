@@ -1354,6 +1354,7 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_UnitName_7209"] = "#command=\"-armor, armor 2, defense 0, size 2\",#spawnGroup=\"Prohladniy-armor\",#spawnCount=8,#spawnChance=10 #020",
     ["DictKey_UnitName_7213"] = "#command=\"-armor, armor 2, defense 0, size 2\",#spawnGroup=\"Prohladniy-armor\",#spawnCount=8,#spawnChance=10 #021",
     ["DictKey_UnitName_7217"] = "Pilot #030",
+    ["DictKey_UnitName_7233"] = "Pilot #046",
     ["DictKey_UnitName_726"] = "Pilot #149",
     ["DictKey_UnitName_735"] = "Pilot #153",
     ["DictKey_UnitName_753"] = "helicargo19",
