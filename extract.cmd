@@ -54,10 +54,14 @@ rem -- set the loading to static in the mission file
 echo set the loading to static in the mission file
 powershell -Command "(gc %MISSION_PATH%\l10n\Default\dictionary) -replace 'return(\s*[^\s]+\s*)--true=dynamic, false=static', 'return false --true=dynamic, false=static' | sc %MISSION_PATH%\l10n\Default\dictionary"
 
-rem removing unwanted scripts
-echo removing unwanted scripts
+rem removing unwanted elements
+echo removing unwanted elements
 del /f /q "%MISSION_PATH%\l10n\Default\*.lua"
 del /f /q "%MISSION_PATH%\options"
+rd /s /q "%MISSION_PATH%\Config"
+rd /s /q "%MISSION_PATH%\Scripts"
+rd /s /q "%MISSION_PATH%\track"
+rd /s /q "%MISSION_PATH%\track_data"
 
 rem setting the radio presets according to the settings file
 echo setting the radio presets according to the settings file
