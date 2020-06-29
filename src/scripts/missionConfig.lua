@@ -118,7 +118,7 @@ veafMove.initialize()
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure COMBAT MISSION
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
-local function _addCapMission(missionName, missionDescription, missionBriefing, secured, radioMenu)
+local function _addCapMission(missionName, missionDescription, missionBriefing, secured, radioMenu, skills, scales)
     local groupName = groupName or "OnDemand-"..missionName
     local secured = secured
     if secured == nil then secured = true end
@@ -147,7 +147,7 @@ local function _addCapMission(missionName, missionDescription, missionBriefing, 
 			:configureAsKillEnemiesObjective()
 		)
 		:initialize()
-    )
+    , skills, scales)
 end
 
 if veafCombatMission then 
@@ -158,9 +158,13 @@ if veafCombatMission then
     _addCapMission("CAP-GL-1", "CAP on grid GL", "A Russian CAP patrol has been spotted over grid GL.")
     _addCapMission("CAP-Minvody-1", "CAP on Minvody", "A Russian CAP patrol has been spotted over Minvody.")
     _addCapMission("CAP-Mozdok-1", "CAP on Mozdok", "A Russian CAP patrol has been spotted over Mozdok.")
-    _addCapMission("CAP-Crimea-1", "CAP over Crimea", "A Russian CAP patrol has been spotted west of the Crimea peninsula.", false, true)
     _addCapMission("CAP-RaidBeslan-1", "Raid on Beslan", "A Russian CAP patrol is going to Beslan.")
     _addCapMission("CAP-RaidSochi-1", "Raid on Sochi", "A Russian CAP patrol is going to Sochi.")
+    _addCapMission("training-radar-tu22-FL300", "Training-Radar-Tu22-FL300", "Russian TU-22 patrols at FL300 west of the Crimea peninsula", false, true, {"Average", "Excellent"}, {1, 2, 3, 4})
+    _addCapMission("training-radar-bear-FL200", "Training-Radar-Bear-FL200", "Russian TU-95 patrols at FL200 west of the Crimea peninsula ; ECM on", false, true, {"Average", "Excellent"}, {1, 2, 3, 4})
+    _addCapMission("training-radar-mig23-FL300", "Training-Radar-Mig23-FL300", "Mig-23MLD on CAP (R-24R = Fox1 MR) at FL300 west of the Crimea peninsula", false, true, {"Average", "Excellent"}, {1, 2, 3, 4})
+    _addCapMission("training-radar-mig29-FL300", "Training-Radar-Mig29-FL300", "Mig-29S on CAP (R-77 = Fox 3 MR) at FL300 west of the Crimea peninsula", false, true, {"Average", "Excellent"}, {1, 2, 3, 4})
+    _addCapMission("training-radar-mig31-FL300", "Training-Radar-Mig31-FL300", "Mig-31 on CAP (R-33 = Fox 3 LR) at FL300 west of the Crimea peninsula", false, true, {"Average", "Excellent"}, {1, 2, 3, 4})
     
     veafCombatMission.AddMissionsWithSkillAndScale(
 		VeafCombatMission.new()
@@ -197,7 +201,8 @@ It is escorted by a fighter patrol.
 
     veafCombatMission.AddMission(
 		VeafCombatMission.new()
-		:setSecured(true)
+        :setSecured(true)
+        :setRadioMenuEnabled(false)
 		:setName("Red-attack-Gudauta")
 		:setFriendlyName("Red attack On Gudauta")
 		:setBriefing([[
@@ -297,7 +302,8 @@ Destroy them all in less than 10 minutes !]])
 
 	veaf.logInfo("init - veafCombatMission")
     veafCombatMission.initialize()
-    
+    veaf.logInfo("dumping missions list")
+    veafCombatMission.dumpMissionsList()
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
