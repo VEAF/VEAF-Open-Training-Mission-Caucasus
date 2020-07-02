@@ -153,19 +153,19 @@ end
 if veafCombatMission then 
 	veafCombatMission.logInfo("Loading configuration")
     
-    _addCapMission("CAP-Krasnodar-1", "CAP on Krasnodar", "A Russian CAP patrol has been spotted over Krasnodar.", true, true)
-    _addCapMission("CAP-Maykop-1", "CAP on Maykop", "A Russian CAP patrol has been spotted over Maykop.", true, true)
-    _addCapMission("CAP-GL-1", "CAP on grid GL", "A Russian CAP patrol has been spotted over grid GL.", true, true)
-    _addCapMission("CAP-Minvody-1", "CAP on Minvody", "A Russian CAP patrol has been spotted over Minvody.", true, true)
-    _addCapMission("CAP-Mozdok-1", "CAP on Mozdok", "A Russian CAP patrol has been spotted over Mozdok.", true, true)
-    _addCapMission("CAP-RaidBeslan-1", "Raid on Beslan", "A Russian CAP patrol is going to Beslan.", true, true)
-    _addCapMission("CAP-RaidSochi-1", "Raid on Sochi", "A Russian CAP patrol is going to Sochi.", true, true)
+    _addCapMission("CAP-Krasnodar-1", "CAP on Krasnodar", "A Russian CAP patrol has been spotted over Krasnodar.", true, false)
+    _addCapMission("CAP-Maykop-1", "CAP on Maykop", "A Russian CAP patrol has been spotted over Maykop.", true, false)
+    _addCapMission("CAP-GL-1", "CAP on grid GL", "A Russian CAP patrol has been spotted over grid GL.", true, false)
+    _addCapMission("CAP-Minvody-1", "CAP on Minvody", "A Russian CAP patrol has been spotted over Minvody.", true, false)
+    _addCapMission("CAP-Mozdok-1", "CAP on Mozdok", "A Russian CAP patrol has been spotted over Mozdok.", true, false)
+    _addCapMission("CAP-RaidBeslan-1", "Raid on Beslan", "A Russian CAP patrol is going to Beslan.", true, false)
+    _addCapMission("CAP-RaidSochi-1", "Raid on Sochi", "A Russian CAP patrol is going to Sochi.", true, false)
     _addCapMission("training-radar-tu22-FL300", "Radar Training - Tu22 at FL300", "Russian TU-22 patrols at FL300 west of the Crimea peninsula", false, true)
-    _addCapMission("training-radar-bear-FL200", "Radar Training - Bear at FL200", "Russian TU-95 patrols at FL200 west of the Crimea peninsula ; ECM on", false, true)
+    _addCapMission("training-radar-bear-FL200", "Radar Training - Bear at FL200", "Russian TU-95 patrols at FL200 west of the Crimea peninsula ; ECM on", false, false)
     _addCapMission("training-radar-mig23-FL300", "Radar Training - Mig23 at FL300", "Mig-23MLD on CAP (R-24R = Fox1 MR) at FL300 west of the Crimea peninsula", false, true)
     _addCapMission("training-radar-mig29-FL300", "Radar Training - Mig29 at FL300", "Mig-29S on CAP (R-77 = Fox 3 MR) at FL300 west of the Crimea peninsula", false, true)
     _addCapMission("training-radar-mig31-FL300", "Radar Training - Mig31 at FL300", "Mig-31 on CAP (R-33 = Fox 3 LR) at FL300 west of the Crimea peninsula", false, true)
-    _addCapMission("training-radar-mig23-FL300-notch", "Radar Training - Mig23 notching", "Mig-23MLD on CAP (R-24R = Fox1 MR) notching W-E at FL300 west of the Crimea peninsula", false, true)
+    _addCapMission("training-radar-mig23-FL300-notch", "Radar Training - Mig23 notching", "Mig-23MLD on CAP (R-24R = Fox1 MR) notching W-E at FL300 west of the Crimea peninsula", false, false)
     
     veafCombatMission.AddMissionsWithSkillAndScale(
 		VeafCombatMission.new()
