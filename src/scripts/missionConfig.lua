@@ -124,6 +124,10 @@ local function _addCapMission(missionName, missionDescription, missionBriefing, 
     if secured == nil then secured = true end
     local radioMenu = radioMenu
     if radioMenu == nil then radioMenu = false end
+    local skills = skills
+    if not skills then if radioMenu then skills = {"Good", "Excellent"} end end
+    local scales = scales
+    if not scales then if radioMenu then scales = {1, 2, 4} end end
 
     veafCombatMission.AddMissionsWithSkillAndScale(
 		VeafCombatMission.new()
@@ -161,11 +165,11 @@ if veafCombatMission then
     _addCapMission("CAP-RaidBeslan-1", "Raid on Beslan", "A Russian CAP patrol is going to Beslan.", true, false)
     _addCapMission("CAP-RaidSochi-1", "Raid on Sochi", "A Russian CAP patrol is going to Sochi.", true, false)
     _addCapMission("training-radar-tu22-FL300", "Radar Training - Tu22 at FL300", "Russian TU-22 patrols at FL300 west of the Crimea peninsula", false, true)
-    _addCapMission("training-radar-bear-FL200", "Radar Training - Bear at FL200", "Russian TU-95 patrols at FL200 west of the Crimea peninsula ; ECM on", false, false)
+    _addCapMission("training-radar-bear-FL200", "Radar Training - Bear at FL200", "Russian TU-95 patrols at FL200 west of the Crimea peninsula ; ECM on", false, true)
     _addCapMission("training-radar-mig23-FL300", "Radar Training - Mig23 at FL300", "Mig-23MLD on CAP (R-24R = Fox1 MR) at FL300 west of the Crimea peninsula", false, true)
     _addCapMission("training-radar-mig29-FL300", "Radar Training - Mig29 at FL300", "Mig-29S on CAP (R-77 = Fox 3 MR) at FL300 west of the Crimea peninsula", false, true)
     _addCapMission("training-radar-mig31-FL300", "Radar Training - Mig31 at FL300", "Mig-31 on CAP (R-33 = Fox 3 LR) at FL300 west of the Crimea peninsula", false, true)
-    _addCapMission("training-radar-mig23-FL300-notch", "Radar Training - Mig23 notching", "Mig-23MLD on CAP (R-24R = Fox1 MR) notching W-E at FL300 west of the Crimea peninsula", false, false)
+    _addCapMission("training-radar-mig23-FL300-notch", "Radar Training - Mig23 notching", "Mig-23MLD on CAP (R-24R = Fox1 MR) notching W-E at FL300 west of the Crimea peninsula", false, true)
     
     veafCombatMission.AddMissionsWithSkillAndScale(
 		VeafCombatMission.new()
