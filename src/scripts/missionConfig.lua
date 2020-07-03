@@ -118,58 +118,23 @@ veafMove.initialize()
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure COMBAT MISSION
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
-local function _addCapMission(missionName, missionDescription, missionBriefing, secured, radioMenu, skills, scales)
-    local groupName = groupName or "OnDemand-"..missionName
-    local secured = secured
-    if secured == nil then secured = true end
-    local radioMenu = radioMenu
-    if radioMenu == nil then radioMenu = false end
-    local skills = skills
-    if not skills then if radioMenu then skills = {"Good", "Excellent"} end end
-    local scales = scales
-    if not scales then if radioMenu then scales = {1, 2, 4} end end
-
-    veafCombatMission.AddMissionsWithSkillAndScale(
-		VeafCombatMission.new()
-		:setSecured(secured)
-		:setRadioMenuEnabled(radioMenu)
-		:setName(missionName)
-		:setFriendlyName(missionDescription)
-		:setBriefing(missionBriefing)
-		:addElement(
-			VeafCombatMissionElement.new()
-			:setName(groupName)
-            :setGroups({groupName})
-            :setSkill("Random")
-            :setScalable(true)
-		)
-		:addObjective(
-			VeafCombatMissionObjective.new()
-			:setName("Kill all the ennemies")
-			:setDescription("you must kill all of the ennemies")
-			:setMessage("%d ennemies destroyed !")
-			:configureAsKillEnemiesObjective()
-		)
-		:initialize()
-    , skills, scales)
-end
 
 if veafCombatMission then 
 	veafCombatMission.logInfo("Loading configuration")
     
-    _addCapMission("CAP-Krasnodar-1", "CAP on Krasnodar", "A Russian CAP patrol has been spotted over Krasnodar.", true, false)
-    _addCapMission("CAP-Maykop-1", "CAP on Maykop", "A Russian CAP patrol has been spotted over Maykop.", true, false)
-    _addCapMission("CAP-GL-1", "CAP on grid GL", "A Russian CAP patrol has been spotted over grid GL.", true, false)
-    _addCapMission("CAP-Minvody-1", "CAP on Minvody", "A Russian CAP patrol has been spotted over Minvody.", true, false)
-    _addCapMission("CAP-Mozdok-1", "CAP on Mozdok", "A Russian CAP patrol has been spotted over Mozdok.", true, false)
-    _addCapMission("CAP-RaidBeslan-1", "Raid on Beslan", "A Russian CAP patrol is going to Beslan.", true, false)
-    _addCapMission("CAP-RaidSochi-1", "Raid on Sochi", "A Russian CAP patrol is going to Sochi.", true, false)
-    _addCapMission("training-radar-tu22-FL300", "Radar Training - Tu22 at FL300", "Russian TU-22 patrols at FL300 west of the Crimea peninsula", false, true)
-    _addCapMission("training-radar-bear-FL200", "Radar Training - Bear at FL200", "Russian TU-95 patrols at FL200 west of the Crimea peninsula ; ECM on", false, true)
-    _addCapMission("training-radar-mig23-FL300", "Radar Training - Mig23 at FL300", "Mig-23MLD on CAP (R-24R = Fox1 MR) at FL300 west of the Crimea peninsula", false, true)
-    _addCapMission("training-radar-mig29-FL300", "Radar Training - Mig29 at FL300", "Mig-29S on CAP (R-77 = Fox 3 MR) at FL300 west of the Crimea peninsula", false, true)
-    _addCapMission("training-radar-mig31-FL300", "Radar Training - Mig31 at FL300", "Mig-31 on CAP (R-33 = Fox 3 LR) at FL300 west of the Crimea peninsula", false, true)
-    _addCapMission("training-radar-mig23-FL300-notch", "Radar Training - Mig23 notching", "Mig-23MLD on CAP (R-24R = Fox1 MR) notching W-E at FL300 west of the Crimea peninsula", false, true)
+    veafCombatMission.addCapMission("CAP-Krasnodar-1", "CAP on Krasnodar", "A Russian CAP patrol has been spotted over Krasnodar.", true, false)
+    veafCombatMission.addCapMission("CAP-Maykop-1", "CAP on Maykop", "A Russian CAP patrol has been spotted over Maykop.", true, false)
+    veafCombatMission.addCapMission("CAP-GL-1", "CAP on grid GL", "A Russian CAP patrol has been spotted over grid GL.", true, false)
+    veafCombatMission.addCapMission("CAP-Minvody-1", "CAP on Minvody", "A Russian CAP patrol has been spotted over Minvody.", true, false)
+    veafCombatMission.addCapMission("CAP-Mozdok-1", "CAP on Mozdok", "A Russian CAP patrol has been spotted over Mozdok.", true, false)
+    veafCombatMission.addCapMission("CAP-RaidBeslan-1", "Raid on Beslan", "A Russian CAP patrol is going to Beslan.", true, false)
+    veafCombatMission.addCapMission("CAP-RaidSochi-1", "Raid on Sochi", "A Russian CAP patrol is going to Sochi.", true, false)
+    veafCombatMission.addCapMission("training-radar-tu22-FL300", "Radar Training - Tu22 at FL300", "Russian TU-22 patrols at FL300 west of the Crimea peninsula", false, true)
+    veafCombatMission.addCapMission("training-radar-bear-FL200", "Radar Training - Bear at FL200", "Russian TU-95 patrols at FL200 west of the Crimea peninsula ; ECM on", false, true)
+    veafCombatMission.addCapMission("training-radar-mig23-FL300", "Radar Training - Mig23 at FL300", "Mig-23MLD on CAP (R-24R = Fox1 MR) at FL300 west of the Crimea peninsula", false, true)
+    veafCombatMission.addCapMission("training-radar-mig29-FL300", "Radar Training - Mig29 at FL300", "Mig-29S on CAP (R-77 = Fox 3 MR) at FL300 west of the Crimea peninsula", false, true)
+    veafCombatMission.addCapMission("training-radar-mig31-FL300", "Radar Training - Mig31 at FL300", "Mig-31 on CAP (R-33 = Fox 3 LR) at FL300 west of the Crimea peninsula", false, true)
+    veafCombatMission.addCapMission("training-radar-mig23-FL300-notch", "Radar Training - Mig23 notching", "Mig-23MLD on CAP (R-24R = Fox1 MR) notching W-E at FL300 west of the Crimea peninsula", false, true)
     
     veafCombatMission.AddMissionsWithSkillAndScale(
 		VeafCombatMission.new()
@@ -207,7 +172,7 @@ It is escorted by a fighter patrol.
     veafCombatMission.AddMission(
 		VeafCombatMission.new()
         :setSecured(true)
-        :setRadioMenuEnabled(false)
+        :setRadioMenuEnabled(true)
 		:setName("Red-attack-Gudauta")
 		:setFriendlyName("Red attack On Gudauta")
 		:setBriefing([[
@@ -411,6 +376,10 @@ veafSecurity.password_L9["6ade6629f9219d87a011e7b8fbf8ef9584f2786d"] = true
 veafSecurity.logInfo("Loading configuration")
 veaf.logInfo("init - veafSecurity")
 veafSecurity.initialize()
+
+-- force security in order to test it when dynamic loading is in place
+--veaf.SecurityDisabled = false
+--veafSecurity.authenticated = false
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- configure CARRIER OPERATIONS 
