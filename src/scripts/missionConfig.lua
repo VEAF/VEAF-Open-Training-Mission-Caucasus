@@ -411,7 +411,7 @@ ctld.disableAllSmoke = false -- if true, all smoke is diabled at pickup and drop
 ctld.hoverPickup = true --  if set to false you can load crates with the F10 menu instead of hovering... Only if not using real crates!
 
 ctld.enableCrates = true -- if false, Helis will not be able to spawn or unpack crates so will be normal CTTS
-ctld.slingLoad = false -- if false, crates can be used WITHOUT slingloading, by hovering above the crate, simulating slingloading but not the weight...
+ctld.slingLoad = true -- if false, crates can be used WITHOUT slingloading, by hovering above the crate, simulating slingloading but not the weight...
 -- There are some bug with Sling-loading that can cause crashes, if these occur set slingLoad to false
 -- to use the other method.
 -- Set staticBugFix  to FALSE if use set ctld.slingLoad to TRUE
@@ -464,6 +464,8 @@ ctld.deployedBeaconBattery = 30 -- the battery on deployed beacons will last for
 ctld.enabledRadioBeaconDrop = true -- if its set to false then beacons cannot be dropped by units
 
 ctld.allowRandomAiTeamPickups = false -- Allows the AI to randomize the loading of infantry teams (specified below) at pickup zones
+
+ctld.allowAiTeamPickups = false -- Allows the AI to automatically load infantry teams (specified below) at pickup zones
 
 -- Simulated Sling load configuration
 

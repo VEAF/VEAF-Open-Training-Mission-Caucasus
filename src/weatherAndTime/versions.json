@@ -17,6 +17,11 @@
       "time": 18000
     },
     {
+      "version": "0500-scattered",
+      "weatherfile": "scattered.lua",
+      "time": 18000
+    },
+    {
       "version": "0530-scattered",
       "weather": "UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG",
       "time": 19800
