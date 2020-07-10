@@ -19,7 +19,7 @@ mist.respawnGroup(\"Minevody QRA\", true);\
     ["DictKey_ActionText_3079"] = "return not Group.getByName(\"Minevody QRA\")\
 ",
     ["DictKey_ActionText_3105"] = "return qraMinevody==\"doing\"",
-    ["DictKey_ActionText_5172"] = "VEAF_DYNAMIC_PATH = [[d:\\dev\\_VEAF\\VEAF-Mission-Creation-Tools]]",
+    ["DictKey_ActionText_5172"] = "VEAF_DYNAMIC_PATH = [[D:\\dev\\_VEAF\\VEAF-Open-Training-Mission\\node_modules\\veaf-mission-creation-tools\\]]",
     ["DictKey_ActionText_5174"] = "return VEAF_DYNAMIC_PATH~=nil\
 ",
     ["DictKey_ActionText_5175"] = "local script = VEAF_DYNAMIC_MISSIONPATH .. \"/src/scripts/missionConfig.lua\"\
@@ -622,6 +622,7 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_GroupName_7323"] = "combatZone_SaveTheHostages-building-charlie",
     ["DictKey_GroupName_7326"] = "combatZone_SaveTheHostages-barracks",
     ["DictKey_GroupName_7329"] = "combatZone_SaveTheHostages-Prohladniy-CAS-helo",
+    ["DictKey_GroupName_7339"] = "logistic5",
     ["DictKey_GroupName_734"] = "SA342Mistral Tbilisi",
     ["DictKey_GroupName_752"] = "UH-1H Tbilisi",
     ["DictKey_GroupName_770"] = "Mi-8TV2 Tbilisi",
