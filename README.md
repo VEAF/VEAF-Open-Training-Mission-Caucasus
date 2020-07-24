@@ -1,6 +1,6 @@
 # VEAF-Open-Training-Mission
 
-All scripts, libraries and documentation needed to build the VEAF Open Training Mission
+All scripts, libraries and documentation needed to build the VEAF Open Training Mission.
 
 ## Playing in this mission
 
@@ -8,12 +8,12 @@ See [Playing in the OpenTraining mission](docs/opentraining.md)
 
 ## Working on this mission
 
-requirements:
+Requirements:
 
 * DCS World 2.5+
-* 7za.exe in your path [get 7zip Extra here](https://www.7-zip.org/download.html)
+* 7za.exe in your path [get 7zip **Extra** here](https://www.7-zip.org/download.html)
 * git
-* an IDE (notepad++, visual studio code...)
+* an IDE (Notepad++, Visual Studio Code...)
 * npm - for that install [node.js](https://nodejs.org/en/download/)
 
 ## Mission editor workflow
@@ -25,18 +25,18 @@ Always use this defined process:
 
 ## Mission maker tips
 
-* [QRA missions](doc/missionMaker/qra.md)
+* [QRA missions](docs/missionMaker/qra.md)
 
 ### Extracting data from an edited mission
 
 Let's say you opened the OpenTraining mission in the editor and changed some things (e.g. added a few planes and waypoints).  
-You need to extract the content of the .miz file into the *src* folder, in order to push it to Github.  
-Simply copy your edited mission file to the *VEAF-Open-Training-Mission* folder ; then run the *extract_xxx* command (e.g. *extract_caucasus*)
+You need to extract the content of the .miz file into the *src* folder, in order to push it to GitHub.  
+Simply copy your edited mission file to the *VEAF-Open-Training-Mission* folder ; then run the *extract_xxx* command (e.g. *extract_caucasus*).
 
 ### Compile the mission from source
 
-When you need to test or deploy the mission from source, you need to build it.  
-Fortunately it's very easy : simply open a command prompt in the *VEAF-Open-Training-Mission* folder and run the *build* command.  
+When you need to test or deploy the mission from source, you first need to build it.  
+Fortunately it's very easy: simply open a command prompt in the *VEAF-Open-Training-Mission* folder and run the *build* command.  
 It will compile the mission file and tell you where it is stored.
 
 ```
