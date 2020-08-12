@@ -76,7 +76,7 @@ pushd node_modules\veaf-mission-creation-tools\src\scripts\veaf
 popd
 
 rem -- cleanup
-del *%MISSION_NAME%*.miz
+rem del *%MISSION_NAME%*.miz
 
 echo.
 echo ----------------------------------------

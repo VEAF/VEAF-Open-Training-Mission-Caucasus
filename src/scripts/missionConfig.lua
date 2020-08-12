@@ -132,12 +132,12 @@ if veafCombatMission then
     veafCombatMission.addCapMission("CAP-RaidBeslan-1", "Raid on Beslan", "A Russian CAP patrol is going to Beslan.", true, false)
     veafCombatMission.addCapMission("CAP-RaidSochi-1", "Raid on Sochi", "A Russian CAP patrol is going to Sochi.", true, false)
     veafCombatMission.addCapMission("CAP-RaidSochi-Mig21", "Mig21 raid on Sochi", "A Russian Mig-21 patrol is going to Sochi.", true, false)
-    veafCombatMission.addCapMission("training-radar-tu22-FL300", "Radar Training - Tu22 at FL300", "Russian TU-22 patrols at FL300 west of the Crimea peninsula", false, true)
-    veafCombatMission.addCapMission("training-radar-bear-FL200", "Radar Training - Bear at FL200", "Russian TU-95 patrols at FL200 west of the Crimea peninsula ; ECM on", false, true)
-    veafCombatMission.addCapMission("training-radar-mig23-FL300", "Radar Training - Mig23 at FL300", "Mig-23MLD on CAP (R-24R = Fox1 MR) at FL300 west of the Crimea peninsula", false, true)
-    veafCombatMission.addCapMission("training-radar-mig29-FL300", "Radar Training - Mig29 at FL300", "Mig-29S on CAP (R-77 = Fox 3 MR) at FL300 west of the Crimea peninsula", false, true)
-    veafCombatMission.addCapMission("training-radar-mig31-FL300", "Radar Training - Mig31 at FL300", "Mig-31 on CAP (R-33 = Fox 3 LR) at FL300 west of the Crimea peninsula", false, true)
-    veafCombatMission.addCapMission("training-radar-mig23-FL300-notch", "Radar Training - Mig23 notching", "Mig-23MLD on CAP (R-24R = Fox1 MR) notching W-E at FL300 west of the Crimea peninsula", false, true)
+    veafCombatMission.addCapMission("training-radar-tu22-FL300", "Crimea - Tu22 FL300", "Russian TU-22 patrols at FL300 west of the Crimea peninsula", false, true)
+    veafCombatMission.addCapMission("training-radar-bear-FL200", "Crimea - Bear FL200", "Russian TU-95 patrols at FL200 west of the Crimea peninsula ; ECM on", false, false)
+    veafCombatMission.addCapMission("training-radar-mig23-FL300", "Crimea - Mig23 FL300", "Mig-23MLD on CAP (R-24R = Fox1 MR) at FL300 west of the Crimea peninsula", false, false)
+    veafCombatMission.addCapMission("training-radar-mig29-FL300", "Crimea - Mig29 FL300", "Mig-29S on CAP (R-77 = Fox 3 MR) at FL300 west of the Crimea peninsula", false, true)
+    veafCombatMission.addCapMission("training-radar-mig31-FL300", "Crimea - Mig31 FL300", "Mig-31 on CAP (R-33 = Fox 3 LR) at FL300 west of the Crimea peninsula", false, false)
+    veafCombatMission.addCapMission("training-radar-mig23-FL300-notch", "Crimea - Mig23 notching", "Mig-23MLD on CAP (R-24R = Fox1 MR) notching W-E at FL300 west of the Crimea peninsula", false, false)
     
     veafCombatMission.AddMissionsWithSkillAndScale(
 		VeafCombatMission.new()
@@ -327,6 +327,20 @@ if veafCombatZone then
 			:setFriendlyName("Hostages at Prohladniy")
 			:setBriefing("Hostages are being held in a fortified hotel in the city of Prohladniy.\n" ..
                         "Warning : there are air defenses lurking about, you should be cautious !")
+	)
+
+    veafCombatZone.AddZone(
+		VeafCombatZone.new()
+			:setMissionEditorZoneName("combatZone_Antiship-Training-Easy")
+			:setFriendlyName("Antiship Training - Easy")
+			:setBriefing("Undefended cargo ships ready for plunder; Arrrrr! Shiver me timbers!")
+	)
+
+    veafCombatZone.AddZone(
+		VeafCombatZone.new()
+			:setMissionEditorZoneName("combatZone_Antiship-Training-Hard")
+			:setFriendlyName("Antiship Training - Hard")
+			:setBriefing("Cargo ships defended by escort ships; warning, an FFG 11540 Neustrashimy may escort them as well...")
 	)
 
     veaf.logInfo("init - veafCombatZone")
