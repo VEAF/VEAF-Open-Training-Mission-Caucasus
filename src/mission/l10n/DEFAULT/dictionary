@@ -109,6 +109,8 @@ assert(loadfile(script))()\
 }\
 ",
     ["DictKey_ActionText_7232"] = "VEAF_DYNAMIC_MISSIONPATH = [[d:\\dev\\_VEAF\\VEAF-Open-Training-Mission\\]]",
+    ["DictKey_ActionText_7392"] = "veafCarrierOperations.logDebug(\"activate tacan and ICLS\")",
+    ["DictKey_ActionText_7393"] = "veafCarrierOperations.logDebug(\"(re)activate tacan and ICLS\")",
     ["DictKey_descriptionBlueTask_3"] = "",
     ["DictKey_descriptionRedTask_2"] = "",
     ["DictKey_descriptionText_1"] = "Documentation de la mission https://tinyurl.com/veaf-ot\
