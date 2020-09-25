@@ -10,6 +10,6 @@
     "url": "git+https://github.com/VEAF-Open-Training-Mission.git"
   },
   "dependencies": {
-    "veaf-mission-creation-tools": "^2.20.1"
+    "veaf-mission-creation-tools": "^2.21.0"
   }
 }
