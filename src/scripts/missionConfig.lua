@@ -12,6 +12,33 @@
 if veafRadio then
     veaf.logInfo("init - veafRadio")
     veafRadio.initialize(true)
+    -- add the beacons
+    veafRadio.startBeacon("Bienvenue-blue", 15, 120, "251.0,124.0,121.5,30.0", "am,am,am,fm", nil, "bienvenue-veaf-fr.mp3", 1.0, 2)
+    veafRadio.startBeacon("Bienvenue-red", 45, 120, "251.0,124.0,121.5,30.0", "am,am,am,fm", nil, "bienvenue-veaf-fr.mp3", 1.0, 1)
+    veafRadio.startBeacon("Welcome-blue", 75, 120, "251.0,124.0,121.5,30.0", "am,am,am,fm", nil, "bienvenue-veaf-en.mp3", 1.0, 2)
+    veafRadio.startBeacon("Welcome-red", 105, 120, "251.0,124.0,121.5,30.0", "am,am,am,fm", nil, "bienvenue-veaf-en.mp3", 1.0, 1)
+
+    --veafRadio.startBeacon("Anapa", 15, 30, "125.4,121.0", "am,am", nil, "Anapa.mp3", 1.0, 2)
+    veafRadio.startBeacon("Batumi", 5, 30, "122.5,131.0", "am,am", nil, "Batumi.mp3", 1.0, 2)
+    veafRadio.startBeacon("Beslan", 7, 30, "128.225,141.0", "am,am", nil, "Beslan.mp3", 1.0, 2)
+    --veafRadio.startBeacon("Gelendzhik", 15, 30, "134.875,126.0", "am,am", nil, "Gelendzhik.mp3", 1.0, 2)
+    veafRadio.startBeacon("Gudauta", 9, 30, "122.225,130.0", "am,am", nil, "Gudauta.mp3", 1.0, 2)
+    veafRadio.startBeacon("Kobuleti", 11, 30, "122.3,133.0", "am,am", nil, "Kobuleti.mp3", 1.0, 2)
+    --veafRadio.startBeacon("Krasnodar-Ctr", 15, 30, "128.3,122.0", "am,am", nil, "Krasnodar-Ctr.mp3", 1.0, 2)
+    --veafRadio.startBeacon("Krasnodar-Pshk", 15, 30, "122.45,128.0", "am,am", nil, "Krasnodar-Pshk.mp3", 1.0, 2)
+    --veafRadio.startBeacon("Krymsk", 15, 30, "128.6,124.0", "am,am", nil, "Krymsk.mp3", 1.0, 2)
+    veafRadio.startBeacon("Kutaisi", 13, 30, "122.1,134.0", "am,am", nil, "Kutaisi.mp3", 1.0, 2)
+    --veafRadio.startBeacon("Maykop", 15, 30, "128.7,125.0", "am,am", nil, "Maykop.mp3", 1.0, 2)
+    --veafRadio.startBeacon("Mineralnye-Vody", 15, 30, "125.25,135", "am,am", nil, "Mineralnye-Vody.mp3", 1.0, 2)
+    --veafRadio.startBeacon("Mozdok", 15, 30, "128.55,137.0", "am,am", nil, "Mozdok.mp3", 1.0, 2)
+    veafRadio.startBeacon("Nalchik", 15, 30, "128.525,136.0", "am,am", nil, "Nalchik.mp3", 1.0, 2)
+    --veafRadio.startBeacon("Novorossiysk", 15, 30, "128.2,123.0", "am,am", nil, "Novorossiysk.mp3", 1.0, 2)
+    --veafRadio.startBeacon("Senaki", 15, 30, "122.525,132.0", "am,am", nil, "Senaki.mp3", 1.0, 2)
+    veafRadio.startBeacon("Sochi", 17, 30, "126.2,127.0", "am,am", nil, "Sochi.mp3", 1.0, 2)
+    --veafRadio.startBeacon("Soganlung", 15, 30, "122.6,139.0", "am,am", nil, "Soganlung.mp3", 1.0, 2)
+    veafRadio.startBeacon("Sukhumi", 19, 30, "122.7,129.0", "am,am", nil, "Sukhumi.mp3", 1.0, 2) -- attention ATIS = Batumi
+    veafRadio.startBeacon("Tbilisi", 21, 30, "132.8,138.0", "am,am", nil, "Tbilisi.mp3", 1.0, 2)
+    veafRadio.startBeacon("Vaziani", 23, 30, "122.6,140.0", "am,am", nil, "Vaziani.mp3", 1.0, 2)
 end
 if veafSpawn then
     veaf.logInfo("init - veafSpawn")
