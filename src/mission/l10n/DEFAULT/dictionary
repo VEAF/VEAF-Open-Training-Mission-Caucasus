@@ -1,7 +1,6 @@
 dictionary = {
     ["DictKey_ActionText_3070"] = "return qraMinevody==\"ready\"",
-    ["DictKey_ActionText_3071"] = "qraMinevody=\"ready\";\
-qraMinevodyTimer=0;",
+    ["DictKey_ActionText_3071"] = "qraMinevodyTimer=0;",
     ["DictKey_ActionText_3072"] = "qraMinevody=\"doing\";\
 qraMinevodyTimer=0;\
 mist.respawnGroup(\"Minevody QRA\", true);\
@@ -111,6 +110,10 @@ assert(loadfile(script))()\
     ["DictKey_ActionText_7232"] = "VEAF_DYNAMIC_MISSIONPATH = [[d:\\dev\\_VEAF\\VEAF-Open-Training-Mission\\]]",
     ["DictKey_ActionText_7392"] = "veafCarrierOperations.logDebug(\"activate tacan and ICLS\")",
     ["DictKey_ActionText_7393"] = "veafCarrierOperations.logDebug(\"(re)activate tacan and ICLS\")",
+    ["DictKey_ActionText_7542"] = "local msg = \"QRA - minvody - activated\"\
+veaf.logInfo(msg)\
+trigger.action.outText(msg, 10)",
+    ["DictKey_ActionText_7543"] = "return qraMinevody==\"ready\"",
     ["DictKey_descriptionBlueTask_3"] = "",
     ["DictKey_descriptionRedTask_2"] = "",
     ["DictKey_descriptionText_1"] = "Documentation de la mission https://tinyurl.com/veaf-ot\
@@ -633,6 +636,8 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_GroupName_7507"] = "F/A-18C MINVODY",
     ["DictKey_GroupName_7514"] = "A-10C Kutaisi #002",
     ["DictKey_GroupName_752"] = "UH-1H Tbilisi",
+    ["DictKey_GroupName_7521"] = "OnDemand-SCRAMBLE-Minvody-FOX3-1",
+    ["DictKey_GroupName_7530"] = "OnDemand-SCRAMBLE-Minvody-FOX1-1",
     ["DictKey_GroupName_770"] = "Mi-8TV2 Tbilisi",
     ["DictKey_GroupName_782"] = "Windsock #004",
     ["DictKey_GroupName_791"] = "Windsock #005",
@@ -1420,7 +1425,11 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_UnitName_7516"] = "Pilot #169",
     ["DictKey_UnitName_7517"] = "Pilot #181",
     ["DictKey_UnitName_7518"] = "Pilot #183",
+    ["DictKey_UnitName_7522"] = "OnDemand-SCRAMBLE-Minvody-FOX3-1-1",
+    ["DictKey_UnitName_7529"] = "OnDemand-SCRAMBLE-Minvody-FOX3-1-2",
     ["DictKey_UnitName_753"] = "helicargo19",
+    ["DictKey_UnitName_7531"] = "OnDemand-SCRAMBLE-Minvody-FOX1-1-1",
+    ["DictKey_UnitName_7536"] = "OnDemand-SCRAMBLE-Minvody-FOX1-1-2",
     ["DictKey_UnitName_771"] = "helicargo1",
     ["DictKey_UnitName_935"] = "Pilot #025",
     ["DictKey_WptName_1383"] = "",
@@ -2152,7 +2161,6 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_WptName_6941"] = "",
     ["DictKey_WptName_6946"] = "",
     ["DictKey_WptName_6968"] = "",
-    ["DictKey_WptName_6969"] = "",
     ["DictKey_WptName_6978"] = "SPAWN",
     ["DictKey_WptName_6979"] = "",
     ["DictKey_WptName_6980"] = "",
@@ -2301,6 +2309,12 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_WptName_7513"] = "BULLS",
     ["DictKey_WptName_7519"] = "",
     ["DictKey_WptName_7520"] = "",
+    ["DictKey_WptName_7523"] = "",
+    ["DictKey_WptName_7527"] = "",
+    ["DictKey_WptName_7528"] = "",
+    ["DictKey_WptName_7533"] = "",
+    ["DictKey_WptName_7534"] = "",
+    ["DictKey_WptName_7535"] = "",
     ["DictKey_WptName_757"] = "",
     ["DictKey_WptName_775"] = "",
     ["DictKey_WptName_939"] = "",
