@@ -18,7 +18,7 @@ mist.respawnGroup(\"Minevody QRA\", true);\
     ["DictKey_ActionText_3079"] = "return not Group.getByName(\"Minevody QRA\")\
 ",
     ["DictKey_ActionText_3105"] = "return qraMinevody==\"doing\"",
-    ["DictKey_ActionText_5172"] = "VEAF_DYNAMIC_PATH = [[d:\\dev\\_VEAF\\VEAF-Mission-Creation-Tools]]",
+    ["DictKey_ActionText_5172"] = "VEAF_DYNAMIC_PATH = [[D:\\dev\\_VEAF\\VEAF-Open-Training-Mission\\node_modules\\veaf-mission-creation-tools\\]]",
     ["DictKey_ActionText_5174"] = "return VEAF_DYNAMIC_PATH~=nil\
 ",
     ["DictKey_ActionText_5175"] = "local script = VEAF_DYNAMIC_MISSIONPATH .. \"/src/scripts/missionConfig.lua\"\
@@ -637,6 +637,7 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_GroupName_752"] = "UH-1H Tbilisi",
     ["DictKey_GroupName_7521"] = "OnDemand-SCRAMBLE-Minvody-FOX3-1",
     ["DictKey_GroupName_7530"] = "OnDemand-SCRAMBLE-Minvody-FOX1-1",
+    ["DictKey_GroupName_7555"] = "F-16CM Gudauta",
     ["DictKey_GroupName_770"] = "Mi-8TV2 Tbilisi",
     ["DictKey_GroupName_782"] = "Windsock #004",
     ["DictKey_GroupName_791"] = "Windsock #005",
@@ -1425,6 +1426,10 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_UnitName_7552"] = "A-10C Batumi-1",
     ["DictKey_UnitName_7553"] = "A-10C Batumi-2",
     ["DictKey_UnitName_7554"] = "A-10C Batumi-3",
+    ["DictKey_UnitName_7556"] = "Pilot #007",
+    ["DictKey_UnitName_7557"] = "Pilot #035",
+    ["DictKey_UnitName_7558"] = "Pilot #036",
+    ["DictKey_UnitName_7559"] = "Pilot #169",
     ["DictKey_UnitName_771"] = "helicargo1",
     ["DictKey_UnitName_935"] = "Pilot #025",
     ["DictKey_WptName_1383"] = "",
@@ -2314,6 +2319,10 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_WptName_7549"] = "LANDING",
     ["DictKey_WptName_7550"] = "RANGE",
     ["DictKey_WptName_7551"] = "RANGE",
+    ["DictKey_WptName_7560"] = "",
+    ["DictKey_WptName_7561"] = "FACTORY",
+    ["DictKey_WptName_7562"] = "BULLS",
+    ["DictKey_WptName_7563"] = "INIT_POS",
     ["DictKey_WptName_757"] = "",
     ["DictKey_WptName_775"] = "",
     ["DictKey_WptName_939"] = "",
