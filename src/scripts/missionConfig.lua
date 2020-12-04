@@ -401,6 +401,13 @@ if veafCombatZone then
 			:setBriefing("Cargo ships defended by escort ships; warning, an FFG 11540 Neustrashimy may escort them as well...")
 	)
 
+    veafCombatZone.AddZone(
+		VeafCombatZone.new()
+			:setMissionEditorZoneName("combatZone_roadBlock")
+			:setFriendlyName("Road Block KM91")
+			:setBriefing("38T KM946122 - 6300ft - KOB 67X 115/35\nRussia is blocking a main road between Batumi and Tbilisi.\nDestroy bunkers and vehicles.\nENI convoy is comming from the East.")
+	)
+
     veaf.logInfo("init - veafCombatZone")
     veafCombatZone.initialize()
 
