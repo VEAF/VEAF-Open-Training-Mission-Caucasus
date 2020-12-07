@@ -26,4 +26,5 @@ mapResource = {
     ["ResKey_Action_7031"] = "veafRemote.lua",
     ["ResKey_Action_7337"] = "beacon.ogg",
     ["ResKey_Action_7338"] = "beaconsilent.ogg",
+    ["ResKey_Action_7765"] = "Hercules_Cargo.lua",
 } -- end of mapResource

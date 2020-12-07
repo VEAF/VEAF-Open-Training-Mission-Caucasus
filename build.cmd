@@ -9,6 +9,16 @@ echo.
 rem -- default options values
 echo This script can use these environment variables to customize its behavior :
 echo ----------------------------------------
+echo NOPAUSE if set to "true", will not pause at the end of the script (useful to chain calls to this script)
+echo defaults to "false"
+IF [%NOPAUSE%] == [] GOTO DefineDefaultNOPAUSE
+goto DontDefineDefaultNOPAUSE
+:DefineDefaultNOPAUSE
+set NOPAUSE=false
+:DontDefineDefaultNOPAUSE
+echo current value is "%NOPAUSE%"
+
+echo ----------------------------------------
 echo VERBOSE_LOG_FLAG if set to "true", will create a mission with tracing enabled (meaning that, when run, it will log a lot of details in the dcs log file)
 echo defaults to "false"
 IF [%VERBOSE_LOG_FLAG%] == [] GOTO DefineDefaultVERBOSE_LOG_FLAG
@@ -37,18 +47,6 @@ goto DontDefineDefaultSECURITY_DISABLED_FLAG
 set SECURITY_DISABLED_FLAG=false
 :DontDefineDefaultSECURITY_DISABLED_FLAG
 echo current value is "%SECURITY_DISABLED_FLAG%"
-
-echo ----------------------------------------
-echo MISSION_FILE_SUFFIX (a string) will be appended to the mission file name to make it more unique
-echo defaults to the current iso date
-IF [%MISSION_FILE_SUFFIX%] == [] GOTO DefineDefaultMISSION_FILE_SUFFIX
-goto DontDefineDefaultMISSION_FILE_SUFFIX
-:DefineDefaultMISSION_FILE_SUFFIX
-set TIMEBUILD=%TIME: =0%
-set MISSION_FILE_SUFFIX=%date:~-4,4%%date:~-7,2%%date:~-10,2%
-:DontDefineDefaultMISSION_FILE_SUFFIX
-set MISSION_FILE=.\build\%MISSION_NAME%_%MISSION_FILE_SUFFIX%
-echo current value is "%MISSION_FILE_SUFFIX%"
 
 echo ----------------------------------------
 echo SEVENZIP (a string) points to the 7za executable
@@ -91,30 +89,69 @@ set DYNAMIC_SCRIPTS_PATH=%~dp0node_modules\veaf-mission-creation-tools\
 echo current value is "%DYNAMIC_SCRIPTS_PATH%"
 
 echo ----------------------------------------
+echo DISABLE_C130_MODULE if set to "true", will create a mission with the requirement for the C130 module disabled (meaning that no one will be able to actually fly the thing, but people without the module will be able to connect)
+echo defaults to "true"
+IF [%DISABLE_C130_MODULE%] == [] GOTO DefineDefaultDISABLE_C130_MODULE
+goto DontDefineDefaultDISABLE_C130_MODULE
+:DefineDefaultDISABLE_C130_MODULE
+set DISABLE_C130_MODULE=true
+:DontDefineDefaultDISABLE_C130_MODULE
+echo current value is "%DISABLE_C130_MODULE%"
+
+echo ----------------------------------------
+echo MISSION_FILE_SUFFIX1 (a string) will be appended to the mission file name to make it more unique
+echo defaults to empty
+IF [%MISSION_FILE_SUFFIX1%] == [] GOTO DefineDefaultMISSION_FILE_SUFFIX1
+goto DontDefineDefaultMISSION_FILE_SUFFIX1
+:DefineDefaultMISSION_FILE_SUFFIX1
+set MISSION_FILE_SUFFIX1=
+:DontDefineDefaultMISSION_FILE_SUFFIX1
+echo current value is "%MISSION_FILE_SUFFIX1%"
+
+echo ----------------------------------------
+echo MISSION_FILE_SUFFIX2 (a string) will be appended to the mission file name to make it more unique
+echo defaults to the current iso date
+IF [%MISSION_FILE_SUFFIX2%] == [] GOTO DefineDefaultMISSION_FILE_SUFFIX2
+goto DontDefineDefaultMISSION_FILE_SUFFIX2
+:DefineDefaultMISSION_FILE_SUFFIX2
+set TIMEBUILD=%TIME: =0%
+set MISSION_FILE_SUFFIX2=%date:~-4,4%%date:~-7,2%%date:~-10,2%
+:DontDefineDefaultMISSION_FILE_SUFFIX2
+echo current value is "%MISSION_FILE_SUFFIX2%"
+
+echo ----------------------------------------
+
+IF [%MISSION_FILE_SUFFIX1%] == [] GOTO DontUseSuffix1
+set MISSION_FILE=.\build\%MISSION_NAME%_%MISSION_FILE_SUFFIX1%_%MISSION_FILE_SUFFIX2%
+goto EndOfSuffix1
+:DontUseSuffix1
+set MISSION_FILE=.\build\%MISSION_NAME%_%MISSION_FILE_SUFFIX2%
+:EndOfSuffix1
+
+echo.
+echo Building %MISSION_FILE%.miz
 
 echo.
 echo prepare the folders
 rd /s /q .\build
 mkdir .\build
 
-echo.
 echo fetch the veaf-mission-creation-tools package
 call npm update
 rem echo on
 
-echo.
 echo prepare the veaf-mission-creation-tools scripts
 rem -- copy the scripts folder
 xcopy /s /y /e .\node_modules\veaf-mission-creation-tools\src\scripts\* .\build\tempscripts\ >nul 2>&1
 
 rem -- set the flags in the scripts according to the options
 echo set the flags in the scripts according to the options
-powershell -Command "(gc .\build\tempscripts\veaf\veaf.lua) -replace 'veaf.Development = false', 'veaf.Development = %VERBOSE_LOG_FLAG%' | sc .\build\tempscripts\veaf\veaf.lua" >nul 2>&1
-powershell -Command "(gc .\build\tempscripts\veaf\veaf.lua) -replace 'veaf.SecurityDisabled = false', 'veaf.SecurityDisabled = %SECURITY_DISABLED_FLAG%' | sc .\build\tempscripts\veaf\veaf.lua" >nul 2>&1
+powershell -File replace.ps1 .\build\tempscripts\veaf\veaf.lua "veaf.Development = (true|false)" "veaf.Development = %VERBOSE_LOG_FLAG%" >nul 2>&1
+powershell -File replace.ps1 .\build\tempscripts\veaf\veaf.lua "veaf.SecurityDisabled = (true|false)" "veaf.SecurityDisabled = %SECURITY_DISABLED_FLAG%" >nul 2>&1
 
 rem -- comment all the trace and debug code
 echo comment all the trace and debug code
-FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -Command "(gc %%f) -replace '(^\s*)(veaf.*\.[^\(^\s]*log(Trace|Debug))', '$1--$2' | sc %%f" >nul 2>&1
+FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -File replace.ps1 %%f "(^\s*)(veaf.*\.[^\(^\s]*log(Trace|Debug))" "$1--$2" >nul 2>&1
 
 echo building the mission
 rem -- copy all the source mission files and mission-specific scripts
@@ -132,6 +169,11 @@ rem -- set the dynamic load variables in the dictionary
 echo set the dynamic load variables in the dictionary
 powershell -Command "$temp='VEAF_DYNAMIC_PATH = [[' + [regex]::escape('%DYNAMIC_SCRIPTS_PATH%') + ']]'; (gc .\build\tempsrc\l10n\DEFAULT\dictionary) -replace 'VEAF_DYNAMIC_PATH(\s*)=(\s*)\[\[.*\]\]', $temp | sc .\build\tempsrc\l10n\DEFAULT\dictionary" >nul 2>&1
 powershell -Command "$temp='VEAF_DYNAMIC_MISSIONPATH = [[' + [regex]::escape('%DYNAMIC_MISSION_PATH%') + ']]'; (gc .\build\tempsrc\l10n\DEFAULT\dictionary) -replace 'VEAF_DYNAMIC_MISSIONPATH(\s*)=(\s*)\[\[.*\]\]', $temp | sc .\build\tempsrc\l10n\DEFAULT\dictionary" >nul 2>&1
+
+rem -- disable the C130 module requirement
+IF [%DISABLE_C130_MODULE%] == [false] GOTO SkipDISABLE_C130_MODULE
+powershell -File replace.ps1 .\build\tempsrc\mission "\[\"Hercules\"\] = \"Hercules\"," " " >nul 2>&1
+:SkipDISABLE_C130_MODULE
 
 rem -- copy the documentation images to the kneeboard
 xcopy /y /e doc\*.jpg .\build\tempsrc\KNEEBOARD\IMAGES\ >nul 2>&1
@@ -168,5 +210,8 @@ echo ----------------------------------------
 rem -- done !
 echo Built %MISSION_FILE%.miz
 echo ----------------------------------------
+echo.
 
+IF [%NOPAUSE%] == [true] GOTO EndOfFile
 pause
+:EndOfFile
