@@ -32,6 +32,11 @@
       "time": 21600
     },
     {
+      "version": "0600-real",
+      "realweather": true,
+      "time": 21600
+    },
+    {
       "version": "0700-real",
       "realweather": true,
       "time": 25200

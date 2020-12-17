@@ -712,6 +712,16 @@ if ctld then
         "yak #023",
         "yak #024",
         "yak #025",
+        "transport #001",
+        "transport #002",
+        "transport #003",
+        "transport #004",
+        "transport #005",
+        "transport #006",
+        "transport #007",
+        "transport #008",
+        "transport #009",
+        "transport #010",
     }
 
     -- *************** Optional Extractable GROUPS *****************
