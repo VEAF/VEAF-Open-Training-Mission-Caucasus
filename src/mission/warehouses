@@ -33,7 +33,7 @@ warehouses = {
         [13] = {
             ["aircrafts"] = {
             }, -- end of ["aircrafts"]
-            ["coalition"] = "RED",
+            ["coalition"] = "NEUTRAL",
             ["diesel"] = {
                 ["InitFuel"] = 100,
             }, -- end of ["diesel"]
