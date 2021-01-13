@@ -973,3 +973,17 @@ if veafRemote then
     veafRemote.monitorWithSlMod("-veaf stop-zone-8"    , [[ veafCombatZone.DesactivateZoneNumber(8, true) ]])
     veafRemote.monitorWithSlMod("-veaf stop-zone-9"    , [[ veafCombatZone.DesactivateZoneNumber(9, true) ]])
 end
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- initialize Skynet-IADS
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+if veafSkynet then
+    veaf.logInfo("init - veafSkynet")
+    veafSkynet.initialize(
+        true, --includeRedInRadio=true
+        false, --debugRed
+        true, --includeBlueInRadio
+        false --debugBlue
+    )
+end
+
