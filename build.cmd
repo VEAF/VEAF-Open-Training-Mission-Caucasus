@@ -151,7 +151,7 @@ powershell -File replace.ps1 .\build\tempscripts\veaf\veaf.lua "veaf.SecurityDis
 
 rem -- comment all the trace and debug code
 echo comment all the trace and debug code
-FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -File replace.ps1 %%f "(^\s*)(veaf.*\.[^\(^\s]*log(Trace|Debug))" "$1--$2" >nul 2>&1
+FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -File replace.ps1 %%f "(^\s*)(veaf.*\.[^\(^\s]*log(Trace|Debug|Marker))" "$1--$2" >nul 2>&1
 
 echo building the mission
 rem -- copy all the source mission files and mission-specific scripts
