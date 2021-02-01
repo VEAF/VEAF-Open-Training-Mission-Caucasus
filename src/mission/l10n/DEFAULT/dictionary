@@ -107,7 +107,7 @@ assert(loadfile(script))()\
     {name=\"Meet Mig-29*4\", description=\"RED Mig-29x4 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
 }\
 ",
-    ["DictKey_ActionText_7232"] = "VEAF_DYNAMIC_MISSIONPATH = [[D:\\dev\\_VEAF\\VEAF-Open-Training-Mission\\]]",
+    ["DictKey_ActionText_7232"] = "VEAF_DYNAMIC_MISSIONPATH = [[d:\\dev\\_VEAF\\VEAF-Open-Training-Mission\\]]",
     ["DictKey_ActionText_7392"] = "veafCarrierOperations.logDebug(\"activate tacan and ICLS\")",
     ["DictKey_ActionText_7393"] = "veafCarrierOperations.logDebug(\"(re)activate tacan and ICLS\")",
     ["DictKey_ActionText_7542"] = "local msg = \"QRA - minvody - activated\"\
@@ -697,6 +697,7 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_GroupName_7940"] = "RED-EWR-S",
     ["DictKey_GroupName_7943"] = "RED-EWR-NE",
     ["DictKey_GroupName_7946"] = "RED-EWR-E",
+    ["DictKey_GroupName_7949"] = "F-14B Gudauta",
     ["DictKey_GroupName_934"] = "M-2000C  - Air Quake - FOX1 - blue",
     ["DictKey_GroupName_960"] = "Windsock #006",
     ["DictKey_GroupName_981"] = "Windsock #007",
@@ -1522,6 +1523,10 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_UnitName_7941"] = "RED-EWR-1-1",
     ["DictKey_UnitName_7944"] = "RED-EWR-1-2",
     ["DictKey_UnitName_7947"] = "RED-EWR-1-3",
+    ["DictKey_UnitName_7950"] = "F-14B Gudauta",
+    ["DictKey_UnitName_7955"] = "F-14B Gudauta-1",
+    ["DictKey_UnitName_7956"] = "F-14B Gudauta-2",
+    ["DictKey_UnitName_7957"] = "F-14B Gudauta-3",
     ["DictKey_UnitName_935"] = "Pilot #025",
     ["DictKey_WptName_1430"] = "",
     ["DictKey_WptName_1433"] = "",
@@ -2428,6 +2433,10 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_WptName_7942"] = "",
     ["DictKey_WptName_7945"] = "",
     ["DictKey_WptName_7948"] = "",
+    ["DictKey_WptName_7951"] = "",
+    ["DictKey_WptName_7952"] = "",
+    ["DictKey_WptName_7953"] = "",
+    ["DictKey_WptName_7954"] = "BULLS",
     ["DictKey_WptName_939"] = "",
     ["DictKey_WptName_943"] = "",
 } -- end of dictionary
