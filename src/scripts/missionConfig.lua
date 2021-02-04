@@ -997,3 +997,6 @@ if veafSkynet then
         false --debugBlue
     )
 end
+
+-- automatically activate the Maykop Defenses zone
+veafCombatZone.ActivateZone("combatZone_MaykopDefenses", true)
