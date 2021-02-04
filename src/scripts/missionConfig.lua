@@ -408,6 +408,15 @@ if veafCombatZone then
 			:setBriefing("38T KM946122 - 6300ft - KOB 67X 115/35\nRussia is blocking a main road between Batumi and Tbilisi.\nDestroy bunkers and vehicles.\nENI convoy is comming from the East.")
 	)
 
+	veafCombatZone.AddZone(
+		VeafCombatZone.new()
+			:setMissionEditorZoneName("combatZone_MaykopDefenses")
+			:setFriendlyName("Maykop airbase defenses")
+			:setBriefing("The Maykop airbase is defended by a SA10 battalion, point-defense SHORAD and AAA, and armored vehicles\n" ..
+                        "You must incapacitate the defenses in order to prepare a land invasion")
+            :setTraining(true)
+	)
+
     veaf.logInfo("init - veafCombatZone")
     veafCombatZone.initialize()
 
@@ -724,6 +733,25 @@ if ctld then
         "transport #008",
         "transport #009",
         "transport #010",
+        "transport #011",
+        "transport #012",
+        "transport #013",
+        "transport #014",
+        "transport #015",
+        "transport #016",
+        "transport #017",
+        "transport #018",
+        "transport #019",
+        "transport #020",
+        "transport #021",
+        "transport #022",
+        "transport #023",
+        "transport #024",
+        "transport #025",
+        "transport #026",
+        "transport #027",
+        "transport #028",
+        "transport #029",
     }
 
     -- *************** Optional Extractable GROUPS *****************
@@ -941,23 +969,20 @@ if ctld then
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
--- initialize the interpreter
--------------------------------------------------------------------------------------------------------------------------------------------------------------
-if veafInterpreter then
-    veaf.logInfo("init - veafInterpreter")
-    veafInterpreter.initialize()
-end
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize the remote interface
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafRemote then
     veaf.logInfo("init - veafRemote")
     veafRemote.initialize()
+end
 
-    -- combat zones example
-    --veafRemote.monitorWithSlMod("-veaf start-zone-1"   , [[ veafCombatZone.ActivateZoneNumber(1, true) ]])
-    --veafRemote.monitorWithSlMod("-veaf stop-zone-1"    , [[ veafCombatZone.DesactivateZoneNumber(1, true) ]])
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- initialize the interpreter
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+if veafInterpreter then
+    veaf.logInfo("init - veafInterpreter")
+    veafInterpreter.initialize()
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -972,4 +997,3 @@ if veafSkynet then
         false --debugBlue
     )
 end
-
