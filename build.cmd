@@ -89,16 +89,6 @@ set DYNAMIC_SCRIPTS_PATH=%~dp0node_modules\veaf-mission-creation-tools\
 echo current value is "%DYNAMIC_SCRIPTS_PATH%"
 
 echo ----------------------------------------
-echo DISABLE_C130_MODULE if set to "true", will create a mission with the requirement for the C130 module disabled (meaning that no one will be able to actually fly the thing, but people without the module will be able to connect)
-echo defaults to "true"
-IF [%DISABLE_C130_MODULE%] == [] GOTO DefineDefaultDISABLE_C130_MODULE
-goto DontDefineDefaultDISABLE_C130_MODULE
-:DefineDefaultDISABLE_C130_MODULE
-set DISABLE_C130_MODULE=true
-:DontDefineDefaultDISABLE_C130_MODULE
-echo current value is "%DISABLE_C130_MODULE%"
-
-echo ----------------------------------------
 echo MISSION_FILE_SUFFIX1 (a string) will be appended to the mission file name to make it more unique
 echo defaults to empty
 IF [%MISSION_FILE_SUFFIX1%] == [] GOTO DefineDefaultMISSION_FILE_SUFFIX1
@@ -171,9 +161,10 @@ powershell -Command "$temp='VEAF_DYNAMIC_PATH = [[' + [regex]::escape('%DYNAMIC_
 powershell -Command "$temp='VEAF_DYNAMIC_MISSIONPATH = [[' + [regex]::escape('%DYNAMIC_MISSION_PATH%') + ']]'; (gc .\build\tempsrc\l10n\DEFAULT\dictionary) -replace 'VEAF_DYNAMIC_MISSIONPATH(\s*)=(\s*)\[\[.*\]\]', $temp | sc .\build\tempsrc\l10n\DEFAULT\dictionary" >nul 2>&1
 
 rem -- disable the C130 module requirement
-IF [%DISABLE_C130_MODULE%] == [false] GOTO SkipDISABLE_C130_MODULE
 powershell -File replace.ps1 .\build\tempsrc\mission "\[\"Hercules\"\] = \"Hercules\"," " " >nul 2>&1
-:SkipDISABLE_C130_MODULE
+
+rem -- disable the A-4E-C module requirement
+powershell -File replace.ps1 .\build\tempsrc\mission "\[\"A-4E-C\"\] = \"A-4E-C\"," " " >nul 2>&1
 
 rem -- copy the documentation images to the kneeboard
 xcopy /y /e doc\*.jpg .\build\tempsrc\KNEEBOARD\IMAGES\ >nul 2>&1
