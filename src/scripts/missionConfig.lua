@@ -505,6 +505,7 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafCarrierOperations then
     veaf.logInfo("init - veafCarrierOperations")
+        -- the carriers will be automatically found
     veafCarrierOperations.initialize(true)
 end
 

@@ -107,7 +107,7 @@ assert(loadfile(script))()\
     {name=\"Meet Mig-29*4\", description=\"RED Mig-29x4 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
 }\
 ",
-    ["DictKey_ActionText_7232"] = "VEAF_DYNAMIC_MISSIONPATH = [[D:\\dev\\_VEAF\\VEAF-Open-Training-Mission\\]]",
+    ["DictKey_ActionText_7232"] = "VEAF_DYNAMIC_MISSIONPATH = [[d:\\dev\\_VEAF\\VEAF-Open-Training-Mission\\]]",
     ["DictKey_ActionText_7392"] = "veafCarrierOperations.logDebug(\"activate tacan and ICLS\")",
     ["DictKey_ActionText_7393"] = "veafCarrierOperations.logDebug(\"(re)activate tacan and ICLS\")",
     ["DictKey_ActionText_7542"] = "local msg = \"QRA - minvody - activated\"\
@@ -712,6 +712,7 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_GroupName_8047"] = "A-4E-C Gudauta",
     ["DictKey_GroupName_8056"] = "A-4E-C Vaziani",
     ["DictKey_GroupName_8064"] = "A-4E-C Kutaisi",
+    ["DictKey_GroupName_8072"] = "Ka50 Beslan North #002",
     ["DictKey_GroupName_934"] = "M-2000C  - Air Quake - FOX1 - blue",
     ["DictKey_GroupName_960"] = "Windsock #006",
     ["DictKey_GroupName_981"] = "Windsock #007",
@@ -1577,6 +1578,10 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_UnitName_8066"] = "A-4E-1-6",
     ["DictKey_UnitName_8067"] = "A-4E-1-7",
     ["DictKey_UnitName_8068"] = "A-4E-1-8",
+    ["DictKey_UnitName_8073"] = "Pilot #228",
+    ["DictKey_UnitName_8074"] = "Pilot #230",
+    ["DictKey_UnitName_8075"] = "Pilot #231",
+    ["DictKey_UnitName_8076"] = "Pilot #233",
     ["DictKey_UnitName_935"] = "Pilot #025",
     ["DictKey_WptName_1430"] = "",
     ["DictKey_WptName_1433"] = "",
@@ -2519,6 +2524,11 @@ METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
     ["DictKey_WptName_8069"] = "",
     ["DictKey_WptName_8070"] = "HOMEPLATE",
     ["DictKey_WptName_8071"] = "BULLS",
+    ["DictKey_WptName_8077"] = "",
+    ["DictKey_WptName_8078"] = "",
+    ["DictKey_WptName_8079"] = "",
+    ["DictKey_WptName_8080"] = "",
+    ["DictKey_WptName_8081"] = "",
     ["DictKey_WptName_939"] = "",
     ["DictKey_WptName_943"] = "",
 } -- end of dictionary
