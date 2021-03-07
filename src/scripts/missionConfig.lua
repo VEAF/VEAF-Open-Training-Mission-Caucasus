@@ -184,7 +184,9 @@ if veafCombatMission then
     veafCombatMission.addCapMission("CAP-RaidSochi-1", "Raid on Sochi", "A Russian CAP patrol is going to Sochi.", true, true)
     veafCombatMission.addCapMission("CAP-RaidSochi-Mig21", "Mig21 raid on Sochi", "A Russian Mig-21 patrol is going to Sochi.", true, true)
     veafCombatMission.addCapMission("CAP-Krasnodar-Mig21", "Mig21 on Krasnodar", "A Russian Mig-21 patrol has been spotted over Krasnodar.", true, true)
-    
+    veafCombatMission.addCapMission("CAP-RaidBatumi-Mig21", "Mig21 raid on Batumi", "A Russian Mig-21 patrol is going to Batumi.", true, true, {"Good", "Ace"}, {1, 2}, 75000)
+    veafCombatMission.addCapMission("CAP-RaidBatumi-Su33", "Su33 raid on Batumi", "A Russian Su33 patrol is going to Batumi.", true, true, {"Good", "Ace"}, {1, 2}, 75000)
+   
     veafCombatMission.addCapMission("CAP-Krasnodar-1", "CAP on Krasnodar", "A Russian CAP patrol has been spotted over Krasnodar.", true, false)
     veafCombatMission.addCapMission("CAP-GL-1", "CAP on grid GL", "A Russian CAP patrol has been spotted over grid GL.", true, false)
     veafCombatMission.addCapMission("CAP-Minvody-1", "CAP on Minvody", "A Russian CAP patrol has been spotted over Minvody.", true, false)
@@ -997,6 +999,32 @@ if veafSkynet then
         true, --includeBlueInRadio
         false --debugBlue
     )
+end
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- initialize veafSanctuary
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+if veafSanctuary then
+    veafSanctuary.addZone(
+        VeafSanctuaryZone.new()
+        :setName("Sanctuary Kobuleti")
+        :setPolygonFromUnits({
+            "Sanctuary_Kobuleti #001",
+            "Sanctuary_Kobuleti #002",
+            "Sanctuary_Kobuleti #003",
+            "Sanctuary_Kobuleti #004",
+            "Sanctuary_Kobuleti #005",
+            "Sanctuary_Kobuleti #006",
+            "Sanctuary_Kobuleti #007",
+            "Sanctuary_Kobuleti #008",
+            "Sanctuary_Kobuleti #009",
+            "Sanctuary_Kobuleti #010",
+        }))
+        :setCoalition(coalition.side.BLUE)
+        :setDelayWarning(0)    -- immediate warning, as soon as the plane is detected in the zone 
+        :setDelaySpawn(30)     -- after 30 seconds in the zone, start spawning defense systems
+        :setDelayInstant(-1)   -- no instant death
+    veafSanctuary.initialize()
 end
 
 -- automatically activate the Maykop Defenses zone

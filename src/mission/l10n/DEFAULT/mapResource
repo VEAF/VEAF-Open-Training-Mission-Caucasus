@@ -29,4 +29,5 @@ mapResource = {
     ["ResKey_Action_7765"] = "skynet-iads-compiled.lua",
     ["ResKey_Action_7825"] = "Hercules_Cargo.lua",
     ["ResKey_Action_7826"] = "veafSkynetIadsHelper.lua",
+    ["ResKey_Action_8117"] = "veafSanctuary.lua",
 } -- end of mapResource
