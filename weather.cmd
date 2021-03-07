@@ -10,6 +10,16 @@ echo.
 rem -- default options values
 echo This script can use these environment variables to customize its behavior :
 echo ----------------------------------------
+echo NOPAUSE if set to "true", will not pause at the end of the script (useful to chain calls to this script)
+echo defaults to "false"
+IF [%NOPAUSE%] == [] GOTO DefineDefaultNOPAUSE
+goto DontDefineDefaultNOPAUSE
+:DefineDefaultNOPAUSE
+set NOPAUSE=false
+:DontDefineDefaultNOPAUSE
+echo current value is "%NOPAUSE%"
+
+echo ----------------------------------------
 echo VERBOSE_LOG_FLAG if set to "true", will create a mission with tracing enabled (meaning that, when run, it will log a lot of details in the dcs log file)
 echo defaults to "false"
 IF [%VERBOSE_LOG_FLAG%] == [] GOTO DefineDefaultVERBOSE_LOG_FLAG
@@ -40,18 +50,6 @@ set SECURITY_DISABLED_FLAG=false
 echo current value is "%SECURITY_DISABLED_FLAG%"
 
 echo ----------------------------------------
-echo MISSION_FILE_SUFFIX (a string) will be appended to the mission file name to make it more unique
-echo defaults to the current iso date
-IF [%MISSION_FILE_SUFFIX%] == [] GOTO DefineDefaultMISSION_FILE_SUFFIX
-goto DontDefineDefaultMISSION_FILE_SUFFIX
-:DefineDefaultMISSION_FILE_SUFFIX
-set TIMEBUILD=%TIME: =0%
-set MISSION_FILE_SUFFIX=%date:~-4,4%%date:~-7,2%%date:~-10,2%
-:DontDefineDefaultMISSION_FILE_SUFFIX
-set MISSION_FILE=.\build\%MISSION_NAME%_%MISSION_FILE_SUFFIX%
-echo current value is "%MISSION_FILE_SUFFIX%"
-
-echo ----------------------------------------
 echo SEVENZIP (a string) points to the 7za executable
 echo defaults "7za", so it needs to be in the path
 IF ["%SEVENZIP%"] == [""] GOTO DefineDefaultSEVENZIP
@@ -71,6 +69,35 @@ set LUA=lua
 :DontDefineDefaultLUA
 echo current value is "%LUA%"
 echo ----------------------------------------
+echo ----------------------------------------
+echo MISSION_FILE_SUFFIX1 (a string) will be appended to the mission file name to make it more unique
+echo defaults to empty
+IF [%MISSION_FILE_SUFFIX1%] == [] GOTO DefineDefaultMISSION_FILE_SUFFIX1
+goto DontDefineDefaultMISSION_FILE_SUFFIX1
+:DefineDefaultMISSION_FILE_SUFFIX1
+set MISSION_FILE_SUFFIX1=
+:DontDefineDefaultMISSION_FILE_SUFFIX1
+echo current value is "%MISSION_FILE_SUFFIX1%"
+
+echo ----------------------------------------
+echo MISSION_FILE_SUFFIX2 (a string) will be appended to the mission file name to make it more unique
+echo defaults to the current iso date
+IF [%MISSION_FILE_SUFFIX2%] == [] GOTO DefineDefaultMISSION_FILE_SUFFIX2
+goto DontDefineDefaultMISSION_FILE_SUFFIX2
+:DefineDefaultMISSION_FILE_SUFFIX2
+set TIMEBUILD=%TIME: =0%
+set MISSION_FILE_SUFFIX2=%date:~-4,4%%date:~-7,2%%date:~-10,2%
+:DontDefineDefaultMISSION_FILE_SUFFIX2
+echo current value is "%MISSION_FILE_SUFFIX2%"
+
+echo ----------------------------------------
+
+IF [%MISSION_FILE_SUFFIX1%] == [] GOTO DontUseSuffix1
+set MISSION_FILE=.\build\%MISSION_NAME%_%MISSION_FILE_SUFFIX1%_%MISSION_FILE_SUFFIX2%
+goto EndOfSuffix1
+:DontUseSuffix1
+set MISSION_FILE=.\build\%MISSION_NAME%_%MISSION_FILE_SUFFIX2%
+:EndOfSuffix1
 
 rem -- generate the time and weather versions
 echo generate the time and weather versions
@@ -78,4 +105,6 @@ echo ----------------------------------------
 node node_modules\veaf-mission-creation-tools\src\nodejs\app.js injectall --quiet "%MISSION_FILE%.miz" "%MISSION_FILE%-${version}.miz" src\weatherAndTime\versions.json
 
 
+IF [%NOPAUSE%] == [true] GOTO EndOfFile
 pause
+:EndOfFile

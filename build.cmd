@@ -139,9 +139,11 @@ echo set the flags in the scripts according to the options
 powershell -File replace.ps1 .\build\tempscripts\veaf\veaf.lua "veaf.Development = (true|false)" "veaf.Development = %VERBOSE_LOG_FLAG%" >nul 2>&1
 powershell -File replace.ps1 .\build\tempscripts\veaf\veaf.lua "veaf.SecurityDisabled = (true|false)" "veaf.SecurityDisabled = %SECURITY_DISABLED_FLAG%" >nul 2>&1
 
-rem -- comment all the trace and debug code
-echo comment all the trace and debug code
-FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -File replace.ps1 %%f "(^\s*)(veaf.*\.[^\(^\s]*log(Trace|Debug|Marker))" "$1--$2" >nul 2>&1
+if %VERBOSE_LOG_FLAG%==false (
+	rem -- comment all the trace and debug code
+	echo comment all the trace and debug code
+	FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -File replace.ps1 %%f "(^\s*)(veaf.*\.[^\(^\s]*log(Trace|Debug|Marker))" "$1--$2" >nul 2>&1
+)
 
 echo building the mission
 rem -- copy all the source mission files and mission-specific scripts
