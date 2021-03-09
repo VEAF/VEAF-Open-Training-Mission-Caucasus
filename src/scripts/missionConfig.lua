@@ -700,62 +700,15 @@ if ctld then
 
     -- Use any of the predefined names or set your own ones
     ctld.transportPilotNames = {
-
-        "yak #001",
-        "yak #002",
-        "yak #003",
-        "yak #004",
-        "yak #005",
-        "yak #006",
-        "yak #007",
-        "yak #008",
-        "yak #009",
-        "yak #010",
-        "yak #011",
-        "yak #012",
-        "yak #013",
-        "yak #014",
-        "yak #015",
-        "yak #016",
-        "yak #017",
-        "yak #018",
-        "yak #019",
-        "yak #020",
-        "yak #021",
-        "yak #022",
-        "yak #023",
-        "yak #024",
-        "yak #025",
-        "transport #001",
-        "transport #002",
-        "transport #003",
-        "transport #004",
-        "transport #005",
-        "transport #006",
-        "transport #007",
-        "transport #008",
-        "transport #009",
-        "transport #010",
-        "transport #011",
-        "transport #012",
-        "transport #013",
-        "transport #014",
-        "transport #015",
-        "transport #016",
-        "transport #017",
-        "transport #018",
-        "transport #019",
-        "transport #020",
-        "transport #021",
-        "transport #022",
-        "transport #023",
-        "transport #024",
-        "transport #025",
-        "transport #026",
-        "transport #027",
-        "transport #028",
-        "transport #029",
     }
+
+    for i = 1, 24 do
+        table.insert(ctld.transportPilotNames, "yak"..i)
+    end
+
+    for i = 1, 79 do
+        table.insert(ctld.transportPilotNames, "helicargo"..i)
+    end
 
     -- *************** Optional Extractable GROUPS *****************
 
