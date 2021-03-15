@@ -144,11 +144,11 @@ assert(loadfile(script))()",
 ",
     ["DictKey_descriptionBlueTask_3"] = "",
     ["DictKey_descriptionRedTask_2"] = "",
-    ["DictKey_descriptionText_1"] = "Documentation de la mission https://tinyurl.com/veaf-ot\
+    ["DictKey_descriptionText_1"] = "Documentation de la mission http://veaf.org/opentraining\
 \
 Nous contacter:\
-- Forum: http://www.veaf.org\
-- Discord: https://discord.gg/TvhFVj\
+- Site : https://www.veaf.org/\
+- Discord: http://veaf.org/discord\
 - TeamSpeak: ts.veaf.org\
 \
 METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
