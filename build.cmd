@@ -132,7 +132,7 @@ rem echo on
 
 echo prepare the veaf-mission-creation-tools scripts
 rem -- copy the scripts folder
-xcopy /s /y /e .\node_modules\veaf-mission-creation-tools\src\scripts\* .\build\tempscripts\ >nul 2>&1
+xcopy /s /y /e %DYNAMIC_SCRIPTS_PATH%\src\scripts\* .\build\tempscripts\ >nul 2>&1
 
 rem -- set the flags in the scripts according to the options
 echo set the flags in the scripts according to the options
@@ -153,8 +153,8 @@ xcopy /y /e src\scripts\*.lua .\build\tempsrc\l10n\Default\  >nul 2>&1
 
 rem -- set the radio presets according to the settings file
 echo set the radio presets according to the settings file
-pushd node_modules\veaf-mission-creation-tools\src\scripts\veaf
-"%LUA%" veafMissionRadioPresetsEditor.lua  ..\..\..\..\..\build\tempsrc ..\..\..\..\..\src\radio\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER% >nul 2>&1
+pushd %DYNAMIC_SCRIPTS_PATH%\src\scripts\veaf
+"%LUA%" veafMissionRadioPresetsEditor.lua  %DYNAMIC_MISSION_PATH%\build\tempsrc %DYNAMIC_MISSION_PATH%\src\radio\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER% >nul 2>&1
 popd
 
 rem -- set the dynamic load variables in the dictionary
@@ -179,8 +179,8 @@ rem -- copy all the common scripts
 copy .\build\tempscripts\veaf\*.lua .\build\tempsrc\l10n\Default >nul 2>&1
 
 rem -- normalize the mission files
-pushd node_modules\veaf-mission-creation-tools\src\scripts\veaf
-"%LUA%" veafMissionNormalizer.lua ..\..\..\..\..\build\tempsrc %LUA_SCRIPTS_DEBUG_PARAMETER%
+pushd %DYNAMIC_SCRIPTS_PATH%\src\scripts\veaf
+"%LUA%" veafMissionNormalizer.lua %DYNAMIC_MISSION_PATH%\build\tempsrc %LUA_SCRIPTS_DEBUG_PARAMETER%
 popd
 
 rem -- compile the mission
