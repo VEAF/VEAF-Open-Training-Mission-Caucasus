@@ -18,7 +18,7 @@ mist.respawnGroup(\"Minevody QRA\", true);\
     ["DictKey_ActionText_3079"] = "return not Group.getByName(\"Minevody QRA\")\
 ",
     ["DictKey_ActionText_3105"] = "return qraMinevody==\"doing\"",
-    ["DictKey_ActionText_5172"] = "VEAF_DYNAMIC_PATH = [[D:\\dev\\_VEAF\\VEAF-Open-Training-Mission\\node_modules\\veaf-mission-creation-tools\\]]",
+    ["DictKey_ActionText_5172"] = "VEAF_DYNAMIC_PATH = [[d:\\dev\\_VEAF\\VEAF-Mission-Creation-Tools]]",
     ["DictKey_ActionText_5174"] = "return VEAF_DYNAMIC_PATH~=nil\
 ",
     ["DictKey_ActionText_5175"] = "local script = VEAF_DYNAMIC_MISSIONPATH .. \"/src/scripts/missionConfig.lua\"\
@@ -83,7 +83,7 @@ assert(loadfile(script))()\
 ",
     ["DictKey_ActionText_5311"] = "env.info(\"DYNAMIC LOADING\")",
     ["DictKey_ActionText_5312"] = "env.info(\"STATIC LOADING\")",
-    ["DictKey_ActionText_5315"] = "return false --true=dynamic, false=static",
+    ["DictKey_ActionText_5315"] = "return false -- set to true for dynamic loading",
     ["DictKey_ActionText_5601"] = "local script = VEAF_DYNAMIC_PATH .. \"/src/scripts/community/mist.lua\"\
 assert(loadfile(script))()",
     ["DictKey_ActionText_5602"] = "local script = VEAF_DYNAMIC_PATH .. \"/src/scripts/community/Moose.lua\"\
@@ -107,7 +107,7 @@ assert(loadfile(script))()\
     {name=\"Meet Mig-29*4\", description=\"RED Mig-29x4 (dogfight zone)\", disposable=true, information=\"They spawn near N41° 09' 31\\\" E043° 05' 08\\\"\"},\
 }\
 ",
-    ["DictKey_ActionText_7232"] = "VEAF_DYNAMIC_MISSIONPATH = [[D:\\dev\\_VEAF\\VEAF-Open-Training-Mission\\]]",
+    ["DictKey_ActionText_7232"] = "VEAF_DYNAMIC_MISSIONPATH = [[d:\\dev\\_VEAF\\VEAF-Open-Training-Mission\\]]",
     ["DictKey_ActionText_7392"] = "veafCarrierOperations.logDebug(\"activate tacan and ICLS\")",
     ["DictKey_ActionText_7393"] = "veafCarrierOperations.logDebug(\"(re)activate tacan and ICLS\")",
     ["DictKey_ActionText_7542"] = "local msg = \"QRA - minvody - activated\"\
