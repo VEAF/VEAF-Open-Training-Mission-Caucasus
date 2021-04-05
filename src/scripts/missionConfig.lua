@@ -5,6 +5,8 @@
 -- This configuration is tailored for the Caucasus OpenTraining mission
 -- see https://github.com/VEAF/VEAF-Open-Training-Mission
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+veaf.config.MISSION_NAME = "OpenTraining_Caucasus"
+veaf.config.MISSION_EXPORT_PATH = nil -- use default folder
 
 -- play the radio beacons (for the public OT mission)
 veafBeacons = true
@@ -706,6 +708,10 @@ if ctld then
         table.insert(ctld.transportPilotNames, "yak"..i)
     end
 
+    for i = 1, 10 do
+        table.insert(ctld.transportPilotNames, "transport"..i)
+    end
+
     for i = 1, 79 do
         table.insert(ctld.transportPilotNames, "helicargo"..i)
     end
@@ -947,9 +953,9 @@ end
 if veafSkynet then
     veaf.logInfo("init - veafSkynet")
     veafSkynet.initialize(
-        true, --includeRedInRadio=true
+        false, --includeRedInRadio=true
         false, --debugRed
-        true, --includeBlueInRadio
+        false, --includeBlueInRadio
         false --debugBlue
     )
 end
