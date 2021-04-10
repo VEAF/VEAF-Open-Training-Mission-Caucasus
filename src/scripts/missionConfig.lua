@@ -24,18 +24,18 @@ if veafRadio then
     if veafBeacons then
         -- add the beacons
         veafRadio.startBeacon("Bienvenue-blue", 15, 120, "251.0,124.0,121.5,30.0", "am,am,am,fm", nil, "bienvenue-veaf-fr.mp3", 1.0, 2)
-        veafRadio.startBeacon("Bienvenue-red", 45, 120, "251.0,124.0,121.5,30.0", "am,am,am,fm", nil, "bienvenue-veaf-fr.mp3", 1.0, 1)
+        --veafRadio.startBeacon("Bienvenue-red", 45, 120, "251.0,124.0,121.5,30.0", "am,am,am,fm", nil, "bienvenue-veaf-fr.mp3", 1.0, 1)
         veafRadio.startBeacon("Welcome-blue", 75, 120, "251.0,124.0,121.5,30.0", "am,am,am,fm", nil, "bienvenue-veaf-en.mp3", 1.0, 2)
-        veafRadio.startBeacon("Welcome-red", 105, 120, "251.0,124.0,121.5,30.0", "am,am,am,fm", nil, "bienvenue-veaf-en.mp3", 1.0, 1)
+        --veafRadio.startBeacon("Welcome-red", 105, 120, "251.0,124.0,121.5,30.0", "am,am,am,fm", nil, "bienvenue-veaf-en.mp3", 1.0, 1)
 
         veafRadio.startBeacon("Batumi", 5, 90, "122.5,131.0", "am,am", nil, "Batumi.mp3", 1.0, 2)
         veafRadio.startBeacon("Beslan", 15, 90, "128.225,141.0", "am,am", nil, "Beslan.mp3", 1.0, 2)
         veafRadio.startBeacon("Gudauta", 25, 90, "122.225,130.0", "am,am", nil, "Gudauta.mp3", 1.0, 2)
-        veafRadio.startBeacon("Kobuleti", 35, 90, "122.3,133.0", "am,am", nil, "Kobuleti.mp3", 1.0, 2)
+        --veafRadio.startBeacon("Kobuleti", 35, 90, "122.3,133.0", "am,am", nil, "Kobuleti.mp3", 1.0, 2)
         veafRadio.startBeacon("Kutaisi", 45, 90, "122.1,134.0", "am,am", nil, "Kutaisi.mp3", 1.0, 2)
-        veafRadio.startBeacon("Nalchik", 55, 90, "128.525,136.0", "am,am", nil, "Nalchik.mp3", 1.0, 2)
+        --veafRadio.startBeacon("Nalchik", 55, 90, "128.525,136.0", "am,am", nil, "Nalchik.mp3", 1.0, 2)
         veafRadio.startBeacon("Sochi", 65, 90, "126.2,127.0", "am,am", nil, "Sochi.mp3", 1.0, 2)
-        veafRadio.startBeacon("Sukhumi", 75, 90, "122.7,129.0", "am,am", nil, "Sukhumi.mp3", 1.0, 2) -- attention ATIS = Batumi
+        --veafRadio.startBeacon("Sukhumi", 75, 90, "122.7,129.0", "am,am", nil, "Sukhumi.mp3", 1.0, 2) -- attention ATIS = Batumi
         veafRadio.startBeacon("Tbilisi", 85, 90, "132.8,138.0", "am,am", nil, "Tbilisi.mp3", 1.0, 2)
         veafRadio.startBeacon("Vaziani", 95, 90, "122.6,140.0", "am,am", nil, "Vaziani.mp3", 1.0, 2)
         --veafRadio.startBeacon("Anapa", 15, 30, "125.4,121.0", "am,am", nil, "Anapa.mp3", 1.0, 2)
@@ -966,24 +966,37 @@ end
 if veafSanctuary then
     veafSanctuary.addZone(
         VeafSanctuaryZone.new()
-        :setName("Sanctuary Kobuleti")
+        :setName("Blue Sanctuary")
         :setPolygonFromUnits({
-            "Sanctuary_Kobuleti #001",
-            "Sanctuary_Kobuleti #002",
-            "Sanctuary_Kobuleti #003",
-            "Sanctuary_Kobuleti #004",
-            "Sanctuary_Kobuleti #005",
-            "Sanctuary_Kobuleti #006",
-            "Sanctuary_Kobuleti #007",
-            "Sanctuary_Kobuleti #008",
-            "Sanctuary_Kobuleti #009",
-            "Sanctuary_Kobuleti #010",
+            "Sanctuary #001",
+            "Sanctuary #002",
+            "Sanctuary #003",
+            "Sanctuary #004",
+            "Sanctuary #005",
+            "Sanctuary #006",
+            "Sanctuary #007",
+            "Sanctuary #008",
+            "Sanctuary #009",
+            "Sanctuary #010",
+            "Sanctuary #011",
+            "Sanctuary #012",
+            "Sanctuary #013",
+            "Sanctuary #014",
+            "Sanctuary #015",
+            "Sanctuary #016",
+            "Sanctuary #017",
+            "Sanctuary #018",
+            "Sanctuary #019",
+            "Sanctuary #020",
+            "Sanctuary #021",
         }))
         :setCoalition(coalition.side.BLUE)
-        :setDelayWarning(0)    -- immediate warning, as soon as the plane is detected in the zone 
-        :setDelaySpawn(30)     -- after 30 seconds in the zone, start spawning defense systems
-        :setDelayInstant(90)   -- instant death after 90 seconds
-        :setMessageWarning("Warning, %s : you've entered a sanctuary zone and will be shot in 30 seconds if you don't leave IMMEDIATELY")
+        :setDelayWarning(0)    -- warning when the plane is detected in the zone 
+        :setDelaySpawn(30)     -- start spawning defense systems
+        -- DOES NOT WORK YET
+        --:setDelayInstant(120)   -- instant death 
+        --:setMessageWarning("Warning, %s : you've entered a sanctuary zone and will be destroyed in %d seconds if you don't leave IMMEDIATELY")
+        --:setProtectFromMissiles() 
 
     veafSanctuary.initialize()
 end
