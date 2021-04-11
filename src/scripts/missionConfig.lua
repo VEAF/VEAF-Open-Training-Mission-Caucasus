@@ -992,11 +992,10 @@ if veafSanctuary then
         }))
         :setCoalition(coalition.side.BLUE)
         :setDelayWarning(0)    -- warning when the plane is detected in the zone 
-        :setDelaySpawn(30)     -- start spawning defense systems
-        -- DOES NOT WORK YET
-        --:setDelayInstant(120)   -- instant death 
-        --:setMessageWarning("Warning, %s : you've entered a sanctuary zone and will be destroyed in %d seconds if you don't leave IMMEDIATELY")
-        --:setProtectFromMissiles() 
+        :setDelaySpawn(-1)     -- start spawning defense systems
+        :setDelayInstant(60)  -- instant death 
+        :setMessageWarning("Warning, %s : you've entered a sanctuary zone and will be destroyed in %d seconds if you don't leave IMMEDIATELY")
+        :setProtectFromMissiles() 
 
     veafSanctuary.initialize()
 end
