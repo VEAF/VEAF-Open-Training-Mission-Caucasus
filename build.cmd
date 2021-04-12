@@ -85,6 +85,7 @@ IF ["%DYNAMIC_SCRIPTS_PATH%"] == [""] GOTO DefineDefaultDYNAMIC_SCRIPTS_PATH
 goto DontDefineDefaultDYNAMIC_SCRIPTS_PATH
 :DefineDefaultDYNAMIC_SCRIPTS_PATH
 set DYNAMIC_SCRIPTS_PATH=%~dp0node_modules\veaf-mission-creation-tools\
+set NPM_UPDATE=true
 :DontDefineDefaultDYNAMIC_SCRIPTS_PATH
 echo current value is "%DYNAMIC_SCRIPTS_PATH%"
 
@@ -126,9 +127,14 @@ echo prepare the folders
 rd /s /q .\build
 mkdir .\build
 
+IF ["%NPM_UPDATE%"] == [""] GOTO DontNPM_UPDATE
 echo fetch the veaf-mission-creation-tools package
 call npm update
-rem echo on
+goto DoNPM_UPDATE
+:DontNPM_UPDATE
+echo skipping npm update
+:DontNPM_UPDATE
+
 
 echo prepare the veaf-mission-creation-tools scripts
 rem -- copy the scripts folder
