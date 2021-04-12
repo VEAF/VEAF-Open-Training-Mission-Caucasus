@@ -967,36 +967,14 @@ if veafSanctuary then
     veafSanctuary.addZone(
         VeafSanctuaryZone.new()
         :setName("Blue Sanctuary")
-        :setPolygonFromUnits({
-            "Sanctuary #001",
-            "Sanctuary #002",
-            "Sanctuary #003",
-            "Sanctuary #004",
-            "Sanctuary #005",
-            "Sanctuary #006",
-            "Sanctuary #007",
-            "Sanctuary #008",
-            "Sanctuary #009",
-            "Sanctuary #010",
-            "Sanctuary #011",
-            "Sanctuary #012",
-            "Sanctuary #013",
-            "Sanctuary #014",
-            "Sanctuary #015",
-            "Sanctuary #016",
-            "Sanctuary #017",
-            "Sanctuary #018",
-            "Sanctuary #019",
-            "Sanctuary #020",
-            "Sanctuary #021",
-        }))
+        :setPolygonFromUnitsInSequence("BlueSanctuary", true)
         :setCoalition(coalition.side.BLUE)
         :setDelayWarning(0)    -- warning when the plane is detected in the zone 
         :setDelaySpawn(-1)     -- start spawning defense systems
         :setDelayInstant(60)  -- instant death 
         :setMessageWarning("Warning, %s : you've entered a sanctuary zone and will be destroyed in %d seconds if you don't leave IMMEDIATELY")
         :setProtectFromMissiles() 
-
+    )
     veafSanctuary.initialize()
 end
 
