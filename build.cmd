@@ -133,7 +133,7 @@ call npm update
 goto DoNPM_UPDATE
 :DontNPM_UPDATE
 echo skipping npm update
-:DontNPM_UPDATE
+:DoNPM_UPDATE
 
 
 echo prepare the veaf-mission-creation-tools scripts
