@@ -25,14 +25,15 @@
 	}, -- end of ["cyclones"]
 	["dust_density"] = 0,
 	["enable_dust"] = false,
-	["clouds"] = 
-	{
-		["density"] = 9,
-		["thickness"] = 609,
-		["base"] = 2500,
-		["iprecptns"] = 0,
-	}, -- end of ["clouds"]
-	["atmosphere_type"] = 0,
+    ["clouds"] = 
+    {
+        ["thickness"] = 200,
+        ["density"] = 0,
+        ["preset"] = "Preset21",
+        ["base"] = 3000,
+        ["iprecptns"] = 0,
+    }, -- end of ["clouds"]
+    ["atmosphere_type"] = 0,
 	["groundTurbulence"] = 7.0098697350721,
 	["type_weather"] = 0,
 	["fog"] = 
@@ -49,4 +50,3 @@
 		["distance"] = 80000,
 	}, -- end of ["visibility"]
 }, -- end of ["weather"]
-

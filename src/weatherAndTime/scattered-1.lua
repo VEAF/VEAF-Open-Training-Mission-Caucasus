@@ -1,12 +1,14 @@
 ["weather"] = {
 	["atmosphere_type"] = 0,
-	["clouds"] = {
-			["base"] = 396,
-			["density"] = 6,
-			["iprecptns"] = 0,
-			["thickness"] = 2347,
-	}, -- end of ["clouds"]
-	["cyclones"] = {
+    ["clouds"] = 
+    {
+        ["thickness"] = 200,
+        ["density"] = 0,
+        ["preset"] = "Preset5",
+        ["base"] = 4000,
+        ["iprecptns"] = 0,
+    }, -- end of ["clouds"]
+    ["cyclones"] = {
 	}, -- end of ["cyclones"]
 	["dust_density"] = 0,
 	["enable_dust"] = false,

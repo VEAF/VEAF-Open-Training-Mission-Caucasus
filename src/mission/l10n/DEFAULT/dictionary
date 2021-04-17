@@ -165,7 +165,7 @@ Nous contacter:\
 \
 =======\
 \
-METAR : UGKO 180600Z 09009KTG16KT 060V130 SCT040 29/17 Q1004 NOSIG\
+METAR : ${METAR}\
 ",
     ["DictKey_GroupName_1002"] = "Windsock #008",
     ["DictKey_GroupName_1026"] = "Windsock #009",
