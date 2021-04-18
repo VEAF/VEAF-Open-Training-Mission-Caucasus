@@ -11,8 +11,26 @@ veaf.config.MISSION_EXPORT_PATH = nil -- use default folder
 -- play the radio beacons (for the public OT mission)
 veafBeacons = true
 
--- activate the QRA
-qraMinevody="ready";
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- initialize QRA
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+if veaf then
+    VeafQRA.new()
+    :setName("QRA_Minevody")
+    :addGroup("QRA_Minevody")
+    :setRadius(30000)
+    :setCoalition(coalition.side.RED)
+    :addEnnemyCoalition(coalition.side.BLUE)
+    :start()
+
+    VeafQRA.new()
+    :setName("QRA_Krasnodar")
+    :addGroup("QRA_Krasnodar")
+    :setRadius(30000)
+    :setCoalition(coalition.side.RED)
+    :addEnnemyCoalition(coalition.side.BLUE)
+    :start()
+end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize all the scripts
