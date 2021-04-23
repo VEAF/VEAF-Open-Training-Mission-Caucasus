@@ -45,8 +45,19 @@
       "time": 23400,
       "moment": "dawn"
     },
-    
-	{
+    {
+      "version": "dawn-crosswind-vaziani",
+      "weather": "UG27 221130Z 04515KT CAVOK Q1020 NOSIG",
+      "time": 23400,
+      "moment": "dawn"
+    },
+    {
+      "version": "dawn-crosswind-rain-vaziani",
+      "weather": "UG27 221130Z 04515KT +SHRA BKN008 OVC024 Q1006 NOSIG",
+      "time": 23400,
+      "moment": "dawn"
+    },
+	  {
       "version": "day-real",
       "realweather": true,
       "time": 54000,
