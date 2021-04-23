@@ -135,7 +135,6 @@ goto DoNPM_UPDATE
 echo skipping npm update
 :DoNPM_UPDATE
 
-
 echo prepare the veaf-mission-creation-tools scripts
 rem -- copy the scripts folder
 xcopy /s /y /e %DYNAMIC_SCRIPTS_PATH%\src\scripts\* .\build\tempscripts\ >nul 2>&1
@@ -160,7 +159,7 @@ xcopy /y /e src\scripts\*.lua .\build\tempsrc\l10n\Default\  >nul 2>&1
 rem -- set the radio presets according to the settings file
 echo set the radio presets according to the settings file
 pushd %DYNAMIC_SCRIPTS_PATH%\src\scripts\veaf
-"%LUA%" veafMissionRadioPresetsEditor.lua  %DYNAMIC_MISSION_PATH%\build\tempsrc %DYNAMIC_MISSION_PATH%\src\radio\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER% >nul 2>&1
+"%LUA%" veafMissionRadioPresetsEditor.lua  %DYNAMIC_MISSION_PATH%\build\tempsrc %DYNAMIC_MISSION_PATH%\src\radio\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
 popd
 
 rem -- set the dynamic load variables in the dictionary
