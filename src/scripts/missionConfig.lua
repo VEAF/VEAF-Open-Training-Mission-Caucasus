@@ -9,7 +9,7 @@ veaf.config.MISSION_NAME = "OpenTraining_Caucasus"
 veaf.config.MISSION_EXPORT_PATH = nil -- use default folder
 
 -- play the radio beacons (for the public OT mission)
-veafBeacons = true
+veafBeacons = false
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize QRA

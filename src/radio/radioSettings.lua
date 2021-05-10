@@ -185,6 +185,86 @@ radioSettings =
         }, -- end of ["Radio"]
     },
 
+    ["blue T-45"] =
+    {
+        type = "T-45",
+        coalition = "blue",
+        country = nil,
+
+        ["Radio"] =
+        {
+            [1] =
+            {
+                ["modulations"] =
+                {
+                    [1] =  0,
+                    [2] =  0,
+                    [3] =  0,
+                    [4] =  0,
+                    [5] =  0,
+                    [6] =  0,
+                    [7] =  0,
+                    [8] =  0,
+                    [9] =  0,
+                    [10] = 0,
+                    [11] = 0,
+                    [12] = 0,
+                    [13] = 0,
+                    [14] = 0,
+                    [15] = 0,
+                    [16] = 0,
+                    [17] = 0,
+                    [18] = 0,
+                    [19] = 0,
+                    [20] = 0,
+                    [21] = 0,
+                    [22] = 0,
+                    [23] = 0,
+                    [24] = 0,
+                    [25] = 0,
+                    [26] = 0,
+                    [27] = 0,
+                    [28] = 0,
+                    [29] = 0,
+                    [30] = 0,
+                }, -- end of ["modulations"]
+                ["channels"] =
+                {
+                    [1]  = radioPresets["##RADIO1_01##"],
+                    [2]  = radioPresets["##RADIO1_02##"],
+                    [3]  = radioPresets["##RADIO1_03##"],
+                    [4]  = radioPresets["##RADIO1_04##"],
+                    [5]  = radioPresets["##RADIO1_05##"],
+                    [6]  = radioPresets["##RADIO1_06##"],
+                    [7]  = radioPresets["##RADIO1_07##"],
+                    [8]  = radioPresets["##RADIO1_08##"],
+                    [9]  = radioPresets["##RADIO1_09##"],
+                    [10] = radioPresets["##RADIO1_10##"],
+                    [11] = radioPresets["##RADIO1_11##"],
+                    [12] = radioPresets["##RADIO1_12##"],
+                    [13] = radioPresets["##RADIO1_13##"],
+                    [14] = radioPresets["##RADIO1_14##"],
+                    [15] = radioPresets["##RADIO1_15##"],
+                    [16] = radioPresets["##RADIO1_16##"],
+                    [17] = radioPresets["##RADIO1_17##"],
+                    [18] = radioPresets["##RADIO1_18##"],
+                    [19] = radioPresets["##RADIO1_19##"],
+                    [20] = radioPresets["##RADIO1_20##"],
+                    [21] = 0,
+                    [22] = 0,
+                    [23] = 0,
+                    [24] = 0,
+                    [25] = 0,
+                    [26] = 0,
+                    [27] = 0,
+                    [28] = 0,
+                    [29] = 0,
+                    [30] = 0,
+                }, -- end of ["channels"]
+            }, -- end of [1]
+        }, -- end of ["Radio"]
+    },
+    
     ["blue F/A-18C"] =
     {
         type = "FA-18C_hornet",
