@@ -3,7 +3,8 @@
   "moments": [
     {
       "night" : 7200,
-      "dawn" : 23400,
+      "dawn" : 19800,
+      "morning" : 23400,
       "day" : 54000,
       "evening" : 68400
     }
@@ -12,110 +13,122 @@
     {
       "version": "night-real",
       "realweather": true,
-      "time": 7200,
       "moment": "night"
+    },
+    {
+      "version": "beforedawn-scattered",
+      "weatherfile": "scattered-1.lua",
+      "time": 16200
     },
     {
       "version": "dawn-real",
       "realweather": true,
-      "time": 23400,
       "moment": "dawn"
     },
     {
       "version": "dawn-scattered",
       "weatherfile": "scattered-1.lua",
-      "time": 23400,
       "moment": "dawn"
     },
     {
       "version": "dawn-broken",
       "weatherfile": "broken-1.lua",
-      "time": 23400,
       "moment": "dawn"
     },
     {
       "version": "dawn-overcast",
       "weatherfile": "overcast-1.lua",
-      "time": 23400,
       "moment": "dawn"
     },
     {
       "version": "dawn-overcast-rain",
       "weatherfile": "overcast-rain-1.lua",
-      "time": 23400,
       "moment": "dawn"
+    },
+    {
+      "version": "morning-real",
+      "realweather": true,
+      "moment": "morning"
+    },
+    {
+      "version": "morning-scattered",
+      "weatherfile": "scattered-1.lua",
+      "moment": "morning"
+    },
+    {
+      "version": "morning-broken",
+      "weatherfile": "broken-1.lua",
+      "moment": "morning"
+    },
+    {
+      "version": "morning-overcast",
+      "weatherfile": "overcast-1.lua",
+      "moment": "morning"
+    },
+    {
+      "version": "morning-overcast-rain",
+      "weatherfile": "overcast-rain-1.lua",
+      "moment": "morning"
     },
     {
       "version": "dawn-crosswind-vaziani",
       "weather": "UG27 221130Z 04515KT CAVOK Q1020 NOSIG",
-      "time": 23400,
       "moment": "dawn"
     },
     {
       "version": "dawn-crosswind-rain-vaziani",
       "weather": "UG27 221130Z 04515KT +SHRA BKN008 OVC024 Q1006 NOSIG",
-      "time": 23400,
       "moment": "dawn"
     },
 	  {
       "version": "day-real",
       "realweather": true,
-      "time": 54000,
       "moment": "day"
     },
     {
       "version": "day-scattered",
       "weatherfile": "scattered-1.lua",
-      "time": 54000,
       "moment": "day"
     },
     {
       "version": "day-broken",
       "weatherfile": "broken-1.lua",
-      "time": 54000,
       "moment": "day"
     },
     {
       "version": "day-overcast",
       "weatherfile": "overcast-1.lua",
-      "time": 54000,
       "moment": "day"
     },
     {
       "version": "day-overcast-rain",
       "weatherfile": "overcast-rain-1.lua",
-      "time": 54000,
       "moment": "day"
     },
 
     {
       "version": "evening-real",
       "realweather": true,
-      "time": 68400,
       "moment": "evening"
     },
     {
       "version": "evening-scattered",
       "weatherfile": "scattered-1.lua",
-      "time": 68400,
       "moment": "evening"
     },
     {
       "version": "evening-broken",
       "weatherfile": "broken-1.lua",
-      "time": 68400,
       "moment": "evening"
     },
     {
       "version": "evening-overcast",
       "weatherfile": "overcast-1.lua",
-      "time": 68400,
       "moment": "evening"
     },
     {
       "version": "evening-overcast-rain",
       "weatherfile": "overcast-rain-1.lua",
-      "time": 68400,
       "moment": "evening"
     }
   ]
