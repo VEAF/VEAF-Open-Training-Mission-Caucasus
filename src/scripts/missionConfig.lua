@@ -399,6 +399,7 @@ if veafCombatZone then
 			:setMissionEditorZoneName("combatZone_rangeKobuletiEasy")
 			:setFriendlyName("Training at Kobuleti RANGE")
 			:setBriefing("The Kobuleti RANGE (located 6 nm south-west of Kobuleti airbase) is set-up for training")
+            :setTraining(true)
 	)
 
 	veafCombatZone.AddZone(
@@ -436,7 +437,6 @@ if veafCombatZone then
 			:setFriendlyName("Maykop airbase defenses")
 			:setBriefing("The Maykop airbase is defended by a SA10 battalion, point-defense SHORAD and AAA, and armored vehicles\n" ..
                         "You must incapacitate the defenses in order to prepare a land invasion")
-            :setTraining(true)
 	)
 
     veaf.logInfo("init - veafCombatZone")
