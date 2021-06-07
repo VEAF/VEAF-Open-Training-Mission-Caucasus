@@ -17,7 +17,6 @@ mapResource = {
     ["ResKey_Action_5281"] = "veafInterpreter.lua",
     ["ResKey_Action_5283"] = "veafCombatZone.lua",
     ["ResKey_Action_5285"] = "veafCombatMission.lua",
-    ["ResKey_Action_5605"] = "Moose.lua",
     ["ResKey_Action_5606"] = "CTLD.lua",
     ["ResKey_Action_5607"] = "WeatherMark.lua",
     ["ResKey_Action_5608"] = "veaf.lua",
