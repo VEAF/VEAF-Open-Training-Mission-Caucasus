@@ -17,7 +17,7 @@ mapResource = {
     ["ResKey_Action_5281"] = "veafInterpreter.lua",
     ["ResKey_Action_5283"] = "veafCombatZone.lua",
     ["ResKey_Action_5285"] = "veafCombatMission.lua",
-    ["ResKey_Action_5606"] = "CTLD.lua",
+    ["ResKey_Action_5606"] = "DCS-SimpleTextToSpeech.lua",
     ["ResKey_Action_5607"] = "WeatherMark.lua",
     ["ResKey_Action_5608"] = "veaf.lua",
     ["ResKey_Action_5709"] = "veafCarrierOperations.lua",
@@ -29,6 +29,7 @@ mapResource = {
     ["ResKey_Action_7825"] = "Hercules_Cargo.lua",
     ["ResKey_Action_7826"] = "veafSkynetIadsHelper.lua",
     ["ResKey_Action_8117"] = "veafSanctuary.lua",
+    ["ResKey_Action_8397"] = "CTLD.lua",
     ["ResKey_ImageBriefing_8268"] = "zones.png",
     ["ResKey_ImageBriefing_8269"] = "zones.png",
 } -- end of mapResource
