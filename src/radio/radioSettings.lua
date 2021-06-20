@@ -824,6 +824,56 @@ radioSettings =
         }, -- end of ["Radio"]
     },
 
+    ["blue Mi-24P"] =
+    {
+        type = "Mi-24P",
+        coalition = "blue",
+        country = nil,
+        ["Radio"] = {
+            [1] = {
+                ["channels"] = {
+                    [1]  = radioPresets["##RADIO1_01##"],
+                    [2]  = radioPresets["##RADIO1_02##"],
+                    [3]  = radioPresets["##RADIO1_03##"],
+                    [4]  = radioPresets["##RADIO1_04##"],
+                    [5]  = radioPresets["##RADIO1_05##"],
+                    [6]  = radioPresets["##RADIO1_06##"],
+                    [7]  = radioPresets["##RADIO1_07##"],
+                    [8]  = radioPresets["##RADIO1_08##"],
+                    [9]  = radioPresets["##RADIO1_09##"],
+                    [10] = radioPresets["##RADIO1_10##"],
+                    [11] = radioPresets["##RADIO1_11##"],
+                    [12] = radioPresets["##RADIO1_12##"],
+                    [13] = radioPresets["##RADIO1_13##"],
+                    [14] = radioPresets["##RADIO1_14##"],
+                    [15] = radioPresets["##RADIO1_15##"],
+                    [16] = radioPresets["##RADIO1_16##"],
+                    [17] = radioPresets["##RADIO1_17##"],
+                    [18] = radioPresets["##RADIO1_18##"],
+                    [19] = radioPresets["##RADIO1_19##"],
+                    [20] = radioPresets["##RADIO1_20##"],
+                }, -- end of ["channels"]
+                ["modulations"] = {
+                }, -- end of ["modulations"]
+            }, -- end of [1]
+            [2] = {
+                ["channels"] = {
+                    [1] = 21.5,
+                    [2] = 25.7,
+                    [3] = 27,
+                    [4] = 28,
+                    [5] = 30,
+                    [6] = 32,
+                    [7] = 40,
+                    [8] = 50,
+                    [9] = 55.5,
+                    [10] = 59.9,
+                }, -- end of ["channels"]
+                ["modulations"] = {
+                }, -- end of ["modulations"]
+            }, -- end of [2]
+        }, -- end of ["Radio"]
+    },
     ["blue L-39C"] =
     {
         type = "L-39C",
