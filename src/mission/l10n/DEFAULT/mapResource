@@ -30,6 +30,8 @@ mapResource = {
     ["ResKey_Action_7826"] = "veafSkynetIadsHelper.lua",
     ["ResKey_Action_8117"] = "veafSanctuary.lua",
     ["ResKey_Action_8397"] = "CTLD.lua",
+    ["ResKey_Action_8399"] = "HoundElint.lua",
+    ["ResKey_Action_8400"] = "veafHoundElintHelper.lua",
     ["ResKey_ImageBriefing_8268"] = "zones.png",
     ["ResKey_ImageBriefing_8269"] = "zones.png",
 } -- end of mapResource

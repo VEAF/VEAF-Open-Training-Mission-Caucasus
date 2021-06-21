@@ -336,11 +336,55 @@ Destroy them all in less than 10 minutes !]])
 			:setMessage("%d bombers destroyed or routed !")
 			:configureAsKillEnemiesObjective(-1, 50)
 		)
+        :setSecured(true)
 		:initialize()
 	)
 
-	veaf.logInfo("init - veafCombatMission")
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setName("ELINT-Mission-West")
+		:setFriendlyName("ELINT gathering over the West zone")
+		:setBriefing([[
+ATIS on 282.125, SAM CONTROL on 282.225
+A C-130 pair will fly reciprocical headings, trying to pinpoint enemy SAMS.
+Don't let them be destroyed by the enemy !]])
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("ELINT-W")
+			:setGroups({
+				"ELINT-C-130-W-1",
+				"ELINT-C-130-W-2"
+            })
+			:setSkill("Good")
+		)
+        :setSecured(true)
+		:initialize()
+	)
+
+    veafCombatMission.AddMission(
+		VeafCombatMission.new()
+		:setName("ELINT-Mission-East")
+		:setFriendlyName("ELINT gathering over the East zone")
+		:setBriefing([[
+ATIS on 282.125, SAM CONTROL on 282.225
+A C-130 pair will fly reciprocical headings, trying to pinpoint enemy SAMS.
+Don't let them be destroyed by the enemy !]])
+		:addElement(
+			VeafCombatMissionElement.new()
+			:setName("ELINT-E")
+			:setGroups({
+				"ELINT-C-130-E-1",
+				"ELINT-C-130-E-2"
+            })
+			:setSkill("Good")
+		)
+        :setSecured(true)
+		:initialize()
+	)
+
+    veaf.logInfo("init - veafCombatMission")
     veafCombatMission.initialize()
+
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -649,5 +693,39 @@ if veafSanctuary then
     veafSanctuary.initialize()
 end
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- initialize Hound Elint
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+if veafHoundElint then
+    veaf.logInfo("init - veafHoundElint")
+    veafHoundElint.initialize(
+        "ELINT", -- prefix
+        { -- red
+            admin = false,
+            markers = true,
+            atis = false,
+            controller = false
+        },
+        { -- blue
+            admin = false,
+            markers = true,
+            atis = {
+                freq = 282.125,
+                interval = 15,
+                speed = 1,
+                reportEWR = false
+            },
+            controller = {
+                freq = 282.225,
+                voice = true
+            }
+        }
+    )
+end
+
 -- automatically activate the Maykop Defenses zone
 veafCombatZone.ActivateZone("combatZone_MaykopDefenses", true)
+
+-- automatically start the two ELINT missions
+veafCombatMission.ActivateMission("ELINT-Mission-East", true)
+veafCombatMission.ActivateMission("ELINT-Mission-West", true)
