@@ -635,11 +635,13 @@ if ctld then
         "logistic #020",
     }
 
-    -- automatically add all the human-manned transport helicopters to ctld.transportPilotNames
-    veafTransportMission.initializeAllHelosInCTLD()
+    if veafTransportMission then
+        -- automatically add all the human-manned transport helicopters to ctld.transportPilotNames
+        veafTransportMission.initializeAllHelosInCTLD()
 
-    -- automatically add all the carriers and FARPs to ctld.logisticUnits
-    veafTransportMission.initializeAllLogisticInCTLD()
+        -- automatically add all the carriers and FARPs to ctld.logisticUnits
+        veafTransportMission.initializeAllLogisticInCTLD()
+    end
     
     veaf.logInfo("init - ctld")
     ctld.initialize()
@@ -652,7 +654,6 @@ if veafRemote then
     veaf.logInfo("init - veafRemote")
     veafRemote.initialize()
 end
-
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize the interpreter
