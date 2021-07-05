@@ -148,7 +148,7 @@ powershell -File replace.ps1 .\build\tempscripts\veaf\veaf.lua "veaf.SecurityDis
 if %VERBOSE_LOG_FLAG%==false (
 	rem -- comment all the trace and debug code
 	echo comment all the trace and debug code
-	FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -File replace.ps1 %%f "(^\s*)(veaf.*\.[^\(^\s]*log(Trace|Debug|Marker))" "$1--$2" >nul 2>&1
+	FOR %%f IN (.\build\tempscripts\veaf\*.lua) DO powershell -File replace.ps1 %%f "(^\s*)(.*veaf\.loggers.get\(.*\):(trace|debug|marker|cleanupMarkers))" "$1--$2" >nul 2>&1
 )
 
 echo building the mission

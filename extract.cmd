@@ -52,7 +52,8 @@ set MISSION_PATH=%cd%\src\mission
 
 rem -- set the loading to static in the mission file
 echo set the loading to static in the mission file
-powershell -Command "(gc '%MISSION_PATH%\l10n\Default\dictionary') -replace 'return(\s*[^\s]+\s*)-- set to true for dynamic loading', 'return false -- set to true for dynamic loading' | sc '%MISSION_PATH%\l10n\Default\dictionary'"
+powershell -Command "(gc '%MISSION_PATH%\l10n\Default\dictionary') -replace 'return(\s*[^\s]+\s*)-- scripts', 'return false -- scripts' | sc '%MISSION_PATH%\l10n\Default\dictionary'"
+powershell -Command "(gc '%MISSION_PATH%\l10n\Default\dictionary') -replace 'return(\s*[^\s]+\s*)-- config', 'return false -- config' | sc '%MISSION_PATH%\l10n\Default\dictionary'"
 
 rem removing unwanted elements
 echo removing unwanted elements

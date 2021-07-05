@@ -18,17 +18,19 @@ if veaf then
     VeafQRA.new()
     :setName("QRA_Minevody")
     :addGroup("QRA_Minevody")
-    :setRadius(30000)
+    :setRadius(106680) -- 350,000 feet
     :setCoalition(coalition.side.RED)
     :addEnnemyCoalition(coalition.side.BLUE)
+    :setReactOnHelicopters()
     :start()
 
     VeafQRA.new()
     :setName("QRA_Krasnodar")
     :addGroup("QRA_Krasnodar")
-    :setRadius(30000)
+    :setRadius(106680) -- 350,000 feet
     :setCoalition(coalition.side.RED)
     :addEnnemyCoalition(coalition.side.BLUE)
+    :setReactOnHelicopters()
     :start()
 end
 
@@ -36,7 +38,7 @@ end
 -- initialize all the scripts
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafRadio then
-    veaf.logInfo("init - veafRadio")
+    veaf.loggers.get(veaf.Id):info("init - veafRadio")
     veafRadio.initialize(true)
 
     if veafBeacons then
@@ -70,19 +72,19 @@ if veafRadio then
     end
 end
 if veafSpawn then
-    veaf.logInfo("init - veafSpawn")
+    veaf.loggers.get(veaf.Id):info("init - veafSpawn")
     veafSpawn.initialize()
 end
 if veafGrass then
-    veaf.logInfo("init - veafGrass")
+    veaf.loggers.get(veaf.Id):info("init - veafGrass")
     veafGrass.initialize()
 end
 if veafCasMission then
-    veaf.logInfo("init - veafCasMission")
+    veaf.loggers.get(veaf.Id):info("init - veafCasMission")
     veafCasMission.initialize()
 end
 if veafTransportMission then
-    veaf.logInfo("init - veafTransportMission")
+    veaf.loggers.get(veaf.Id):info("init - veafTransportMission")
     veafTransportMission.initialize()
 end
 
@@ -95,45 +97,8 @@ veaf.DEFAULT_GROUND_SPEED_KPH = 25
 -- initialize SHORTCUTS
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafShortcuts then
-    veaf.logInfo("init - veafShortcuts")
+    veaf.loggers.get(veaf.Id):info("init - veafShortcuts")
     veafShortcuts.initialize()
-
-    -- you can add all the shortcuts you want here. Shortcuts can be any VEAF command, as entered in a map marker.
-    -- here are some examples :
-
-    -- veafShortcuts.AddAlias(
-    --     VeafAlias.new()
-    --         :setName("-sa11")
-    --         :setDescription("SA-11 Gadfly (9K37 Buk) battery")
-    --         :setVeafCommand("_spawn group, name sa11")
-    --         :setBypassSecurity(true)
-    -- )
-
-    -- veafShortcuts.AddAlias(
-    --     VeafAlias.new()
-    --         :setName("-login")
-    --         :setDescription("Unlock the system")
-    --         :setHidden(true)
-    --         :setVeafCommand("_auth")
-    --         :setBypassSecurity(true)
-    -- )
-
-    -- veafShortcuts.AddAlias(
-    --     VeafAlias.new()
-    --         :setName("-logout")
-    --         :setDescription("Lock the system")
-    --         :setHidden(true)
-    --         :setVeafCommand("_auth logout")
-    --         :setBypassSecurity(true)
-    -- )
-
-    -- veafShortcuts.AddAlias(
-    --     VeafAlias.new()
-    --         :setName("-mortar")
-    --         :setDescription("Mortar team")
-    --         :setVeafCommand("_spawn group, name mortar, country USA")
-    --         :setBypassSecurity(true)
-    -- )
 end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -142,7 +107,7 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 if veafAssets then
-    veafAssets.logInfo("Loading configuration")
+    veaf.loggers.get(veaf.Id):info("Loading configuration")
     veafAssets.Assets = {
 		-- list the assets common to all missions below
 		{sort=1, name="CSG-01 Tarawa", description="Tarawa (LHA)", information="Tacan 11X TAA\nU226 (11)"},  
@@ -161,7 +126,7 @@ if veafAssets then
 		{sort=11, name="A2-Overlordsky", description="Overlordsky (A-50, RED)", information="V112.12"},  
     }
 
-    veaf.logInfo("init - veafAssets")
+    veaf.loggers.get(veaf.Id):info("init - veafAssets")
     veafAssets.initialize()
 end
 
@@ -169,9 +134,9 @@ end
 -- configure MOVE
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafMove then
-    veafMove.logInfo("Setting move tanker radio menus")
+    veaf.loggers.get(veaf.Id):info("Setting move tanker radio menus")
     -- keeping the veafMove.Tankers table empty will force veafMove.initialize() to browse the units, and find the tankers
-    veaf.logInfo("init - veafMove")
+    veaf.loggers.get(veaf.Id):info("init - veafMove")
     veafMove.initialize()
 end
 
@@ -180,7 +145,7 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 if veafCombatMission then 
-	veafCombatMission.logInfo("Loading configuration")
+    veaf.loggers.get(veaf.Id):info("Loading configuration")
     
     veafCombatMission.addCapMission("CAP-Maykop-1", "CAP on Maykop", "A Russian CAP patrol has been spotted over Maykop.", true, true)
     veafCombatMission.addCapMission("CAP-Mozdok-1", "CAP on Mozdok", "A Russian CAP patrol has been spotted over Mozdok.", true, true)
@@ -382,7 +347,7 @@ Don't let them be destroyed by the enemy !]])
 		:initialize()
 	)
 
-    veaf.logInfo("init - veafCombatMission")
+    veaf.loggers.get(veaf.Id):info("init - veafCombatMission")
     veafCombatMission.initialize()
 
 end
@@ -391,7 +356,7 @@ end
 -- configure COMBAT ZONE
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafCombatZone then 
-	veafCombatZone.logInfo("Loading configuration")
+    veaf.loggers.get(veaf.Id):info("Loading configuration")
 
 	veafCombatZone.AddZone(
 		VeafCombatZone.new()
@@ -468,7 +433,7 @@ if veafCombatZone then
                         "You must incapacitate the defenses in order to prepare a land invasion")
 	)
 
-    veaf.logInfo("init - veafCombatZone")
+    veaf.loggers.get(veaf.Id):info("init - veafCombatZone")
     veafCombatZone.initialize()
 
 end
@@ -477,7 +442,7 @@ end
 -- configure WW2 settings based on loaded theatre
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 local theatre = string.lower(env.mission.theatre)
-veafNamedPoints.logInfo(string.format("theatre is %s", theatre))
+veaf.loggers.get(veaf.Id):info(string.format("theatre is %s", theatre))
 veaf.config.ww2 = false
 if theatre == "thechannel" then
     veaf.config.ww2 = true
@@ -518,9 +483,9 @@ if veafNamedPoints then
 		{name="RANGE Kobuleti",point={x=-328289,y=0,z=631228}},
 	}
 
-    veafNamedPoints.logInfo("Loading configuration")
+    veaf.loggers.get(veaf.Id):info("Loading configuration")
 
-    veafNamedPoints.logInfo("init - veafNamedPoints")
+    veaf.loggers.get(veaf.Id):info("init - veafNamedPoints")
     veafNamedPoints.initialize()
     if theatre == "syria" then
         veafNamedPoints.addAllSyriaCities()
@@ -530,8 +495,10 @@ if veafNamedPoints then
         veafNamedPoints.addAllPersianGulfCities()
     elseif theatre == "thechannel" then
         veafNamedPoints.addAllTheChannelCities()
+    elseif theatre == "marianaislands" then
+        veafNamedPoints.addAllMarianasIslandsCities()
     else
-        veafNamedPoints.logWarning(string.format("theatre %s is not yet supported by veafNamedPoints", theatre))
+        veaf.loggers.get(veaf.Id):warn(string.format("theatre %s is not yet supported by veafNamedPoints", theatre))
     end
 end
 
@@ -540,8 +507,8 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafSecurity then
     veafSecurity.password_L9["6ade6629f9219d87a011e7b8fbf8ef9584f2786d"] = true -- set the L9 password (the lowest possible security)
-    veafSecurity.logInfo("Loading configuration")
-    veaf.logInfo("init - veafSecurity")
+    veaf.loggers.get(veaf.Id):info("Loading configuration")
+    veaf.loggers.get(veaf.Id):info("init - veafSecurity")
     veafSecurity.initialize()
 
     -- force security in order to test it when dynamic loading is in place (change to TRUE)
@@ -555,8 +522,7 @@ end
 -- configure CARRIER OPERATIONS 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafCarrierOperations then
-    veaf.logInfo("init - veafCarrierOperations")
-        -- the carriers will be automatically found
+    veaf.loggers.get(veaf.Id):info("init - veafCarrierOperations")
     veafCarrierOperations.initialize(true)
 end
 
@@ -596,15 +562,15 @@ if ctld then
     ctld.transportPilotNames = {}
 
     for i = 1, 24 do
-        table.insert(ctld.transportPilotNames, "yak"..i)
+        table.insert(ctld.transportPilotNames, string.format("yak #%03d",i))
     end
 
     for i = 1, 10 do
-        table.insert(ctld.transportPilotNames, "transport"..i)
+        table.insert(ctld.transportPilotNames, string.format("transport #%03d",i))
     end
 
     for i = 1, 79 do
-        table.insert(ctld.transportPilotNames, "helicargo"..i)
+        table.insert(ctld.transportPilotNames, string.format("helicargo #%03d",i))
     end
 
     -- ************** Logistics UNITS FOR CRATE SPAWNING ******************
@@ -636,6 +602,7 @@ if ctld then
     }
 
     if veafTransportMission then
+
         -- automatically add all the human-manned transport helicopters to ctld.transportPilotNames
         veafTransportMission.initializeAllHelosInCTLD()
 
@@ -643,7 +610,7 @@ if ctld then
         veafTransportMission.initializeAllLogisticInCTLD()
     end
     
-    veaf.logInfo("init - ctld")
+    veaf.loggers.get(veaf.Id):info("init - ctld")
     ctld.initialize()
 end
 
@@ -651,7 +618,7 @@ end
 -- initialize the remote interface
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafRemote then
-    veaf.logInfo("init - veafRemote")
+    veaf.loggers.get(veaf.Id):info("init - veafRemote")
     veafRemote.initialize()
 end
 
@@ -659,7 +626,7 @@ end
 -- initialize the interpreter
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafInterpreter then
-    veaf.logInfo("init - veafInterpreter")
+    veaf.loggers.get(veaf.Id):info("init - veafInterpreter")
     veafInterpreter.initialize()
 end
 
@@ -667,7 +634,7 @@ end
 -- initialize Skynet-IADS
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafSkynet then
-    veaf.logInfo("init - veafSkynet")
+    veaf.loggers.get(veaf.Id):info("init - veafSkynet")
     veafSkynet.initialize(
         false, --includeRedInRadio=true
         false, --debugRed
@@ -680,6 +647,7 @@ end
 -- initialize veafSanctuary
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafSanctuary then
+    veaf.loggers.get(veaf.Id):info("init - veafSanctuary")
     veafSanctuary.addZone(
         VeafSanctuaryZone.new()
         :setName("Blue Sanctuary")
@@ -698,7 +666,7 @@ end
 -- initialize Hound Elint
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafHoundElint then
-    veaf.logInfo("init - veafHoundElint")
+    veaf.loggers.get(veaf.Id):info("init - veafHoundElint")
     veafHoundElint.initialize(
         "ELINT", -- prefix
         { -- red
