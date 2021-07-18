@@ -90,6 +90,16 @@ set NPM_UPDATE=true
 echo current value is "%DYNAMIC_SCRIPTS_PATH%"
 
 echo ----------------------------------------
+echo DYNAMIC_LOAD_SCRIPTS if set to "true", will create a mission with all the scripts loaded dynamically by default
+echo defaults to "false"
+IF [%DYNAMIC_LOAD_SCRIPTS%] == [] GOTO DefineDefaultDYNAMIC_LOAD_SCRIPTS
+goto DontDefineDefaultDYNAMIC_LOAD_SCRIPTS
+:DefineDefaultDYNAMIC_LOAD_SCRIPTS
+set DYNAMIC_LOAD_SCRIPTS=false
+:DontDefineDefaultDYNAMIC_LOAD_SCRIPTS
+echo current value is "%DYNAMIC_LOAD_SCRIPTS%"
+
+echo ----------------------------------------
 echo MISSION_FILE_SUFFIX1 (a string) will be appended to the mission file name to make it more unique
 echo defaults to empty
 IF [%MISSION_FILE_SUFFIX1%] == [] GOTO DefineDefaultMISSION_FILE_SUFFIX1
@@ -163,10 +173,38 @@ pushd %DYNAMIC_SCRIPTS_PATH%\src\scripts\veaf
 "%LUA%" veafMissionRadioPresetsEditor.lua  %DYNAMIC_MISSION_PATH%\build\tempsrc %DYNAMIC_MISSION_PATH%\src\radio\radioSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
 popd
 
+rem -- set the waypoints according to the settings file
+if exist %DYNAMIC_MISSION_PATH%\src\waypoints\waypointsSettings.lua (
+	echo set the waypoints according to the settings file
+	pushd %DYNAMIC_SCRIPTS_PATH%\src\scripts\veaf
+	"%LUA%" veafMissionFlightPlanEditor.lua  %DYNAMIC_MISSION_PATH%\build\tempsrc %DYNAMIC_MISSION_PATH%\src\waypoints\waypointsSettings.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
+	popd
+)
+
+rem -- set the spawnable aircrafts according to the settings file
+if exist %DYNAMIC_MISSION_PATH%\src\spawnableAircrafts\settings.lua (
+	echo set the spawnable aircrafts according to the settings file
+	pushd %DYNAMIC_SCRIPTS_PATH%\src\scripts\veaf
+	"%LUA%" veafSpawnableAircraftsEditor.lua  %DYNAMIC_MISSION_PATH%\build\tempsrc %DYNAMIC_MISSION_PATH%\src\spawnableAircrafts\settings.lua %LUA_SCRIPTS_DEBUG_PARAMETER%
+	popd
+)
+
 rem -- set the dynamic load variables in the dictionary
 echo set the dynamic load variables in the dictionary
 powershell -Command "$temp='VEAF_DYNAMIC_PATH = [[' + [regex]::escape('%DYNAMIC_SCRIPTS_PATH%') + ']]'; (gc .\build\tempsrc\mission) -replace 'VEAF_DYNAMIC_PATH(\s*)=(\s*)\[\[.*\]\]', $temp | sc .\build\tempsrc\mission" >nul 2>&1
 powershell -Command "$temp='VEAF_DYNAMIC_MISSIONPATH = [[' + [regex]::escape('%DYNAMIC_MISSION_PATH%') + ']]'; (gc .\build\tempsrc\mission) -replace 'VEAF_DYNAMIC_MISSIONPATH(\s*)=(\s*)\[\[.*\]\]', $temp | sc .\build\tempsrc\mission" >nul 2>&1
+
+if %DYNAMIC_LOAD_SCRIPTS%==true (
+	rem -- set the loading to dynamic in the mission file
+	echo set the loading to dynamic in the mission file
+	powershell -Command "(gc '.\build\tempsrc\l10n\Default\dictionary') -replace 'return(\s*[^\s]+\s*)-- scripts', 'return true -- scripts' | sc '.\build\tempsrc\l10n\Default\dictionary'"
+	powershell -Command "(gc '.\build\tempsrc\l10n\Default\dictionary') -replace 'return(\s*[^\s]+\s*)-- config', 'return true -- config' | sc '.\build\tempsrc\l10n\Default\dictionary'"
+) else (
+	rem -- set the loading to static in the mission file
+	echo set the loading to static in the mission file
+	powershell -Command "(gc '.\build\tempsrc\l10n\Default\dictionary') -replace 'return(\s*[^\s]+\s*)-- scripts', 'return false -- scripts' | sc '.\build\tempsrc\l10n\Default\dictionary'"
+	powershell -Command "(gc '.\build\tempsrc\l10n\Default\dictionary') -replace 'return(\s*[^\s]+\s*)-- config', 'return false -- config' | sc '.\build\tempsrc\l10n\Default\dictionary'"
+)
 
 rem -- disable the C130 module requirement
 powershell -File replace.ps1 .\build\tempsrc\mission "\[\"Hercules\"\] = \"Hercules\"," " " >nul 2>&1

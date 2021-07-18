@@ -147,19 +147,6 @@ end
 if veafCombatMission then 
     veaf.loggers.get(veaf.Id):info("Loading configuration")
     
-    veafCombatMission.addCapMission("CAP-Maykop-1", "CAP on Maykop", "A Russian CAP patrol has been spotted over Maykop.", true, true)
-    veafCombatMission.addCapMission("CAP-Mozdok-1", "CAP on Mozdok", "A Russian CAP patrol has been spotted over Mozdok.", true, true)
-    veafCombatMission.addCapMission("CAP-Mozdok-Mig21", "Mig21 on Mozdok", "A Russian Mig-21 patrol has been spotted over Mozdok.", true, true)
-    veafCombatMission.addCapMission("CAP-RaidSochi-1", "Raid on Sochi", "A Russian CAP patrol is going to Sochi.", true, true)
-    veafCombatMission.addCapMission("CAP-RaidSochi-Mig21", "Mig21 raid on Sochi", "A Russian Mig-21 patrol is going to Sochi.", true, true)
-    veafCombatMission.addCapMission("CAP-Krasnodar-Mig21", "Mig21 on Krasnodar", "A Russian Mig-21 patrol has been spotted over Krasnodar.", true, true)
-    veafCombatMission.addCapMission("CAP-RaidBatumi-Mig21", "Mig21 raid on Batumi", "A Russian Mig-21 patrol is going to Batumi.", true, true, {"Good", "Ace"}, {1, 2}, 75000)
-    veafCombatMission.addCapMission("CAP-RaidBatumi-Su33", "Su33 raid on Batumi", "A Russian Su33 patrol is going to Batumi.", true, true, {"Good", "Ace"}, {1, 2}, 75000)
-   
-    veafCombatMission.addCapMission("CAP-Krasnodar-1", "CAP on Krasnodar", "A Russian CAP patrol has been spotted over Krasnodar.", true, false)
-    veafCombatMission.addCapMission("CAP-GL-1", "CAP on grid GL", "A Russian CAP patrol has been spotted over grid GL.", true, false)
-    veafCombatMission.addCapMission("CAP-Minvody-1", "CAP on Minvody", "A Russian CAP patrol has been spotted over Minvody.", true, false)
-    veafCombatMission.addCapMission("CAP-RaidBeslan-1", "Raid on Beslan", "A Russian CAP patrol is going to Beslan.", true, false)
     veafCombatMission.addCapMission("training-radar-tu22-FL300", "Crimea - Tu22 FL300", "Russian TU-22 patrols at FL300 west of the Crimea peninsula", false, true)
     veafCombatMission.addCapMission("training-radar-bear-FL200", "Crimea - Bear FL200", "Russian TU-95 patrols at FL200 west of the Crimea peninsula ; ECM on", false, false)
     veafCombatMission.addCapMission("training-radar-mig23-FL300", "Crimea - Mig23 FL300", "Mig-23MLD on CAP (R-24R = Fox1 MR) at FL300 west of the Crimea peninsula", false, false)
@@ -167,12 +154,9 @@ if veafCombatMission then
     veafCombatMission.addCapMission("training-radar-mig31-FL300", "Crimea - Mig31 FL300", "Mig-31 on CAP (R-33 = Fox 3 LR) at FL300 west of the Crimea peninsula", false, false)
     veafCombatMission.addCapMission("training-radar-mig23-FL300-notch", "Crimea - Mig23 notching", "Mig-23MLD on CAP (R-24R = Fox1 MR) notching W-E at FL300 west of the Crimea peninsula", false, false)
     
-    veafCombatMission.addCapMission("SCRAMBLE-Minvody-FOX1-1", "Scramble Minvody FOX1 CAP !", "A Russian CAP patrol is taking off at Minvody.", true, false, {"Random", "Good", "Excellent"}, {1, 2, 3})
-    veafCombatMission.addCapMission("SCRAMBLE-Minvody-FOX3-1", "Scramble Minvody FOX3 CAP !", "A Russian CAP patrol is taking off at Minvody.", true, false, {"Random", "Good", "Excellent"}, {1, 2, 3})
-    
     veafCombatMission.AddMissionsWithSkillAndScale(
 		VeafCombatMission.new()
-		:setSecured(false)
+		:setSecured(true)
 		:setRadioMenuEnabled(true)
 		:setName("Intercept-Kraznodar-1")
 		:setFriendlyName("Intercept a transport / KRAZNODAR - MINVODY")
@@ -206,7 +190,7 @@ It is escorted by a fighter patrol.
     veafCombatMission.AddMission(
 		VeafCombatMission.new()
         :setSecured(true)
-        :setRadioMenuEnabled(false)
+        :setRadioMenuEnabled(true)
 		:setName("Red-attack-Gudauta")
 		:setFriendlyName("Red attack On Gudauta")
 		:setBriefing([[
@@ -301,7 +285,7 @@ Destroy them all in less than 10 minutes !]])
 			:setMessage("%d bombers destroyed or routed !")
 			:configureAsKillEnemiesObjective(-1, 50)
 		)
-        :setSecured(true)
+        :setSecured(false)
 		:initialize()
 	)
 
