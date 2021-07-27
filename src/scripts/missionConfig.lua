@@ -682,3 +682,136 @@ veafCombatZone.ActivateZone("combatZone_MaykopDefenses", true)
 -- automatically start the two ELINT missions
 veafCombatMission.ActivateMission("ELINT-Mission-East", true)
 veafCombatMission.ActivateMission("ELINT-Mission-West", true)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Mission C002 - Neutralisation des lacs de Tkibuli - https://github.com/VEAF/VEAF-Open-Training-Mission/wiki/Mission-C002
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+veafShortcuts.AddAlias(
+    VeafAlias:new()
+        :setName("-c002-1")
+        :setDescription("Mission C002 - 1 - before mission start")
+        :setBatchAliases({
+            "-shell#U38TLM3120086100",
+            "-shell#U38TLM3155087960",
+            "-point#U38TLM3167086723 C503-1",
+        })
+)
+
+veafShortcuts.AddAlias(
+    VeafAlias:new()
+        :setName("-c002-2")
+        :setDescription("Mission C002 - 2 - before takeoff")
+        :setBatchAliases({
+            "-transport#U38TLM3167086723, side red, size 5, defense 1, dest haristvala, patrol, spacing 0.5",
+            "-transport#U38TLM3894597626, side red, size 7, defense 0, dest C503-1, patrol, spacing 0.5",
+            "-infantry#U38TLM3129085430, side red, size 10, defense 0, spacing 0.5",
+            "-zu23#U38TLM3314088860, side red, radius 1000",
+            "-transport#U38TLM3342089320, side red, size 10, defense 0, spacing 0.5",
+        })
+)
+
+veafShortcuts.AddAlias(
+    VeafAlias:new()
+        :setName("-c002-3")
+        :setDescription("Mission C002 - 3 - optional (more defenses)")
+        :setBatchAliases({
+            "-zu23#U38TLM3314088860, side red, radius 1000",
+            "-zu23#U38TLM3314088860, side red, radius 1000",
+            "-infantry#U38TLM3129085430, side red, size 10, defense 4, spacing 0.5",
+        })
+)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Mission C003 - Frappe d'une usine en profondeur - https://github.com/VEAF/VEAF-Open-Training-Mission/wiki/Mission-C003
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+veafShortcuts.AddAlias(
+    VeafAlias:new()
+        :setName("-c003")
+        :setDescription("Mission C003 - before takeoff")
+        :setBatchAliases({
+            "-sa8#U37TGJ3229065410!2400, radius 1500",
+            "-sa13#U37TGJ3229065410!2400, radius 1500",
+            "-sa6#U37TGJ3263068240!2400",
+            "-sa13#U37TGJ3263068240!2400, radius 2000",
+            "-sa6#U37TGJ1513065710!2400",
+            "-sa8#U37TGJ3200067600!2400",
+            "-sa8#U37TGJ3405061500!2400 ",
+        })
+)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Mission C004 - Strike sur ponts et FOB - https://github.com/VEAF/VEAF-Open-Training-Mission/wiki/Mission-C004
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+veafShortcuts.AddAlias(
+    VeafAlias:new()
+        :setName("-c004")
+        :setDescription("Mission C004 - before mission start")
+        :setBatchAliases({
+            "-infantry#U38TMN2703021480, side red, size 10, defense 2, spacing 0.5, armor 1",
+            "-infantry#U38TMN2529820390, side red, size 10, defense 2, spacing 0.5, armor 1",
+            "-armor#U38TMN1520028060, side red, size 5, defense 5",
+            "-transport#U38TMN1512028000, side red, size 5, defense 0, spacing 0.5",
+            "-transport#U38TMN1845038290, side red, defense 4",
+            "-transport#U38TMN2703021480, side red, dest U38TMN1644527965, patrol, size 7, defense 2",
+            "-transport#U38TMN1845038290, side red, dest U38TMN2529820390, patrol, size 10, spacing 0.5",
+        })
+)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Mission C102 - Projection rapide de troupes - https://github.com/VEAF/VEAF-Open-Training-Mission/wiki/Mission-C102
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+veafShortcuts.AddAlias(
+    VeafAlias:new()
+        :setName("-c102")
+        :setDescription("Mission C102 - before mission start")
+        :setBatchAliases({
+            "-transport#U38TMN2898519805!1200, side red, size 10, defense 0, dest kvemosba, spacing 0.5",
+            "-armor#U38TMN2900019800!1200, side red, size 2, defense 0, dest kvemosba, spacing 0.5, armor 1",
+        })
+)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Mission C501 - EVASAN d'urgence - https://github.com/VEAF/VEAF-Open-Training-Mission/wiki/Mission-C501
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+veafShortcuts.AddAlias(
+    VeafAlias:new()
+        :setName("-c501")
+        :setDescription("Mission C501 - before takeoff")
+        :setBatchAliases({
+            "-longsmoke#U38TLM1300041700, repeat 10, color blue", -- 60 minutes of blue smoke
+            "-infantry#U38TLM1301041710, side blue, size 5",
+            "-convoy#U38TLM2040053930, side red, size 7, defense 2, dest kursairme",
+            "-convoy#U38TLM2738549911, side red, size 5, defense 1, dest kursairme",          
+        })
+)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Mission C502 - Escorter le convoi - https://github.com/VEAF/VEAF-Open-Training-Mission/wiki/Mission-C502
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+veafShortcuts.AddAlias(
+    VeafAlias:new()
+        :setName("-c502")
+        :setDescription("Mission C502 - before takeoff")
+        :setBatchAliases({
+            "-infantry#U37TEJ78702220, armor 0, defense 0, multiplier 3, side red",
+            "-infantry#U37TEJ81432718, defense 0, multiplier 3, side red",
+            "-infantry#U37TEJ84873017, defense 0, multiplier 3, side red",
+            "-infantry#U37TEJ87673163, defense 1, armor 2, multiplier 2, side red",
+            "-armor#U37TEJ90003260, defense 1, side red",
+            "-infantry#U37TEJ90003260, side red",
+            "-convoy#U37TEJ74911126, side blue, armor 0, defense 0, dest FARP KRASNAYA EJ93",
+        })
+)
+
+veafShortcuts.AddAlias(
+    VeafAlias:new()
+        :setName("-c502-help")
+        :setDescription("Mission C502 - smoke markers (if needed)")
+        :setBatchAliases({
+            "-smoke#U37TEJ78702220, color red",
+            "-smoke#U37TEJ81432718, color red",
+            "-smoke#U37TEJ84873017, color red",
+            "-smoke#U37TEJ87673163, color red",
+            "-smoke#U37TEJ90003260, color red",
+        })
+)
