@@ -2723,5 +2723,3080 @@ settings =
 
         }
     },
-}
+
+    ["US planes"] =
+    {
+        coalition = "blue",
+        country = "usa",
+        category = "plane",
+        groups = {
+            [1] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "Intercept",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 220.97222222222,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 524571.42857143,
+                            ["x"] = -297142.85714286,
+                            ["name"] = "veafSpawn-f14a-fox3",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 1,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "VF-154 Black Knights 101",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "F-14A-135-GR",
+                        ["unitId"] = 1,
+                        ["psi"] = 0,
+                        ["y"] = 524571.42857143,
+                        ["x"] = -297142.85714286,
+                        ["name"] = "veafSpawn-f14a-fox3-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM_54A_Mk47 L}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{AIM_54A_Mk47}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{AIM_54A_Mk47}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{AIM_54A_Mk47}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{AIM_54A_Mk47}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM_54A_Mk47 R}",
+                                }, -- end of [9]
+                                [10] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
+                                }, -- end of [10]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 7348,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 140,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "VF-154 Black Knights 101",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "F-14A-135-GR",
+                        ["unitId"] = 5,
+                        ["psi"] = 0,
+                        ["y"] = 524611.42857143,
+                        ["x"] = -297182.85714286,
+                        ["name"] = "veafSpawn-f14a-fox3-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM_54A_Mk47 L}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{AIM_54A_Mk47}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{AIM_54A_Mk47}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{AIM_54A_Mk47}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{AIM_54A_Mk47}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM_54A_Mk47 R}",
+                                }, -- end of [9]
+                                [10] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
+                                }, -- end of [10]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 7348,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 140,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "011",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 524571.42857143,
+                ["x"] = -297142.85714286,
+                ["name"] = "veafSpawn-f14a-fox3",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 124,
+            }, -- end of [1]
+            [2] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "Intercept",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 220.97222222222,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 523714.28571429,
+                            ["x"] = -285428.57142857,
+                            ["name"] = "veafSpawn-f14a-fox1",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 4,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "VF-154 Black Knights 101",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "F-14A-135-GR",
+                        ["unitId"] = 11,
+                        ["psi"] = 0,
+                        ["y"] = 523714.28571429,
+                        ["x"] = -285428.57142857,
+                        ["name"] = "veafSpawn-f14a-fox1-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM-7F}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7F}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7F}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7F}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7F}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM-7F}",
+                                }, -- end of [9]
+                                [10] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
+                                }, -- end of [10]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 7348,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 140,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "VF-154 Black Knights 101",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "F-14A-135-GR",
+                        ["unitId"] = 20,
+                        ["psi"] = 0,
+                        ["y"] = 523754.28571429,
+                        ["x"] = -285468.57142857,
+                        ["name"] = "veafSpawn-f14a-fox1-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM-7F}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7F}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7F}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7F}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7F}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM-7F}",
+                                }, -- end of [9]
+                                [10] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
+                                }, -- end of [10]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 7348,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 140,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "015",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 523714.28571429,
+                ["x"] = -285428.57142857,
+                ["name"] = "veafSpawn-f14a-fox1",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 124,
+            }, -- end of [2]
+            [3] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "Intercept",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 220.97222222222,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 523428.57142857,
+                            ["x"] = -308857.14285714,
+                            ["name"] = "veafSpawn-f14b-fox1",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 5,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "vf-102 diamondbacks",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "F-14B",
+                        ["unitId"] = 14,
+                        ["psi"] = 0,
+                        ["y"] = 523428.57142857,
+                        ["x"] = -308857.14285714,
+                        ["name"] = "veafSpawn-f14b-fox1-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM-7M}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7M}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7M}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7M}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7M}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM-7M}",
+                                }, -- end of [9]
+                                [10] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
+                                }, -- end of [10]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 7348,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 140,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "vf-102 diamondbacks",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "F-14B",
+                        ["unitId"] = 21,
+                        ["psi"] = 0,
+                        ["y"] = 523468.57142857,
+                        ["x"] = -308897.14285714,
+                        ["name"] = "veafSpawn-f14b-fox1-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM-7M}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7M}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7M}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7M}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{BELLY AIM-7M}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM-7M}",
+                                }, -- end of [9]
+                                [10] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
+                                }, -- end of [10]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 7348,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 140,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "016",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 523428.57142857,
+                ["x"] = -308857.14285714,
+                ["name"] = "veafSpawn-f14b-fox1",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 124,
+            }, -- end of [3]
+            [4] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "Intercept",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 220.97222222222,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 523428.57142857,
+                            ["x"] = -319714.28571429,
+                            ["name"] = "veafSpawn-f14b-fox3",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 6,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "vf-102 diamondbacks",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "F-14B",
+                        ["unitId"] = 22,
+                        ["psi"] = 0,
+                        ["y"] = 523428.57142857,
+                        ["x"] = -319714.28571429,
+                        ["name"] = "veafSpawn-f14b-fox3-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM-7MH}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{AIM_54C_Mk47}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{AIM_54C_Mk47}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{AIM_54C_Mk47}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{AIM_54C_Mk47}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM-7MH}",
+                                }, -- end of [9]
+                                [10] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
+                                }, -- end of [10]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 7348,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 140,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "vf-102 diamondbacks",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "F-14B",
+                        ["unitId"] = 24,
+                        ["psi"] = 0,
+                        ["y"] = 523468.57142857,
+                        ["x"] = -319754.28571429,
+                        ["name"] = "veafSpawn-f14b-fox3-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM-7MH}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{AIM_54C_Mk47}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{AIM_54C_Mk47}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{AIM_54C_Mk47}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{AIM_54C_Mk47}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{F14-300gal}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{SHOULDER AIM-7MH}",
+                                }, -- end of [9]
+                                [10] = 
+                                {
+                                    ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
+                                }, -- end of [10]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 7348,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 140,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "017",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 523428.57142857,
+                ["x"] = -319714.28571429,
+                ["name"] = "veafSpawn-f14b-fox3",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 124,
+            }, -- end of [4]
+            [5] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 220.97222222222,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["number"] = 1,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 2,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "EPLRS",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["groupId"] = 1,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 524000,
+                            ["x"] = -330571.42857143,
+                            ["name"] = "veafSpawn-f15-fox1",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 7,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "493rd Fighter SQN (LN)",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["type"] = "F-15C",
+                        ["unitId"] = 25,
+                        ["psi"] = 0,
+                        ["y"] = 524000,
+                        ["x"] = -330571.42857143,
+                        ["name"] = "veafSpawn-f15-fox1-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+                                }, -- end of [9]
+                                [10] = 
+                                {
+                                    ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
+                                }, -- end of [10]
+                                [11] = 
+                                {
+                                    ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+                                }, -- end of [11]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = "6103",
+                            ["flare"] = 60,
+                            ["chaff"] = 120,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "493rd Fighter SQN (LN)",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["type"] = "F-15C",
+                        ["unitId"] = 27,
+                        ["psi"] = 0,
+                        ["y"] = 524040,
+                        ["x"] = -330611.42857143,
+                        ["name"] = "veafSpawn-f15-fox1-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+                                }, -- end of [9]
+                                [10] = 
+                                {
+                                    ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
+                                }, -- end of [10]
+                                [11] = 
+                                {
+                                    ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+                                }, -- end of [11]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = "6103",
+                            ["flare"] = 60,
+                            ["chaff"] = 120,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "018",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 524000,
+                ["x"] = -330571.42857143,
+                ["name"] = "veafSpawn-f15-fox1",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 124,
+            }, -- end of [5]
+            [6] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 220.97222222222,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["number"] = 1,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 2,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "EPLRS",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["groupId"] = 2,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 524285.71428571,
+                            ["x"] = -338285.71428571,
+                            ["name"] = "veafSpawn-f15-fox3",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 8,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "493rd Fighter SQN (LN)",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["type"] = "F-15C",
+                        ["unitId"] = 28,
+                        ["psi"] = 0,
+                        ["y"] = 524285.71428571,
+                        ["x"] = -338285.71428571,
+                        ["name"] = "veafSpawn-f15-fox3-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [9]
+                                [10] = 
+                                {
+                                    ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
+                                }, -- end of [10]
+                                [11] = 
+                                {
+                                    ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+                                }, -- end of [11]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = "6103",
+                            ["flare"] = 60,
+                            ["chaff"] = 120,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "493rd Fighter SQN (LN)",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["type"] = "F-15C",
+                        ["unitId"] = 30,
+                        ["psi"] = 0,
+                        ["y"] = 524325.71428571,
+                        ["x"] = -338325.71428571,
+                        ["name"] = "veafSpawn-f15-fox3-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [9]
+                                [10] = 
+                                {
+                                    ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
+                                }, -- end of [10]
+                                [11] = 
+                                {
+                                    ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+                                }, -- end of [11]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = "6103",
+                            ["flare"] = 60,
+                            ["chaff"] = 120,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "019",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 524285.71428571,
+                ["x"] = -338285.71428571,
+                ["name"] = "veafSpawn-f15-fox3",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 124,
+            }, -- end of [6]
+            [7] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 220.97222222222,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["number"] = 1,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["number"] = 2,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["enabled"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "EPLRS",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["groupId"] = 3,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 522857.14285714,
+                            ["x"] = -347714.28571429,
+                            ["name"] = "veafSpawn-f16-fox3",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 9,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Dark_Viper",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "F-16C_50",
+                        ["unitId"] = 31,
+                        ["psi"] = 0,
+                        ["y"] = 522857.14285714,
+                        ["x"] = -347714.28571429,
+                        ["name"] = "veafSpawn-f16-fox3-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{F376DBEE-4CAE-41BA-ADD9-B2910AC95DEC}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "<CLEAN>",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{F376DBEE-4CAE-41BA-ADD9-B2910AC95DEC}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [9]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3249,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 5,
+                            ["chaff"] = 60,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Dark_Viper",
+                        ["skill"] = "High",
+                        ["speed"] = 220.97222222222,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "F-16C_50",
+                        ["unitId"] = 33,
+                        ["psi"] = 0,
+                        ["y"] = 522897.14285714,
+                        ["x"] = -347754.28571429,
+                        ["name"] = "veafSpawn-f16-fox3-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{F376DBEE-4CAE-41BA-ADD9-B2910AC95DEC}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "<CLEAN>",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{F376DBEE-4CAE-41BA-ADD9-B2910AC95DEC}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [9]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3249,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 5,
+                            ["chaff"] = 60,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "020",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 522857.14285714,
+                ["x"] = -347714.28571429,
+                ["name"] = "veafSpawn-f16-fox3",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 305,
+            }, -- end of [7]
+            [8] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 256.94444444444,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["number"] = 1,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 524285.71428571,
+                            ["x"] = -357714.28571429,
+                            ["name"] = "veafSpawn-f4-fox1",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 10,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["skill"] = "High",
+                        ["speed"] = 256.94444444444,
+                        ["type"] = "F-4E",
+                        ["unitId"] = 34,
+                        ["psi"] = 0,
+                        ["y"] = 524285.71428571,
+                        ["x"] = -357714.28571429,
+                        ["name"] = "veafSpawn-f5-fox1-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{7B4B122D-C12C-4DB4-834E-4D8BB4D863A8}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{9DDF5297-94B9-42FC-A45E-6E316121CD85}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [4]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{9DDF5297-94B9-42FC-A45E-6E316121CD85}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{7B4B122D-C12C-4DB4-834E-4D8BB4D863A8}",
+                                }, -- end of [9]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = "4864",
+                            ["flare"] = 30,
+                            ["chaff"] = 60,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["skill"] = "High",
+                        ["speed"] = 256.94444444444,
+                        ["type"] = "F-4E",
+                        ["unitId"] = 36,
+                        ["psi"] = 0,
+                        ["y"] = 524325.71428571,
+                        ["x"] = -357754.28571429,
+                        ["name"] = "veafSpawn-f5-fox1-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{7B4B122D-C12C-4DB4-834E-4D8BB4D863A8}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{9DDF5297-94B9-42FC-A45E-6E316121CD85}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [4]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{9DDF5297-94B9-42FC-A45E-6E316121CD85}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{7B4B122D-C12C-4DB4-834E-4D8BB4D863A8}",
+                                }, -- end of [9]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = "4864",
+                            ["flare"] = 30,
+                            ["chaff"] = 60,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "021",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 524285.71428571,
+                ["x"] = -357714.28571429,
+                ["name"] = "veafSpawn-f5-fox1",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 251,
+            }, -- end of [8]
+            [9] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 174.72222222222,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["number"] = 1,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 523142.85714286,
+                            ["x"] = -367714.28571429,
+                            ["name"] = "veafSpawn-f5-fox2",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 11,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Aggressor Desert Scheme",
+                        ["skill"] = "High",
+                        ["speed"] = 174.72222222222,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "F-5E-3",
+                        ["unitId"] = 37,
+                        ["psi"] = 0,
+                        ["y"] = 523142.85714286,
+                        ["x"] = -367714.28571429,
+                        ["name"] = "veafSpawn-f5-fox2-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{AIM-9P5}",
+                                }, -- end of [1]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{0395076D-2F77-4420-9D33-087A4398130B}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{0395076D-2F77-4420-9D33-087A4398130B}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{0395076D-2F77-4420-9D33-087A4398130B}",
+                                }, -- end of [5]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{AIM-9P5}",
+                                }, -- end of [7]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 2046,
+                            ["flare"] = 15,
+                            ["ammo_type"] = 2,
+                            ["chaff"] = 30,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Aggressor Desert Scheme",
+                        ["skill"] = "High",
+                        ["speed"] = 174.72222222222,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "F-5E-3",
+                        ["unitId"] = 42,
+                        ["psi"] = 0,
+                        ["y"] = 523182.85714286,
+                        ["x"] = -367754.28571429,
+                        ["name"] = "veafSpawn-f5-fox2-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{AIM-9P5}",
+                                }, -- end of [1]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{0395076D-2F77-4420-9D33-087A4398130B}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{0395076D-2F77-4420-9D33-087A4398130B}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{0395076D-2F77-4420-9D33-087A4398130B}",
+                                }, -- end of [5]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{AIM-9P5}",
+                                }, -- end of [7]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 2046,
+                            ["flare"] = 15,
+                            ["ammo_type"] = 2,
+                            ["chaff"] = 30,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "022",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 523142.85714286,
+                ["x"] = -367714.28571429,
+                ["name"] = "veafSpawn-f5-fox2",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 305,
+            }, -- end of [9]
+            [10] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 179.86111111111,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["number"] = 1,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["number"] = 2,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["enabled"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "EPLRS",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["groupId"] = 4,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 521428.57142857,
+                            ["x"] = -378000,
+                            ["name"] = "veafSpawn-f18-fox1",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 13,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "14.735 Corsairs - Classic Red - VEAF",
+                        ["skill"] = "High",
+                        ["speed"] = 179.86111111111,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "FA-18C_hornet",
+                        ["unitId"] = 40,
+                        ["psi"] = 0,
+                        ["dataCartridge"] = 
+                        {
+                            ["GroupsPoints"] = 
+                            {
+                                ["Initial Point"] = 
+                                {
+                                }, -- end of ["Initial Point"]
+                                ["Sequence 2 Red"] = 
+                                {
+                                }, -- end of ["Sequence 2 Red"]
+                                ["PB"] = 
+                                {
+                                }, -- end of ["PB"]
+                                ["Sequence 1 Blue"] = 
+                                {
+                                }, -- end of ["Sequence 1 Blue"]
+                                ["Sequence 3 Yellow"] = 
+                                {
+                                }, -- end of ["Sequence 3 Yellow"]
+                                ["A/A Waypoint"] = 
+                                {
+                                }, -- end of ["A/A Waypoint"]
+                                ["PP"] = 
+                                {
+                                }, -- end of ["PP"]
+                                ["Start Location"] = 
+                                {
+                                }, -- end of ["Start Location"]
+                            }, -- end of ["GroupsPoints"]
+                            ["Points"] = 
+                            {
+                            }, -- end of ["Points"]
+                        }, -- end of ["dataCartridge"]
+                        ["y"] = 521428.57142857,
+                        ["x"] = -378000,
+                        ["name"] = "veafSpawn-f18-fox1-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{LAU-115 - AIM-7H}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{AIM-7H}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{AIM-7H}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{LAU-115 - AIM-7H}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [9]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 4900,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 60,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "14.735 Corsairs - Classic Red - VEAF",
+                        ["skill"] = "High",
+                        ["speed"] = 179.86111111111,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "FA-18C_hornet",
+                        ["unitId"] = 47,
+                        ["psi"] = 0,
+                        ["y"] = 521468.57142857,
+                        ["x"] = -378040,
+                        ["name"] = "veafSpawn-f18-fox1-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{LAU-115 - AIM-7H}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{AIM-7H}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{AIM-7H}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{LAU-115 - AIM-7H}",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [9]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 4900,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 60,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "025",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 521428.57142857,
+                ["x"] = -378000,
+                ["name"] = "veafSpawn-f18-fox1",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 305,
+            }, -- end of [10]
+            [11] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 179.86111111111,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["number"] = 1,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["number"] = 2,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["enabled"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "EPLRS",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["groupId"] = 5,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 520857.14285714,
+                            ["x"] = -388285.71428571,
+                            ["name"] = "veafSpawn-f18-fox2",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 14,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "14.735 Corsairs - Classic Red - VEAF",
+                        ["skill"] = "High",
+                        ["speed"] = 179.86111111111,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "FA-18C_hornet",
+                        ["unitId"] = 44,
+                        ["psi"] = 0,
+                        ["y"] = 520857.14285714,
+                        ["x"] = -388285.71428571,
+                        ["name"] = "veafSpawn-f18-fox2-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "LAU-115_2*LAU-127_AIM-9X",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [3]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [5]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "LAU-115_2*LAU-127_AIM-9X",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [9]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 4900,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 60,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "14.735 Corsairs - Classic Red - VEAF",
+                        ["skill"] = "High",
+                        ["speed"] = 179.86111111111,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "FA-18C_hornet",
+                        ["unitId"] = 46,
+                        ["psi"] = 0,
+                        ["y"] = 520897.14285714,
+                        ["x"] = -388325.71428571,
+                        ["name"] = "veafSpawn-f18-fox2-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "LAU-115_2*LAU-127_AIM-9X",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [3]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [5]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "LAU-115_2*LAU-127_AIM-9X",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [9]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 4900,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 60,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "024",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 520857.14285714,
+                ["x"] = -388285.71428571,
+                ["name"] = "veafSpawn-f18-fox2",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 305,
+            }, -- end of [11]
+            [12] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 179.86111111111,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["number"] = 1,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["number"] = 2,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["enabled"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "EPLRS",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["groupId"] = 6,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 520857.14285714,
+                            ["x"] = -398857.14285714,
+                            ["name"] = "veafSpawn-f18-fox3",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 15,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "14.735 Corsairs - Classic Red - VEAF",
+                        ["skill"] = "High",
+                        ["speed"] = 179.86111111111,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "FA-18C_hornet",
+                        ["unitId"] = 48,
+                        ["psi"] = 0,
+                        ["y"] = 520857.14285714,
+                        ["x"] = -398857.14285714,
+                        ["name"] = "veafSpawn-f18-fox3-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "LAU-115_2*LAU-127_AIM-120C",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "LAU-115_2*LAU-127_AIM-120C",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [9]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 4900,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 60,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "14.735 Corsairs - Classic Red - VEAF",
+                        ["skill"] = "High",
+                        ["speed"] = 179.86111111111,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "FA-18C_hornet",
+                        ["unitId"] = 50,
+                        ["psi"] = 0,
+                        ["y"] = 520897.14285714,
+                        ["x"] = -398897.14285714,
+                        ["name"] = "veafSpawn-f18-fox3-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "LAU-115_2*LAU-127_AIM-120C",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [5]
+                                [6] = 
+                                {
+                                    ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+                                }, -- end of [6]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{FPU_8A_FUEL_TANK}",
+                                }, -- end of [7]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "LAU-115_2*LAU-127_AIM-120C",
+                                }, -- end of [8]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+                                }, -- end of [9]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 4900,
+                            ["flare"] = 60,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 60,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "026",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 520857.14285714,
+                ["x"] = -398857.14285714,
+                ["name"] = "veafSpawn-f18-fox3",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 305,
+            }, -- end of [12]
+        }
+
+    },
                 
+    ["FR planes"] =
+    {
+        coalition = "blue",
+        country = "france",
+        category = "plane",
+        groups = {
+            [1] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 251.80555555556,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["number"] = 1,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 520000,
+                            ["x"] = -410285.71428571,
+                            ["name"] = "veafSpawn-m2000-fox1",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 16,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "14.735 Corsairs - VEAF",
+                        ["skill"] = "High",
+                        ["speed"] = 251.80555555556,
+                        ["AddPropAircraft"] = 
+                        {
+                            ["ForceINSRules"] = false,
+                            ["NoDDMSensor"] = false,
+                            ["LoadNVGCase"] = false,
+                            ["LaserCode100"] = 6,
+                            ["LaserCode1"] = 8,
+                            ["WpBullseye"] = 0,
+                            ["InitHotDrift"] = 0,
+                            ["RocketBurst"] = 6,
+                            ["LaserCode10"] = 8,
+                            ["GunBurst"] = 1,
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "M-2000C",
+                        ["unitId"] = 51,
+                        ["psi"] = 0,
+                        ["y"] = 520000,
+                        ["x"] = -410285.71428571,
+                        ["name"] = "veafSpawn-m2000-fox1-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{MMagicII}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{Matra_S530D}",
+                                }, -- end of [2]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{M2KC_RPL_522}",
+                                }, -- end of [5]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{MMagicII}",
+                                }, -- end of [9]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{Matra_S530D}",
+                                }, -- end of [8]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3165,
+                            ["flare"] = 16,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 112,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "14.735 Corsairs - VEAF",
+                        ["skill"] = "High",
+                        ["speed"] = 251.80555555556,
+                        ["AddPropAircraft"] = 
+                        {
+                            ["ForceINSRules"] = false,
+                            ["LoadNVGCase"] = false,
+                            ["NoDDMSensor"] = false,
+                            ["LaserCode100"] = 6,
+                            ["LaserCode1"] = 8,
+                            ["WpBullseye"] = 0,
+                            ["InitHotDrift"] = 0,
+                            ["RocketBurst"] = 6,
+                            ["LaserCode10"] = 8,
+                            ["GunBurst"] = 1,
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "M-2000C",
+                        ["unitId"] = 52,
+                        ["psi"] = 0,
+                        ["y"] = 520040,
+                        ["x"] = -410325.71428571,
+                        ["name"] = "veafSpawn-m2000-fox1-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{MMagicII}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{Matra_S530D}",
+                                }, -- end of [2]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{M2KC_RPL_522}",
+                                }, -- end of [5]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{MMagicII}",
+                                }, -- end of [9]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{Matra_S530D}",
+                                }, -- end of [8]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3165,
+                            ["flare"] = 16,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 112,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "011",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 520000,
+                ["x"] = -410285.71428571,
+                ["name"] = "veafSpawn-m2000-fox1",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 251,
+            }, -- end of [1]
+            [2] = 
+            {
+                ["modulation"] = 0,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["route"] = 
+                {
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 251.80555555556,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["number"] = 1,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 518857.14285714,
+                            ["x"] = -419714.28571429,
+                            ["name"] = "veafSpawn-m2000-fox2",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 17,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "14.735 Corsairs - VEAF",
+                        ["skill"] = "High",
+                        ["speed"] = 251.80555555556,
+                        ["AddPropAircraft"] = 
+                        {
+                            ["ForceINSRules"] = false,
+                            ["LoadNVGCase"] = false,
+                            ["NoDDMSensor"] = false,
+                            ["LaserCode100"] = 6,
+                            ["LaserCode1"] = 8,
+                            ["WpBullseye"] = 0,
+                            ["InitHotDrift"] = 0,
+                            ["RocketBurst"] = 6,
+                            ["LaserCode10"] = 8,
+                            ["GunBurst"] = 1,
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "M-2000C",
+                        ["unitId"] = 53,
+                        ["psi"] = 0,
+                        ["y"] = 518857.14285714,
+                        ["x"] = -419714.28571429,
+                        ["name"] = "veafSpawn-m2000-fox2-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{MMagicII}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{M2KC_02_RPL541}",
+                                }, -- end of [2]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{MMagicII}",
+                                }, -- end of [9]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{M2KC_08_RPL541}",
+                                }, -- end of [8]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3165,
+                            ["flare"] = 16,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 112,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Enfield11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "010",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 2000,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "14.735 Corsairs - VEAF",
+                        ["skill"] = "High",
+                        ["speed"] = 251.80555555556,
+                        ["AddPropAircraft"] = 
+                        {
+                            ["ForceINSRules"] = false,
+                            ["LoadNVGCase"] = false,
+                            ["NoDDMSensor"] = false,
+                            ["LaserCode100"] = 6,
+                            ["LaserCode1"] = 8,
+                            ["WpBullseye"] = 0,
+                            ["InitHotDrift"] = 0,
+                            ["RocketBurst"] = 6,
+                            ["LaserCode10"] = 8,
+                            ["GunBurst"] = 1,
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "M-2000C",
+                        ["unitId"] = 55,
+                        ["psi"] = 0,
+                        ["y"] = 518897.14285714,
+                        ["x"] = -419754.28571429,
+                        ["name"] = "veafSpawn-m2000-fox2-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{MMagicII}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{M2KC_02_RPL541}",
+                                }, -- end of [2]
+                                [9] = 
+                                {
+                                    ["CLSID"] = "{MMagicII}",
+                                }, -- end of [9]
+                                [8] = 
+                                {
+                                    ["CLSID"] = "{M2KC_08_RPL541}",
+                                }, -- end of [8]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3165,
+                            ["flare"] = 16,
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 112,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 0,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Enfield12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "012",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["y"] = 518857.14285714,
+                ["x"] = -419714.28571429,
+                ["name"] = "veafSpawn-m2000-fox2",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["frequency"] = 251,
+            }, -- end of [2]
+        }
+    }
+}
