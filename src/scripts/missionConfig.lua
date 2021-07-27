@@ -695,6 +695,7 @@ veafShortcuts.AddAlias(
             "-shell#U38TLM3155087960",
             "-point#U38TLM3167086723 C503-1",
         })
+        :setPassword("5990da82192566a785187a8276a2ccf61c2b5819") -- briefingcaucasus21
 )
 
 veafShortcuts.AddAlias(
@@ -708,6 +709,7 @@ veafShortcuts.AddAlias(
             "-zu23#U38TLM3314088860, side red, radius 1000",
             "-transport#U38TLM3342089320, side red, size 10, defense 0, spacing 0.5",
         })
+        :setPassword("5990da82192566a785187a8276a2ccf61c2b5819") -- briefingcaucasus21
 )
 
 veafShortcuts.AddAlias(
@@ -719,6 +721,7 @@ veafShortcuts.AddAlias(
             "-zu23#U38TLM3314088860, side red, radius 1000",
             "-infantry#U38TLM3129085430, side red, size 10, defense 4, spacing 0.5",
         })
+        :setPassword("5990da82192566a785187a8276a2ccf61c2b5819") -- briefingcaucasus21
 )
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -737,6 +740,7 @@ veafShortcuts.AddAlias(
             "-sa8#U37TGJ3200067600!2400",
             "-sa8#U37TGJ3405061500!2400 ",
         })
+        :setPassword("5990da82192566a785187a8276a2ccf61c2b5819") -- briefingcaucasus21
 )
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -755,6 +759,7 @@ veafShortcuts.AddAlias(
             "-transport#U38TMN2703021480, side red, dest U38TMN1644527965, patrol, size 7, defense 2",
             "-transport#U38TMN1845038290, side red, dest U38TMN2529820390, patrol, size 10, spacing 0.5",
         })
+        :setPassword("5990da82192566a785187a8276a2ccf61c2b5819") -- briefingcaucasus21
 )
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -768,6 +773,7 @@ veafShortcuts.AddAlias(
             "-transport#U38TMN2898519805!1200, side red, size 10, defense 0, dest kvemosba, spacing 0.5",
             "-armor#U38TMN2900019800!1200, side red, size 2, defense 0, dest kvemosba, spacing 0.5, armor 1",
         })
+        :setPassword("5990da82192566a785187a8276a2ccf61c2b5819") -- briefingcaucasus21
 )
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -783,6 +789,7 @@ veafShortcuts.AddAlias(
             "-convoy#U38TLM2040053930, side red, size 7, defense 2, dest kursairme",
             "-convoy#U38TLM2738549911, side red, size 5, defense 1, dest kursairme",          
         })
+        :setPassword("5990da82192566a785187a8276a2ccf61c2b5819") -- briefingcaucasus21
 )
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -801,6 +808,7 @@ veafShortcuts.AddAlias(
             "-infantry#U37TEJ90003260, side red",
             "-convoy#U37TEJ74911126, side blue, armor 0, defense 0, dest FARP KRASNAYA EJ93",
         })
+        :setPassword("5990da82192566a785187a8276a2ccf61c2b5819") -- briefingcaucasus21
 )
 
 veafShortcuts.AddAlias(
@@ -814,4 +822,5 @@ veafShortcuts.AddAlias(
             "-smoke#U37TEJ87673163, color red",
             "-smoke#U37TEJ90003260, color red",
         })
+        :setPassword("5990da82192566a785187a8276a2ccf61c2b5819") -- briefingcaucasus21
 )
