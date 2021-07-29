@@ -11,3 +11,4 @@ cache/
 configuration.json
 
 build-*.cmd
+yarn.lock
