@@ -511,94 +511,6 @@ if veafCarrierOperations then
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
--- configure CTLD 
--------------------------------------------------------------------------------------------------------------------------------------------------------------
-if ctld then
-    ctld.pickupZones = {
-        { "pickzone1", "none", -1, "yes", 0 },
-        { "pickzone2", "none", -1, "yes", 0 },
-        { "pickzone3", "none", -1, "yes", 0 },
-        { "pickzone4", "none", -1, "yes", 0 },
-        { "pickzone5", "none", -1, "yes", 0 },
-        { "pickzone6", "none", -1, "yes", 0 },
-        { "pickzone7", "none", -1, "yes", 0 },
-        { "pickzone8", "none", -1, "yes", 0 },
-        { "pickzone9", "none", -1, "yes", 0 }, 
-        { "pickzone10", "none", -1, "yes", 0 },
-        { "pickzone11", "none", -1, "yes", 0 }, 
-        { "pickzone12", "none", -1, "yes", 0 }, 
-        { "pickzone13", "none", -1, "yes", 0 }, 
-        { "pickzone14", "none", -1, "yes", 0 },
-        { "pickzone15", "none", -1, "yes", 0 },
-        { "pickzone16", "none", -1, "yes", 0 },
-        { "pickzone17", "none", -1, "yes", 0 },
-        { "pickzone18", "none", -1, "yes", 0 },
-        { "pickzone19", "none", 5, "yes", 0 },
-        { "pickzone20", "none", 10, "yes", 0, 1000 }, -- optional extra flag number to store the current number of groups available in
-
-        { "CVN-74 Stennis", "none", 10, "yes", 0, 1001 }, -- instead of a Zone Name you can also use the UNIT NAME of a ship
-        { "LHA-1 Tarawa", "none", 10, "yes", 0, 1002 }, -- instead of a Zone Name you can also use the UNIT NAME of a ship
-    }
-
-    -- ******************** Transports names **********************
-
-    -- Use any of the predefined names or set your own ones
-    ctld.transportPilotNames = {}
-
-    for i = 1, 24 do
-        table.insert(ctld.transportPilotNames, string.format("yak #%03d",i))
-    end
-
-    for i = 1, 10 do
-        table.insert(ctld.transportPilotNames, string.format("transport #%03d",i))
-    end
-
-    for i = 1, 79 do
-        table.insert(ctld.transportPilotNames, string.format("helicargo #%03d",i))
-    end
-
-    -- ************** Logistics UNITS FOR CRATE SPAWNING ******************
-
-    -- Use any of the predefined names or set your own ones
-    -- When a logistic unit is destroyed, you will no longer be able to spawn crates
-
-    ctld.logisticUnits = {
-        "logistic #001",
-        "logistic #002",
-        "logistic #003",
-        "logistic #004",
-        "logistic #005",
-        "logistic #006",
-        "logistic #007",
-        "logistic #008",
-        "logistic #009",
-        "logistic #010",
-        "logistic #011",
-        "logistic #012",
-        "logistic #013",
-        "logistic #014",
-        "logistic #015",
-        "logistic #016",
-        "logistic #017",
-        "logistic #018",
-        "logistic #019",
-        "logistic #020",
-    }
-
-    if veafTransportMission then
-
-        -- automatically add all the human-manned transport helicopters to ctld.transportPilotNames
-        veafTransportMission.initializeAllHelosInCTLD()
-
-        -- automatically add all the carriers and FARPs to ctld.logisticUnits
-        veafTransportMission.initializeAllLogisticInCTLD()
-    end
-    
-    veaf.loggers.get(veaf.Id):info("init - ctld")
-    ctld.initialize()
-end
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize the remote interface
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafRemote then
@@ -649,7 +561,7 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize Hound Elint
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
-if veafHoundElint then
+if veafHoundElint and false then -- don't use Hound Elint
     veaf.loggers.get(veaf.Id):info("init - veafHoundElint")
     veafHoundElint.initialize(
         "ELINT", -- prefix
@@ -674,14 +586,14 @@ if veafHoundElint then
             }
         }
     )
-end
+
+    -- automatically start the two ELINT missions
+    veafCombatMission.ActivateMission("ELINT-Mission-East", true)
+    veafCombatMission.ActivateMission("ELINT-Mission-West", true)
+end    
 
 -- automatically activate the Maykop Defenses zone
 veafCombatZone.ActivateZone("combatZone_MaykopDefenses", true)
-
--- automatically start the two ELINT missions
-veafCombatMission.ActivateMission("ELINT-Mission-East", true)
-veafCombatMission.ActivateMission("ELINT-Mission-West", true)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Mission C002 - Neutralisation des lacs de Tkibuli - https://github.com/VEAF/VEAF-Open-Training-Mission/wiki/Mission-C002
