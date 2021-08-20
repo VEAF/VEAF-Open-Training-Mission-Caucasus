@@ -1,14 +1,21 @@
 {
   "variableForMetar": "METAR",
-  "moments": [
+  "position": 
     {
-      "night" : 7200,
-      "dawn" : 19800,
-      "morning" : 23400,
-      "day" : 54000,
-      "evening" : 68400
-    }
-  ],
+      "lat": 42.355691,
+      "lon": 43.323853,
+      "tz": "Asia/Tbilisi"
+    },
+  "moments": 
+    {
+      "night" : "02:00",
+      "beforedawn" : "sunrise-90*60",
+      "dawn" : "sunrise-15*60",
+      "morning" : "sunrise+45*60",
+      "day" : "15:00",
+      "beforesunset" : "sunset-90*60",
+      "sunset" : "sunset+15*60"
+    },
   "targets": [
     {
       "version": "night-real",
@@ -18,12 +25,17 @@
     {
       "version": "beforedawn-scattered",
       "weatherfile": "scattered-1.lua",
-      "time": 16200
+      "moment": "beforedawn"
     },
     {
       "version": "dawn-real",
       "realweather": true,
       "moment": "dawn"
+    },
+    {
+      "version": "sunset-real",
+      "realweather": true,
+      "moment": "sunset"
     },
     {
       "version": "dawn-scattered",
@@ -80,7 +92,7 @@
       "weather": "UG27 221130Z 04515KT +SHRA BKN008 OVC024 Q1006 NOSIG",
       "moment": "dawn"
     },
-	  {
+    {
       "version": "day-real",
       "realweather": true,
       "moment": "day"
@@ -105,31 +117,30 @@
       "weatherfile": "overcast-rain-1.lua",
       "moment": "day"
     },
-
     {
       "version": "evening-real",
       "realweather": true,
-      "moment": "evening"
+      "moment": "beforesunset"
     },
     {
       "version": "evening-scattered",
       "weatherfile": "scattered-1.lua",
-      "moment": "evening"
+      "moment": "beforesunset"
     },
     {
       "version": "evening-broken",
       "weatherfile": "broken-1.lua",
-      "moment": "evening"
+      "moment": "beforesunset"
     },
     {
       "version": "evening-overcast",
       "weatherfile": "overcast-1.lua",
-      "moment": "evening"
+      "moment": "beforesunset"
     },
     {
       "version": "evening-overcast-rain",
       "weatherfile": "overcast-rain-1.lua",
-      "moment": "evening"
+      "moment": "beforesunset"
     }
   ]
 }
