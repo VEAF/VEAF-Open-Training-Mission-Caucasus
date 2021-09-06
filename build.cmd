@@ -138,8 +138,12 @@ rd /s /q .\build >nul 2>&1
 mkdir .\build >nul 2>&1
 
 IF ["%NPM_UPDATE%"] == [""] GOTO DontNPM_UPDATE
-echo fetch the veaf-mission-creation-tools package
-call yarn upgrade
+echo fetching the veaf-mission-creation-tools package
+if exist yarn.lock (
+	call yarn upgrade
+) else (
+	call yarn install
+)
 goto DoNPM_UPDATE
 :DontNPM_UPDATE
 echo skipping npm update
@@ -215,6 +219,9 @@ powershell -File replace.ps1 .\build\tempsrc\mission "\[\"A-4E-C\"\] = \"A-4E-C\
 rem -- disable the T-45 module requirement
 powershell -File replace.ps1 .\build\tempsrc\mission "\[\"T-45\"\] = \"T-45\"," " " >nul 2>&1
 
+rem -- disable the AM2 module requirement
+powershell -File replace.ps1 .\build\tempsrc\mission "\[\"AM2\"\] = \"AM2\"," " " >nul 2>&1
+
 rem -- copy the documentation images to the kneeboard
 xcopy /y /e doc\*.jpg .\build\tempsrc\KNEEBOARD\IMAGES\ >nul 2>&1
 
@@ -240,10 +247,13 @@ rem -- cleanup the veaf-mission-creation-tools scripts
 rd /s /q .\build\tempscripts >nul 2>&1
 
 rem -- generate the time and weather versions
-rem echo generate the time and weather versions
-rem echo ----------------------------------------
-rem we'll do it on the server
-rem node node_modules\veaf-mission-creation-tools\src\nodejs\app.js injectall --quiet "%MISSION_FILE%.miz" "%MISSION_FILE%-${version}.miz" src\weatherAndTime\versions.json
+IF ["%SKIP_WEATHER%"] == [""] GOTO GenerateWeather
+GOTO DontGenerateWeather
+:GenerateWeather
+echo generate the time and weather versions
+echo ----------------------------------------
+node node_modules\veaf-mission-creation-tools\src\nodejs\app.js injectall --quiet "%MISSION_FILE%.miz" "%MISSION_FILE%-${version}.miz" src\weatherAndTime\versions.json
+:DontGenerateWeather
 
 echo.
 echo ----------------------------------------
