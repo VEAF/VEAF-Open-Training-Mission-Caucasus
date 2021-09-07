@@ -441,7 +441,6 @@ if veafNamedPoints then
     veaf.loggers.get(veaf.Id):info("Loading configuration")
 
     veaf.loggers.get(veaf.Id):info("init - veafNamedPoints")
-    veafNamedPoints.initialize()
     if theatre == "syria" then
         veafNamedPoints.Points = {
             -- Turkish Airports
@@ -551,6 +550,7 @@ if veafNamedPoints then
     table.insert(veafNamedPoints.Points,
         {name="RANGE Kobuleti",point={x=-328289,y=0,z=631228}}
     )
+    veafNamedPoints.initialize()
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
