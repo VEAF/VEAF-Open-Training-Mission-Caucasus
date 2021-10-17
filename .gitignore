@@ -5,7 +5,7 @@
 /setup_*.cmd
 package-lock.json
 TODO.txt
-
+/.idea
 cache/
 
 configuration.json

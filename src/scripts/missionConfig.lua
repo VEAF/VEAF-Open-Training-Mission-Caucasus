@@ -153,6 +153,7 @@ if veafCombatMission then
     veafCombatMission.addCapMission("training-radar-mig29-FL300", "Crimea - Mig29 FL300", "Mig-29S on CAP (R-77 = Fox 3 MR) at FL300 west of the Crimea peninsula", false, true)
     veafCombatMission.addCapMission("training-radar-mig31-FL300", "Crimea - Mig31 FL300", "Mig-31 on CAP (R-33 = Fox 3 LR) at FL300 west of the Crimea peninsula", false, false)
     veafCombatMission.addCapMission("training-radar-mig23-FL300-notch", "Crimea - Mig23 notching", "Mig-23MLD on CAP (R-24R = Fox1 MR) notching W-E at FL300 west of the Crimea peninsula", false, false)
+    veafCombatMission.addCapMission("l39c-intercept-FL100", "Khashuri - L-39C heading north", "L-39C patrol heading N at 15 min of Kahshuri", false, true)
     
     veafCombatMission.AddMissionsWithSkillAndScale(
 		VeafCombatMission.new()
