@@ -35,4 +35,8 @@ Nous contacter:\
 METAR : ${METAR}\
 ",
     ["DictKey_sortie_4"] = "Open Training",
+    ["DictKey_subtitle_8408"] = "",
+    ["DictKey_subtitle_8410"] = "",
+    ["DictKey_subtitle_8412"] = "",
+    ["DictKey_subtitle_8414"] = "",
 } -- end of dictionary

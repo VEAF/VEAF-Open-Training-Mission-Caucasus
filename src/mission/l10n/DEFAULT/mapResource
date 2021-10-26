@@ -32,6 +32,10 @@ mapResource = {
     ["DictKey_ActionText_10401"] = "missionConfig.lua",
     ["ResKey_Action_7337"] = "beacon.ogg",
     ["ResKey_Action_7338"] = "beaconsilent.ogg",
+    ["ResKey_advancedFile_8409"] = "MH01.ogg",
+    ["ResKey_advancedFile_8411"] = "SOS.ogg",
+    ["ResKey_advancedFile_8413"] = "MH02.ogg",
+    ["ResKey_advancedFile_8415"] = "MH03.ogg",
     ["ResKey_ImageBriefing_8268"] = "zones.png",
     ["ResKey_ImageBriefing_8269"] = "zones.png",
 } -- end of mapResource

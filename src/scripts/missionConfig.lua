@@ -417,6 +417,21 @@ if veafCombatZone then
                         "You must incapacitate the defenses in order to prepare a land invasion")
     )
 
+	veafCombatZone.AddZone(
+		VeafCombatZone.new()
+			:setMissionEditorZoneName("CombatZone_MountainHike")
+			:setFriendlyName("Mountain hike")
+            :setCompletable(false)
+            :setTraining(true)
+			:setBriefing("A friendly Mi-8MTV2 has crashed in the mountains, near the russian border, 45nm north-east of Sukhumi.\n" ..
+                        "You can takeoff from the Kodori FARP or grass runway, follow the valley to the northeast until you pass the border and locate the crash site\n" ..
+                        "There are beacons in the mountains to guide you : \n" ..
+                        " - MH01 on 31.00 FM\n" ..
+                        " - MH02 on 32.00 FM\n" ..
+                        " - MH03 on 33.00 FM\n" ..
+                        "The crashed helicopter's crew transmits on their pocket radio : SOS on 34.00 FM")
+    )
+
     veaf.loggers.get(veaf.Id):info("init - veafCombatZone")
     veafCombatZone.initialize()
 
