@@ -213,6 +213,9 @@ if %DYNAMIC_LOAD_SCRIPTS%==true (
 rem -- disable the C130 module requirement
 powershell -File replace.ps1 .\build\tempsrc\mission "\[\"Hercules\"\] = \"Hercules\"," " " >nul 2>&1
 
+rem -- disable the UH-60L module requirement
+powershell -File replace.ps1 .\build\tempsrc\mission "\[\"UH-60L\"\] = \"UH-60L\"," " " >nul 2>&1
+
 rem -- disable the A-4E-C module requirement
 powershell -File replace.ps1 .\build\tempsrc\mission "\[\"A-4E-C\"\] = \"A-4E-C\"," " " >nul 2>&1
 
