@@ -121,7 +121,8 @@ set MISSION_FILE_SUFFIX2=%date:~-4,4%%date:~-7,2%%date:~-10,2%
 echo current value is "%MISSION_FILE_SUFFIX2%"
 
 echo ----------------------------------------
-
+echo MISSION_FILE_SUFFIX1 (a string) will be appended to the mission file name to make it more unique
+echo defaults to empty
 IF [%MISSION_FILE_SUFFIX1%] == [] GOTO DontUseSuffix1
 set MISSION_FILE=.\build\%MISSION_NAME%_%MISSION_FILE_SUFFIX1%_%MISSION_FILE_SUFFIX2%
 goto EndOfSuffix1
@@ -137,6 +138,7 @@ echo prepare the folders
 rd /s /q .\build >nul 2>&1
 mkdir .\build >nul 2>&1
 
+echo.
 IF ["%NPM_UPDATE%"] == [""] GOTO DontNPM_UPDATE
 echo fetching the veaf-mission-creation-tools package
 if exist yarn.lock (
