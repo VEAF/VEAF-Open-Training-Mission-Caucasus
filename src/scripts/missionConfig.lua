@@ -17,8 +17,9 @@ veafBeacons = false
 if veaf then
     VeafQRA.new()
     :setName("QRA_Minevody")
+    :setTriggerZone("QRA_Minevody")
     :addGroup("QRA_Minevody")
-    :setRadius(106680) -- 350,000 feet
+    :setZoneRadius(106680) -- 350,000 feet
     :setCoalition(coalition.side.RED)
     :addEnnemyCoalition(coalition.side.BLUE)
     :setReactOnHelicopters()
@@ -26,8 +27,9 @@ if veaf then
 
     VeafQRA.new()
     :setName("QRA_Krasnodar")
+    :setTriggerZone("QRA_Krasnodar")
     :addGroup("QRA_Krasnodar")
-    :setRadius(106680) -- 350,000 feet
+    :setZoneRadius(106680) -- 350,000 feet
     :setCoalition(coalition.side.RED)
     :addEnnemyCoalition(coalition.side.BLUE)
     :setReactOnHelicopters()
