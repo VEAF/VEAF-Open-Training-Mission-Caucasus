@@ -5552,7 +5552,7 @@ settings =
                         ["psi"] = 0,
                         ["y"] = -360000,
                         ["x"] = -250000,
-                        ["name"] = "veafSpawn-f5-fox1-1",
+                        ["name"] = "veafSpawn-f4-fox1-1",
                         ["payload"] = 
                         {
                             ["pylons"] = 
@@ -5616,7 +5616,7 @@ settings =
                         ["psi"] = 0,
                         ["y"] = -360000,
                         ["x"] = -250000,
-                        ["name"] = "veafSpawn-f5-fox1-2",
+                        ["name"] = "veafSpawn-f4-fox1-2",
                         ["payload"] = 
                         {
                             ["pylons"] = 
@@ -5672,7 +5672,7 @@ settings =
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
-                ["name"] = "veafSpawn-f5-fox1",
+                ["name"] = "veafSpawn-f4-fox1",
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["modulation"] = 0,
