@@ -90,7 +90,28 @@ set NPM_UPDATE=true
 echo current value is "%DYNAMIC_SCRIPTS_PATH%"
 
 echo ----------------------------------------
-echo DYNAMIC_LOAD_SCRIPTS if set to "true", will create a mission with all the scripts loaded dynamically by default
+echo DYNAMIC_MISSION_PATH_TRIGGER (a string) points to folder where this mission is located (used in the mission trigger that loads the mission config script)
+echo defaults this folder
+IF ["%DYNAMIC_MISSION_PATH_TRIGGER%"] == [""] GOTO DefineDefaultDYNAMIC_MISSION_PATH_TRIGGER
+goto DontDefineDefaultDYNAMIC_MISSION_PATH_TRIGGER
+:DefineDefaultDYNAMIC_MISSION_PATH_TRIGGER
+set DYNAMIC_MISSION_PATH_TRIGGER=%DYNAMIC_MISSION_PATH%
+:DontDefineDefaultDYNAMIC_MISSION_PATH_TRIGGER
+echo current value is "%DYNAMIC_MISSION_PATH_TRIGGER%"
+
+echo ----------------------------------------
+echo DYNAMIC_SCRIPTS_PATH_TRIGGER (a string) points to folder where the VEAF-mission-creation-tools are located (used in the mission trigger that loads the VEAF scripts)
+echo defaults this folder
+IF ["%DYNAMIC_SCRIPTS_PATH_TRIGGER%"] == [""] GOTO DefineDefaultDYNAMIC_SCRIPTS_PATH_TRIGGER
+goto DontDefineDefaultDYNAMIC_SCRIPTS_PATH_TRIGGER
+:DefineDefaultDYNAMIC_SCRIPTS_PATH_TRIGGER
+set DYNAMIC_SCRIPTS_PATH_TRIGGER=%DYNAMIC_SCRIPTS_PATH%
+set NPM_UPDATE=true
+:DontDefineDefaultDYNAMIC_SCRIPTS_PATH_TRIGGER
+echo current value is "%DYNAMIC_SCRIPTS_PATH_TRIGGER%"
+
+echo ----------------------------------------
+echo DYNAMIC_LOAD_SCRIPTS if set to "true", will create a mission with all the VEAF scripts loaded dynamically by default
 echo defaults to "false"
 IF [%DYNAMIC_LOAD_SCRIPTS%] == [] GOTO DefineDefaultDYNAMIC_LOAD_SCRIPTS
 goto DontDefineDefaultDYNAMIC_LOAD_SCRIPTS
@@ -98,6 +119,16 @@ goto DontDefineDefaultDYNAMIC_LOAD_SCRIPTS
 set DYNAMIC_LOAD_SCRIPTS=false
 :DontDefineDefaultDYNAMIC_LOAD_SCRIPTS
 echo current value is "%DYNAMIC_LOAD_SCRIPTS%"
+
+echo ----------------------------------------
+echo DYNAMIC_LOAD_MISSION if set to "true", will create a mission with all the mission confing script loaded dynamically by default
+echo defaults to "false"
+IF [%DYNAMIC_LOAD_MISSION%] == [] GOTO DefineDefaultDYNAMIC_LOAD_MISSION
+goto DontDefineDefaultDYNAMIC_LOAD_MISSION
+:DefineDefaultDYNAMIC_LOAD_MISSION
+set DYNAMIC_LOAD_MISSION=%DYNAMIC_LOAD_SCRIPTS%
+:DontDefineDefaultDYNAMIC_LOAD_MISSION
+echo current value is "%DYNAMIC_LOAD_MISSION%"
 
 echo ----------------------------------------
 echo MISSION_FILE_SUFFIX1 (a string) will be appended to the mission file name to make it more unique
@@ -197,18 +228,26 @@ if exist %DYNAMIC_MISSION_PATH%\src\spawnableAircrafts\settings.lua (
 
 rem -- set the dynamic load variables in the dictionary
 echo set the dynamic load variables in the dictionary
-powershell -Command "$temp='VEAF_DYNAMIC_PATH = [[' + [regex]::escape('%DYNAMIC_SCRIPTS_PATH%') + ']]'; (gc .\build\tempsrc\mission) -replace 'VEAF_DYNAMIC_PATH(\s*)=(\s*)\[\[.*\]\]', $temp | sc .\build\tempsrc\mission" >nul 2>&1
-powershell -Command "$temp='VEAF_DYNAMIC_MISSIONPATH = [[' + [regex]::escape('%DYNAMIC_MISSION_PATH%') + ']]'; (gc .\build\tempsrc\mission) -replace 'VEAF_DYNAMIC_MISSIONPATH(\s*)=(\s*)\[\[.*\]\]', $temp | sc .\build\tempsrc\mission" >nul 2>&1
+powershell -Command "$temp='VEAF_DYNAMIC_PATH = [[' + [regex]::escape('%DYNAMIC_SCRIPTS_PATH_TRIGGER%') + ']]'; (gc .\build\tempsrc\mission) -replace 'VEAF_DYNAMIC_PATH(\s*)=(\s*)\[\[.*\]\]', $temp | sc .\build\tempsrc\mission" >nul 2>&1
+powershell -Command "$temp='VEAF_DYNAMIC_MISSIONPATH = [[' + [regex]::escape('%DYNAMIC_MISSION_PATH_TRIGGER%') + ']]'; (gc .\build\tempsrc\mission) -replace 'VEAF_DYNAMIC_MISSIONPATH(\s*)=(\s*)\[\[.*\]\]', $temp | sc .\build\tempsrc\mission" >nul 2>&1
 
 if %DYNAMIC_LOAD_SCRIPTS%==true (
-	rem -- set the loading to dynamic in the mission file
-	echo set the loading to dynamic in the mission file
+	rem -- set the VEAF scripts loading to dynamic in the mission file
+	echo set the VEAF scripts loading to dynamic in the mission file
 	powershell -Command "(gc '.\build\tempsrc\l10n\Default\dictionary') -replace 'return(\s*[^\s]+\s*)-- scripts', 'return true -- scripts' | sc '.\build\tempsrc\l10n\Default\dictionary'"
+) else (
+	rem -- set the VEAF scripts loading to static in the mission file
+	echo set the VEAF scripts loading to static in the mission file
+	powershell -Command "(gc '.\build\tempsrc\l10n\Default\dictionary') -replace 'return(\s*[^\s]+\s*)-- scripts', 'return false -- scripts' | sc '.\build\tempsrc\l10n\Default\dictionary'"
+)
+
+if %DYNAMIC_LOAD_MISSION%==true (
+	rem -- set the mission config loading to dynamic in the mission file
+	echo set the mission config loading to dynamic in the mission file
 	powershell -Command "(gc '.\build\tempsrc\l10n\Default\dictionary') -replace 'return(\s*[^\s]+\s*)-- config', 'return true -- config' | sc '.\build\tempsrc\l10n\Default\dictionary'"
 ) else (
-	rem -- set the loading to static in the mission file
-	echo set the loading to static in the mission file
-	powershell -Command "(gc '.\build\tempsrc\l10n\Default\dictionary') -replace 'return(\s*[^\s]+\s*)-- scripts', 'return false -- scripts' | sc '.\build\tempsrc\l10n\Default\dictionary'"
+	rem -- set the mission config loading to static in the mission file
+	echo set the mission config loading to static in the mission file
 	powershell -Command "(gc '.\build\tempsrc\l10n\Default\dictionary') -replace 'return(\s*[^\s]+\s*)-- config', 'return false -- config' | sc '.\build\tempsrc\l10n\Default\dictionary'"
 )
 
