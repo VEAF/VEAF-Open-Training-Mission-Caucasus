@@ -712,31 +712,102 @@ if veafHoundElint and false then -- don't use Hound Elint
     veafHoundElint.initialize(
         "ELINT", -- prefix
         { -- red
-            admin = false,
-            markers = true,
-            atis = false,
-            controller = false
+            --global parameters
+            markers = true, --enables or disables markers on the map for detected radars
+            disableBDA = false, --disables notifications that a radar has dropped off scope
+            platformPositionErrors = true, --enables INS drift / GPS errors for ELINT platforms
+            NATOmessages = false, --provides positions relative to the bullseye
+            NATO_SectorCallsigns = false, --uses a different pool for sector callsigns
+            ATISinterval = 180, --refresh delay of the ATIS, beware that this has an impact on performance
+            preBriefedContacts = {
+                --"Stuff",
+                --"Thing",
+            }, --contains the name of units placed in the ME which will be designated as pre-briefed (exact location) and who's position will be indicated exactly by Hound until the unit moved 100m away
+            debug = false, --set this to true to make sure your configuration is correct and working as intended
         },
         { -- blue
-            admin = false,
-            markers = true,
-            atis = {
-                freq = 282.125,
-                interval = 15,
-                speed = 1,
-                reportEWR = false
+            sectors = {
+                --Global sector, mandatory inclusion if you want a global ATIS/controller etc., encompasses the whole map so it'll be very crowded in terms of comms
+                [veafHoundElint.globalSectorName] = {
+                    callsign = "Global Sector", --defines a specific callsign for the sector which will be used by the ATIS etc., if absent or nil Hound will assign it a callsign automatically, NATO format of regular Hound format. If true, callsign will be equal to the sector name
+                    atis = {
+                        freq = 282.175,
+                        speed = 1,
+                        --additional params
+                        reportEWR = false --enables or disables the ATIS announcing EWRs as threats instead of it giving a very short message for such radars
+                    },
+                    controller = {
+                        freq = 282.225,
+                        --additional params
+                        voiceEnabled = true --enables or disables voice for the controller which will otherwise be text only
+                    },
+                    notifier = {
+                        freq = 282.2,
+                        --additional params
+                    },
+                    disableAlerts = false, --disables alerts on the ATIS/Controller when a new radar is detected or destroyed
+                    transmitterUnit = nil, --use the Unit/Pilot name to set who the transmitter is for the ATIS etc. This can be a static, and aircraft or a vehicule/ship
+                    disableTTS = false,
+                },
+                --sector named "Maykop", will be geofenced to the mission editor drawing called "Maykop" (case sensitive)
+                ["Maykop"] = {
+                    callsign = true, --defines a specific callsign for the sector which will be used by the ATIS etc., if absent or nil Hound will assign it a callsign automatically, NATO format of regular Hound format. If true, callsign will be equal to the sector name
+                    atis = {
+                        freq = 281.075,
+                        speed = 1,
+                        --additional params
+                        reportEWR = false --enables or disables the ATIS announcing EWRs as threats instead of it giving a very short message for such radars
+                    },
+                    controller = {
+                        freq = 281.125,
+                        --additional params
+                        voiceEnabled = true --enables or disables voice for the controller which will otherwise be text only
+                    },
+                    notifier = {
+                        freq = 281.1,
+                        --additional params
+                    },
+                    disableAlerts = false, --disables alerts on the ATIS/Controller when a new radar is detected or destroyed
+                    transmitterUnit = nil, --use the Unit/Pilot name to set who the transmitter is for the ATIS etc. This can be a static, and aircraft or a vehicule/ship
+                    disableTTS = false,
+                },
             },
-            controller = {
-                freq = 282.225,
-                voiceEnabled = true
-            }
+            --global parameters
+            markers = true, --enables or disables markers on the map for detected radars
+            disableBDA = false, --disables notifications that a radar has dropped off scope
+            platformPositionErrors = true, --enables INS drift / GPS errors for ELINT platforms
+            NATOmessages= true, --provides positions relative to the bullseye
+            NATO_SectorCallsigns = true, --uses a different pool for sector callsigns
+            ATISinterval = 180, --refresh delay of the ATIS, beware that this has an impact on performance
+            preBriefedContacts = {
+                "RED-EWR-NW",
+                "RED-EWR-S",
+                "RED-EWR-NE",
+                "RED-EWR-E",
+                --"Stuff",
+                --"Thing",
+            }, --contains the name of units or groups placed in the ME which will be designated as pre-briefed (exact location) and who's position will be indicated exactly by Hound until the unit moved 100m away. If multiple radars are within a specified group, they'll all be added as pre-briefed targets
+            debug = false, --set this to true to make sure your configuration is correct and working as intended
         }
+        --this is the entire range of possible entries for the notifier, the controller and the ATIS settings
+        -- args = {
+        --     freq = 250.000,
+        --     modulation = "AM",
+        --     volume = "1.0",
+        --     speed = <speed> -- number default is 0/1 for controller/atis. range is -10 to +10 on windows TTS. for google it's 0.25 to 4.0
+        --     gender = "male"|"female",
+        --     culture = "en-US"|"en-UK" -- (any installed on your system)
+        --     isGoogle = true/false -- use google TTS (requires additional STTS config)
+        --     voiceEnabled = true/false (for the controller only) -- to set if the controllers uses text or TTS
+        --     reportEWR = true/false (for ATIS only) -- set to tell the ATIS to report EWRs as threats
+        --     enableBDA = true/false (true by default) -- set to enable BDA/emissions drop on radars
+        -- }
     )
 
     -- automatically start the two ELINT missions
     veafCombatMission.ActivateMission("ELINT-Mission-East", true)
     veafCombatMission.ActivateMission("ELINT-Mission-West", true)
-end    
+end   
 
 
 -- Silence ATC on all the airdromes

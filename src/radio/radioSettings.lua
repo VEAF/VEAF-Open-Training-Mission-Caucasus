@@ -165,7 +165,7 @@ radioPresetsRed =
 radioPresetsWarbirdBlue = {
     --Axis
     ["##RADIO_FuG16_01##"] = 39.000,
-    ["##RADIO_FuG16_02##"] = 40.000,
+    ["##RADIO_FuG16_02##"] = 38.400,
     ["##RADIO_FuG16_03##"] = 41.000,
     ["##RADIO_FuG16_04##"] = 42.000,
     ["##RADIO_FuG16_BASE##"] = 38.400,
@@ -174,7 +174,7 @@ radioPresetsWarbirdBlue = {
 radioPresetsWarbirdRed = {
     --Axis
     ["##RADIO_FuG16_01##"] = 39.000,
-    ["##RADIO_FuG16_02##"] = 40.000,
+    ["##RADIO_FuG16_02##"] = 38.400,
     ["##RADIO_FuG16_03##"] = 41.000,
     ["##RADIO_FuG16_04##"] = 42.000,
     ["##RADIO_FuG16_BASE##"] = 38.400,
