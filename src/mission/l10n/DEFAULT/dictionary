@@ -22,8 +22,22 @@ PvP is only authorized in the Airquake zone and in the Red vs Blue PvP area\
 Documentation de la mission http://veaf.org/opentraining\
 \
 AWACS : 282.200\
-ELINT ATIS : 282.125\
+ELINT ATIS : 282.175\
+ELINT NOTIFIER : 282.200\
 ELINT CONTROL : 282.225\
+\
+=================================\
+\
+Link4 frequencies for carriers are identical to the radio frequencies of the carriers in the Freq. Plan found in the kneeboard.\
+---------------------------------------------------------------------------\
+Les fréquences Liaison 4 des portes avions sont identiques aux fréquences des portes avions trouvées dans le Freq. Plan de vos kneeboard.\
+\
+\
+ICLS channels for carriers are identical to the TACAN channels of the carriers in the Freq. Plan found in the kneeboard.\
+---------------------------------------------------------------------------\
+Les channels ICLS des portes avions sont identiques aux channels TACAN des portes avions trouvées dans le Freq. Plan de vos kneeboard.\
+\
+=================================\
 \
 Nous contacter:\
 - Site : https://www.veaf.org/\
