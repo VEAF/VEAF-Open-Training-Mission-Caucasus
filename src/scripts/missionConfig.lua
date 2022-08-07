@@ -14,27 +14,80 @@ veafBeacons = false
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize QRA
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+VeafQRA.ToggleAllSilence(false) --this will set all QRA messages ON if the argument is "true" and all QRA messages to OFF is the argument is "false".
+
 if veaf then
-    VeafQRA.new()
+    --red
+    QRA_Minevody = VeafQRA.new()
     :setName("QRA_Minevody")
     :setTriggerZone("QRA_Minevody")
-    :addGroup("QRA_Minevody")
     :setZoneRadius(106680) -- 350,000 feet
+    :addGroup("QRA_Minevody")
+
+        --NOTE 1 : Remember that only one aircraft group at a time is deployed for each QRA
+
+    --:setQRAcount(QRAcount) --Superior or equal to -1 : Current number of aircraft groups available for deployement. By default this is set to -1 meaning an infinite amount of groups are available, no warehousing is done. -> This is you master arm for the rest of these options.
+    --:setQRAmaxCount(maxQRAcount) --Superior or equal to -1 : Maximum number of aircraft groups deployable at any time for the QRA. By default this is set to -1 meaning an infinite amount of aircrafts can be accumulated for deployement. -> Example: a QRA has 2 out of 6 groups ready for deployement, 6 is your maxQRAcount, 2 is your current QRAcount.
+    --:setQRAmaxResupplyCount(maxResupplyCount) --Superior or equal to -1 : Total number of aircraft groups which can be resupplied to the QRA. By default this is set to -1 meaning an infinite amount of stock is available. 0 means no stock is available, no resupplies will occur, this is your master arm for resupplies  -> Take the previous example : We are missing 4 groups but only have 3 in stock to resupply the QRA, 3 is your QRAmaxResupplyCount
+    --:setQRAminCountforResupply(minCountforResupply) --Equal to -1 or superior to 0 : Number of aircraft groups which the QRA needs to have at all times, otherwise a resupply will be started. By default this is set at -1 which means that a resupply will be started as soon as an aircraft group is lost. -> Take the previous example : This minimum number of deployable groups we desire at all times for our QRA is 1, but we have 2, so no resupply will happen for now. 1 is your minCountforResupply.
+    --:setResupplyAmount(resupplyAmount) --Superior or equal to 1 : Number of aircraf groups that will be resupplied to the QRA when a resupply happens. By default it is equal to 1. -> Take the previous example : We just lost both of our groups meaning we only have none left, this will trigger a resupply, a resupply the desired amount of aircraft groups or of however many aircrafts we have in stock if this amount is less. The resupply will also be constrained by the maximum number of groups we can have ready for deployement at once.
+    --:setQRAresupplyDelay(resupplyDelay) --Superior or equal to 0 : Time that a resupply will need in order to happen.
+
+        --NOTE 2 : only one resupply can happen at a time, they may be scheduled at every possible occasion but will happen one at a time.
+        --NOTE 3 : QRA groups that have just arrived from the supply chain will need to be rearmed (see associated delay and constraints)
+
+    --:setAirportLink(airbase_name) --Unit name of the airbase in between " " : QRA will be linked to this airport and will stop operating if the airport is lost (This can be a FARP (use the FARP's unit name), a Ship (use the ship's unit name), an airfield or a building (oil rigs etc.))
+    --:setAirportMinLifePercent(value) --Ranges from 0 to 1 : minimum life percentage of the linked airport for the QRA to operate. Airports (runways) and Ships only should lose life when bombed, this needs manual testing to know what works best. Not currently functional due to a DCS bug.
+    :setAirportLink("Mineralnye Vody")
+
+        --NOTE 1 : QRA that are just being recomissioned after an airbase is retaken will need to be rearmed (see associated delay and constraints)
+
+    --:setDelayBeforeRearming(value) --Delay between the death of a QRA and it being ready for action
+    --:setNoNeedToLeaveZoneBeforeRearming() --QRA will be rearmed (and later deployed) even though players are still in the area
+    --:setResetWhenLeavingZone() --The QRA will be despawned (and ready-ed up again immediatly) when all players leave the zone. Otherwise the QRA will patrol until they RTB at which point they will despawn on landing and be ready immediatly.
+    --:setDelayBeforeActivating(value) --activation delay between units entering the QRA zone and the QRA actually deploying
+
     :setCoalition(coalition.side.RED)
     :addEnnemyCoalition(coalition.side.BLUE)
-    :setReactOnHelicopters()
+    :setReactOnHelicopters() --Sets if the QRA reacts to helicopters entering the zone
+    --:setSilent() --mutes this QRA only, VeafQRA.AllSilence has to be false for this to have an effect
     :start()
 
-    VeafQRA.new()
+    QRA_Krasnodar = VeafQRA.new()
     :setName("QRA_Krasnodar")
     :setTriggerZone("QRA_Krasnodar")
-    :addGroup("QRA_Krasnodar")
     :setZoneRadius(106680) -- 350,000 feet
+    :addGroup("QRA_Krasnodar")
+    :setAirportLink("Krasnodar-Pashkovsky")
     :setCoalition(coalition.side.RED)
     :addEnnemyCoalition(coalition.side.BLUE)
-    :setReactOnHelicopters()
+    :setReactOnHelicopters() --Sets if the QRA reacts to helicopters entering the zone
+    :start()
+
+
+    --blue
+    QRA_Kutaisi = VeafQRA.new()
+    :setName("QRA_Kutaisi")
+    :setTriggerZone("QRA_Kutaisi")
+    :setZoneRadius(106680) -- 350,000 feet
+    :addGroup("QRA_Kutaisi")
+    :setAirportLink("Kutaisi")
+    :setCoalition(coalition.side.BLUE)
+    :addEnnemyCoalition(coalition.side.RED)
+    :start()
+
+    QRA_Gudauta = VeafQRA.new()
+    :setName("QRA_Gudauta")
+    :setTriggerZone("QRA_Gudauta")
+    :setZoneRadius(106680) -- 350,000 feet
+    :addGroup("QRA_Gudauta")
+    :setAirportLink("Gudauta")
+    :setCoalition(coalition.side.BLUE)
+    :addEnnemyCoalition(coalition.side.RED)
     :start()
 end
+
+--if QRA_Minevody then QRA_Minevody:stop() end --use this if you wish to stop the QRA from operating at any point. It can be restarted with : if QRA_Minevody then QRA_Minevody:start() end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize all the scripts
@@ -612,14 +665,6 @@ if veafRemote then
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
--- initialize the interpreter
--------------------------------------------------------------------------------------------------------------------------------------------------------------
-if veafInterpreter then
-    veaf.loggers.get(veaf.Id):info("init - veafInterpreter")
-    veafInterpreter.initialize()
-end
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize Skynet-IADS
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if veafSkynet then
@@ -630,6 +675,14 @@ if veafSkynet then
         false, --includeBlueInRadio
         false --debugBlue
     )
+end
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- initialize the interpreter
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+if veafInterpreter then
+    veaf.loggers.get(veaf.Id):info("init - veafInterpreter")
+    veafInterpreter.initialize()
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -659,31 +712,102 @@ if veafHoundElint and false then -- don't use Hound Elint
     veafHoundElint.initialize(
         "ELINT", -- prefix
         { -- red
-            admin = false,
-            markers = true,
-            atis = false,
-            controller = false
+            --global parameters
+            markers = true, --enables or disables markers on the map for detected radars
+            disableBDA = false, --disables notifications that a radar has dropped off scope
+            platformPositionErrors = true, --enables INS drift / GPS errors for ELINT platforms
+            NATOmessages = false, --provides positions relative to the bullseye
+            NATO_SectorCallsigns = false, --uses a different pool for sector callsigns
+            ATISinterval = 180, --refresh delay of the ATIS, beware that this has an impact on performance
+            preBriefedContacts = {
+                --"Stuff",
+                --"Thing",
+            }, --contains the name of units placed in the ME which will be designated as pre-briefed (exact location) and who's position will be indicated exactly by Hound until the unit moved 100m away
+            debug = false, --set this to true to make sure your configuration is correct and working as intended
         },
         { -- blue
-            admin = false,
-            markers = true,
-            atis = {
-                freq = 282.125,
-                interval = 15,
-                speed = 1,
-                reportEWR = false
+            sectors = {
+                --Global sector, mandatory inclusion if you want a global ATIS/controller etc., encompasses the whole map so it'll be very crowded in terms of comms
+                [veafHoundElint.globalSectorName] = {
+                    callsign = "Global Sector", --defines a specific callsign for the sector which will be used by the ATIS etc., if absent or nil Hound will assign it a callsign automatically, NATO format of regular Hound format. If true, callsign will be equal to the sector name
+                    atis = {
+                        freq = 282.175,
+                        speed = 1,
+                        --additional params
+                        reportEWR = false --enables or disables the ATIS announcing EWRs as threats instead of it giving a very short message for such radars
+                    },
+                    controller = {
+                        freq = 282.225,
+                        --additional params
+                        voiceEnabled = true --enables or disables voice for the controller which will otherwise be text only
+                    },
+                    notifier = {
+                        freq = 282.2,
+                        --additional params
+                    },
+                    disableAlerts = false, --disables alerts on the ATIS/Controller when a new radar is detected or destroyed
+                    transmitterUnit = nil, --use the Unit/Pilot name to set who the transmitter is for the ATIS etc. This can be a static, and aircraft or a vehicule/ship
+                    disableTTS = false,
+                },
+                --sector named "Maykop", will be geofenced to the mission editor drawing called "Maykop" (case sensitive)
+                ["Maykop"] = {
+                    callsign = true, --defines a specific callsign for the sector which will be used by the ATIS etc., if absent or nil Hound will assign it a callsign automatically, NATO format of regular Hound format. If true, callsign will be equal to the sector name
+                    atis = {
+                        freq = 281.075,
+                        speed = 1,
+                        --additional params
+                        reportEWR = false --enables or disables the ATIS announcing EWRs as threats instead of it giving a very short message for such radars
+                    },
+                    controller = {
+                        freq = 281.125,
+                        --additional params
+                        voiceEnabled = true --enables or disables voice for the controller which will otherwise be text only
+                    },
+                    notifier = {
+                        freq = 281.1,
+                        --additional params
+                    },
+                    disableAlerts = false, --disables alerts on the ATIS/Controller when a new radar is detected or destroyed
+                    transmitterUnit = nil, --use the Unit/Pilot name to set who the transmitter is for the ATIS etc. This can be a static, and aircraft or a vehicule/ship
+                    disableTTS = false,
+                },
             },
-            controller = {
-                freq = 282.225,
-                voiceEnabled = true
-            }
+            --global parameters
+            markers = true, --enables or disables markers on the map for detected radars
+            disableBDA = false, --disables notifications that a radar has dropped off scope
+            platformPositionErrors = true, --enables INS drift / GPS errors for ELINT platforms
+            NATOmessages= true, --provides positions relative to the bullseye
+            NATO_SectorCallsigns = true, --uses a different pool for sector callsigns
+            ATISinterval = 180, --refresh delay of the ATIS, beware that this has an impact on performance
+            preBriefedContacts = {
+                "RED-EWR-NW",
+                "RED-EWR-S",
+                "RED-EWR-NE",
+                "RED-EWR-E",
+                --"Stuff",
+                --"Thing",
+            }, --contains the name of units or groups placed in the ME which will be designated as pre-briefed (exact location) and who's position will be indicated exactly by Hound until the unit moved 100m away. If multiple radars are within a specified group, they'll all be added as pre-briefed targets
+            debug = false, --set this to true to make sure your configuration is correct and working as intended
         }
+        --this is the entire range of possible entries for the notifier, the controller and the ATIS settings
+        -- args = {
+        --     freq = 250.000,
+        --     modulation = "AM",
+        --     volume = "1.0",
+        --     speed = <speed> -- number default is 0/1 for controller/atis. range is -10 to +10 on windows TTS. for google it's 0.25 to 4.0
+        --     gender = "male"|"female",
+        --     culture = "en-US"|"en-UK" -- (any installed on your system)
+        --     isGoogle = true/false -- use google TTS (requires additional STTS config)
+        --     voiceEnabled = true/false (for the controller only) -- to set if the controllers uses text or TTS
+        --     reportEWR = true/false (for ATIS only) -- set to tell the ATIS to report EWRs as threats
+        --     enableBDA = true/false (true by default) -- set to enable BDA/emissions drop on radars
+        -- }
     )
 
     -- automatically start the two ELINT missions
     veafCombatMission.ActivateMission("ELINT-Mission-East", true)
     veafCombatMission.ActivateMission("ELINT-Mission-West", true)
-end    
+end   
 
 
 -- Silence ATC on all the airdromes

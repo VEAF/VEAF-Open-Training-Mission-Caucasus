@@ -2710,7 +2710,1198 @@ settings =
                 ["x"] = -250000,
                 ["y"] = -360000,
             },
-
+            [20] = 
+            {
+                ["lateActivation"] = true,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["taskSelected"] = true,
+                ["route"] = 
+                {
+                    ["routeRelativeTOT"] = true,
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 6096,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["properties"] = 
+                            {
+                                ["addopt"] = 
+                                {
+                                }, -- end of ["addopt"]
+                            }, -- end of ["properties"]
+                            ["speed"] = 300,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["number"] = 1,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 2,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["name"] = 17,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                        [3] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 3,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = 4,
+                                                        ["name"] = 18,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [3]
+                                        [4] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 4,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["name"] = 19,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [4]
+                                        [5] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 5,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["targetTypes"] = 
+                                                        {
+                                                        }, -- end of ["targetTypes"]
+                                                        ["name"] = 21,
+                                                        ["value"] = "none;",
+                                                        ["noTargetTypes"] = 
+                                                        {
+                                                            [1] = "Fighters",
+                                                            [2] = "Multirole fighters",
+                                                            [3] = "Bombers",
+                                                            [4] = "Helicopters",
+                                                            [5] = "UAVs",
+                                                            [6] = "Infantry",
+                                                            [7] = "Fortifications",
+                                                            [8] = "Tanks",
+                                                            [9] = "IFV",
+                                                            [10] = "APC",
+                                                            [11] = "Artillery",
+                                                            [12] = "Unarmed vehicles",
+                                                            [13] = "AAA",
+                                                            [14] = "SR SAM",
+                                                            [15] = "MR SAM",
+                                                            [16] = "LR SAM",
+                                                            [17] = "Aircraft Carriers",
+                                                            [18] = "Cruisers",
+                                                            [19] = "Destroyers",
+                                                            [20] = "Frigates",
+                                                            [21] = "Corvettes",
+                                                            [22] = "Light armed ships",
+                                                            [23] = "Unarmed ships",
+                                                            [24] = "Submarines",
+                                                            [25] = "Cruise missiles",
+                                                            [26] = "Antiship Missiles",
+                                                            [27] = "AA Missiles",
+                                                            [28] = "AG Missiles",
+                                                            [29] = "SA Missiles",
+                                                        }, -- end of ["noTargetTypes"]
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [5]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                            ["name"] = "F1C-Fox1",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 2783,
+                ["hidden"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 6096,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Iran Air Force (FICTIONAL EQ VERSION)",
+                        ["skill"] = "Excellent",
+                        ["speed"] = 300,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "Mirage-F1CE",
+                        ["unitId"] = 5563,
+                        ["psi"] = -2.7233683240106,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                        ["name"] = "veafSpawn-F1C-Fox1-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{R550_Magic_1}",
+                                }, -- end of [1]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{R530F_EM}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "PTB-1200-F1",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{R530F_EM}",
+                                }, -- end of [5]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{R550_Magic_1}",
+                                }, -- end of [7]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3356,
+                            ["flare"] = 15,
+                            ["chaff"] = 30,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 2.7233683240106,
+                        ["callsign"] = 
+                        {
+                            [1] = 6,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Ford11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "055",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 6096,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Iran Air Force (FICTIONAL EQ VERSION)",
+                        ["skill"] = "Excellent",
+                        ["speed"] = 300,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "Mirage-F1CE",
+                        ["unitId"] = 5564,
+                        ["psi"] = -2.7233683240106,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                        ["name"] = "veafSpawn-F1C-Fox1-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{R550_Magic_1}",
+                                }, -- end of [1]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{R530F_EM}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "PTB-1200-F1",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{R530F_EM}",
+                                }, -- end of [5]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{R550_Magic_1}",
+                                }, -- end of [7]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3356,
+                            ["flare"] = 15,
+                            ["chaff"] = 30,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 2.7233683240106,
+                        ["callsign"] = 
+                        {
+                            [1] = 6,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Ford12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "056",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+                ["name"] = "veafSpawn-F1C-Fox1",
+                ["communication"] = false,
+                ["start_time"] = 0,
+                ["modulation"] = 0,
+                ["frequency"] = 127.5,
+            }, -- end of [20]
+            [21] = 
+            {
+                ["lateActivation"] = true,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["taskSelected"] = true,
+                ["route"] = 
+                {
+                    ["routeRelativeTOT"] = true,
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 6096,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["properties"] = 
+                            {
+                                ["addopt"] = 
+                                {
+                                }, -- end of ["addopt"]
+                            }, -- end of ["properties"]
+                            ["speed"] = 300,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["number"] = 1,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 2,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["name"] = 17,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                        [3] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 3,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = 4,
+                                                        ["name"] = 18,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [3]
+                                        [4] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 4,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["name"] = 19,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [4]
+                                        [5] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 5,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["targetTypes"] = 
+                                                        {
+                                                        }, -- end of ["targetTypes"]
+                                                        ["name"] = 21,
+                                                        ["value"] = "none;",
+                                                        ["noTargetTypes"] = 
+                                                        {
+                                                            [1] = "Fighters",
+                                                            [2] = "Multirole fighters",
+                                                            [3] = "Bombers",
+                                                            [4] = "Helicopters",
+                                                            [5] = "UAVs",
+                                                            [6] = "Infantry",
+                                                            [7] = "Fortifications",
+                                                            [8] = "Tanks",
+                                                            [9] = "IFV",
+                                                            [10] = "APC",
+                                                            [11] = "Artillery",
+                                                            [12] = "Unarmed vehicles",
+                                                            [13] = "AAA",
+                                                            [14] = "SR SAM",
+                                                            [15] = "MR SAM",
+                                                            [16] = "LR SAM",
+                                                            [17] = "Aircraft Carriers",
+                                                            [18] = "Cruisers",
+                                                            [19] = "Destroyers",
+                                                            [20] = "Frigates",
+                                                            [21] = "Corvettes",
+                                                            [22] = "Light armed ships",
+                                                            [23] = "Unarmed ships",
+                                                            [24] = "Submarines",
+                                                            [25] = "Cruise missiles",
+                                                            [26] = "Antiship Missiles",
+                                                            [27] = "AA Missiles",
+                                                            [28] = "AG Missiles",
+                                                            [29] = "SA Missiles",
+                                                        }, -- end of ["noTargetTypes"]
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [5]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                            ["name"] = "F1C-Fox2",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 2784,
+                ["hidden"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 6096,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Iran Air Force (FICTIONAL EQ VERSION)",
+                        ["skill"] = "Excellent",
+                        ["speed"] = 300,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "Mirage-F1CE",
+                        ["unitId"] = 5565,
+                        ["psi"] = -2.7233683240106,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                        ["name"] = "veafSpawn-F1C-Fox2-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{AIM-9JULI}",
+                                }, -- end of [1]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{R530F_IR}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "PTB-1200-F1",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{R530F_IR}",
+                                }, -- end of [5]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{AIM-9JULI}",
+                                }, -- end of [7]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3356,
+                            ["flare"] = 15,
+                            ["chaff"] = 30,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 2.7233683240106,
+                        ["callsign"] = 
+                        {
+                            [1] = 7,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Chevy11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "011",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 6096,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Iran Air Force (FICTIONAL EQ VERSION)",
+                        ["skill"] = "Excellent",
+                        ["speed"] = 300,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "Mirage-F1CE",
+                        ["unitId"] = 5566,
+                        ["psi"] = -2.7233683240106,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                        ["name"] = "veafSpawn-F1C-Fox2-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{AIM-9JULI}",
+                                }, -- end of [1]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{R530F_IR}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "PTB-1200-F1",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{R530F_IR}",
+                                }, -- end of [5]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{AIM-9JULI}",
+                                }, -- end of [7]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3356,
+                            ["flare"] = 15,
+                            ["chaff"] = 30,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 2.7233683240106,
+                        ["callsign"] = 
+                        {
+                            [1] = 7,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Chevy12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "012",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+                ["name"] = "veafSpawn-F1C-Fox2",
+                ["communication"] = false,
+                ["start_time"] = 0,
+                ["modulation"] = 0,
+                ["frequency"] = 127.5,
+            }, -- end of [21]
+            [22] = 
+            {
+                ["lateActivation"] = true,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["taskSelected"] = true,
+                ["route"] = 
+                {
+                    ["routeRelativeTOT"] = true,
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 6096,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["properties"] = 
+                            {
+                                ["addopt"] = 
+                                {
+                                }, -- end of ["addopt"]
+                            }, -- end of ["properties"]
+                            ["speed"] = 300,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["number"] = 1,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 2,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["name"] = 17,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                        [3] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 3,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = 4,
+                                                        ["name"] = 18,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [3]
+                                        [4] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 4,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["name"] = 19,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [4]
+                                        [5] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 5,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["targetTypes"] = 
+                                                        {
+                                                        }, -- end of ["targetTypes"]
+                                                        ["name"] = 21,
+                                                        ["value"] = "none;",
+                                                        ["noTargetTypes"] = 
+                                                        {
+                                                            [1] = "Fighters",
+                                                            [2] = "Multirole fighters",
+                                                            [3] = "Bombers",
+                                                            [4] = "Helicopters",
+                                                            [5] = "UAVs",
+                                                            [6] = "Infantry",
+                                                            [7] = "Fortifications",
+                                                            [8] = "Tanks",
+                                                            [9] = "IFV",
+                                                            [10] = "APC",
+                                                            [11] = "Artillery",
+                                                            [12] = "Unarmed vehicles",
+                                                            [13] = "AAA",
+                                                            [14] = "SR SAM",
+                                                            [15] = "MR SAM",
+                                                            [16] = "LR SAM",
+                                                            [17] = "Aircraft Carriers",
+                                                            [18] = "Cruisers",
+                                                            [19] = "Destroyers",
+                                                            [20] = "Frigates",
+                                                            [21] = "Corvettes",
+                                                            [22] = "Light armed ships",
+                                                            [23] = "Unarmed ships",
+                                                            [24] = "Submarines",
+                                                            [25] = "Cruise missiles",
+                                                            [26] = "Antiship Missiles",
+                                                            [27] = "AA Missiles",
+                                                            [28] = "AG Missiles",
+                                                            [29] = "SA Missiles",
+                                                        }, -- end of ["noTargetTypes"]
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [5]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                            ["name"] = "F1EQ-Fox1",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 2785,
+                ["hidden"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 6096,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Iran Air Force Grey Scheme",
+                        ["skill"] = "Excellent",
+                        ["speed"] = 300,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "Mirage-F1EQ",
+                        ["unitId"] = 5567,
+                        ["psi"] = -2.7233683240106,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                        ["name"] = "veafSpawn-F1EQ-Fox1-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
+                                }, -- end of [1]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{FD21B13E-57F3-4C2A-9F78-C522D0B5BCE1}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "PTB-1200-F1",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{FD21B13E-57F3-4C2A-9F78-C522D0B5BCE1}",
+                                }, -- end of [5]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
+                                }, -- end of [7]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3356,
+                            ["flare"] = 0,
+                            ["chaff"] = 0,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 2.7233683240106,
+                        ["callsign"] = 
+                        {
+                            [1] = 8,
+                            [2] = 1,
+                            [3] = 1,
+                            ["name"] = "Pontiac11",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "013",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 6096,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Iran Air Force Grey Scheme",
+                        ["skill"] = "Excellent",
+                        ["speed"] = 300,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "Mirage-F1EQ",
+                        ["unitId"] = 5568,
+                        ["psi"] = -2.7233683240106,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                        ["name"] = "veafSpawn-F1EQ-Fox1-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
+                                }, -- end of [1]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{FD21B13E-57F3-4C2A-9F78-C522D0B5BCE1}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "PTB-1200-F1",
+                                }, -- end of [4]
+                                [5] = 
+                                {
+                                    ["CLSID"] = "{FD21B13E-57F3-4C2A-9F78-C522D0B5BCE1}",
+                                }, -- end of [5]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
+                                }, -- end of [7]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3356,
+                            ["flare"] = 0,
+                            ["chaff"] = 0,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 2.7233683240106,
+                        ["callsign"] = 
+                        {
+                            [1] = 8,
+                            [2] = 1,
+                            [3] = 2,
+                            ["name"] = "Pontiac12",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "014",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+                ["name"] = "veafSpawn-F1EQ-Fox1",
+                ["communication"] = false,
+                ["start_time"] = 0,
+                ["modulation"] = 0,
+                ["frequency"] = 127.5,
+            }, -- end of [22]
+            [23] = 
+            {
+                ["lateActivation"] = true,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = false,
+                ["task"] = "CAP",
+                ["uncontrolled"] = false,
+                ["taskSelected"] = true,
+                ["route"] = 
+                {
+                    ["routeRelativeTOT"] = true,
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 6096,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["properties"] = 
+                            {
+                                ["addopt"] = 
+                                {
+                                }, -- end of ["addopt"]
+                            }, -- end of ["properties"]
+                            ["speed"] = 300,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["key"] = "CAP",
+                                            ["id"] = "EngageTargets",
+                                            ["number"] = 1,
+                                            ["auto"] = true,
+                                            ["params"] = 
+                                            {
+                                                ["targetTypes"] = 
+                                                {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                                ["priority"] = 0,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 2,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["name"] = 17,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                        [3] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 3,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = 4,
+                                                        ["name"] = 18,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [3]
+                                        [4] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 4,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["name"] = 19,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [4]
+                                        [5] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 5,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "Option",
+                                                    ["params"] = 
+                                                    {
+                                                        ["targetTypes"] = 
+                                                        {
+                                                        }, -- end of ["targetTypes"]
+                                                        ["name"] = 21,
+                                                        ["value"] = "none;",
+                                                        ["noTargetTypes"] = 
+                                                        {
+                                                            [1] = "Fighters",
+                                                            [2] = "Multirole fighters",
+                                                            [3] = "Bombers",
+                                                            [4] = "Helicopters",
+                                                            [5] = "UAVs",
+                                                            [6] = "Infantry",
+                                                            [7] = "Fortifications",
+                                                            [8] = "Tanks",
+                                                            [9] = "IFV",
+                                                            [10] = "APC",
+                                                            [11] = "Artillery",
+                                                            [12] = "Unarmed vehicles",
+                                                            [13] = "AAA",
+                                                            [14] = "SR SAM",
+                                                            [15] = "MR SAM",
+                                                            [16] = "LR SAM",
+                                                            [17] = "Aircraft Carriers",
+                                                            [18] = "Cruisers",
+                                                            [19] = "Destroyers",
+                                                            [20] = "Frigates",
+                                                            [21] = "Corvettes",
+                                                            [22] = "Light armed ships",
+                                                            [23] = "Unarmed ships",
+                                                            [24] = "Submarines",
+                                                            [25] = "Cruise missiles",
+                                                            [26] = "Antiship Missiles",
+                                                            [27] = "AA Missiles",
+                                                            [28] = "AG Missiles",
+                                                            [29] = "SA Missiles",
+                                                        }, -- end of ["noTargetTypes"]
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [5]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                            ["name"] = "F1EQ-Fox2",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 2787,
+                ["hidden"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 6096,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Iran Air Force Grey Scheme",
+                        ["skill"] = "Excellent",
+                        ["speed"] = 300,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "Mirage-F1EQ",
+                        ["unitId"] = 5571,
+                        ["psi"] = -2.7233683240106,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                        ["name"] = "veafSpawn-F1EQ-Fox2-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
+                                }, -- end of [1]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "PTB-1200-F1",
+                                }, -- end of [4]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
+                                }, -- end of [7]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3356,
+                            ["flare"] = 0,
+                            ["chaff"] = 0,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 2.7233683240106,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 2,
+                            [3] = 1,
+                            ["name"] = "Enfield21",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "016",
+                    }, -- end of [1]
+                    [2] = 
+                    {
+                        ["alt"] = 6096,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Iran Air Force Grey Scheme",
+                        ["skill"] = "Excellent",
+                        ["speed"] = 300,
+                        ["AddPropAircraft"] = 
+                        {
+                        }, -- end of ["AddPropAircraft"]
+                        ["type"] = "Mirage-F1EQ",
+                        ["unitId"] = 5572,
+                        ["psi"] = -2.7233683240106,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                        ["name"] = "veafSpawn-F1EQ-Fox2-2",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
+                                }, -- end of [1]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "PTB-1200-F1",
+                                }, -- end of [4]
+                                [7] = 
+                                {
+                                    ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
+                                }, -- end of [7]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 3356,
+                            ["flare"] = 0,
+                            ["chaff"] = 0,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 2.7233683240106,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 2,
+                            [3] = 2,
+                            ["name"] = "Enfield22",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "018",
+                    }, -- end of [2]
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+                ["name"] = "veafSpawn-F1EQ-Fox2",
+                ["communication"] = false,
+                ["start_time"] = 0,
+                ["modulation"] = 0,
+                ["frequency"] = 127.5,
+            }, -- end of [23]
         }
     },
 
@@ -4285,7 +5476,7 @@ settings =
             }, -- end of [7]
             [8] = 
             {
-                ["modulation"] = 0,
+                ["lateActivation"] = true,
                 ["tasks"] = 
                 {
                 }, -- end of ["tasks"]
@@ -4301,6 +5492,12 @@ settings =
                             ["alt"] = 2000,
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
+                            ["properties"] = 
+                            {
+                                ["addopt"] = 
+                                {
+                                }, -- end of ["addopt"]
+                            }, -- end of ["properties"]
                             ["speed"] = 256.94444444444,
                             ["task"] = 
                             {
@@ -4311,11 +5508,11 @@ settings =
                                     {
                                         [1] = 
                                         {
-                                            ["number"] = 1,
-                                            ["key"] = "CAP",
-                                            ["id"] = "EngageTargets",
                                             ["enabled"] = true,
                                             ["auto"] = true,
+                                            ["id"] = "EngageTargets",
+                                            ["key"] = "CAP",
+                                            ["number"] = 1,
                                             ["params"] = 
                                             {
                                                 ["targetTypes"] = 
@@ -4339,9 +5536,8 @@ settings =
                         }, -- end of [1]
                     }, -- end of ["points"]
                 }, -- end of ["route"]
-                ["groupId"] = 10,
+                ["groupId"] = 2693,
                 ["hidden"] = true,
-                ["lateActivation"] = true,
                 ["units"] = 
                 {
                     [1] = 
@@ -4352,11 +5548,11 @@ settings =
                         ["skill"] = "High",
                         ["speed"] = 256.94444444444,
                         ["type"] = "F-4E",
-                        ["unitId"] = 34,
+                        ["unitId"] = 5384,
                         ["psi"] = 0,
                         ["y"] = -360000,
                         ["x"] = -250000,
-                        ["name"] = "veafSpawn-f5-fox1-1",
+                        ["name"] = "veafSpawn-f4-fox1-1",
                         ["payload"] = 
                         {
                             ["pylons"] = 
@@ -4416,11 +5612,11 @@ settings =
                         ["skill"] = "High",
                         ["speed"] = 256.94444444444,
                         ["type"] = "F-4E",
-                        ["unitId"] = 36,
+                        ["unitId"] = 5385,
                         ["psi"] = 0,
                         ["y"] = -360000,
                         ["x"] = -250000,
-                        ["name"] = "veafSpawn-f5-fox1-2",
+                        ["name"] = "veafSpawn-f4-fox1-2",
                         ["payload"] = 
                         {
                             ["pylons"] = 
@@ -4476,9 +5672,10 @@ settings =
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
-                ["name"] = "veafSpawn-f5-fox1",
+                ["name"] = "veafSpawn-f4-fox1",
                 ["communication"] = true,
                 ["start_time"] = 0,
+                ["modulation"] = 0,
                 ["frequency"] = 251,
             }, -- end of [8]
             [9] = 
@@ -5387,6 +6584,582 @@ settings =
                 ["start_time"] = 0,
                 ["frequency"] = 305,
             }, -- end of [12]
+            [13] = 
+            {
+                ["lateActivation"] = true,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = true,
+                ["task"] = "AFAC",
+                ["uncontrolled"] = false,
+                ["hiddenOnMFD"] = true,
+                ["taskSelected"] = true,
+                ["route"] = 
+                {
+                    ["routeRelativeTOT"] = true,
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["properties"] = 
+                            {
+                                ["addopt"] = 
+                                {
+                                }, -- end of ["addopt"]
+                            }, -- end of ["properties"]
+                            ["speed"] = 80.555555555556,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "FAC",
+                                            ["number"] = 1,
+                                            ["params"] = 
+                                            {
+                                                ["number"] = 9,
+                                                ["designation"] = "Auto",
+                                                ["modulation"] = 0,
+                                                ["callname"] = 1,
+                                                ["datalink"] = true,
+                                                ["frequency"] = 133000000,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 2,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "EPLRS",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["groupId"] = 27,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                            ["name"] = "veafSpawn-mq9",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 2729,
+                ["hidden"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "'camo' scheme",
+                        ["skill"] = "High",
+                        ["speed"] = 80.555555555556,
+                        ["type"] = "MQ-9 Reaper",
+                        ["unitId"] = 5442,
+                        ["psi"] = -2.7233683240106,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                        ["name"] = "veafSpawn-mq9-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 1300,
+                            ["flare"] = 0,
+                            ["chaff"] = 0,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 2.7233683240106,
+                        ["callsign"] = 
+                        {
+                            [1] = 1,
+                            [2] = 9,
+                            [3] = 1,
+                            ["name"] = "Enfield91",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "030",
+                    }, -- end of [1]
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+                ["name"] = "veafSpawn-mq9",
+                ["communication"] = true,
+                ["modulation"] = 0,
+                ["start_time"] = 0,
+                ["hiddenOnPlanner"] = true,
+                ["frequency"] = 226.6,
+            }, -- end of [13]
+            [14] = 
+            {
+                ["lateActivation"] = true,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = true,
+                ["task"] = "AFAC",
+                ["uncontrolled"] = false,
+                ["hiddenOnMFD"] = true,
+                ["taskSelected"] = true,
+                ["route"] = 
+                {
+                    ["routeRelativeTOT"] = true,
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 2000,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["properties"] = 
+                            {
+                                ["addopt"] = 
+                                {
+                                }, -- end of ["addopt"]
+                            }, -- end of ["properties"]
+                            ["speed"] = 80.555555555556,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "FAC",
+                                            ["number"] = 1,
+                                            ["params"] = 
+                                            {
+                                                ["number"] = 9,
+                                                ["designation"] = "Auto",
+                                                ["modulation"] = 0,
+                                                ["callname"] = 2,
+                                                ["datalink"] = true,
+                                                ["frequency"] = 133000000,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 2,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "EPLRS",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["groupId"] = 28,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                            ["name"] = "veafSpawn-mq9-hellfire",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 2766,
+                ["hidden"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 2000,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "'camo' scheme",
+                        ["skill"] = "High",
+                        ["speed"] = 80.555555555556,
+                        ["type"] = "MQ-9 Reaper",
+                        ["unitId"] = 5542,
+                        ["psi"] = -2.7233683240106,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                        ["name"] = "veafSpawn-mq9-hellfire-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "AGM114x2_OH_58",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "AGM114x2_OH_58",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}",
+                                }, -- end of [4]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 1300,
+                            ["flare"] = 0,
+                            ["chaff"] = 0,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 2.7233683240106,
+                        ["callsign"] = 
+                        {
+                            [1] = 2,
+                            [2] = 9,
+                            [3] = 1,
+                            ["name"] = "Springfield91",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "121",
+                    }, -- end of [1]
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+                ["name"] = "veafSpawn-mq9-hellfire",
+                ["communication"] = true,
+                ["modulation"] = 0,
+                ["start_time"] = 0,
+                ["hiddenOnPlanner"] = true,
+                ["frequency"] = 226.6,
+            }, -- end of [14]
+            [15] = 
+            {
+                ["lateActivation"] = true,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = true,
+                ["task"] = "AFAC",
+                ["uncontrolled"] = false,
+                ["hiddenOnMFD"] = false,
+                ["taskSelected"] = true,
+                ["route"] = 
+                {
+                    ["routeRelativeTOT"] = true,
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 6096,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["properties"] = 
+                            {
+                                ["addopt"] = 
+                                {
+                                }, -- end of ["addopt"]
+                            }, -- end of ["properties"]
+                            ["speed"] = 82.222222222222,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "FAC",
+                                            ["number"] = 1,
+                                            ["params"] = 
+                                            {
+                                                ["number"] = 9,
+                                                ["designation"] = "Auto",
+                                                ["modulation"] = 0,
+                                                ["callname"] = 4,
+                                                ["datalink"] = true,
+                                                ["frequency"] = 133000000,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 2,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "EPLRS",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["groupId"] = 29,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                            ["name"] = "veafSpawn-mq9-jdam",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 2731,
+                ["hidden"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 6096,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "'camo' scheme",
+                        ["skill"] = "High",
+                        ["speed"] = 82.222222222222,
+                        ["type"] = "MQ-9 Reaper",
+                        ["unitId"] = 5445,
+                        ["psi"] = -2.7233683240106,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                        ["name"] = "veafSpawn-mq9-jdam-1-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{GBU-38}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{GBU-38}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{GBU-38}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{GBU-38}",
+                                }, -- end of [4]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 1300,
+                            ["flare"] = 0,
+                            ["chaff"] = 0,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 2.7233683240106,
+                        ["callsign"] = 
+                        {
+                            [1] = 4,
+                            [2] = 9,
+                            [3] = 1,
+                            ["name"] = "Colt91",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "246",
+                    }, -- end of [1]
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+                ["name"] = "veafSpawn-mq9-jdam",
+                ["communication"] = true,
+                ["modulation"] = 0,
+                ["start_time"] = 0,
+                ["hiddenOnPlanner"] = true,
+                ["frequency"] = 226.6,
+            }, -- end of [15]
+            [16] = 
+            {
+                ["lateActivation"] = true,
+                ["tasks"] = 
+                {
+                }, -- end of ["tasks"]
+                ["radioSet"] = true,
+                ["task"] = "AFAC",
+                ["uncontrolled"] = false,
+                ["hiddenOnMFD"] = true,
+                ["taskSelected"] = true,
+                ["route"] = 
+                {
+                    ["routeRelativeTOT"] = true,
+                    ["points"] = 
+                    {
+                        [1] = 
+                        {
+                            ["alt"] = 6096,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["properties"] = 
+                            {
+                                ["addopt"] = 
+                                {
+                                }, -- end of ["addopt"]
+                            }, -- end of ["properties"]
+                            ["speed"] = 82.222222222222,
+                            ["task"] = 
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] = 
+                                {
+                                    ["tasks"] = 
+                                    {
+                                        [1] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "FAC",
+                                            ["number"] = 1,
+                                            ["params"] = 
+                                            {
+                                                ["number"] = 9,
+                                                ["designation"] = "Auto",
+                                                ["modulation"] = 0,
+                                                ["callname"] = 3,
+                                                ["datalink"] = true,
+                                                ["frequency"] = 133000000,
+                                            }, -- end of ["params"]
+                                        }, -- end of [1]
+                                        [2] = 
+                                        {
+                                            ["enabled"] = true,
+                                            ["auto"] = true,
+                                            ["id"] = "WrappedAction",
+                                            ["number"] = 2,
+                                            ["params"] = 
+                                            {
+                                                ["action"] = 
+                                                {
+                                                    ["id"] = "EPLRS",
+                                                    ["params"] = 
+                                                    {
+                                                        ["value"] = true,
+                                                        ["groupId"] = 30,
+                                                    }, -- end of ["params"]
+                                                }, -- end of ["action"]
+                                            }, -- end of ["params"]
+                                        }, -- end of [2]
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                            ["name"] = "veafSpawn-mq9-gbu",
+                            ["formation_template"] = "",
+                            ["speed_locked"] = true,
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 2767,
+                ["hidden"] = true,
+                ["units"] = 
+                {
+                    [1] = 
+                    {
+                        ["alt"] = 6096,
+                        ["hardpoint_racks"] = true,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "'camo' scheme",
+                        ["skill"] = "High",
+                        ["speed"] = 82.222222222222,
+                        ["type"] = "MQ-9 Reaper",
+                        ["unitId"] = 5543,
+                        ["psi"] = -2.7233683240106,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                        ["name"] = "veafSpawn-mq9-gbu-1",
+                        ["payload"] = 
+                        {
+                            ["pylons"] = 
+                            {
+                                [1] = 
+                                {
+                                    ["CLSID"] = "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
+                                }, -- end of [1]
+                                [2] = 
+                                {
+                                    ["CLSID"] = "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
+                                }, -- end of [2]
+                                [3] = 
+                                {
+                                    ["CLSID"] = "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
+                                }, -- end of [3]
+                                [4] = 
+                                {
+                                    ["CLSID"] = "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
+                                }, -- end of [4]
+                            }, -- end of ["pylons"]
+                            ["fuel"] = 1300,
+                            ["flare"] = 0,
+                            ["chaff"] = 0,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = 2.7233683240106,
+                        ["callsign"] = 
+                        {
+                            [1] = 3,
+                            [2] = 9,
+                            [3] = 1,
+                            ["name"] = "Uzi91",
+                        }, -- end of ["callsign"]
+                        ["onboard_num"] = "122",
+                    }, -- end of [1]
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+                ["name"] = "veafSpawn-mq9-gbu",
+                ["communication"] = true,
+                ["modulation"] = 0,
+                ["start_time"] = 0,
+                ["hiddenOnPlanner"] = true,
+                ["frequency"] = 226.6,
+            }, -- end of [16]
         }
 
     },
