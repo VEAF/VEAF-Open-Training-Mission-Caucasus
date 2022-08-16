@@ -751,7 +751,7 @@ if veafHoundElint and false then -- don't use Hound Elint
                     transmitterUnit = nil, --use the Unit/Pilot name to set who the transmitter is for the ATIS etc. This can be a static, and aircraft or a vehicule/ship
                     disableTTS = false,
                 },
-                --sector named "Maykop", will be geofenced to the mission editor drawing called "Maykop" (case sensitive)
+                --sector named "Maykop", will be geofenced to the mission editor polygon drawing (free or rect.) called "Maykop" (case sensitive)
                 ["Maykop"] = {
                     callsign = true, --defines a specific callsign for the sector which will be used by the ATIS etc., if absent or nil Hound will assign it a callsign automatically, NATO format of regular Hound format. If true, callsign will be equal to the sector name
                     atis = {
