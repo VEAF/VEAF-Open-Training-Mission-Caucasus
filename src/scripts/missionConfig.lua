@@ -168,17 +168,22 @@ if veafAssets then
 		{sort=1, name="CSG-01 Tarawa", description="Tarawa (LHA)", information="Tacan 11X TAA\nICLS 11\nU226 (11)"},
 		{sort=2, name="CSG-74 Stennis", description="Stennis (CVN)", information="Tacan 10X STS\nICLS 10\nU225 (10)\nLink4 225MHz\nACLS available"},  
 		{sort=3, name="CSG-71 Roosevelt", description="Roosevelt (CVN)", information="Tacan 12X RHR\nICLS 12\nU227 (12)\nLink4 227MHz\nACLS available"},
-		{sort=4, name="CSG-59 Forrestal", description="Forrestal (CV)", information="Tacan 13X FRT\nICLS 13\nU228 (13)\nLink4 228MHz\nACLS available"},  		
+		{sort=4, name="CSG-59 Forrestal", description="Forrestal (CV)", information="Tacan 13X FRT\nICLS 13\nU228 (13)\nLink4 228MHz\nACLS available"},
+        {sort=6, name="Kuznetsov", description="Kuznetsov (CVN)", information="V127.5"},
+
 		{sort=5, name="T1-Arco-1", description="Arco-1 (KC-135)", information="Tacan 64Y\nU290.50 (20)\nZone OUEST", linked="T1-Arco-1 escort"}, 
 		{sort=6, name="T2-Shell-1", description="Shell-1 (KC-135 MPRS)", information="Tacan 62Y\nU290.30 (18)\nZone EST", linked="T2-Shell-1 escort"},  
 		{sort=7, name="T3-Texaco-1", description="Texaco-1 (KC-135 MPRS)", information="Tacan 60Y\nU290.10 (17)\nZone OUEST", linked="T3-Texaco-1 escort"},  
 		{sort=8, name="T4-Shell-2", description="Shell-2 (KC-135)", information="Tacan 63Y\nU290.40 (19)\nZone EST", linked="T4-Shell-2 escort"},  
-		{sort=9, name="T5-Petrolsky", description="900 (IL-78M, RED)", information="U290.1 (17)", linked="T5-Petrolsky escort"},  
+		{sort=9, name="T5-Petrolsky", description="900 (IL-78M, RED)", information="U290.1 (17)", linked="T5-Petrolsky escort"}, 
+
 		{sort=10, name="CVN-74 Stennis S3B-Tanker", description="Texaco-7 (S3-B)", information="Tacan 75X T74\nU290.90\nZone PA"},  
 		{sort=11, name="CVN-71 Roosevelt S3B-Tanker", description="Texaco-8 (S3-B)", information="Tacan 76X T71\nU290.80\nZone PA"},  
 		{sort=12, name="CV-59 Forrestal S3B-Tanker", description="Texaco-9 (S3-B)", information="Tacan 77X T59\nU290.80\nZone PA"}, 
+
 		{sort=13, name="Bizmuth", description="Colt-1 AFAC Bizmuth (MQ-9)", information="L1688 V118.80 (18)", jtac=1688, freq=118.80, mod="am"},
-		{sort=14, name="Agate", description="Dodge-1 AFAC Agate (MQ-9)", information="L1687 V118.90 (19)", jtac=1687, freq=118.90, mod="am"},  
+		{sort=14, name="Agate", description="Dodge-1 AFAC Agate (MQ-9)", information="L1687 V118.90 (19)", jtac=1687, freq=118.90, mod="am"}, 
+
 		{sort=15, name="A1-Magic", description="Magic (E-3A)", information="Datalink 315.3 Mhz\nU282.20 (13)", linked="A1-Magic escort"},  
 		{sort=16, name="A2-Overlordsky", description="Overlordsky (A-50, RED)", information="U282.2 (13)", linked="A2-Overlordsky escort"},  
     }
