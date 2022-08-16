@@ -165,7 +165,7 @@ if veafAssets then
     veaf.loggers.get(veaf.Id):info("Loading configuration")
     veafAssets.Assets = {
 		-- list the assets in the mission below
-		{sort=1, name="CSG-01 Tarawa", description="Tarawa (LHA)", information="Tacan 11X TAA\nICLS 11\nU226 (11)\n"},
+		{sort=1, name="CSG-01 Tarawa", description="Tarawa (LHA)", information="Tacan 11X TAA\nICLS 11\nU226 (11)"},
 		{sort=2, name="CSG-74 Stennis", description="Stennis (CVN)", information="Tacan 10X STS\nICLS 10\nU225 (10)\nLink4 225MHz\nACLS available"},  
 		{sort=3, name="CSG-71 Roosevelt", description="Roosevelt (CVN)", information="Tacan 12X RHR\nICLS 12\nU227 (12)\nLink4 227MHz\nACLS available"},
 		{sort=4, name="CSG-59 Forrestal", description="Forrestal (CV)", information="Tacan 13X FRT\nICLS 13\nU228 (13)\nLink4 228MHz\nACLS available"},  		
