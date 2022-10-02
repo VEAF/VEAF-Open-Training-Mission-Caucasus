@@ -269,6 +269,9 @@ powershell -File replace.ps1 .\build\tempsrc\mission "\[\"AM2\"\] = \"AM2\"," " 
 rem -- disable the SU-30* module requirement
 powershell -File replace.ps1 .\build\tempsrc\mission "\[\"FlankerEx by Codename Flanker\"\] = \"FlankerEx by Codename Flanker\"," " " >nul 2>&1
 
+rem -- disable the Bronco-OV-10A module requirement
+powershell -File replace.ps1 .\build\tempsrc\mission "\[\"Bronco-OV-10A\"\] = \"Bronco-OV-10A\"," " " >nul 2>&1
+
 rem -- copy the documentation images to the kneeboard
 xcopy /y /e doc\*.jpg .\build\tempsrc\KNEEBOARD\IMAGES\ >nul 2>&1
 
