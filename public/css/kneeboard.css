@@ -1,0 +1,80 @@
+body {
+    background-color: #F2EFD5;
+    /*background-image: url(https://cdn.veaf.org/website/dev/img/background-01-blur.jpg);*/
+    /*background-attachment: fixed;*/
+    /*background-repeat: no-repeat;*/
+}
+
+body, html {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+}
+
+pre {
+    background: #f7f7f9
+}
+
+
+div.kneeboard {
+    width: 100%;
+}
+
+table.kneeboard {
+    font-family: "Lucida Console", "Menlo", "Monaco", "Courier", monospace;
+    margin: 5px;
+    border-collapse : collapse;
+    width: 48%;
+    float: left;
+}
+
+table.kneeboard td {
+    padding: 0.1em 0.5em 0.1em;
+}
+
+table.kneeboard th {
+    padding: 0.1em 0.5em 0.1em;
+}
+
+table.kneeboard tr:nth-child(even) {
+    background: #CCC
+}
+
+table.kneeboard tr:nth-child(odd) {
+    background: #888
+}
+
+table.kneeboard td:nth-child(1) {
+    width: 1em;
+}
+
+.red {
+    color: #C0392B;
+}
+
+.bg-red {
+    background-color: #C0392B;
+    color: white;
+}
+
+.blue {
+    color: blue;
+}
+
+.bg-blue {
+    background-color: blue;
+}
+
+.green {
+    color: green;
+}
+
+.bg-green {
+    background-color: #27AE60;
+    color: white;
+}
+
+.text-right {
+    text-align: right; /* This puts the text into the center of the
+  screen. */
+}

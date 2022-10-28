@@ -1,0 +1,41 @@
+{% extends "kneeboard/layout.html.twig" %}
+
+{% block navBar %}{% endblock navBar %}
+
+{% block content %}
+    <div class="kneeboard">
+        <div>COMMON FOR FIGHTERS WITH 20+ CHANNELS</div>
+        <table class="kneeboard">
+            <thead>
+            <tr>
+                <th colspan="2" class="bg-red">RADIO 1 / UHF</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for radio in frequencies.radio1 %}
+                <tr>
+                    <td>{{ "%02d" | format(radio.preset) }}</td>
+                    <td>{{ radio.label }}<br><div class="text-right"><small><i>{{ radio.nav }} {{ radio.freq | number_format(3,'.',' ') }}</i></small></div></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <table class="kneeboard">
+            <thead>
+            <tr>
+                <th colspan="2" class="bg-green">RADIO 2 / VHF</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for radio in frequencies.radio2 %}
+                <tr>
+                    <td>{{ "%02d" | format(radio.preset) }}</td>
+                    <td>{{ radio.label }}<br><div class="text-right"><small><i>{{ radio.nav }} {{ radio.freq | number_format(3,'.',' ') }}</i></small></div></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+
+{% block footer %}{% endblock footer %}

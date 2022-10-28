@@ -1,0 +1,138 @@
+radioPresets:
+  radio1:
+    - preset: 01
+      freq: 243.000
+      label: GUARD
+    - preset: 02
+      freq: 260.000
+      label: Batumi
+      nav: 16X
+    - preset: 03
+      freq: 270.000
+      label: Beslan
+    - preset: 04
+      freq: 259.000
+      label: Gudauta
+    - preset: 05
+      freq: 263.000
+      label: Kutaisi
+      nav: 44X
+    - preset: 06
+      freq: 256.000
+      label: Sochi-Adler
+    - preset: 07
+      freq: 258.000
+      label: Sukhumi
+    - preset: 08
+      freq: 267.000
+      label: Tbilisi
+      nav: 25X
+    - preset: 09
+      freq: 269.000
+      label: Vaziani
+      nav: 22X
+    - preset: 10
+      freq: 225.000
+      label: Stennis
+      nav: 10X
+    - preset: 11
+      freq: 226.000
+      label: Tarawa
+      nav: 11X
+    - preset: 12
+      freq: 227.000
+      label: Roosevelt
+      nav: 12X
+    - preset: 13
+      freq: 228.000
+      label: Forrestal
+      nav: 13X
+    - preset: 14
+      freq: 282.200
+      label: Magic
+    - preset: 15
+      freq: 291.000
+      label: Package 01
+    - preset: 16
+      freq: 305.100
+      label: Range Kobuleti
+    - preset: 17
+      freq: 290.100
+      label: Texaco-1
+      nav: 60Y
+    - preset: 18
+      freq: 290.300
+      label: Shell-1
+      nav: 62Y
+    - preset: 19
+      freq: 290.400
+      label: Shell-2
+      nav: 63Y
+    - preset: 20
+      freq: 290.500
+      label: Arco-1
+      nav: 64Y
+
+  radio2:
+    - preset: 01
+      freq: 121.500
+      label: GUARD
+    - preset: 02
+      freq: 120.000
+      label: Archer
+    - preset: 03
+      freq: 120.100
+      label: Artic
+    - preset: 04
+      freq: 120.200
+      label: Astro
+    - preset: 05
+      freq: 120.300
+      label: Nickel
+    - preset: 06
+      freq: 120.400
+      label: Nitro
+    - preset: 07
+      freq: 120.500
+      label: Ninja
+    - preset: 08
+      freq: 120.600
+      label: Bat
+    - preset: 09
+      freq: 120.700
+      label: Bengal
+    - preset: 10
+      freq: 120.800
+      label: Blade
+    - preset: 11
+      freq: 120.900
+      label: Gordon
+    - preset: 12
+      freq: 121.100
+      label: Gypsy
+    - preset: 13
+      freq: 121.200
+      label: Gunstar
+    - preset: 14
+      freq: 121.300
+      label: Leica
+    - preset: 15
+      freq: 121.400
+      label: Lucid
+    - preset: 16
+      freq: 121.600
+      label: Lusty
+    - preset: 17
+      freq: 121.700
+      label: Lion
+    - preset: 18
+      freq: 118.800
+      label: Colt
+      nav: AFAC Bizmuth
+    - preset: 19
+      freq: 118.900
+      label: Dodge
+      nav: AFAC Agate
+    - preset: 20
+      freq: 118.850
+      label: JTAC 3
