@@ -494,6 +494,19 @@ if veafCombatZone then
                         "The crashed helicopter's crew transmits on their pocket radio : SOS on 34.00 FM")
     )
 
+    veafCombatZone.AddZone(
+		VeafCombatZone.new()
+			:setMissionEditorZoneName("combatZone_trainingSamAttack_SA15")
+			:setFriendlyName("Training - SA-15 site")
+			:setBriefing("There is two static SA-15s in a well-defended zone\n" ..
+                         "Their coordinates are : \n"..
+                         "     37T FJ 40374 94459\n" ..
+                         "     37T FJ 39796 93269\n" ..
+                         "The training consists on engaging them without any SEAD support\n" ..
+                         "All other units are considered secondary targets")
+            :setTraining(true)
+	)
+
     veaf.loggers.get(veaf.Id):info("init - veafCombatZone")
     veafCombatZone.initialize()
 
