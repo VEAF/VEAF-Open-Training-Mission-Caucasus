@@ -411,6 +411,7 @@ if veafCombatZone then
 			:setBriefing("This factory manufactures chemical weapons for a terrorits group\n" ..
                         "You must destroy both factory buildings, and the bunker where the scientists work\n" ..
                         "The other enemy units are secondary targets\n")
+            :setRadioGroupName("Missions")
 	)
 
 	veafCombatZone.AddZone(
@@ -421,25 +422,7 @@ if veafCombatZone then
                         "You must do what you can to help your side win\n" ..
                         "Please note that there is an enemy convoy coming from the west and going to Sheripova, that can be ambushed by the blue forces at Malgobek in 15-30 minutes. Be wary of the SAM that can hide anywhere in the cities or the forests !\n" ..
                         "Warning : there are air defenses lurking about, you should be cautious !")
-	)
-
-	veafCombatZone.AddZone(
-		VeafCombatZone.new()
-			:setMissionEditorZoneName("combatZone_EasyPickingsTerek")
-			:setFriendlyName("Terek logistics parking")
-			:setBriefing("The enemy has parked a lot of logistics at Terek\n" ..
-                        "You must destroy all the trucks to impend the advance of their army on Beslan\n" ..
-                        "The other enemy units are secondary targets\n"..
-                        "This is a more easy zone, with few air defenses. But beware that there is a chance of manpad in the area !")
-            :setTraining(true)
-	)
-
-	veafCombatZone.AddZone(
-		VeafCombatZone.new()
-			:setMissionEditorZoneName("combatZone_rangeKobuletiEasy")
-			:setFriendlyName("Training at Kobuleti RANGE")
-			:setBriefing("The Kobuleti RANGE (located 6 nm south-west of Kobuleti airbase) is set-up for training")
-            :setTraining(true)
+            :setRadioGroupName("Missions")
 	)
 
 	veafCombatZone.AddZone(
@@ -448,20 +431,7 @@ if veafCombatZone then
 			:setFriendlyName("Hostages at Prohladniy")
 			:setBriefing("Hostages are being held in a fortified hotel in the city of Prohladniy.\n" ..
                         "Warning : there are air defenses lurking about, you should be cautious !")
-	)
-
-    veafCombatZone.AddZone(
-		VeafCombatZone.new()
-			:setMissionEditorZoneName("combatZone_Antiship-Training-Easy")
-			:setFriendlyName("Antiship Training - Easy")
-			:setBriefing("Undefended cargo ships ready for plunder; Arrrrr! Shiver me timbers!")
-	)
-
-    veafCombatZone.AddZone(
-		VeafCombatZone.new()
-			:setMissionEditorZoneName("combatZone_Antiship-Training-Hard")
-			:setFriendlyName("Antiship Training - Hard")
-			:setBriefing("Cargo ships defended by escort ships; warning, an FFG 11540 Neustrashimy may escort them as well...")
+            :setRadioGroupName("Missions")
 	)
 
     veafCombatZone.AddZone(
@@ -469,6 +439,7 @@ if veafCombatZone then
 			:setMissionEditorZoneName("combatZone_roadBlock")
 			:setFriendlyName("Road Block KM91")
 			:setBriefing("38T KM946122 - 6300ft - KOB 67X 115/35\nRussia is blocking a main road between Batumi and Tbilisi.\nDestroy bunkers and vehicles.\nENI convoy is comming from the East.")
+            :setRadioGroupName("Missions")
 	)
 
 	veafCombatZone.AddZone(
@@ -477,6 +448,7 @@ if veafCombatZone then
 			:setFriendlyName("Maykop airbase defenses")
 			:setBriefing("The Maykop airbase is defended by a SA10 battalion, point-defense SHORAD and AAA, and armored vehicles\n" ..
                         "You must incapacitate the defenses in order to prepare a land invasion")
+            :setRadioGroupName("Missions")
     )
 
 	veafCombatZone.AddZone(
@@ -492,20 +464,70 @@ if veafCombatZone then
                         " - MH02 on 32.00 FM\n" ..
                         " - MH03 on 33.00 FM\n" ..
                         "The crashed helicopter's crew transmits on their pocket radio : SOS on 34.00 FM")
+            :setRadioGroupName("Missions")
+    )
+
+    -- Training operations
+   veafCombatZone.AddZone(
+        VeafCombatZone.new()
+            :setMissionEditorZoneName("combatZone_EasyPickingsTerek")
+            :setFriendlyName("Terek logistics parking")
+            :setBriefing("The enemy has parked a lot of logistics at Terek\n" ..
+                        "You must destroy all the trucks to impend the advance of their army on Beslan\n" ..
+                        "The other enemy units are secondary targets\n"..
+                        "This is a more easy zone, with few air defenses. But beware that there is a chance of manpad in the area !")
+            :setTraining(true)
+            :setRadioGroupName("Training CAS")
     )
 
     veafCombatZone.AddZone(
-		VeafCombatZone.new()
-			:setMissionEditorZoneName("combatZone_trainingSamAttack_SA15")
-			:setFriendlyName("Training - SA-15 site")
-			:setBriefing("There is two static SA-15s in a well-defended zone\n" ..
-                         "Their coordinates are : \n"..
-                         "     37T FJ 40374 94459\n" ..
-                         "     37T FJ 39796 93269\n" ..
-                         "The training consists on engaging them without any SEAD support\n" ..
-                         "All other units are considered secondary targets")
+        VeafCombatZone.new()
+            :setMissionEditorZoneName("combatZone_rangeKobuletiEasy")
+            :setFriendlyName("Training at Kobuleti RANGE")
+            :setBriefing("The Kobuleti RANGE (located 6 nm south-west of Kobuleti airbase) is set-up for training")
             :setTraining(true)
-	)
+            :setRadioGroupName("Training CAS")
+    )
+
+    veafCombatZone.AddZone(
+        VeafCombatZone.new()
+            :setMissionEditorZoneName("combatZone_Antiship-Training-Easy")
+            :setFriendlyName("Antiship Training - Easy")
+            :setBriefing("Undefended cargo ships ready for plunder; Arrrrr! Shiver me timbers!")
+            :setRadioGroupName("Training antiship")
+    )
+
+    veafCombatZone.AddZone(
+        VeafCombatZone.new()
+            :setMissionEditorZoneName("combatZone_Antiship-Training-Hard")
+            :setFriendlyName("Antiship Training - Hard")
+            :setBriefing("Cargo ships defended by escort ships; warning, an FFG 11540 Neustrashimy may escort them as well...")
+            :setRadioGroupName("Training antiship")
+    )
+
+    veafCombatZone.AddZone(
+        VeafCombatZone.new()
+            :setMissionEditorZoneName("combatZone_trainingSamAttack_SA15_N")
+            :setFriendlyName("Training - SA-15 site - North")
+            :setBriefing("There is a static SA-15 in a well-defended zone\n" ..
+                            "Its coordinates are : 37T FJ 40374 94459\n" ..
+                            "The training consists on attacking and destroying it without any SEAD support\n" ..
+                            "All other units are considered secondary targets")
+            :setTraining(true)
+            :setRadioGroupName("Training SEAD")
+    )
+    
+    veafCombatZone.AddZone(
+        VeafCombatZone.new()
+            :setMissionEditorZoneName("combatZone_trainingSamAttack_SA15_S")
+            :setFriendlyName("Training - SA-15 site - South")
+            :setBriefing("There is a static SA-15 in a well-defended zone\n" ..
+                            "Its coordinates are : 37T FJ 39796 93269\n" ..
+                            "The training consists on attacking and destroying it without any SEAD support\n" ..
+                            "All other units are considered secondary targets")
+            :setTraining(true)
+            :setRadioGroupName("Training SEAD")
+    )
 
     veaf.loggers.get(veaf.Id):info("init - veafCombatZone")
     veafCombatZone.initialize()
