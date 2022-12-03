@@ -510,11 +510,11 @@ if veafCombatZone then
             :setMissionEditorZoneName("combatZone_trainingSamAttack_SA15_N")
             :setFriendlyName("Training - SA-15 site - North")
             :setBriefing("There is a static SA-15 in a well-defended zone\n" ..
-                            "Its coordinates are : 37T FJ 40374 94459\n" ..
+                            "Its coordinates are : 37T FJ 403 944\n" ..
                             "The training consists on attacking and destroying it without any SEAD support\n" ..
                             "All other units are considered secondary targets")
             :setTraining(true)
-            :setRadioGroupName("Training SEAD")
+            :setRadioGroupName("Training SAM attack")
     )
     
     veafCombatZone.AddZone(
@@ -522,11 +522,35 @@ if veafCombatZone then
             :setMissionEditorZoneName("combatZone_trainingSamAttack_SA15_S")
             :setFriendlyName("Training - SA-15 site - South")
             :setBriefing("There is a static SA-15 in a well-defended zone\n" ..
-                            "Its coordinates are : 37T FJ 39796 93269\n" ..
+                            "Its coordinates are : 37T FJ 398 933\n" ..
                             "The training consists on attacking and destroying it without any SEAD support\n" ..
                             "All other units are considered secondary targets")
             :setTraining(true)
-            :setRadioGroupName("Training SEAD")
+            :setRadioGroupName("Training SAM attack")
+    )
+
+    veafCombatZone.AddZone(
+        VeafCombatZone.new()
+            :setMissionEditorZoneName("combatZone_trainingSamAttack_SA6")
+            :setFriendlyName("Training - SA-6 site")
+            :setBriefing("There is a static SA-6 in a well-defended zone\n" ..
+                            "Its coordinates are : 37T FJ 404 934\n" ..
+                            "The training consists on attacking and destroying it ; it'll be hard without any SEAD support !\n" ..
+                            "All other units are considered secondary targets")
+            :setTraining(true)
+            :setRadioGroupName("Training SAM attack")
+    )
+
+    veafCombatZone.AddZone(
+        VeafCombatZone.new()
+            :setMissionEditorZoneName("combatZone_trainingSamAttack_SA2")
+            :setFriendlyName("Training - SA-2 site")
+            :setBriefing("There is a static SA-2 in a well-defended zone\n" ..
+                            "Its coordinates are : 37T FJ 402 930\n" ..
+                            "The training consists on attacking and destroying it ; it'll be hard without any SEAD support !\n" ..
+                            "All other units are considered secondary targets")
+            :setTraining(true)
+            :setRadioGroupName("Training SAM attack")
     )
 
     veaf.loggers.get(veaf.Id):info("init - veafCombatZone")
