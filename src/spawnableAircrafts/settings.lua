@@ -2759,7 +2759,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["enabled"] = true,
@@ -2778,7 +2778,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                         [3] = 
                                         {
                                             ["enabled"] = true,
@@ -2797,7 +2797,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [3]
+                                        },
                                         [4] = 
                                         {
                                             ["enabled"] = true,
@@ -2816,7 +2816,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [4]
+                                        },
                                         [5] = 
                                         {
                                             ["enabled"] = true,
@@ -2870,7 +2870,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [5]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -2882,7 +2882,7 @@ settings =
                             ["name"] = "F1C-Fox1",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 2783,
@@ -2913,23 +2913,23 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{R550_Magic_1}",
-                                }, -- end of [1]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{R530F_EM}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "PTB-1200-F1",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{R530F_EM}",
-                                }, -- end of [5]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{R550_Magic_1}",
-                                }, -- end of [7]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3356,
                             ["flare"] = 15,
@@ -2945,7 +2945,7 @@ settings =
                             ["name"] = "Ford11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "055",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 6096,
@@ -2970,23 +2970,23 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{R550_Magic_1}",
-                                }, -- end of [1]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{R530F_EM}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "PTB-1200-F1",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{R530F_EM}",
-                                }, -- end of [5]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{R550_Magic_1}",
-                                }, -- end of [7]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3356,
                             ["flare"] = 15,
@@ -3002,7 +3002,7 @@ settings =
                             ["name"] = "Ford12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "056",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["x"] = -250000,
                 ["y"] = -360000,
@@ -3011,7 +3011,7 @@ settings =
                 ["start_time"] = 0,
                 ["modulation"] = 0,
                 ["frequency"] = 127.5,
-            }, -- end of [20]
+            },
             [21] = 
             {
                 ["lateActivation"] = true,
@@ -3061,7 +3061,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["enabled"] = true,
@@ -3080,7 +3080,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                         [3] = 
                                         {
                                             ["enabled"] = true,
@@ -3099,7 +3099,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [3]
+                                        },
                                         [4] = 
                                         {
                                             ["enabled"] = true,
@@ -3118,7 +3118,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [4]
+                                        },
                                         [5] = 
                                         {
                                             ["enabled"] = true,
@@ -3172,7 +3172,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [5]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -3184,7 +3184,7 @@ settings =
                             ["name"] = "F1C-Fox2",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 2784,
@@ -3215,23 +3215,23 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{AIM-9JULI}",
-                                }, -- end of [1]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{R530F_IR}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "PTB-1200-F1",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{R530F_IR}",
-                                }, -- end of [5]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{AIM-9JULI}",
-                                }, -- end of [7]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3356,
                             ["flare"] = 15,
@@ -3247,7 +3247,7 @@ settings =
                             ["name"] = "Chevy11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "011",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 6096,
@@ -3272,23 +3272,23 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{AIM-9JULI}",
-                                }, -- end of [1]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{R530F_IR}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "PTB-1200-F1",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{R530F_IR}",
-                                }, -- end of [5]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{AIM-9JULI}",
-                                }, -- end of [7]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3356,
                             ["flare"] = 15,
@@ -3304,7 +3304,7 @@ settings =
                             ["name"] = "Chevy12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "012",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["x"] = -250000,
                 ["y"] = -360000,
@@ -3313,7 +3313,7 @@ settings =
                 ["start_time"] = 0,
                 ["modulation"] = 0,
                 ["frequency"] = 127.5,
-            }, -- end of [21]
+            },
             [22] = 
             {
                 ["lateActivation"] = true,
@@ -3363,7 +3363,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["enabled"] = true,
@@ -3382,7 +3382,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                         [3] = 
                                         {
                                             ["enabled"] = true,
@@ -3401,7 +3401,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [3]
+                                        },
                                         [4] = 
                                         {
                                             ["enabled"] = true,
@@ -3420,7 +3420,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [4]
+                                        },
                                         [5] = 
                                         {
                                             ["enabled"] = true,
@@ -3474,7 +3474,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [5]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -3486,7 +3486,7 @@ settings =
                             ["name"] = "F1EQ-Fox1",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 2785,
@@ -3517,23 +3517,23 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
-                                }, -- end of [1]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{FD21B13E-57F3-4C2A-9F78-C522D0B5BCE1}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "PTB-1200-F1",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{FD21B13E-57F3-4C2A-9F78-C522D0B5BCE1}",
-                                }, -- end of [5]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
-                                }, -- end of [7]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3356,
                             ["flare"] = 0,
@@ -3549,7 +3549,7 @@ settings =
                             ["name"] = "Pontiac11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "013",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 6096,
@@ -3574,23 +3574,23 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
-                                }, -- end of [1]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{FD21B13E-57F3-4C2A-9F78-C522D0B5BCE1}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "PTB-1200-F1",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{FD21B13E-57F3-4C2A-9F78-C522D0B5BCE1}",
-                                }, -- end of [5]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
-                                }, -- end of [7]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3356,
                             ["flare"] = 0,
@@ -3606,7 +3606,7 @@ settings =
                             ["name"] = "Pontiac12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "014",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["x"] = -250000,
                 ["y"] = -360000,
@@ -3615,7 +3615,7 @@ settings =
                 ["start_time"] = 0,
                 ["modulation"] = 0,
                 ["frequency"] = 127.5,
-            }, -- end of [22]
+            },
             [23] = 
             {
                 ["lateActivation"] = true,
@@ -3665,7 +3665,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["enabled"] = true,
@@ -3684,7 +3684,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                         [3] = 
                                         {
                                             ["enabled"] = true,
@@ -3703,7 +3703,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [3]
+                                        },
                                         [4] = 
                                         {
                                             ["enabled"] = true,
@@ -3722,7 +3722,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [4]
+                                        },
                                         [5] = 
                                         {
                                             ["enabled"] = true,
@@ -3776,7 +3776,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [5]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -3788,7 +3788,7 @@ settings =
                             ["name"] = "F1EQ-Fox2",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 2787,
@@ -3819,15 +3819,15 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
-                                }, -- end of [1]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "PTB-1200-F1",
-                                }, -- end of [4]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
-                                }, -- end of [7]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3356,
                             ["flare"] = 0,
@@ -3843,7 +3843,7 @@ settings =
                             ["name"] = "Enfield21",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "016",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 6096,
@@ -3868,15 +3868,15 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
-                                }, -- end of [1]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "PTB-1200-F1",
-                                }, -- end of [4]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{FC23864E-3B80-48E3-9C03-4DA8B1D7497B}",
-                                }, -- end of [7]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3356,
                             ["flare"] = 0,
@@ -3892,7 +3892,7 @@ settings =
                             ["name"] = "Enfield22",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "018",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["x"] = -250000,
                 ["y"] = -360000,
@@ -3901,7 +3901,759 @@ settings =
                 ["start_time"] = 0,
                 ["modulation"] = 0,
                 ["frequency"] = 127.5,
-            }, -- end of [23]
+            },
+
+
+
+
+
+
+
+            [24] = {
+                ["communication"] = false,
+                ["frequency"] = 124,
+                ["groupId"] = 3849,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["modulation"] = 0,
+                ["name"] = "veafSpawn-Mig21-Fox1-solo",
+                ["radioSet"] = false,
+                ["route"] = {
+                    ["points"] = {
+                        [1] = {
+                            ["action"] = "Turning Point",
+                            ["alt"] = 6096,
+                            ["alt_type"] = "BARO",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["formation_template"] = "",
+                            ["name"] = "Mig21-Fox1-solo",
+                            ["speed"] = 220.97222222222,
+                            ["speed_locked"] = true,
+                            ["task"] = {
+                                ["id"] = "ComboTask",
+                                ["params"] = {
+                                    ["tasks"] = {
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                        },
+                    }, -- end of ["points"]
+                    ["routeRelativeTOT"] = true,
+                }, -- end of ["route"]
+                ["start_time"] = 0,
+                ["task"] = "CAP",
+                ["tasks"] = {
+                }, -- end of ["tasks"]
+                ["taskSelected"] = true,
+                ["uncontrolled"] = false,
+                ["units"] = {
+                    [1] = {
+                        ["alt"] = 6096,
+                        ["alt_type"] = "BARO",
+                        ["callsign"] = 236,
+                        ["hardpoint_racks"] = true,
+                        ["heading"] = 2.7233683240106,
+                        ["livery_id"] = "Bare Metal",
+                        ["name"] = "Pilot #005",
+                        ["onboard_num"] = "047",
+                        ["payload"] = {
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 18,
+                            ["flare"] = 40,
+                            ["fuel"] = 2280,
+                            ["gun"] = 100,
+                            ["pylons"] = {
+                                [1] = {
+                                    ["CLSID"] = "{R-60 2L}",
+                                },
+                                [2] = {
+                                    ["CLSID"] = "{R-3R}",
+                                },
+                                [3] = {
+                                    ["CLSID"] = "{PTB_490C_MIG21}",
+                                },
+                                [4] = {
+                                    ["CLSID"] = "{R-3R}",
+                                },
+                                [5] = {
+                                    ["CLSID"] = "{R-60 2R}",
+                                },
+                            }, -- end of ["pylons"]
+                        }, -- end of ["payload"]
+                        ["psi"] = -2.7233683240106,
+                        ["skill"] = "Excellent",
+                        ["speed"] = 220.97222222222,
+                        ["type"] = "MiG-21Bis",
+                        ["unitId"] = 7139,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                    },
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+            },
+            [25] = {
+                ["communication"] = false,
+                ["frequency"] = 124,
+                ["groupId"] = 3850,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["modulation"] = 0,
+                ["name"] = "veafSpawn-Mig21-Fox2-solo",
+                ["radioSet"] = false,
+                ["route"] = {
+                    ["points"] = {
+                        [1] = {
+                            ["action"] = "Turning Point",
+                            ["alt"] = 6096,
+                            ["alt_type"] = "BARO",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["formation_template"] = "",
+                            ["name"] = "Mig21-Fox2-solo",
+                            ["speed"] = 220.97222222222,
+                            ["speed_locked"] = true,
+                            ["task"] = {
+                                ["id"] = "ComboTask",
+                                ["params"] = {
+                                    ["tasks"] = {
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                        },
+                    }, -- end of ["points"]
+                    ["routeRelativeTOT"] = true,
+                }, -- end of ["route"]
+                ["start_time"] = 0,
+                ["task"] = "CAP",
+                ["tasks"] = {
+                }, -- end of ["tasks"]
+                ["taskSelected"] = true,
+                ["uncontrolled"] = false,
+                ["units"] = {
+                    [1] = {
+                        ["alt"] = 6096,
+                        ["alt_type"] = "BARO",
+                        ["callsign"] = 240,
+                        ["hardpoint_racks"] = true,
+                        ["heading"] = 2.7233683240106,
+                        ["livery_id"] = "Bare Metal",
+                        ["name"] = "Pilot #065",
+                        ["onboard_num"] = "049",
+                        ["payload"] = {
+                            ["ammo_type"] = 1,
+                            ["chaff"] = 18,
+                            ["flare"] = 40,
+                            ["fuel"] = 2280,
+                            ["gun"] = 100,
+                            ["pylons"] = {
+                                [1] = {
+                                    ["CLSID"] = "{R-60 2L}",
+                                },
+                                [3] = {
+                                    ["CLSID"] = "{PTB_490C_MIG21}",
+                                },
+                                [5] = {
+                                    ["CLSID"] = "{R-60 2R}",
+                                },
+                                [6] = {
+                                    ["CLSID"] = "{ASO-2}",
+                                },
+                            }, -- end of ["pylons"]
+                        }, -- end of ["payload"]
+                        ["psi"] = -2.7233683240106,
+                        ["skill"] = "Excellent",
+                        ["speed"] = 220.97222222222,
+                        ["type"] = "MiG-21Bis",
+                        ["unitId"] = 7141,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                    },
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+            },
+            [26] = {
+                ["communication"] = false,
+                ["frequency"] = 251,
+                ["groupId"] = 3851,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["modulation"] = 0,
+                ["name"] = "veafSpawn-Mig25-Fox1-solo",
+                ["radioSet"] = false,
+                ["route"] = {
+                    ["points"] = {
+                        [1] = {
+                            ["action"] = "Turning Point",
+                            ["alt"] = 6096,
+                            ["alt_type"] = "BARO",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["formation_template"] = "",
+                            ["name"] = "Mig25-Fox1-solo",
+                            ["speed"] = 277.5,
+                            ["speed_locked"] = true,
+                            ["task"] = {
+                                ["id"] = "ComboTask",
+                                ["params"] = {
+                                    ["tasks"] = {
+                                        [1] = {
+                                            ["auto"] = true,
+                                            ["enabled"] = true,
+                                            ["id"] = "EngageTargets",
+                                            ["key"] = "CAP",
+                                            ["number"] = 1,
+                                            ["params"] = {
+                                                ["priority"] = 0,
+                                                ["targetTypes"] = {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                            }, -- end of ["params"]
+                                        },
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                        },
+                    }, -- end of ["points"]
+                    ["routeRelativeTOT"] = true,
+                }, -- end of ["route"]
+                ["start_time"] = 0,
+                ["task"] = "CAP",
+                ["tasks"] = {
+                }, -- end of ["tasks"]
+                ["taskSelected"] = true,
+                ["uncontrolled"] = false,
+                ["units"] = {
+                    [1] = {
+                        ["alt"] = 6096,
+                        ["alt_type"] = "BARO",
+                        ["callsign"] = 241,
+                        ["hardpoint_racks"] = true,
+                        ["heading"] = 2.7233683240106,
+                        ["livery_id"] = "af standard",
+                        ["name"] = "Pilot #066",
+                        ["onboard_num"] = "052",
+                        ["payload"] = {
+                            ["chaff"] = 64,
+                            ["flare"] = 64,
+                            ["fuel"] = "15245",
+                            ["gun"] = 100,
+                            ["pylons"] = {
+                                [1] = {
+                                    ["CLSID"] = "{4EDBA993-2E34-444C-95FB-549300BF7CAF}",
+                                },
+                                [2] = {
+                                    ["CLSID"] = "{4EDBA993-2E34-444C-95FB-549300BF7CAF}",
+                                },
+                                [3] = {
+                                    ["CLSID"] = "{4EDBA993-2E34-444C-95FB-549300BF7CAF}",
+                                },
+                                [4] = {
+                                    ["CLSID"] = "{4EDBA993-2E34-444C-95FB-549300BF7CAF}",
+                                },
+                            }, -- end of ["pylons"]
+                        }, -- end of ["payload"]
+                        ["psi"] = -2.7233683240106,
+                        ["skill"] = "Excellent",
+                        ["speed"] = 277.5,
+                        ["type"] = "MiG-25PD",
+                        ["unitId"] = 7143,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                    },
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+            },
+            [27] = {
+                ["communication"] = false,
+                ["frequency"] = 251,
+                ["groupId"] = 3852,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["modulation"] = 0,
+                ["name"] = "veafSpawn-Mig25-Fox2-solo",
+                ["radioSet"] = false,
+                ["route"] = {
+                    ["points"] = {
+                        [1] = {
+                            ["action"] = "Turning Point",
+                            ["alt"] = 6096,
+                            ["alt_type"] = "BARO",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["formation_template"] = "",
+                            ["name"] = "Mig25-Fox2-solo",
+                            ["speed"] = 277.5,
+                            ["speed_locked"] = true,
+                            ["task"] = {
+                                ["id"] = "ComboTask",
+                                ["params"] = {
+                                    ["tasks"] = {
+                                        [1] = {
+                                            ["auto"] = true,
+                                            ["enabled"] = true,
+                                            ["id"] = "EngageTargets",
+                                            ["key"] = "CAP",
+                                            ["number"] = 1,
+                                            ["params"] = {
+                                                ["priority"] = 0,
+                                                ["targetTypes"] = {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                            }, -- end of ["params"]
+                                        },
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                        },
+                    }, -- end of ["points"]
+                    ["routeRelativeTOT"] = true,
+                }, -- end of ["route"]
+                ["start_time"] = 0,
+                ["task"] = "CAP",
+                ["tasks"] = {
+                }, -- end of ["tasks"]
+                ["taskSelected"] = true,
+                ["uncontrolled"] = false,
+                ["units"] = {
+                    [1] = {
+                        ["alt"] = 6096,
+                        ["alt_type"] = "BARO",
+                        ["callsign"] = 242,
+                        ["hardpoint_racks"] = true,
+                        ["heading"] = 2.7233683240106,
+                        ["livery_id"] = "af standard",
+                        ["name"] = "Pilot #068",
+                        ["onboard_num"] = "054",
+                        ["payload"] = {
+                            ["chaff"] = 64,
+                            ["flare"] = 64,
+                            ["fuel"] = "15245",
+                            ["gun"] = 100,
+                            ["pylons"] = {
+                                [1] = {
+                                    ["CLSID"] = "{682A481F-0CB5-4693-A382-D00DD4A156D7}",
+                                },
+                                [2] = {
+                                    ["CLSID"] = "{5F26DBC2-FB43-4153-92DE-6BBCE26CB0FF}",
+                                },
+                                [3] = {
+                                    ["CLSID"] = "{5F26DBC2-FB43-4153-92DE-6BBCE26CB0FF}",
+                                },
+                                [4] = {
+                                    ["CLSID"] = "{682A481F-0CB5-4693-A382-D00DD4A156D7}",
+                                },
+                            }, -- end of ["pylons"]
+                        }, -- end of ["payload"]
+                        ["psi"] = -2.7233683240106,
+                        ["skill"] = "Excellent",
+                        ["speed"] = 277.5,
+                        ["type"] = "MiG-25PD",
+                        ["unitId"] = 7145,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                    },
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+            },
+            [28] = {
+                ["communication"] = false,
+                ["frequency"] = 251,
+                ["groupId"] = 3853,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["modulation"] = 0,
+                ["name"] = "veafSpawn-Mig31-Fox2-solo",
+                ["radioSet"] = false,
+                ["route"] = {
+                    ["points"] = {
+                        [1] = {
+                            ["action"] = "Turning Point",
+                            ["alt"] = 6096,
+                            ["alt_type"] = "BARO",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["formation_template"] = "",
+                            ["name"] = "Mig31-Fox2-solo",
+                            ["speed"] = 277.5,
+                            ["speed_locked"] = true,
+                            ["task"] = {
+                                ["id"] = "ComboTask",
+                                ["params"] = {
+                                    ["tasks"] = {
+                                        [1] = {
+                                            ["auto"] = true,
+                                            ["enabled"] = true,
+                                            ["id"] = "EngageTargets",
+                                            ["key"] = "CAP",
+                                            ["number"] = 1,
+                                            ["params"] = {
+                                                ["priority"] = 0,
+                                                ["targetTypes"] = {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                            }, -- end of ["params"]
+                                        },
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                        },
+                    }, -- end of ["points"]
+                    ["routeRelativeTOT"] = true,
+                }, -- end of ["route"]
+                ["start_time"] = 0,
+                ["task"] = "CAP",
+                ["tasks"] = {
+                }, -- end of ["tasks"]
+                ["taskSelected"] = true,
+                ["uncontrolled"] = false,
+                ["units"] = {
+                    [1] = {
+                        ["alt"] = 6096,
+                        ["alt_type"] = "BARO",
+                        ["callsign"] = 243,
+                        ["hardpoint_racks"] = true,
+                        ["heading"] = 2.7233683240106,
+                        ["livery_id"] = "174 GvIAP_Boris Safonov",
+                        ["name"] = "Pilot #073",
+                        ["onboard_num"] = "058",
+                        ["payload"] = {
+                            ["chaff"] = 0,
+                            ["flare"] = 0,
+                            ["fuel"] = "15500",
+                            ["gun"] = 100,
+                            ["pylons"] = {
+                                [1] = {
+                                    ["CLSID"] = "{B0DBC591-0F52-4F7D-AD7B-51E67725FB81}",
+                                },
+                                [6] = {
+                                    ["CLSID"] = "{275A2855-4A79-4B2D-B082-91EA2ADF4691}",
+                                },
+                            }, -- end of ["pylons"]
+                        }, -- end of ["payload"]
+                        ["psi"] = -2.7233683240106,
+                        ["skill"] = "Excellent",
+                        ["speed"] = 277.5,
+                        ["type"] = "MiG-31",
+                        ["unitId"] = 7147,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                    },
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+            },
+            [29] = {
+                ["communication"] = false,
+                ["frequency"] = 251,
+                ["groupId"] = 3854,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["modulation"] = 0,
+                ["name"] = "veafSpawn-Mig31-Fox3-solo",
+                ["radioSet"] = false,
+                ["route"] = {
+                    ["points"] = {
+                        [1] = {
+                            ["action"] = "Turning Point",
+                            ["alt"] = 6096,
+                            ["alt_type"] = "BARO",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["formation_template"] = "",
+                            ["name"] = "Mig31-Fox3-solo",
+                            ["speed"] = 277.5,
+                            ["speed_locked"] = true,
+                            ["task"] = {
+                                ["id"] = "ComboTask",
+                                ["params"] = {
+                                    ["tasks"] = {
+                                        [1] = {
+                                            ["auto"] = true,
+                                            ["enabled"] = true,
+                                            ["id"] = "EngageTargets",
+                                            ["key"] = "CAP",
+                                            ["number"] = 1,
+                                            ["params"] = {
+                                                ["priority"] = 0,
+                                                ["targetTypes"] = {
+                                                    [1] = "Air",
+                                                }, -- end of ["targetTypes"]
+                                            }, -- end of ["params"]
+                                        },
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                        },
+                    }, -- end of ["points"]
+                    ["routeRelativeTOT"] = true,
+                }, -- end of ["route"]
+                ["start_time"] = 0,
+                ["task"] = "CAP",
+                ["tasks"] = {
+                }, -- end of ["tasks"]
+                ["taskSelected"] = true,
+                ["uncontrolled"] = false,
+                ["units"] = {
+                    [1] = {
+                        ["alt"] = 6096,
+                        ["alt_type"] = "BARO",
+                        ["callsign"] = 244,
+                        ["hardpoint_racks"] = true,
+                        ["heading"] = 2.7233683240106,
+                        ["livery_id"] = "174 GvIAP_Boris Safonov",
+                        ["name"] = "Pilot #081",
+                        ["onboard_num"] = "060",
+                        ["payload"] = {
+                            ["chaff"] = 0,
+                            ["flare"] = 0,
+                            ["fuel"] = "15500",
+                            ["gun"] = 100,
+                            ["pylons"] = {
+                                [1] = {
+                                    ["CLSID"] = "{4EDBA993-2E34-444C-95FB-549300BF7CAF}",
+                                },
+                                [2] = {
+                                    ["CLSID"] = "{F1243568-8EF0-49D4-9CB5-4DA90D92BC1D}",
+                                },
+                                [3] = {
+                                    ["CLSID"] = "{F1243568-8EF0-49D4-9CB5-4DA90D92BC1D}",
+                                },
+                                [4] = {
+                                    ["CLSID"] = "{F1243568-8EF0-49D4-9CB5-4DA90D92BC1D}",
+                                },
+                                [5] = {
+                                    ["CLSID"] = "{F1243568-8EF0-49D4-9CB5-4DA90D92BC1D}",
+                                },
+                                [6] = {
+                                    ["CLSID"] = "{5F26DBC2-FB43-4153-92DE-6BBCE26CB0FF}",
+                                },
+                            }, -- end of ["pylons"]
+                        }, -- end of ["payload"]
+                        ["psi"] = -2.7233683240106,
+                        ["skill"] = "Excellent",
+                        ["speed"] = 277.5,
+                        ["type"] = "MiG-31",
+                        ["unitId"] = 7149,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                    },
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+            },
+            [30] = {
+                ["communication"] = false,
+                ["frequency"] = 127.5,
+                ["groupId"] = 3855,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["modulation"] = 0,
+                ["name"] = "veafSpawn-Su27-Fox1-solo",
+                ["radioSet"] = false,
+                ["route"] = {
+                    ["points"] = {
+                        [1] = {
+                            ["action"] = "Turning Point",
+                            ["alt"] = 6096,
+                            ["alt_type"] = "BARO",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["formation_template"] = "",
+                            ["name"] = "Su27-Fox1-solo",
+                            ["speed"] = 253.75313988205,
+                            ["speed_locked"] = true,
+                            ["task"] = {
+                                ["id"] = "ComboTask",
+                                ["params"] = {
+                                    ["tasks"] = {
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                        },
+                    }, -- end of ["points"]
+                    ["routeRelativeTOT"] = true,
+                }, -- end of ["route"]
+                ["start_time"] = 0,
+                ["task"] = "CAP",
+                ["tasks"] = {
+                }, -- end of ["tasks"]
+                ["taskSelected"] = true,
+                ["uncontrolled"] = false,
+                ["units"] = {
+                    [1] = {
+                        ["alt"] = 6096,
+                        ["alt_type"] = "BARO",
+                        ["callsign"] = 245,
+                        ["hardpoint_racks"] = true,
+                        ["heading"] = 2.7233683240106,
+                        ["livery_id"] = "Air Force Standard Early",
+                        ["name"] = "Pilot #083",
+                        ["onboard_num"] = "062",
+                        ["payload"] = {
+                            ["chaff"] = 96,
+                            ["flare"] = 96,
+                            ["fuel"] = 9400,
+                            ["gun"] = 100,
+                            ["pylons"] = {
+                                [1] = {
+                                    ["CLSID"] = "{44EE8698-89F9-48EE-AF36-5FD31896A82F}",
+                                },
+                                [2] = {
+                                    ["CLSID"] = "{FBC29BFE-3D24-4C64-B81D-941239D12249}",
+                                },
+                                [3] = {
+                                    ["CLSID"] = "{B79C379A-9E87-4E50-A1EE-7F7E29C2E87A}",
+                                },
+                                [4] = {
+                                    ["CLSID"] = "{E8069896-8435-4B90-95C0-01A03AE6E400}",
+                                },
+                                [5] = {
+                                    ["CLSID"] = "{E8069896-8435-4B90-95C0-01A03AE6E400}",
+                                },
+                                [6] = {
+                                    ["CLSID"] = "{E8069896-8435-4B90-95C0-01A03AE6E400}",
+                                },
+                                [7] = {
+                                    ["CLSID"] = "{E8069896-8435-4B90-95C0-01A03AE6E400}",
+                                },
+                                [8] = {
+                                    ["CLSID"] = "{B79C379A-9E87-4E50-A1EE-7F7E29C2E87A}",
+                                },
+                                [9] = {
+                                    ["CLSID"] = "{FBC29BFE-3D24-4C64-B81D-941239D12249}",
+                                },
+                                [10] = {
+                                    ["CLSID"] = "{44EE8698-89F9-48EE-AF36-5FD31896A82A}",
+                                },
+                            }, -- end of ["pylons"]
+                        }, -- end of ["payload"]
+                        ["psi"] = -2.7233683240106,
+                        ["skill"] = "Excellent",
+                        ["speed"] = 253.75313988205,
+                        ["type"] = "Su-27",
+                        ["unitId"] = 7151,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                    },
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+            },
+            [31] = {
+                ["communication"] = false,
+                ["frequency"] = 127.5,
+                ["groupId"] = 3856,
+                ["hidden"] = true,
+                ["lateActivation"] = true,
+                ["modulation"] = 0,
+                ["name"] = "veafSpawn-Su27-Fox2-solo",
+                ["radioSet"] = false,
+                ["route"] = {
+                    ["points"] = {
+                        [1] = {
+                            ["action"] = "Turning Point",
+                            ["alt"] = 6096,
+                            ["alt_type"] = "BARO",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["formation_template"] = "",
+                            ["name"] = "Su27-Fox2-solo",
+                            ["speed"] = 253.75313988205,
+                            ["speed_locked"] = true,
+                            ["task"] = {
+                                ["id"] = "ComboTask",
+                                ["params"] = {
+                                    ["tasks"] = {
+                                    }, -- end of ["tasks"]
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["x"] = -250000,
+                            ["y"] = -360000,
+                        },
+                    }, -- end of ["points"]
+                    ["routeRelativeTOT"] = true,
+                }, -- end of ["route"]
+                ["start_time"] = 0,
+                ["task"] = "CAP",
+                ["tasks"] = {
+                }, -- end of ["tasks"]
+                ["taskSelected"] = true,
+                ["uncontrolled"] = false,
+                ["units"] = {
+                    [1] = {
+                        ["alt"] = 6096,
+                        ["alt_type"] = "BARO",
+                        ["callsign"] = 246,
+                        ["hardpoint_racks"] = true,
+                        ["heading"] = 2.7233683240106,
+                        ["livery_id"] = "Air Force Standard Early",
+                        ["name"] = "Pilot #091",
+                        ["onboard_num"] = "064",
+                        ["payload"] = {
+                            ["chaff"] = 96,
+                            ["flare"] = 96,
+                            ["fuel"] = 9400,
+                            ["gun"] = 100,
+                            ["pylons"] = {
+                                [1] = {
+                                    ["CLSID"] = "{44EE8698-89F9-48EE-AF36-5FD31896A82F}",
+                                },
+                                [2] = {
+                                    ["CLSID"] = "{FBC29BFE-3D24-4C64-B81D-941239D12249}",
+                                },
+                                [3] = {
+                                    ["CLSID"] = "{FBC29BFE-3D24-4C64-B81D-941239D12249}",
+                                },
+                                [8] = {
+                                    ["CLSID"] = "{FBC29BFE-3D24-4C64-B81D-941239D12249}",
+                                },
+                                [9] = {
+                                    ["CLSID"] = "{FBC29BFE-3D24-4C64-B81D-941239D12249}",
+                                },
+                                [10] = {
+                                    ["CLSID"] = "{44EE8698-89F9-48EE-AF36-5FD31896A82A}",
+                                },
+                            }, -- end of ["pylons"]
+                        }, -- end of ["payload"]
+                        ["psi"] = -2.7233683240106,
+                        ["skill"] = "Excellent",
+                        ["speed"] = 253.75313988205,
+                        ["type"] = "Su-27",
+                        ["unitId"] = 7153,
+                        ["x"] = -250000,
+                        ["y"] = -360000,
+                    },
+                }, -- end of ["units"]
+                ["x"] = -250000,
+                ["y"] = -360000,
+            },
         }
     },
 
@@ -3958,7 +4710,7 @@ settings =
                             ["name"] = "veafSpawn-f14a-fox3",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 1,
@@ -3990,43 +4742,43 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM_54A_Mk47 L}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{AIM_54A_Mk47}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{AIM_54A_Mk47}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{AIM_54A_Mk47}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{AIM_54A_Mk47}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM_54A_Mk47 R}",
-                                }, -- end of [9]
+                                },
                                 [10] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
-                                }, -- end of [10]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 7348,
                             ["flare"] = 60,
@@ -4043,7 +4795,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -4067,43 +4819,43 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM_54A_Mk47 L}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{AIM_54A_Mk47}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{AIM_54A_Mk47}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{AIM_54A_Mk47}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{AIM_54A_Mk47}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM_54A_Mk47 R}",
-                                }, -- end of [9]
+                                },
                                 [10] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
-                                }, -- end of [10]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 7348,
                             ["flare"] = 60,
@@ -4120,7 +4872,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "011",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -4128,7 +4880,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 124,
-            }, -- end of [1]
+            },
             [2] = 
             {
                 ["modulation"] = 0,
@@ -4166,7 +4918,7 @@ settings =
                             ["name"] = "veafSpawn-f14a-fox1",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 4,
@@ -4198,43 +4950,43 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM-7F}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7F}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7F}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7F}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7F}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM-7F}",
-                                }, -- end of [9]
+                                },
                                 [10] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
-                                }, -- end of [10]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 7348,
                             ["flare"] = 60,
@@ -4251,7 +5003,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -4275,43 +5027,43 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM-7F}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7F}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7F}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7F}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7F}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM-7F}",
-                                }, -- end of [9]
+                                },
                                 [10] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9L}",
-                                }, -- end of [10]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 7348,
                             ["flare"] = 60,
@@ -4328,7 +5080,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "015",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -4336,7 +5088,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 124,
-            }, -- end of [2]
+            },
             [3] = 
             {
                 ["modulation"] = 0,
@@ -4374,7 +5126,7 @@ settings =
                             ["name"] = "veafSpawn-f14b-fox1",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 5,
@@ -4406,43 +5158,43 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM-7M}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7M}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7M}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7M}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7M}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM-7M}",
-                                }, -- end of [9]
+                                },
                                 [10] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
-                                }, -- end of [10]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 7348,
                             ["flare"] = 60,
@@ -4459,7 +5211,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -4483,43 +5235,43 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM-7M}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7M}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7M}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7M}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{BELLY AIM-7M}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM-7M}",
-                                }, -- end of [9]
+                                },
                                 [10] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
-                                }, -- end of [10]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 7348,
                             ["flare"] = 60,
@@ -4536,7 +5288,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "016",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -4544,7 +5296,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 124,
-            }, -- end of [3]
+            },
             [4] = 
             {
                 ["modulation"] = 0,
@@ -4582,7 +5334,7 @@ settings =
                             ["name"] = "veafSpawn-f14b-fox3",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 6,
@@ -4614,43 +5366,43 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM-7MH}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{AIM_54C_Mk47}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{AIM_54C_Mk47}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{AIM_54C_Mk47}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{AIM_54C_Mk47}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM-7MH}",
-                                }, -- end of [9]
+                                },
                                 [10] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
-                                }, -- end of [10]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 7348,
                             ["flare"] = 60,
@@ -4667,7 +5419,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -4691,43 +5443,43 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM-7MH}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{AIM_54C_Mk47}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{AIM_54C_Mk47}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{AIM_54C_Mk47}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{AIM_54C_Mk47}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{F14-300gal}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{SHOULDER AIM-7MH}",
-                                }, -- end of [9]
+                                },
                                 [10] = 
                                 {
                                     ["CLSID"] = "{LAU-138 wtip - AIM-9M}",
-                                }, -- end of [10]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 7348,
                             ["flare"] = 60,
@@ -4744,7 +5496,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "017",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -4752,7 +5504,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 124,
-            }, -- end of [4]
+            },
             [5] = 
             {
                 ["modulation"] = 0,
@@ -4794,7 +5546,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["enabled"] = true,
@@ -4813,7 +5565,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -4825,7 +5577,7 @@ settings =
                             ["name"] = "veafSpawn-f15-fox1",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 7,
@@ -4854,47 +5606,47 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-                                }, -- end of [9]
+                                },
                                 [10] = 
                                 {
                                     ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
-                                }, -- end of [10]
+                                },
                                 [11] = 
                                 {
                                     ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-                                }, -- end of [11]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = "6103",
                             ["flare"] = 60,
@@ -4910,7 +5662,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -4931,47 +5683,47 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-                                }, -- end of [9]
+                                },
                                 [10] = 
                                 {
                                     ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
-                                }, -- end of [10]
+                                },
                                 [11] = 
                                 {
                                     ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-                                }, -- end of [11]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = "6103",
                             ["flare"] = 60,
@@ -4987,7 +5739,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "018",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -4995,7 +5747,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 124,
-            }, -- end of [5]
+            },
             [6] = 
             {
                 ["modulation"] = 0,
@@ -5037,7 +5789,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["enabled"] = true,
@@ -5056,7 +5808,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -5068,7 +5820,7 @@ settings =
                             ["name"] = "veafSpawn-f15-fox3",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 8,
@@ -5097,47 +5849,47 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [9]
+                                },
                                 [10] = 
                                 {
                                     ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
-                                }, -- end of [10]
+                                },
                                 [11] = 
                                 {
                                     ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-                                }, -- end of [11]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = "6103",
                             ["flare"] = 60,
@@ -5153,7 +5905,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -5174,47 +5926,47 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [9]
+                                },
                                 [10] = 
                                 {
                                     ["CLSID"] = "{E1F29B21-F291-4589-9FD8-3272EEC69506}",
-                                }, -- end of [10]
+                                },
                                 [11] = 
                                 {
                                     ["CLSID"] = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-                                }, -- end of [11]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = "6103",
                             ["flare"] = 60,
@@ -5230,7 +5982,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "019",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -5238,7 +5990,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 124,
-            }, -- end of [6]
+            },
             [7] = 
             {
                 ["modulation"] = 0,
@@ -5280,7 +6032,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["number"] = 2,
@@ -5299,7 +6051,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -5311,7 +6063,7 @@ settings =
                             ["name"] = "veafSpawn-f16-fox3",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 9,
@@ -5343,39 +6095,39 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{F376DBEE-4CAE-41BA-ADD9-B2910AC95DEC}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "<CLEAN>",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{F376DBEE-4CAE-41BA-ADD9-B2910AC95DEC}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [9]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3249,
                             ["flare"] = 60,
@@ -5392,7 +6144,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -5416,39 +6168,39 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{F376DBEE-4CAE-41BA-ADD9-B2910AC95DEC}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "<CLEAN>",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{F376DBEE-4CAE-41BA-ADD9-B2910AC95DEC}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [9]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3249,
                             ["flare"] = 60,
@@ -5465,7 +6217,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "020",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -5473,7 +6225,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 305,
-            }, -- end of [7]
+            },
             [8] = 
             {
                 ["lateActivation"] = true,
@@ -5521,7 +6273,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -5533,7 +6285,7 @@ settings =
                             ["name"] = "veafSpawn-f4-fox1",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 2693,
@@ -5560,35 +6312,35 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{7B4B122D-C12C-4DB4-834E-4D8BB4D863A8}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{9DDF5297-94B9-42FC-A45E-6E316121CD85}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [4]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{9DDF5297-94B9-42FC-A45E-6E316121CD85}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{7B4B122D-C12C-4DB4-834E-4D8BB4D863A8}",
-                                }, -- end of [9]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = "4864",
                             ["flare"] = 30,
@@ -5604,7 +6356,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -5624,35 +6376,35 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{7B4B122D-C12C-4DB4-834E-4D8BB4D863A8}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{9DDF5297-94B9-42FC-A45E-6E316121CD85}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [4]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{8D399DDA-FF81-4F14-904D-099B34FE7918}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{9DDF5297-94B9-42FC-A45E-6E316121CD85}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{7B4B122D-C12C-4DB4-834E-4D8BB4D863A8}",
-                                }, -- end of [9]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = "4864",
                             ["flare"] = 30,
@@ -5668,7 +6420,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "021",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -5677,7 +6429,7 @@ settings =
                 ["start_time"] = 0,
                 ["modulation"] = 0,
                 ["frequency"] = 251,
-            }, -- end of [8]
+            },
             [9] = 
             {
                 ["modulation"] = 0,
@@ -5719,7 +6471,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -5731,7 +6483,7 @@ settings =
                             ["name"] = "veafSpawn-f5-fox2",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 11,
@@ -5763,23 +6515,23 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{AIM-9P5}",
-                                }, -- end of [1]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{0395076D-2F77-4420-9D33-087A4398130B}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{0395076D-2F77-4420-9D33-087A4398130B}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{0395076D-2F77-4420-9D33-087A4398130B}",
-                                }, -- end of [5]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{AIM-9P5}",
-                                }, -- end of [7]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 2046,
                             ["flare"] = 15,
@@ -5796,7 +6548,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -5820,23 +6572,23 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{AIM-9P5}",
-                                }, -- end of [1]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{0395076D-2F77-4420-9D33-087A4398130B}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{0395076D-2F77-4420-9D33-087A4398130B}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{0395076D-2F77-4420-9D33-087A4398130B}",
-                                }, -- end of [5]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{AIM-9P5}",
-                                }, -- end of [7]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 2046,
                             ["flare"] = 15,
@@ -5853,7 +6605,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "022",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -5861,7 +6613,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 305,
-            }, -- end of [9]
+            },
             [10] = 
             {
                 ["modulation"] = 0,
@@ -5903,7 +6655,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["number"] = 2,
@@ -5922,7 +6674,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -5934,7 +6686,7 @@ settings =
                             ["name"] = "veafSpawn-f18-fox1",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 13,
@@ -5999,39 +6751,39 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{LAU-115 - AIM-7H}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{AIM-7H}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{AIM-7H}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{LAU-115 - AIM-7H}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [9]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 4900,
                             ["flare"] = 60,
@@ -6048,7 +6800,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -6072,39 +6824,39 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{LAU-115 - AIM-7H}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{AIM-7H}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{AIM-7H}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{LAU-115 - AIM-7H}",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [9]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 4900,
                             ["flare"] = 60,
@@ -6121,7 +6873,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "025",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -6129,7 +6881,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 305,
-            }, -- end of [10]
+            },
             [11] = 
             {
                 ["modulation"] = 0,
@@ -6171,7 +6923,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["number"] = 2,
@@ -6190,7 +6942,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -6202,7 +6954,7 @@ settings =
                             ["name"] = "veafSpawn-f18-fox2",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 14,
@@ -6234,31 +6986,31 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "LAU-115_2*LAU-127_AIM-9X",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [3]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [5]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "LAU-115_2*LAU-127_AIM-9X",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [9]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 4900,
                             ["flare"] = 60,
@@ -6275,7 +7027,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -6299,31 +7051,31 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "LAU-115_2*LAU-127_AIM-9X",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [3]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [5]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "LAU-115_2*LAU-127_AIM-9X",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [9]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 4900,
                             ["flare"] = 60,
@@ -6340,7 +7092,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "024",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -6348,7 +7100,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 305,
-            }, -- end of [11]
+            },
             [12] = 
             {
                 ["modulation"] = 0,
@@ -6390,7 +7142,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["number"] = 2,
@@ -6409,7 +7161,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -6421,7 +7173,7 @@ settings =
                             ["name"] = "veafSpawn-f18-fox3",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 15,
@@ -6453,39 +7205,39 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "LAU-115_2*LAU-127_AIM-120C",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "LAU-115_2*LAU-127_AIM-120C",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [9]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 4900,
                             ["flare"] = 60,
@@ -6502,7 +7254,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -6526,39 +7278,39 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "LAU-115_2*LAU-127_AIM-120C",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [4]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [5]
+                                },
                                 [6] = 
                                 {
                                     ["CLSID"] = "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-                                }, -- end of [6]
+                                },
                                 [7] = 
                                 {
                                     ["CLSID"] = "{FPU_8A_FUEL_TANK}",
-                                }, -- end of [7]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "LAU-115_2*LAU-127_AIM-120C",
-                                }, -- end of [8]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-                                }, -- end of [9]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 4900,
                             ["flare"] = 60,
@@ -6575,7 +7327,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "026",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -6583,7 +7335,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 305,
-            }, -- end of [12]
+            },
             [13] = 
             {
                 ["lateActivation"] = true,
@@ -6634,7 +7386,7 @@ settings =
                                                 ["datalink"] = true,
                                                 ["frequency"] = 133000000,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["enabled"] = true,
@@ -6653,7 +7405,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -6665,7 +7417,7 @@ settings =
                             ["name"] = "veafSpawn-mq9",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 2729,
@@ -6705,7 +7457,7 @@ settings =
                             ["name"] = "Enfield91",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "030",
-                    }, -- end of [1]
+                    },
                 }, -- end of ["units"]
                 ["x"] = -250000,
                 ["y"] = -360000,
@@ -6715,7 +7467,7 @@ settings =
                 ["start_time"] = 0,
                 ["hiddenOnPlanner"] = true,
                 ["frequency"] = 226.6,
-            }, -- end of [13]
+            },
             [14] = 
             {
                 ["lateActivation"] = true,
@@ -6766,7 +7518,7 @@ settings =
                                                 ["datalink"] = true,
                                                 ["frequency"] = 133000000,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["enabled"] = true,
@@ -6785,7 +7537,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -6797,7 +7549,7 @@ settings =
                             ["name"] = "veafSpawn-mq9-hellfire",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 2766,
@@ -6825,19 +7577,19 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "AGM114x2_OH_58",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "AGM114x2_OH_58",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}",
-                                }, -- end of [4]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 1300,
                             ["flare"] = 0,
@@ -6853,7 +7605,7 @@ settings =
                             ["name"] = "Springfield91",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "121",
-                    }, -- end of [1]
+                    },
                 }, -- end of ["units"]
                 ["x"] = -250000,
                 ["y"] = -360000,
@@ -6863,7 +7615,7 @@ settings =
                 ["start_time"] = 0,
                 ["hiddenOnPlanner"] = true,
                 ["frequency"] = 226.6,
-            }, -- end of [14]
+            },
             [15] = 
             {
                 ["lateActivation"] = true,
@@ -6914,7 +7666,7 @@ settings =
                                                 ["datalink"] = true,
                                                 ["frequency"] = 133000000,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["enabled"] = true,
@@ -6933,7 +7685,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -6945,7 +7697,7 @@ settings =
                             ["name"] = "veafSpawn-mq9-jdam",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 2731,
@@ -6973,19 +7725,19 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{GBU-38}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{GBU-38}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{GBU-38}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{GBU-38}",
-                                }, -- end of [4]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 1300,
                             ["flare"] = 0,
@@ -7001,7 +7753,7 @@ settings =
                             ["name"] = "Colt91",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "246",
-                    }, -- end of [1]
+                    },
                 }, -- end of ["units"]
                 ["x"] = -250000,
                 ["y"] = -360000,
@@ -7011,7 +7763,7 @@ settings =
                 ["start_time"] = 0,
                 ["hiddenOnPlanner"] = true,
                 ["frequency"] = 226.6,
-            }, -- end of [15]
+            },
             [16] = 
             {
                 ["lateActivation"] = true,
@@ -7062,7 +7814,7 @@ settings =
                                                 ["datalink"] = true,
                                                 ["frequency"] = 133000000,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                         [2] = 
                                         {
                                             ["enabled"] = true,
@@ -7081,7 +7833,7 @@ settings =
                                                     }, -- end of ["params"]
                                                 }, -- end of ["action"]
                                             }, -- end of ["params"]
-                                        }, -- end of [2]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -7093,7 +7845,7 @@ settings =
                             ["name"] = "veafSpawn-mq9-gbu",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 2767,
@@ -7121,19 +7873,19 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-                                }, -- end of [2]
+                                },
                                 [3] = 
                                 {
                                     ["CLSID"] = "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-                                }, -- end of [3]
+                                },
                                 [4] = 
                                 {
                                     ["CLSID"] = "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-                                }, -- end of [4]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 1300,
                             ["flare"] = 0,
@@ -7149,7 +7901,7 @@ settings =
                             ["name"] = "Uzi91",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "122",
-                    }, -- end of [1]
+                    },
                 }, -- end of ["units"]
                 ["x"] = -250000,
                 ["y"] = -360000,
@@ -7159,7 +7911,7 @@ settings =
                 ["start_time"] = 0,
                 ["hiddenOnPlanner"] = true,
                 ["frequency"] = 226.6,
-            }, -- end of [16]
+            },
         }
 
     },
@@ -7211,7 +7963,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -7223,7 +7975,7 @@ settings =
                             ["name"] = "veafSpawn-m2000-fox1",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 16,
@@ -7265,23 +8017,23 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{MMagicII}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{Matra_S530D}",
-                                }, -- end of [2]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{M2KC_RPL_522}",
-                                }, -- end of [5]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{MMagicII}",
-                                }, -- end of [9]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{Matra_S530D}",
-                                }, -- end of [8]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3165,
                             ["flare"] = 16,
@@ -7298,7 +8050,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -7332,23 +8084,23 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{MMagicII}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{Matra_S530D}",
-                                }, -- end of [2]
+                                },
                                 [5] = 
                                 {
                                     ["CLSID"] = "{M2KC_RPL_522}",
-                                }, -- end of [5]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{MMagicII}",
-                                }, -- end of [9]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{Matra_S530D}",
-                                }, -- end of [8]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3165,
                             ["flare"] = 16,
@@ -7365,7 +8117,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "011",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -7373,7 +8125,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 251,
-            }, -- end of [1]
+            },
             [2] = 
             {
                 ["modulation"] = 0,
@@ -7415,7 +8167,7 @@ settings =
                                                 }, -- end of ["targetTypes"]
                                                 ["priority"] = 0,
                                             }, -- end of ["params"]
-                                        }, -- end of [1]
+                                        },
                                     }, -- end of ["tasks"]
                                 }, -- end of ["params"]
                             }, -- end of ["task"]
@@ -7427,7 +8179,7 @@ settings =
                             ["name"] = "veafSpawn-m2000-fox2",
                             ["formation_template"] = "",
                             ["speed_locked"] = true,
-                        }, -- end of [1]
+                        },
                     }, -- end of ["points"]
                 }, -- end of ["route"]
                 ["groupId"] = 17,
@@ -7469,19 +8221,19 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{MMagicII}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{M2KC_02_RPL541}",
-                                }, -- end of [2]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{MMagicII}",
-                                }, -- end of [9]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{M2KC_08_RPL541}",
-                                }, -- end of [8]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3165,
                             ["flare"] = 16,
@@ -7498,7 +8250,7 @@ settings =
                             ["name"] = "Enfield11",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "010",
-                    }, -- end of [1]
+                    },
                     [2] = 
                     {
                         ["alt"] = 2000,
@@ -7532,19 +8284,19 @@ settings =
                                 [1] = 
                                 {
                                     ["CLSID"] = "{MMagicII}",
-                                }, -- end of [1]
+                                },
                                 [2] = 
                                 {
                                     ["CLSID"] = "{M2KC_02_RPL541}",
-                                }, -- end of [2]
+                                },
                                 [9] = 
                                 {
                                     ["CLSID"] = "{MMagicII}",
-                                }, -- end of [9]
+                                },
                                 [8] = 
                                 {
                                     ["CLSID"] = "{M2KC_08_RPL541}",
-                                }, -- end of [8]
+                                },
                             }, -- end of ["pylons"]
                             ["fuel"] = 3165,
                             ["flare"] = 16,
@@ -7561,7 +8313,7 @@ settings =
                             ["name"] = "Enfield12",
                         }, -- end of ["callsign"]
                         ["onboard_num"] = "012",
-                    }, -- end of [2]
+                    },
                 }, -- end of ["units"]
                 ["y"] = -360000,
                 ["x"] = -250000,
@@ -7569,7 +8321,7 @@ settings =
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 251,
-            }, -- end of [2]
+            },
         }
     }
 }
