@@ -141,6 +141,11 @@
       "version": "evening-overcast-rain",
       "weatherfile": "overcast-rain-1.lua",
       "moment": "beforesunset"
+    },
+    {
+      "version": "ils-moonlight-rain",
+      "weatherfile": "ils-moonlight-rain.lua",
+      "date": "202206290710"
     }
   ]
 }
