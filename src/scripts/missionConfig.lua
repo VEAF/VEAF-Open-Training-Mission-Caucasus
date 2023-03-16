@@ -18,7 +18,7 @@ VeafQRA.ToggleAllSilence(false) --this will set all QRA messages ON if the argum
 
 if veaf then
     --red
-    QRA_Minevody = VeafQRA.new()
+    QRA_Minevody = VeafQRA:new()
     :setName("QRA_Minevody")
     :setTriggerZone("QRA_Minevody")
     :setZoneRadius(106680) -- 350,000 feet
@@ -53,7 +53,7 @@ if veaf then
     --:setSilent() --mutes this QRA only, VeafQRA.AllSilence has to be false for this to have an effect
     :start()
 
-    QRA_Krasnodar = VeafQRA.new()
+    QRA_Krasnodar = VeafQRA:new()
     :setName("QRA_Krasnodar")
     :setTriggerZone("QRA_Krasnodar")
     :setZoneRadius(106680) -- 350,000 feet
@@ -66,7 +66,7 @@ if veaf then
 
 
     --blue
-    QRA_Kutaisi = VeafQRA.new()
+    QRA_Kutaisi = VeafQRA:new()
     :setName("QRA_Kutaisi")
     :setTriggerZone("QRA_Kutaisi")
     :setZoneRadius(106680) -- 350,000 feet
@@ -76,7 +76,7 @@ if veaf then
     :addEnnemyCoalition(coalition.side.RED)
     :start()
 
-    QRA_Gudauta = VeafQRA.new()
+    QRA_Gudauta = VeafQRA:new()
     :setName("QRA_Gudauta")
     :setTriggerZone("QRA_Gudauta")
     :setZoneRadius(106680) -- 350,000 feet
@@ -218,7 +218,7 @@ if veafCombatMission then
     veafCombatMission.addCapMission("l39c-intercept-FL100", "Khashuri - L-39C heading north", "L-39C patrol heading N at 15 min of Kahshuri", false, true)
     
     veafCombatMission.AddMissionsWithSkillAndScale(
-		VeafCombatMission.new()
+		VeafCombatMission:new()
 		:setSecured(true)
 		:setRadioMenuEnabled(true)
 		:setName("Intercept-Kraznodar-1")
@@ -229,19 +229,19 @@ It is escorted by a fighter patrol.
 ]]
 )
 		:addElement(
-			VeafCombatMissionElement.new()
+			VeafCombatMissionElement:new()
 			:setName("OnDemand-Intercept-Transport-Krasnodar-Mineral-Transport")
             :setGroups({"OnDemand-Intercept-Transport-Krasnodar-Mineral-Transport"})
             :setScalable(false)
 		)
 		:addElement(
-			VeafCombatMissionElement.new()
+			VeafCombatMissionElement:new()
 			:setName("OnDemand-Intercept-Transport-Krasnodar-Mineral-Escort")
             :setGroups({"OnDemand-Intercept-Transport-Krasnodar-Mineral-Escort"})
             :setSkill("Random")
 		)
 		:addObjective(
-			VeafCombatMissionObjective.new()
+			VeafCombatMissionObjective:new()
 			:setName("Destroy the transport")
 			:setDescription("you must destroy the transport and kill the VIP")
 			:setMessage("%d transport planes destroyed !")
@@ -251,7 +251,7 @@ It is escorted by a fighter patrol.
 	)
 
     veafCombatMission.AddMission(
-		VeafCombatMission.new()
+		VeafCombatMission:new()
         :setSecured(true)
         :setRadioMenuEnabled(true)
 		:setName("Red-attack-Gudauta")
@@ -264,7 +264,7 @@ Destroy all the bombers before they hit the base !
 ]]
 )
 		:addElement(
-			VeafCombatMissionElement.new()
+			VeafCombatMissionElement:new()
 			:setName("SEAD")
 			:setGroups({
 				"Red Attack On Gudauta - Wave 1-1", 
@@ -274,7 +274,7 @@ Destroy all the bombers before they hit the base !
 			:setSkill("Random")
 		)
 		:addElement(
-			VeafCombatMissionElement.new()
+			VeafCombatMissionElement:new()
 			:setName("Bombers")
 			:setGroups({
 				"Red Attack On Gudauta - Wave 2-1",
@@ -283,7 +283,7 @@ Destroy all the bombers before they hit the base !
 			:setSkill("Random")
 		)
 		:addObjective(
-			VeafCombatMissionObjective.new()
+			VeafCombatMissionObjective:new()
 			:setName("HVT Gudauta")
 			:setDescription("the mission will be failed if any of the HVT on Gudauta are destroyed")
 			:setMessage("HVT target(s) destroyed : %s !")
@@ -300,7 +300,7 @@ Destroy all the bombers before they hit the base !
 			)
 		)
 		:addObjective(
-			VeafCombatMissionObjective.new()
+			VeafCombatMissionObjective:new()
 			:setName("Kill all the bombers")
 			:setDescription("you must kill all of the bombers")
 			:setMessage("%d bombers destroyed !")
@@ -310,14 +310,14 @@ Destroy all the bombers before they hit the base !
 	)
 
 	veafCombatMission.AddMission(
-		VeafCombatMission.new()
+		VeafCombatMission:new()
 		:setName("Training-Bomber-1-slow")
 		:setFriendlyName("Training - Bomber Scenario 1 - slow Tu-160")
 		:setBriefing([[
 You're head-on at 25nm with 11 Tu-160, FL200, Mach 0.8.
 Destroy them all in less than 10 minutes !]])
 		:addElement(
-			VeafCombatMissionElement.new()
+			VeafCombatMissionElement:new()
 			:setName("Bombers")
 			:setGroups({
 				"Red Tu-160 Bomber Wave1-1",
@@ -335,14 +335,14 @@ Destroy them all in less than 10 minutes !]])
 			:setSkill("Good")
 		)
 		:addObjective(
-			VeafCombatMissionObjective.new()
+			VeafCombatMissionObjective:new()
 			:setName("< 15 minutes")
 			:setDescription("the mission will be over after 15 minutes")
 			:setMessage("the 15 minutes have passed !")
 			:configureAsTimedObjective(900)
 		)
 		:addObjective(
-			VeafCombatMissionObjective.new()
+			VeafCombatMissionObjective:new()
 			:setName("Kill all the bombers")
 			:setDescription("you must kill or route all bombers")
 			:setMessage("%d bombers destroyed or routed !")
@@ -353,7 +353,7 @@ Destroy them all in less than 10 minutes !]])
 	)
 
     veafCombatMission.AddMission(
-		VeafCombatMission.new()
+		VeafCombatMission:new()
 		:setName("ELINT-Mission-West")
 		:setFriendlyName("ELINT gathering over the West zone")
 		:setBriefing([[
@@ -361,7 +361,7 @@ ATIS on 282.125, SAM CONTROL on 282.225
 A C-130 pair will fly reciprocical headings, trying to pinpoint enemy SAMS.
 Don't let them be destroyed by the enemy !]])
 		:addElement(
-			VeafCombatMissionElement.new()
+			VeafCombatMissionElement:new()
 			:setName("ELINT-W")
 			:setGroups({
 				"ELINT-C-130-W-1",
@@ -374,7 +374,7 @@ Don't let them be destroyed by the enemy !]])
 	)
 
     veafCombatMission.AddMission(
-		VeafCombatMission.new()
+		VeafCombatMission:new()
 		:setName("ELINT-Mission-East")
 		:setFriendlyName("ELINT gathering over the East zone")
 		:setBriefing([[
@@ -382,7 +382,7 @@ ATIS on 282.125, SAM CONTROL on 282.225
 A C-130 pair will fly reciprocical headings, trying to pinpoint enemy SAMS.
 Don't let them be destroyed by the enemy !]])
 		:addElement(
-			VeafCombatMissionElement.new()
+			VeafCombatMissionElement:new()
 			:setName("ELINT-E")
 			:setGroups({
 				"ELINT-C-130-E-1",
@@ -405,7 +405,7 @@ if veafCombatZone then
     veaf.loggers.get(veaf.Id):info("Loading configuration")
 
 	veafCombatZone.AddZone(
-		VeafCombatZone.new()
+		VeafCombatZone:new()
 			:setMissionEditorZoneName("combatZone_Psebay_Factory")
 			:setFriendlyName("Psebay chemical weapons factory")
 			:setBriefing("This factory manufactures chemical weapons for a terrorits group\n" ..
@@ -415,7 +415,7 @@ if veafCombatZone then
 	)
 
 	veafCombatZone.AddZone(
-		VeafCombatZone.new()
+		VeafCombatZone:new()
 			:setMissionEditorZoneName("combatZone_BattleOfBeslan")
 			:setFriendlyName("Battle of Beslan")
 			:setBriefing("This zone is the place of a battle between red and blue armies.\n" ..
@@ -426,7 +426,7 @@ if veafCombatZone then
 	)
 
 	veafCombatZone.AddZone(
-		VeafCombatZone.new()
+		VeafCombatZone:new()
 			:setMissionEditorZoneName("combatZone_SaveTheHostages")
 			:setFriendlyName("Hostages at Prohladniy")
 			:setBriefing("Hostages are being held in a fortified hotel in the city of Prohladniy.\n" ..
@@ -435,7 +435,7 @@ if veafCombatZone then
 	)
 
     veafCombatZone.AddZone(
-		VeafCombatZone.new()
+		VeafCombatZone:new()
 			:setMissionEditorZoneName("combatZone_roadBlock")
 			:setFriendlyName("Road Block KM91")
 			:setBriefing("38T KM946122 - 6300ft - KOB 67X 115/35\nRussia is blocking a main road between Batumi and Tbilisi.\nDestroy bunkers and vehicles.\nENI convoy is comming from the East.")
@@ -443,7 +443,7 @@ if veafCombatZone then
 	)
 
 	veafCombatZone.AddZone(
-		VeafCombatZone.new()
+		VeafCombatZone:new()
 			:setMissionEditorZoneName("combatZone_MaykopDefenses")
 			:setFriendlyName("Maykop airbase defenses")
 			:setBriefing("The Maykop airbase is defended by a SA10 battalion, point-defense SHORAD and AAA, and armored vehicles\n" ..
@@ -452,7 +452,7 @@ if veafCombatZone then
     )
 
 	veafCombatZone.AddZone(
-		VeafCombatZone.new()
+		VeafCombatZone:new()
 			:setMissionEditorZoneName("CombatZone_MountainHike")
 			:setFriendlyName("Mountain hike")
             :setCompletable(false)
@@ -469,7 +469,7 @@ if veafCombatZone then
 
     -- Training operations
    veafCombatZone.AddZone(
-        VeafCombatZone.new()
+        VeafCombatZone:new()
             :setMissionEditorZoneName("combatZone_EasyPickingsTerek")
             :setFriendlyName("Terek logistics parking")
             :setBriefing("The enemy has parked a lot of logistics at Terek\n" ..
@@ -481,7 +481,7 @@ if veafCombatZone then
     )
 
     veafCombatZone.AddZone(
-        VeafCombatZone.new()
+        VeafCombatZone:new()
             :setMissionEditorZoneName("combatZone_rangeKobuletiEasy")
             :setFriendlyName("Training at Kobuleti RANGE")
             :setBriefing("The Kobuleti RANGE (located 6 nm south-west of Kobuleti airbase) is set-up for training")
@@ -490,7 +490,7 @@ if veafCombatZone then
     )
 
     veafCombatZone.AddZone(
-        VeafCombatZone.new()
+        VeafCombatZone:new()
             :setMissionEditorZoneName("combatZone_Antiship-Training-Easy")
             :setFriendlyName("Antiship Training - Easy")
             :setBriefing("Undefended cargo ships ready for plunder; Arrrrr! Shiver me timbers!")
@@ -498,7 +498,7 @@ if veafCombatZone then
     )
 
     veafCombatZone.AddZone(
-        VeafCombatZone.new()
+        VeafCombatZone:new()
             :setMissionEditorZoneName("combatZone_Antiship-Training-Hard")
             :setFriendlyName("Antiship Training - Hard")
             :setBriefing("Cargo ships defended by escort ships; warning, an FFG 11540 Neustrashimy may escort them as well...")
@@ -506,7 +506,7 @@ if veafCombatZone then
     )
 
     veafCombatZone.AddZone(
-        VeafCombatZone.new()
+        VeafCombatZone:new()
             :setMissionEditorZoneName("combatZone_trainingSamAttack_SA15_N")
             :setFriendlyName("Training - SA-15 site - North")
             :setBriefing("There is a static SA-15 in a well-defended zone\n" ..
@@ -518,7 +518,7 @@ if veafCombatZone then
     )
     
     veafCombatZone.AddZone(
-        VeafCombatZone.new()
+        VeafCombatZone:new()
             :setMissionEditorZoneName("combatZone_trainingSamAttack_SA15_S")
             :setFriendlyName("Training - SA-15 site - South")
             :setBriefing("There is a static SA-15 in a well-defended zone\n" ..
@@ -530,7 +530,7 @@ if veafCombatZone then
     )
 
     veafCombatZone.AddZone(
-        VeafCombatZone.new()
+        VeafCombatZone:new()
             :setMissionEditorZoneName("combatZone_trainingSamAttack_SA6")
             :setFriendlyName("Training - SA-6 site")
             :setBriefing("There is a static SA-6 in a well-defended zone\n" ..
@@ -542,7 +542,7 @@ if veafCombatZone then
     )
 
     veafCombatZone.AddZone(
-        VeafCombatZone.new()
+        VeafCombatZone:new()
             :setMissionEditorZoneName("combatZone_trainingSamAttack_SA2")
             :setFriendlyName("Training - SA-2 site")
             :setBriefing("There is a static SA-2 in a well-defended zone\n" ..
@@ -757,7 +757,7 @@ end
 if veafSanctuary then
     veaf.loggers.get(veaf.Id):info("init - veafSanctuary")
     veafSanctuary.addZone(
-        VeafSanctuaryZone.new()
+        VeafSanctuaryZone:new()
         :setName("Blue Sanctuary")
         :setPolygonFromUnitsInSequence("BlueSanctuary", true)
         :setCoalition(coalition.side.BLUE)
