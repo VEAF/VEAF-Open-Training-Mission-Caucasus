@@ -23,8 +23,9 @@
       "moment": "night"
     },
     {
-      "version": "beforedawn-scattered",
-      "weatherfile": "scattered-1.lua",
+        "version": "beforedawn-real-clear",
+        "realweather": true,
+        "clearsky": true,
       "moment": "beforedawn"
     },
     {
@@ -38,8 +39,9 @@
       "moment": "sunset"
     },
     {
-      "version": "dawn-scattered",
-      "weatherfile": "scattered-1.lua",
+        "version": "dawn-real-clear",
+        "realweather": true,
+        "clearsky": true,
       "moment": "dawn"
     },
     {
@@ -63,8 +65,9 @@
       "moment": "morning"
     },
     {
-      "version": "morning-scattered",
-      "weatherfile": "scattered-1.lua",
+        "version": "morning-real-clear",
+        "realweather": true,
+        "clearsky": true,
       "moment": "morning"
     },
     {
@@ -98,8 +101,9 @@
       "moment": "day"
     },
     {
-      "version": "day-scattered",
-      "weatherfile": "scattered-1.lua",
+        "version": "day-real-clear",
+        "realweather": true,
+        "clearsky": true,
       "moment": "day"
     },
     {
@@ -123,8 +127,9 @@
       "moment": "beforesunset"
     },
     {
-      "version": "evening-scattered",
-      "weatherfile": "scattered-1.lua",
+        "version": "evening-real-clear",
+        "realweather": true,
+        "clearsky": true,
       "moment": "beforesunset"
     },
     {
