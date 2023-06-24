@@ -23,9 +23,9 @@
       "moment": "night"
     },
     {
-        "version": "beforedawn-real-clear",
-        "realweather": true,
-        "clearsky": true,
+      "version": "beforedawn-real-clear",
+      "realweather": true,
+      "clearsky": true,
       "moment": "beforedawn"
     },
     {
@@ -39,9 +39,9 @@
       "moment": "sunset"
     },
     {
-        "version": "dawn-real-clear",
-        "realweather": true,
-        "clearsky": true,
+      "version": "dawn-real-clear",
+      "realweather": true,
+      "clearsky": true,
       "moment": "dawn"
     },
     {
@@ -65,9 +65,9 @@
       "moment": "morning"
     },
     {
-        "version": "morning-real-clear",
-        "realweather": true,
-        "clearsky": true,
+      "version": "morning-real-clear",
+      "realweather": true,
+      "clearsky": true,
       "moment": "morning"
     },
     {
@@ -101,9 +101,9 @@
       "moment": "day"
     },
     {
-        "version": "day-real-clear",
-        "realweather": true,
-        "clearsky": true,
+      "version": "day-real-clear",
+      "realweather": true,
+      "clearsky": true,
       "moment": "day"
     },
     {
@@ -127,9 +127,9 @@
       "moment": "beforesunset"
     },
     {
-        "version": "evening-real-clear",
-        "realweather": true,
-        "clearsky": true,
+      "version": "evening-real-clear",
+      "realweather": true,
+      "clearsky": true,
       "moment": "beforesunset"
     },
     {
