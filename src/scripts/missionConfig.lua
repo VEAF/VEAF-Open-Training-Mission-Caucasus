@@ -13,32 +13,41 @@ veaf.config.MISSION_EXPORT_PATH = nil -- use default folder
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 if veafQraManager then
-VeafQRA.ToggleAllSilence(false) --this will set all QRA messages ON if the argument is "true" and all QRA messages to OFF is the argument is "false".
+VeafQRA.ToggleAllSilence(true) --this will set all QRA messages ON if the argument is "true" and all QRA messages to OFF is the argument is "false".
 
     --red
-    QRA_Minevody = VeafQRA:new()
-    :setName("QRA_Minevody")
-    :setTriggerZone("QRA_Minevody")
-    :setZoneRadius(106680) -- 350,000 feet
-    :addGroup("QRA_Minevody")
-    :setCoalition(coalition.side.RED)
-    :addEnnemyCoalition(coalition.side.BLUE)
-    :setReactOnHelicopters() --Sets if the QRA reacts to helicopters entering the zone
-    :start()
 
-    QRA_Krasnodar = VeafQRA:new()
-    :setName("QRA_Krasnodar")
-    :setTriggerZone("QRA_Krasnodar")
-    :setZoneRadius(106680) -- 350,000 feet
-    :addGroup("QRA_Krasnodar")
-    :setAirportLink("Krasnodar-Pashkovsky")
-    :setCoalition(coalition.side.RED)
-    :addEnnemyCoalition(coalition.side.BLUE)
-    :setReactOnHelicopters() --Sets if the QRA reacts to helicopters entering the zone
-    :start()
-
+    if veaf then
+        QRA_Minevody = VeafQRA:new()
+        :setName("QRA_Minevody")
+        :setCoalition(coalition.side.RED)
+        :addEnnemyCoalition(coalition.side.BLUE)
+        :setTriggerZone("QRA_Minevody")
+        :setRandomGroupsToDeployByEnemyQuantity(1, { "QRA_Minevody-1", "QRA_Minevody-2", "QRA_Minevody-3" }, 1) -- 1 human in the zone
+        :setRandomGroupsToDeployByEnemyQuantity(2, { "QRA_Minevody-4", "QRA_Minevody-5", "QRA_Minevody-6" }, 1) -- 1 human in the zone
+        :setDelayBeforeRearming(10) -- seconds before the QRA is rearmed
+        :setDelayBeforeActivating(60) -- seconds before the QRA is activated, since the first enemy enters the zone
+        :setReactOnHelicopters() --Sets if the QRA reacts to helicopters entering the zone
+        :start()
+    end
+    
+    if veaf then
+        QRA_Krasnodar = VeafQRA:new()
+        :setName("QRA_Krasnodar")
+        :setCoalition(coalition.side.RED)
+        :addEnnemyCoalition(coalition.side.BLUE)
+        :setTriggerZone("QRA_Krasnodar")
+        :setRandomGroupsToDeployByEnemyQuantity(1, { "QRA_Krasnodar-1", "QRA_Krasnodar-2", "QRA_Krasnodar-3" }, 1) -- 1 human in the zone
+        :setRandomGroupsToDeployByEnemyQuantity(2, { "QRA_Krasnodar-4", "QRA_Krasnodar-5", "QRA_Krasnodar-6" }, 1) -- 1 human in the zone
+        :setDelayBeforeRearming(10) -- seconds before the QRA is rearmed
+        :setDelayBeforeActivating(60) -- seconds before the QRA is activated, since the first enemy enters the zone
+        :setReactOnHelicopters() --Sets if the QRA reacts to helicopters entering the zone
+        :setAirportLink("Krasnodar-Pashkovsky")
+        :start()
+    end
 
     --blue
+    
     QRA_Kutaisi = VeafQRA:new()
     :setName("QRA_Kutaisi")
     :setTriggerZone("QRA_Kutaisi")
@@ -591,7 +600,17 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize Skynet-IADS
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
-if veafSkynet then
+function DeactivateSkynetRed()
+    veaf.loggers.get(veaf.Id):info("Deactivate Skynet for RED IADS")
+    veafSkynet.monitorDynamicSpawn(false)
+    veafSkynet.deactivateNetworkOfCoalition(coalition.side.RED)
+end
+
+if veafSkynet then -- don't use
+    veafSkynet.PointDefenceMode = veafSkynet.PointDefenceModes.Skynet
+    veafSkynet.DynamicSpawn = true
+    veafSkynet.addCommandCenterOfCoalition(coalition.side.RED, "Centre de commandement")
+    veafSkynet.DelayForStartup = 85
     veaf.loggers.get(veaf.Id):info("init - veafSkynet")
     veafSkynet.initialize(
         false, --includeRedInRadio=true
@@ -600,6 +619,7 @@ if veafSkynet then
         false --debugBlue
     )
 end
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- initialize the interpreter
