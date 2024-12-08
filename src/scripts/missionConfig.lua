@@ -94,6 +94,10 @@ if veafTransportMission then
     veaf.loggers.get(veaf.Id):info("init - veafTransportMission")
     veafTransportMission.initialize()
 end
+if veafWeather then
+    veaf.loggers.get(veaf.Id):info("init - veafWeather")
+    veafWeather.initialize()
+end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- change some default parameters
@@ -754,11 +758,6 @@ end
 
 -- Silence ATC on all the airdromes
 veaf.silenceAtcOnAllAirbases()
-
--- Activate the new ATIS system by Flogas
-if veafWeather then
-    veafWeather.Active = true
-end
 
 -- automatically activate the Maykop Defenses zone
 veafCombatZone.ActivateZone("combatZone_MaykopDefenses", true)
