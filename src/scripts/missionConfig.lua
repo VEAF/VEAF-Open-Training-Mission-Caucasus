@@ -166,12 +166,12 @@ end
 if veafCombatMission then 
     veaf.loggers.get(veaf.Id):info("Loading configuration")
     
-    veafCombatMission.addCapMission("training-radar-tu22-FL300", "Crimea - Tu22 FL300", "Russian TU-22 patrols at FL300 west of the Crimea peninsula", false, true)
-    veafCombatMission.addCapMission("training-radar-bear-FL200", "Crimea - Bear FL200", "Russian TU-95 patrols at FL200 west of the Crimea peninsula ; ECM on", false, false)
-    veafCombatMission.addCapMission("training-radar-mig23-FL300", "Crimea - Mig23 FL300", "Mig-23MLD on CAP (R-24R = Fox1 MR) at FL300 west of the Crimea peninsula", false, false)
-    veafCombatMission.addCapMission("training-radar-mig29-FL300", "Crimea - Mig29 FL300", "Mig-29S on CAP (R-77 = Fox 3 MR) at FL300 west of the Crimea peninsula", false, true)
-    veafCombatMission.addCapMission("training-radar-mig31-FL300", "Crimea - Mig31 FL300", "Mig-31 on CAP (R-33 = Fox 3 LR) at FL300 west of the Crimea peninsula", false, false)
-    veafCombatMission.addCapMission("training-radar-mig23-FL300-notch", "Crimea - Mig23 notching", "Mig-23MLD on CAP (R-24R = Fox1 MR) notching W-E at FL300 west of the Crimea peninsula", false, false)
+    veafCombatMission.addCapMission("training-radar-tu22-FL300", "WEST - Tu22 FL300", "Russian TU-22 patrols at FL300 west of the Georgian coast", false, true)
+    veafCombatMission.addCapMission("training-radar-bear-FL200", "WEST - Bear FL200", "Russian TU-95 patrols at FL200 west of the Georgian coast ; ECM on", false, false)
+    veafCombatMission.addCapMission("training-radar-mig23-FL300", "WEST - Mig23 FL300", "Mig-23MLD on CAP (R-24R = Fox1 MR) at FL300 west of the Georgian coast", false, false)
+    veafCombatMission.addCapMission("training-radar-mig29-FL300", "WEST - Mig29 FL300", "Mig-29S on CAP (R-77 = Fox 3 MR) at FL300 west of the Georgian coast", false, true)
+    veafCombatMission.addCapMission("training-radar-mig31-FL300", "WEST - Mig31 FL300", "Mig-31 on CAP (R-33 = Fox 3 LR) at FL300 west of the Georgian coast", false, false)
+    veafCombatMission.addCapMission("training-radar-mig23-FL300-notch", "WEST - Mig23 notching", "Mig-23MLD on CAP (R-24R = Fox1 MR) notching W-E at FL300 west of the Georgian coast", false, false)
     veafCombatMission.addCapMission("l39c-intercept-FL100", "Khashuri - L-39C heading north", "L-39C patrol heading N at 15 min of Kahshuri", false, true)
     
     veafCombatMission.AddMissionsWithSkillAndScale(

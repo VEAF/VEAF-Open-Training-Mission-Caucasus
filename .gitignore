@@ -12,3 +12,4 @@ configuration.json
 
 build-*.cmd
 yarn.lock
+notes.md
