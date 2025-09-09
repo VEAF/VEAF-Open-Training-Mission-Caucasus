@@ -13,7 +13,10 @@ veaf.config.MISSION_EXPORT_PATH = nil -- use default folder
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 if veafQraManager then
-VeafQRA.ToggleAllSilence(true) --this will set all QRA messages ON if the argument is "true" and all QRA messages to OFF is the argument is "false".
+    -- initialize the QRA module (crucial if you use dynamic slots in your mission)
+    veafQraManager.initialize()
+
+    VeafQRA.ToggleAllSilence(true) --this will set all QRA messages ON if the argument is "true" and all QRA messages to OFF is the argument is "false".
 
     --red
 
@@ -755,6 +758,15 @@ if veafHoundElint then
     -- veafCombatMission.ActivateMission("ELINT-Mission-West", true)
 end
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- initialize The Universal Mission
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+if TUM then
+    veaf.loggers.get(veaf.Id):info("init TUM - The Universal Mission")
+    TUM.administrativeSettings.setValue(TUM.administrativeSettings.ONLY_ZONES_STARTINGWITH, "AO_") -- only use zones starting with AO_
+    TUM.administrativeSettings.setValue(TUM.administrativeSettings.USE_SPECIFIC_RADIOMENU, true) -- Use a specific radio menu for the mission commands
+    TUM.initialize()
+end
 
 -- Silence ATC on all the airdromes
 veaf.silenceAtcOnAllAirbases()
